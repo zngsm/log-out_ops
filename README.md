@@ -87,10 +87,28 @@ pm agent, 기획서 분석해줘
 
 ## What Other Agents Produce
 
-- DEV agent: `log-out` 코드 변경, `project/tasks/*.md` 상태 갱신
+- DEV agent: `log-out` 코드 변경, `project/tasks/*.md` 상태 갱신, 필요한 ops 문서 업데이트를 `log-out_ops/main`에 반영
 - PM agent: `project/qa/test-plan-*.md`
 - QA agent: `project/qa/test-result-*.md`
 - PM agent: `project/changes/*.md` 영향 분석 또는 후속 bug task 생성
+
+## Execution Contract
+
+이 저장소 운영에서 `dev agent feat-001 작업해줘`는 단순 구현만 의미하지 않는다.
+
+반드시 아래를 한 사이클로 수행한다.
+
+1. `log-out_ops/project/tasks/feat-001.md` 읽기
+2. `log-out`에서 task 브랜치 생성
+3. 구현
+4. 검증
+5. 리뷰 승인 획득
+6. `log-out`에서 commit
+7. `log-out`에서 push
+8. `log-out_ops`의 task 상태 / 관련 운영 문서 갱신
+9. `log-out_ops`는 별도 브랜치 없이 최신 `main`에 반영
+
+즉, task 문서 상태가 바뀌면 `log-out_ops`도 같이 업데이트되어야 한다.
 
 ## PR Open Rule
 

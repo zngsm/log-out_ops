@@ -25,7 +25,8 @@ PM이 정의한 단일 task 문서를 기준으로 `log-out` 저장소에서 구
 - 승인 후 commit / push 완료 상태
 - 승인 후 PR open 준비 상태
 - 필요 시 PR title / description 초안
-- 필요 시 관련 운영 문서 갱신
+- 관련 운영 문서 갱신
+- `log-out_ops/main` 반영
 
 ## Hard Rules
 
@@ -49,7 +50,9 @@ PM이 정의한 단일 task 문서를 기준으로 `log-out` 저장소에서 구
 6. 리뷰 agent 요청
 7. 반려 시 수정 및 재요청
 8. 승인 후 commit / push
-9. 승인 후 task 문서 갱신 및 PR 준비
+9. 승인 후 `log-out_ops` task / 운영 문서 갱신
+10. `log-out_ops/main` 반영
+11. 승인 후 PR 준비
 
 ## Standard Procedure
 
@@ -93,9 +96,15 @@ PM이 정의한 단일 task 문서를 기준으로 `log-out` 저장소에서 구
 ### Phase 8. Update Docs
 
 - task 문서에 결과, 검증 내용, 상태를 기록한다.
+- 필요한 경우 `task_board.md`, `timeline.md`, 기타 운영 문서도 함께 갱신한다.
 - 승인되면 `done`으로 바꾼다.
 
-### Phase 9. PR Open
+### Phase 9. Sync Ops Repo
+
+- `log-out_ops` 문서 변경을 최신 `main`에 반영한다.
+- `log-out_ops`는 task 브랜치를 따로 만들지 않는다.
+
+### Phase 10. PR Open
 
 - `pr-open 해줘` 요청이 오면 현재 `done` + `approved` 상태의 task를 기준으로 PR을 연다.
 - PR open 전 commit과 push가 완료되어 있어야 한다.
@@ -130,6 +139,7 @@ PM이 정의한 단일 task 문서를 기준으로 `log-out` 저장소에서 구
 - 리뷰 승인을 받았다
 - commit과 push가 완료됐다
 - task 문서 상태가 `done`이다
+- `log-out_ops/main`이 최신 상태다
 - PR open 준비가 됐다
 
 ## Short Invocation
