@@ -102,7 +102,7 @@ PM이 정의한 단일 task 문서를 기준으로 `log-out` 저장소에서 구
 
 ## Commit / Review Rules
 
-- commit format: `<type>(<task-id>): <summary>`
+- commit format: `<task-id> <summary>`
 - branch format: `<task-id>-<english-task-name>`
 - PR summary는 task 문서 규칙을 따른다.
 - 개발 요청 한 번에 리뷰 반영 루프까지 포함한다.

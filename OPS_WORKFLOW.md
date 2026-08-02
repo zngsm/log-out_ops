@@ -159,14 +159,14 @@ log-out_ops/
 ## Commit Convention
 
 ```text
-<type>(<task-id>): <summary>
+<task-id> <summary>
 ```
 
 Examples:
 
-- `feat(feat-001): add file explorer shell for hermes os`
-- `bug(bug-003): fix quarantine timer expiration check`
-- `chore(chore-002): add mvp smoke test fixtures`
+- `feat-001 setup project`
+- `bug-003 fix quarantine timer expiration check`
+- `chore-002 add mvp smoke test fixtures`
 
 ## Branch Naming Convention
 

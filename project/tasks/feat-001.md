@@ -87,10 +87,11 @@
 | 2026-08-02 | dev-agent | in_progress -> done | build passed and review approved |
 | 2026-08-03 | dev-agent | done -> in_progress | repository reset detected, task re-execution started with README scope |
 | 2026-08-02 | dev-agent | in_progress -> done | bootstrap recreated, README added, build passed |
+| 2026-08-02 | dev-agent | done 유지 | branch created, commit completed, push completed to origin |
 
 ## Review Rules
 
-- commit message format: `<type>(<task-id>): <summary>`
+- commit message format: `<task-id> <summary>`
 - pr summary required: yes
 - max review rejection count: 2
 
@@ -120,3 +121,5 @@
   - `package.json`, `tsconfig*.json`, `vite.config.ts`, `index.html`로 프로젝트 빌드 구조 추가
   - `src/App.tsx`, `src/main.tsx`, `src/styles.css`, `src/vite-env.d.ts`로 초기 게임 셸 화면 추가
   - `README.md`에 환경 셋팅 및 정적 서버 업로드 절차 정리
+  - branch: `feat-001-setup-project`
+  - commit: `e82d9a6`
