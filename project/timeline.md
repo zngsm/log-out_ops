@@ -12,7 +12,7 @@
 | milestone | target outcome | required tasks | status |
 | --- | --- | --- | --- |
 | M1 | React 기반 게임 프로젝트 실행 가능 | feat-001 | done |
-| M2 | Hermes OS 기본 UI, 3D 컴퓨터 배경, 상태 시스템 작동 | feat-002, feat-003, feat-004, feat-009 | todo |
+| M2 | Hermes OS 기본 UI, 3D 컴퓨터 배경, 상태 시스템 작동 | feat-002, feat-003, feat-004, feat-009 | in_progress |
 | M3 | 카테고리 A Act 1~3 증거 제출 루프 작동 | chore-001, feat-005, feat-006, feat-007 | blocked |
 | M4 | MVP 플레이 감각과 종료 흐름 완성 | feat-008 | todo |
 | M5 | QA 시나리오 수행 및 bug task 생성 | qa-001 | blocked |
@@ -22,7 +22,7 @@
 | order | task id | title | dependency status | parallel group | expected handoff |
 | --- | --- | --- | --- | --- | --- |
 | 1 | feat-001 | Bootstrap Vite + React game project | clear | A | done |
-| 2 | feat-002 | Build Hermes OS terminal shell | clear | B | review approved |
+| 2 | feat-002 | Build Hermes OS terminal shell | clear | B | done |
 | 3 | feat-003 | Implement oxygen and power game state | clear | B | review approved |
 | 4 | feat-004 | Build category A file system data | clear | B | review approved |
 | 5 | feat-009 | Build R3F spaceship computer scene | clear | B | review approved |

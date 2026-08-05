@@ -12,7 +12,7 @@
 | priority | task id | type | title | status | owner agent | parallelizable | depends on | blocks | doc path |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 1 | feat-001 | feat | Bootstrap Vite + React game project | done | dev-agent | no | none | feat-002, feat-003, feat-004, feat-009 | project/tasks/feat-001.md |
-| 2 | feat-002 | feat | Build Hermes OS terminal shell | todo | dev-agent | yes | feat-001 | feat-005, feat-006, feat-008 | project/tasks/feat-002.md |
+| 2 | feat-002 | feat | Build Hermes OS terminal shell | done | dev-agent | yes | feat-001 | feat-005, feat-006, feat-008 | project/tasks/feat-002.md |
 | 3 | feat-003 | feat | Implement oxygen and power game state | todo | dev-agent | yes | feat-001 | feat-005, feat-007, qa-001 | project/tasks/feat-003.md |
 | 4 | feat-004 | feat | Build category A file system data | todo | dev-agent | yes | feat-001 | feat-005, feat-006, feat-007 | project/tasks/feat-004.md |
 | 5 | chore-001 | chore | Align content fixtures with planning docs | todo | dev-agent | yes | feat-004 | feat-005, feat-007 | project/tasks/chore-001.md |
