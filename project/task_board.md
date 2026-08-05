@@ -24,7 +24,7 @@
 | 11 | feat-011 | feat | Improve MVP player guidance and UX guardrails | done | dev-agent | yes | feat-005, feat-006, feat-008 | qa-001 | project/tasks/feat-011.md |
 | 12 | qa-001 | chore | Run MVP scenario QA and create bug tickets | done | qa-agent | no | feat-003, feat-005, feat-006, feat-008, feat-010, chore-002, feat-011 | bug-001, bug-002 | project/tasks/qa-001.md |
 | 13 | bug-001 | bug | Connect oxygen timer to active gameplay session | done | dev-agent | no | qa-001, feat-003 | MVP human review | project/tasks/bug-001.md |
-| 14 | bug-002 | bug | Enforce blackout interaction lock in gameplay UI | todo | dev-agent | no | qa-001, feat-003, feat-008 | MVP human review | project/tasks/bug-002.md |
+| 14 | bug-002 | bug | Enforce blackout interaction lock in gameplay UI | done | dev-agent | no | qa-001, feat-003, feat-008 | MVP human review | project/tasks/bug-002.md |
 | 15 | feat-007 | feat | Implement external AI ECHO rules for category A | deferred | dev-agent | no | Q11, pre-AI MVP QA | phase 2 AI work | project/tasks/feat-007.md |
 
 ## Parallel Work Notes
