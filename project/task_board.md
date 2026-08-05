@@ -14,7 +14,7 @@
 | 1 | feat-001 | feat | Bootstrap Vite + React game project | done | dev-agent | no | none | feat-002, feat-003, feat-004, feat-009 | project/tasks/feat-001.md |
 | 2 | feat-002 | feat | Build Hermes OS terminal shell | done | dev-agent | yes | feat-001 | feat-005, feat-006, feat-008 | project/tasks/feat-002.md |
 | 3 | feat-003 | feat | Implement oxygen and power game state | done | dev-agent | yes | feat-001 | feat-005, feat-007, qa-001 | project/tasks/feat-003.md |
-| 4 | feat-004 | feat | Build category A file system data | todo | dev-agent | yes | feat-001 | feat-005, feat-006, feat-007 | project/tasks/feat-004.md |
+| 4 | feat-004 | feat | Build category A file system data | done | dev-agent | yes | feat-001 | feat-005, feat-006, feat-007 | project/tasks/feat-004.md |
 | 5 | chore-001 | chore | Align content fixtures with planning docs | todo | dev-agent | yes | feat-004 | feat-005, feat-007 | project/tasks/chore-001.md |
 | 6 | feat-009 | feat | Build R3F spaceship computer scene | todo | dev-agent | yes | feat-001 | feat-008 | project/tasks/feat-009.md |
 | 7 | feat-005 | feat | Implement evidence attachment and act progression | todo | dev-agent | no | feat-002, feat-003, feat-004 | feat-007, feat-008 | project/tasks/feat-005.md |

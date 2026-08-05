@@ -24,7 +24,7 @@
 | 1 | feat-001 | Bootstrap Vite + React game project | clear | A | done |
 | 2 | feat-002 | Build Hermes OS terminal shell | clear | B | done |
 | 3 | feat-003 | Implement oxygen and power game state | clear | B | done |
-| 4 | feat-004 | Build category A file system data | clear | B | review approved |
+| 4 | feat-004 | Build category A file system data | clear | B | done |
 | 5 | feat-009 | Build R3F spaceship computer scene | clear | B | review approved |
 | 6 | chore-001 | Align content fixtures with planning docs | clear after feat-004 | C | review approved |
 | 7 | feat-006 | Implement Log Fixer recovery interaction | clear after feat-002, feat-004 | C | review approved |
