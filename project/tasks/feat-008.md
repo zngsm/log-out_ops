@@ -2,8 +2,7 @@
 
 ## Status
 
-- status: blocked
-- blocked by: Q2, Q3, and Q7 in `project/pm_questions.md`
+- status: todo
 - type: feat
 - priority: 9
 - owner agent: dev-agent
@@ -20,15 +19,17 @@ Add MVP-level atmosphere and feedback for opening, resource danger states, black
 - Add visual feedback for Normal, Caution, Warning, Critical, and Blackout.
 - Add ending presentation after successful Act 3.
 - Add placeholder sound or WebAudio feedback if approved.
+- Add short blackout failure presentation for oxygen 0% or terminal failure.
+- Respect debug mode cutscene skip.
 
 ## Dependencies
 
-- before: `feat-002`, `feat-003`, Q2, Q3, Q7
+- before: `feat-002`, `feat-003`, `feat-009`
 - after: `qa-001`
 
 ## Acceptance Criteria
 
-- Scope matches human-confirmed visual direction.
-- MVP does not accidentally require final 3D GLB or rigged hand assets unless explicitly approved.
-- Ending implementation matches confirmed MVP ending scope.
+- Scope matches human-confirmed visual direction: R3F spaceship/computer background, placeholder hands, 2D Hermes OS screen.
+- MVP does not require final rigged hand assets.
+- Ending implementation is Normal Ending A only.
 - Visual/audio feedback improves readability and tension without blocking gameplay.

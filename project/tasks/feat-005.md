@@ -2,8 +2,7 @@
 
 ## Status
 
-- status: blocked
-- blocked by: Q4 in `project/pm_questions.md`
+- status: todo
 - type: feat
 - priority: 6
 - owner agent: dev-agent
@@ -24,12 +23,12 @@ Allow the player to attach evidence files, submit them to ECHO, and progress thr
 
 ## Dependencies
 
-- before: `feat-002`, `feat-003`, `feat-004`, Q4
+- before: `feat-002`, `feat-003`, `feat-004`
 - after: `feat-007`, `feat-008`
 
 ## Acceptance Criteria
 
 - Correct Act evidence advances the game.
 - Incorrect evidence does not advance the game and applies penalty.
-- Act 3 evidence follows the human-confirmed answer to Q4.
-- Dev agent does not choose between conflicting Act 3 evidence docs independently.
+- Act 3 evidence uses `ai_priority_matrix.json` + `deleted_override.txt`.
+- Dev agent must not use the `auxiliary_capacitor.log` + `emergency_grid_switch.conf` pair for category A MVP Act 3.

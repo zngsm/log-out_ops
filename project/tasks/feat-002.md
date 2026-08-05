@@ -20,7 +20,7 @@ Create the base in-game Hermes OS screen that can host file exploration, file vi
 - Add file viewer panel placeholder.
 - Add ECHO chat panel placeholder.
 - Add oxygen and power HUD placeholder.
-- Use the project visual direction without requiring final 3D assets.
+- Keep the Hermes OS as a 2D interface that can later be embedded into the R3F computer scene from `feat-009`.
 
 ## Dependencies
 
@@ -32,4 +32,4 @@ Create the base in-game Hermes OS screen that can host file exploration, file vi
 - App renders a recognizable Hermes OS game interface.
 - Layout works on desktop and remains usable on smaller screens.
 - UI areas are clearly separated for explorer, viewer, chat, and HUD.
-- No final gameplay logic is required in this task.
+- No final gameplay logic or R3F scene work is required in this task.
