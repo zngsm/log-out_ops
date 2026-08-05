@@ -28,7 +28,7 @@
 | 5 | feat-009 | Build R3F spaceship computer scene | clear | B | done |
 | 6 | chore-001 | Align content fixtures with planning docs | clear after feat-004 | C | done |
 | 7 | feat-006 | Implement Log Fixer recovery interaction | clear after feat-002, feat-004 | C | done |
-| 8 | feat-005 | Implement evidence attachment and act progression | clear | D | review approved |
+| 8 | feat-005 | Implement evidence attachment and act progression | clear | D | done |
 | 9 | feat-007 | Implement external AI ECHO rules for category A | waiting for Q11 | E | review approved |
 | 10 | feat-008 | Add opening, ending, visual, and audio feedback | clear after feat-002, feat-003, feat-009 | E | review approved |
 | 11 | qa-001 | Run MVP scenario QA and create bug tickets | waiting for MVP feature completion | F | QA report and bug task docs |

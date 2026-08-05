@@ -17,7 +17,7 @@
 | 4 | feat-004 | feat | Build category A file system data | done | dev-agent | yes | feat-001 | feat-005, feat-006, feat-007 | project/tasks/feat-004.md |
 | 5 | chore-001 | chore | Align content fixtures with planning docs | done | dev-agent | yes | feat-004 | feat-005, feat-007 | project/tasks/chore-001.md |
 | 6 | feat-009 | feat | Build R3F spaceship computer scene | done | dev-agent | yes | feat-001 | feat-008 | project/tasks/feat-009.md |
-| 7 | feat-005 | feat | Implement evidence attachment and act progression | todo | dev-agent | no | feat-002, feat-003, feat-004 | feat-007, feat-008 | project/tasks/feat-005.md |
+| 7 | feat-005 | feat | Implement evidence attachment and act progression | done | dev-agent | no | feat-002, feat-003, feat-004 | feat-007, feat-008 | project/tasks/feat-005.md |
 | 8 | feat-006 | feat | Implement Log Fixer recovery interaction | done | dev-agent | yes | feat-002, feat-004 | feat-007 | project/tasks/feat-006.md |
 | 9 | feat-007 | feat | Implement external AI ECHO rules for category A | blocked | dev-agent | no | feat-003, feat-005, feat-006, Q11 | qa-001 | project/tasks/feat-007.md |
 | 10 | feat-008 | feat | Add opening, ending, visual, and audio feedback | todo | dev-agent | yes | feat-002, feat-003, feat-009 | qa-001 | project/tasks/feat-008.md |
