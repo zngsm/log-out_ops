@@ -21,6 +21,7 @@ This document separates work that is valuable but not required for validating th
 
 | candidate | description | note |
 | --- | --- | --- |
+| Experience realignment vertical slice | Rebuild the next milestone around scene direction, ECHO presence, resource drama, audio feedback, and diegetic clue discovery. | See `project/experience_gap_report.md`; requires human answers to Q12-Q15 before dev tasking. |
 | External AI ECHO | Replace or augment deterministic ECHO validation with provider-backed responses. | Must keep deterministic guard so AI cannot unlock doors incorrectly. |
 | Free-text hint conversation | Let ECHO answer non-submission questions using context-aware hints. | Requires prompt/schema work and safety fallback. |
 | Additional endings | Ending B/C, True Ending, full crew rescue routes. | Not needed for Normal Ending A MVP. |

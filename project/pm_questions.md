@@ -5,7 +5,7 @@
 - version: 0.2
 - pm agent: codex
 - date: 2026-08-05
-- status: mostly_answered - waiting_for_api_detail
+- status: needs_human_input - experience realignment questions added
 
 ## Blocking Questions
 
@@ -108,3 +108,48 @@ MVP의 로그는 사람이 직접 읽고 추론 가능한 평문 중심으로 �
 ECHO 판정은 외부 AI/API 연동으로 확정되었다. 구현을 시작하려면 provider, model, API key env var 이름, 실패 시 fallback 정책, 클라이언트 직접 호출 금지 여부가 필요하다.
 
 어떤 AI/API provider와 model을 사용하고, API key는 어떤 env var 이름으로 받을까요?
+
+### Q12. Act 3 최종 퍼즐 방향성
+
+현재 문서와 구현 사이에 Act 3의 경험 방향 차이가 있습니다.
+
+- `scene_flow.md`: `auxiliary_capacitor.log` + `emergency_grid_switch.conf`로 문 개방 전력 문제를 해결하는 자원 배분 딜레마
+- 현재 구현: `ai_priority_matrix.json` + `deleted_override.txt`로 ECHO의 우선순위/오버라이드 수칙 충돌을 해결하는 정책 논리 퍼즐
+
+MVP 최종 Act 3은 어떤 방향으로 확정할까요?
+
+### Suggested Options
+
+- Option A: 현재 구현처럼 `ai_priority_matrix.json` + `deleted_override.txt`를 유지한다.
+- Option B: `scene_flow.md`처럼 `auxiliary_capacitor.log` + `emergency_grid_switch.conf`로 복구한다.
+- Option C: 둘을 결합해, ECHO가 전력 리스크로 거부한 뒤 플레이어가 보조 전력과 상위 수칙을 모두 입증하게 한다.
+
+### PM Recommendation
+
+Option C가 원 기획의 자원 압박과 논리 파쇄를 가장 잘 살립니다. 다만 구현 범위는 가장 큽니다.
+
+### Q13. 다음 목표의 완성도 기준
+
+다음 milestone은 단순히 기능이 동작하는 MVP를 유지할까요, 아니면 원 기획 의도를 체감할 수 있는 vertical slice로 재정렬할까요?
+
+### PM Recommendation
+
+`first vertical slice that feels like the intended game`로 전환하는 것을 권장합니다.
+
+### Q14. 파일 내 직접 힌트 노출 정책
+
+현재 일부 파일에는 `[PLAYER NOTE]` 형태로 정답에 가까운 힌트가 직접 노출됩니다.
+
+이 힌트를 MVP 플레이어에게 계속 보여줄까요, 아니면 debug/hint toggle 뒤로 숨기고 실제 파일은 diegetic log로만 유지할까요?
+
+### PM Recommendation
+
+프로덕션 플레이에서는 숨기고, debug/hint layer로 분리하는 것을 권장합니다.
+
+### Q15. ECHO AI 재개 시점
+
+외부 AI/API를 지금 재개할까요, 아니면 먼저 deterministic scripted ECHO 대화/연출 시스템을 만들어 의도한 경험을 API 없이 구현할까요?
+
+### PM Recommendation
+
+먼저 scripted ECHO를 구현하고, 외부 AI는 힌트/자유 대화 확장으로 붙이는 것을 권장합니다.
