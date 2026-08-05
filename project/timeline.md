@@ -16,7 +16,8 @@
 | M3 | 카테고리 A Act 1~3 증거 제출 루프 작동 | chore-001, feat-005, feat-006 | done with deterministic ECHO rules |
 | M4 | MVP 플레이 감각과 종료 흐름 완성 | feat-008 | done |
 | M5 | pre-AI MVP 이해도, 콘텐츠 밀도, UX 보강 | feat-010, chore-002, feat-011 | done |
-| M6 | deterministic MVP QA 시나리오 수행 및 bug task 생성 | qa-001 | todo |
+| M6 | deterministic MVP QA 시나리오 수행 및 bug task 생성 | qa-001 | done with failures |
+| M7 | QA-discovered MVP blockers 수정 | bug-001, bug-002 | todo |
 | P2 | external AI ECHO integration | feat-007 | deferred |
 
 ## Task Timeline
@@ -35,8 +36,10 @@
 | 10 | feat-010 | Implement intro narrative sequence | clear after feat-008 | F | done |
 | 11 | chore-002 | Enrich MVP internal file contents | clear after chore-001, feat-005, feat-006 | F | done |
 | 12 | feat-011 | Improve MVP player guidance and UX guardrails | clear after feat-005, feat-006, feat-008 | F | done |
-| 13 | qa-001 | Run deterministic MVP scenario QA and create bug tickets | ready after M5 branch merge | G | QA report and bug task docs |
-| 14 | feat-007 | Implement external AI ECHO rules for category A | deferred to phase 2; waiting for Q11 | P2 | AI integration PR |
+| 13 | qa-001 | Run deterministic MVP scenario QA and create bug tickets | clear after M5 branch merge | G | done; created bug-001 and bug-002 |
+| 14 | bug-001 | Connect oxygen timer to active gameplay session | clear after qa-001 | H | bugfix PR |
+| 15 | bug-002 | Enforce blackout interaction lock in gameplay UI | clear after qa-001 | H | bugfix PR |
+| 16 | feat-007 | Implement external AI ECHO rules for category A | deferred to phase 2; waiting for Q11 | P2 | AI integration PR |
 
 ## Review / QA Gates
 
@@ -45,6 +48,7 @@
 | review gate 1 | each dev task implementation complete | review approve or max 2 rejection loop |
 | PM clarification gate | blocked task references unresolved Q id | human answer and updated docs |
 | QA gate 1 | M5 complete and code PRs merged | deterministic scenario result, failed cases, bug task creation |
+| bugfix gate 1 | bug-001 and bug-002 fixed | MVP can proceed to human review |
 | phase 2 gate | human answers Q11 and accepts AI/API integration timing | feat-007 can move from deferred to todo |
 
 ## Bottleneck Watchlist
