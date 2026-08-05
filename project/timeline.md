@@ -32,7 +32,7 @@
 | 7 | feat-006 | Implement Log Fixer recovery interaction | clear after feat-002, feat-004 | C | done |
 | 8 | feat-005 | Implement evidence attachment and act progression | clear | D | done |
 | 9 | feat-008 | Add opening, ending, visual, and audio feedback | clear after feat-002, feat-003, feat-009 | E | done |
-| 10 | feat-010 | Implement intro narrative sequence | clear after feat-008 | F | review approved |
+| 10 | feat-010 | Implement intro narrative sequence | clear after feat-008 | F | done |
 | 11 | chore-002 | Enrich MVP internal file contents | clear after chore-001, feat-005, feat-006 | F | review approved |
 | 12 | feat-011 | Improve MVP player guidance and UX guardrails | clear after feat-005, feat-006, feat-008 | F | review approved |
 | 13 | qa-001 | Run deterministic MVP scenario QA and create bug tickets | waiting for feat-010, chore-002, feat-011 | G | QA report and bug task docs |
