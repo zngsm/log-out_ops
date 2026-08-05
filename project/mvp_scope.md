@@ -2,10 +2,10 @@
 
 ## Document Meta
 
-- version: 0.1
+- version: 0.2
 - pm agent: codex
 - date: 2026-08-05
-- status: confirmed - pending AI/API provider detail
+- status: confirmed - pre-AI deterministic MVP
 
 ## MVP Goal
 
@@ -25,10 +25,13 @@
 - Act 3 정답 증거: `ai_priority_matrix.json` + `deleted_override.txt`
 - 파일 열람, 증거 첨부, 증거 제출
 - `Log_Fixer.exe` 또는 대체 복구 액션
-- 외부 AI/API 기반 ECHO 응답 및 판정
-- 자유 텍스트 입력 기반 힌트 대화
+- deterministic local ECHO 판정 및 Act 전환
+- Act별 정답/오답 피드백
 - 파일 클릭 시 `@{로그파일명}` 태그를 입력창에 주입하는 첨부 UX
 - 암호, 복구, 오프셋 계산을 포함한 실제 퍼즐
+- 왜 통제실 봉쇄가 발생했는지 설명하는 skippable intro narrative
+- 플레이 가능한 밀도의 Category A 내부 로그/문서 콘텐츠
+- 첫 플레이어가 다음 행동을 이해할 수 있는 UX 가이드/soft-lock 방지 힌트
 - Normal Ending A
 - placeholder visual/audio asset
 - 실제 60분 세션
@@ -44,8 +47,10 @@
 - 최종 퀄리티의 실제 3D GLB asset 제작
 - 1인칭 손 리깅 최종 컷씬
 - 고품질 사운드/음악 최종 asset
+- 외부 AI/API 기반 ECHO 응답 및 판정
+- 자유 텍스트 입력 기반 힌트 대화
 
-## Pending Scope Decisions
+## Phase 2 Pending Decisions
 
 - 외부 AI/API provider
 - model
@@ -60,7 +65,8 @@
 - 사용자는 Act 1, Act 2, Act 3에 맞는 증거를 제출할 수 있다.
 - Act 3은 `ai_priority_matrix.json` + `deleted_override.txt` 조합으로 통과한다.
 - 정답 제출 시 ECHO가 다음 Act로 상태를 전환한다.
-- ECHO는 외부 AI/API를 통해 자유 텍스트/첨부 태그 컨텍스트에 반응한다.
+- ECHO는 MVP에서 deterministic local rule로 증거 조합과 텍스트 intent를 판정한다.
+- 외부 AI/API 기반 ECHO는 phase 2로 분리한다.
 - 오답 제출 시 전력이 차감되고 산소 소모/위험 UI가 갱신된다.
 - Act 3 성공 시 문 해제 상태와 Normal Ending이 표시된다.
 - 산소가 0%가 되면 실패 상태가 표시된다.

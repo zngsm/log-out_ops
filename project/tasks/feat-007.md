@@ -2,7 +2,8 @@
 
 ## Status
 
-- status: blocked
+- status: deferred
+- deferred to: phase 2
 - blocked by: Q11 in `project/pm_questions.md`
 - type: feat
 - priority: 9
@@ -12,7 +13,7 @@
 
 ## Goal
 
-Implement ECHO responses and verdicts for the category A MVP scenario using an external AI/API integration.
+Implement ECHO responses and verdicts for the category A scenario using an external AI/API integration after the deterministic MVP loop has been validated.
 
 ## Scope
 
@@ -25,11 +26,12 @@ Implement ECHO responses and verdicts for the category A MVP scenario using an e
 - Include file context tags such as `@{로그파일명}` in the AI request context.
 - Define strict response schema for act verdict, assistant message, resource penalty, and unlock state.
 - Add validation guard so AI output cannot unlock the door before Act 3 requirements are satisfied.
+- Preserve deterministic validation as a safety guard around AI output.
 
 ## Dependencies
 
-- before: `feat-003`, `feat-005`, `feat-006`, Q11
-- after: `qa-001`
+- before: `feat-003`, `feat-005`, `feat-006`, deterministic MVP QA, Q11
+- after: phase 2 AI QA
 
 ## Acceptance Criteria
 
@@ -40,3 +42,7 @@ Implement ECHO responses and verdicts for the category A MVP scenario using an e
 - Category A MVP Act 3 uses `ai_priority_matrix.json` + `deleted_override.txt`.
 - API key is never exposed directly to the browser if Q11 confirms a server route.
 - Invalid AI response schema fails safely without advancing the Act.
+
+## PM Decision
+
+As of 2026-08-05, this task is not required for pre-AI MVP QA. The current MVP uses deterministic local evidence validation from `feat-005`; external AI/API work is deferred to phase 2 so the team can first validate intro comprehension, internal content density, UX guardrails, recovery flow, and Normal Ending A.
