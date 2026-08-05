@@ -4,7 +4,7 @@
 
 - status: todo
 - type: feat
-- priority: 9
+- priority: 10
 - owner agent: dev-agent
 - branch: `feat-008-add-opening-ending-visual-and-audio-feedback`
 - commit message: `feat-008 add opening ending visual and audio feedback`

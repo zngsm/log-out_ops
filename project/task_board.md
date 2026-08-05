@@ -29,6 +29,7 @@
 - `chore-001` can run alongside implementation once `feat-004` defines the file data shape.
 - `feat-006` can proceed before final ECHO wording if the recovery interaction contract is stable.
 - `feat-007` requires the new Q11 API detail before final implementation.
+- PM task docs are the implementation source of truth when older human-input examples conflict with answered PM questions.
 
 ## Sequencing Notes
 

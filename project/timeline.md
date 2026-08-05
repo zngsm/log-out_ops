@@ -45,3 +45,4 @@
 
 - 외부 AI/API provider, model, env var, fallback 정책이 확정되지 않으면 `feat-007`을 완료할 수 없다.
 - R3F 컴퓨터 배경은 MVP 범위로 확정되었으므로 `feat-009`를 `feat-002`와 병렬로 진행한다.
+- 오래된 source 문서의 Act 3 예시가 task 문서와 충돌할 경우 `project/pm_questions.md`와 `project/tasks/*.md`를 우선한다.

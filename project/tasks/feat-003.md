@@ -21,6 +21,8 @@ Implement the MVP resource model for oxygen, power, wrong submissions, blackout,
 - Apply power-based oxygen drain multiplier.
 - Add blackout state when power reaches 0%.
 - Restore temporary power after blackout according to the planning docs.
+- Support normal 60-minute session configuration.
+- Support debug 15-minute session configuration.
 
 ## Dependencies
 
@@ -32,4 +34,6 @@ Implement the MVP resource model for oxygen, power, wrong submissions, blackout,
 - Resource state can be updated deterministically.
 - Power thresholds map to Normal, Caution, Warning, Critical, and Blackout.
 - Oxygen reaching 0% produces a losing state.
-- Timer implementation is configurable enough for QA without changing game rules.
+- Normal mode drains oxygen from 100% to 0% over 60 minutes before multipliers.
+- Debug mode drains oxygen from 100% to 0% over 15 minutes before multipliers.
+- Blackout disables interaction for the configured blackout duration and restores power to 10%.

@@ -18,8 +18,20 @@ Create structured file system data for the Bio-hazard category A MVP scenario.
 - Define directories and files used by category A.
 - Include Act 1 sensor evidence.
 - Include Act 2 quarantine rule evidence.
-- Include Act 3 candidate evidence as pending-confirmation data.
+- Include Act 3 evidence confirmed from the original plan.
 - Mark corrupted/locked/recoverable files where needed.
+- Include content metadata for password, recovery, and offset puzzles.
+
+## Category A MVP File Requirements
+
+| act | path | role | required gameplay metadata |
+| --- | --- | --- | --- |
+| Act 1 | `/Logs/Sensors/sensor_calib.log` | sensor error evidence | keywords include `오차`, `보정`, `186일 미보정` |
+| Act 2 | `/Personnel/Dr_Kim/email_chain_july.txt` | password hint | reveals password `8842` |
+| Act 2 | `/Utilities/Log_Fixer.exe` | recovery utility | can recover corrupted security config |
+| Act 2 | `/System/Security/quarantine_rules.conf` | recovered rule evidence | corrupted before recovery, proves 72-hour quarantine expired after `+17,520시간` offset |
+| Act 3 | `/System/Security/ai_priority_matrix.json` | final priority evidence | must be submitted with `deleted_override.txt` |
+| Act 3 | `/Recycle_Bin/deleted_override.txt` | final override evidence | must be submitted with `ai_priority_matrix.json` |
 
 ## Dependencies
 
@@ -31,4 +43,5 @@ Create structured file system data for the Bio-hazard category A MVP scenario.
 - File data can be rendered by the explorer and viewer.
 - Each file has stable id, path, title, content, and gameplay metadata.
 - Content source references are traceable to `project/human-input`.
-- Act 3 evidence ambiguity is not silently resolved by dev agent.
+- Category A Act 3 evidence is explicitly `ai_priority_matrix.json` + `deleted_override.txt`.
+- The old category A `auxiliary_capacitor.log` + `emergency_grid_switch.conf` pair is not used for MVP Act 3.
