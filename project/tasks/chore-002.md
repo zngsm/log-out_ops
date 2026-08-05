@@ -2,7 +2,7 @@
 
 ## Status
 
-- status: todo
+- status: done
 - type: chore
 - priority: 10
 - owner agent: dev-agent
@@ -29,8 +29,47 @@ Fill the MVP Hermes OS file contents with enough readable in-world text for the 
 
 ## Acceptance Criteria
 
-- Each required evidence file contains enough text for a human player to infer why it matters.
-- At least a small number of non-critical flavor/decoy files make the file system feel populated.
-- Evidence keywords used by deterministic validation still appear in the relevant files or player-facing clues.
-- No old Act 3 evidence pair is reintroduced as category A MVP truth.
-- Content remains readable inside the current file viewer UI.
+- [x] Each required evidence file contains enough text for a human player to infer why it matters.
+- [x] At least a small number of non-critical flavor/decoy files make the file system feel populated.
+- [x] Evidence keywords used by deterministic validation still appear in the relevant files or player-facing clues.
+- [x] No old Act 3 evidence pair is reintroduced as category A MVP truth.
+- [x] Content remains readable inside the current file viewer UI.
+
+## Workflow Status Log
+
+| date | agent | status change | notes |
+| --- | --- | --- | --- |
+| 2026-08-05 | dev-agent | todo -> in_progress | MVP internal file content enrichment started from latest main |
+| 2026-08-05 | review-agent | review approved | no blocking findings; required evidence ids stayed stable and old Act 3 pair was not reintroduced |
+| 2026-08-05 | dev-agent | in_progress -> done | build passed, commit pushed to origin |
+
+## Validation
+
+- `npm run build`: pass
+- `git diff --check`: pass
+- Non-blocking warning: Vite reported a chunk larger than 500 kB after adding R3F/three in feat-009.
+
+## Review History
+
+| round | reviewer | result | findings summary | follow-up status |
+| --- | --- | --- | --- | --- |
+| 1 | review-agent | approve | no blocking findings for MVP content enrichment scope | closed |
+
+## Deliverables
+
+- code changes: `src/App.tsx`, `src/game/categoryAFileSystem.ts`
+- branch: `chore-002-enrich-mvp-internal-file-contents`
+- commit: `59edca9`
+- tests: `npm run build`, `git diff --check`
+
+## PR Draft
+
+- pr title: CHORE-002 MVP 내부 파일 콘텐츠 보강
+- pr description:
+  - `## Summary`
+  - Category A MVP의 필수 증거 파일 본문을 원문 기획서 기준으로 확장하고, 탐색 밀도를 높이기 위한 노이즈/플레이버 파일을 추가함
+  - `## Changes`
+  - `src/game/categoryAFileSystem.ts`: sensor_calib, email_chain, tool_manual, Log_Fixer, quarantine_rules, ai_priority_matrix, deleted_override 본문 보강
+  - `src/game/categoryAFileSystem.ts`: temp_history.db, air_flow.log, daily_routine.log, medical_summary.txt 등 노이즈/플레이버 파일 추가
+  - `src/game/categoryAFileSystem.ts`: `/Logs/LifeSupport`, `/Logs/Events` 디렉토리와 관련 file id/path/source refs 추가
+  - `src/App.tsx`: 새 로그 디렉토리가 파일 탐색기에 표시되도록 visible directory 목록 추가
