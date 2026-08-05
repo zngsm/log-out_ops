@@ -21,7 +21,7 @@
 | 8 | feat-006 | feat | Implement Log Fixer recovery interaction | done | dev-agent | yes | feat-002, feat-004 | feat-011, qa-001, phase 2 feat-007 | project/tasks/feat-006.md |
 | 9 | feat-010 | feat | Implement intro narrative sequence | done | dev-agent | no | feat-008 | qa-001 | project/tasks/feat-010.md |
 | 10 | chore-002 | chore | Enrich MVP internal file contents | done | dev-agent | yes | chore-001, feat-005, feat-006 | qa-001 | project/tasks/chore-002.md |
-| 11 | feat-011 | feat | Improve MVP player guidance and UX guardrails | todo | dev-agent | yes | feat-005, feat-006, feat-008 | qa-001 | project/tasks/feat-011.md |
+| 11 | feat-011 | feat | Improve MVP player guidance and UX guardrails | done | dev-agent | yes | feat-005, feat-006, feat-008 | qa-001 | project/tasks/feat-011.md |
 | 12 | qa-001 | chore | Run MVP scenario QA and create bug tickets | todo | qa-agent | no | feat-003, feat-005, feat-006, feat-008, feat-010, chore-002, feat-011 | bug tasks | project/tasks/qa-001.md |
 | 13 | feat-007 | feat | Implement external AI ECHO rules for category A | deferred | dev-agent | no | Q11, pre-AI MVP QA | phase 2 AI work | project/tasks/feat-007.md |
 

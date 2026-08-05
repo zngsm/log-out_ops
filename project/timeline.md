@@ -15,7 +15,7 @@
 | M2 | Hermes OS 기본 UI, 3D 컴퓨터 배경, 상태 시스템 작동 | feat-002, feat-003, feat-004, feat-009 | done |
 | M3 | 카테고리 A Act 1~3 증거 제출 루프 작동 | chore-001, feat-005, feat-006 | done with deterministic ECHO rules |
 | M4 | MVP 플레이 감각과 종료 흐름 완성 | feat-008 | done |
-| M5 | pre-AI MVP 이해도, 콘텐츠 밀도, UX 보강 | feat-010, chore-002, feat-011 | todo |
+| M5 | pre-AI MVP 이해도, 콘텐츠 밀도, UX 보강 | feat-010, chore-002, feat-011 | done |
 | M6 | deterministic MVP QA 시나리오 수행 및 bug task 생성 | qa-001 | todo |
 | P2 | external AI ECHO integration | feat-007 | deferred |
 
@@ -34,8 +34,8 @@
 | 9 | feat-008 | Add opening, ending, visual, and audio feedback | clear after feat-002, feat-003, feat-009 | E | done |
 | 10 | feat-010 | Implement intro narrative sequence | clear after feat-008 | F | done |
 | 11 | chore-002 | Enrich MVP internal file contents | clear after chore-001, feat-005, feat-006 | F | done |
-| 12 | feat-011 | Improve MVP player guidance and UX guardrails | clear after feat-005, feat-006, feat-008 | F | review approved |
-| 13 | qa-001 | Run deterministic MVP scenario QA and create bug tickets | waiting for feat-010, chore-002, feat-011 | G | QA report and bug task docs |
+| 12 | feat-011 | Improve MVP player guidance and UX guardrails | clear after feat-005, feat-006, feat-008 | F | done |
+| 13 | qa-001 | Run deterministic MVP scenario QA and create bug tickets | ready after M5 branch merge | G | QA report and bug task docs |
 | 14 | feat-007 | Implement external AI ECHO rules for category A | deferred to phase 2; waiting for Q11 | P2 | AI integration PR |
 
 ## Review / QA Gates
@@ -44,7 +44,7 @@
 | --- | --- | --- |
 | review gate 1 | each dev task implementation complete | review approve or max 2 rejection loop |
 | PM clarification gate | blocked task references unresolved Q id | human answer and updated docs |
-| QA gate 1 | M5 complete | deterministic scenario result, failed cases, bug task creation |
+| QA gate 1 | M5 complete and code PRs merged | deterministic scenario result, failed cases, bug task creation |
 | phase 2 gate | human answers Q11 and accepts AI/API integration timing | feat-007 can move from deferred to todo |
 
 ## Bottleneck Watchlist

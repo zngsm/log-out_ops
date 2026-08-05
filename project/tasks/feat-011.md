@@ -2,7 +2,7 @@
 
 ## Status
 
-- status: todo
+- status: done
 - type: feat
 - priority: 11
 - owner agent: dev-agent
@@ -30,8 +30,36 @@ Make the deterministic MVP playable without external AI by guiding the player th
 
 ## Acceptance Criteria
 
-- A first-time player can understand the next interaction without reading ops docs.
-- Wrong submission feedback is actionable but does not reveal the complete solution.
-- Recovery and password flow have visible guidance.
-- The UI clearly distinguishes selected file, attached evidence, locked file, corrupted file, and recovered file.
-- The implementation remains compatible with future `feat-007` external AI integration.
+- [x] A first-time player can understand the next interaction without reading ops docs.
+- [x] Wrong submission feedback is actionable but does not reveal the complete solution.
+- [x] Recovery and password flow have visible guidance.
+- [x] The UI clearly distinguishes selected file, attached evidence, locked file, corrupted file, and recovered file.
+- [x] The implementation remains compatible with future `feat-007` external AI integration.
+
+## Implementation Notes
+
+- Added current Act objective guidance in the HUD and ECHO panel.
+- Added evidence attachment instructions and file state legend.
+- Added explicit UI states for attached and recovered files while preserving selected/corrupted/locked states.
+- Added submission result reason codes so the UI can distinguish wrong file set, unrecovered evidence, missing explanation intent, and accepted submissions.
+- Added password/recovery soft-lock prevention hints around `/System/Security` and `Log_Fixer.exe`.
+
+## Validation
+
+- `npm run build`: pass
+- `git diff --check`: pass
+- review-agent result: approved
+
+## Pull Request Draft
+
+- PR title: `FEAT-011 MVP 플레이어 가이드 및 UX 가드레일 개선`
+- branch: `feat-011-improve-mvp-player-guidance-and-ux-guardrails`
+- code commit: `c4bc480 feat-011 improve mvp player guidance and ux guardrails`
+
+## Workflow Status Log
+
+| date | agent | status change | notes |
+| --- | --- | --- | --- |
+| 2026-08-05 | dev-agent | todo -> in_progress | MVP player guidance and UX guardrails implementation started from latest main |
+| 2026-08-05 | review-agent | in_progress -> approved | Build and diff validation passed; no blocking findings |
+| 2026-08-05 | dev-agent | approved -> done | Code branch pushed and ops task updated |
