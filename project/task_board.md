@@ -20,7 +20,7 @@
 | 7 | feat-005 | feat | Implement evidence attachment and act progression | done | dev-agent | no | feat-002, feat-003, feat-004 | feat-007, feat-008 | project/tasks/feat-005.md |
 | 8 | feat-006 | feat | Implement Log Fixer recovery interaction | done | dev-agent | yes | feat-002, feat-004 | feat-007 | project/tasks/feat-006.md |
 | 9 | feat-007 | feat | Implement external AI ECHO rules for category A | blocked | dev-agent | no | feat-003, feat-005, feat-006, Q11 | qa-001 | project/tasks/feat-007.md |
-| 10 | feat-008 | feat | Add opening, ending, visual, and audio feedback | todo | dev-agent | yes | feat-002, feat-003, feat-009 | qa-001 | project/tasks/feat-008.md |
+| 10 | feat-008 | feat | Add opening, ending, visual, and audio feedback | done | dev-agent | yes | feat-002, feat-003, feat-009 | qa-001 | project/tasks/feat-008.md |
 | 11 | qa-001 | chore | Run MVP scenario QA and create bug tickets | blocked | qa-agent | no | feat-003, feat-007, feat-008 | bug tasks | project/tasks/qa-001.md |
 
 ## Parallel Work Notes
