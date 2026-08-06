@@ -55,7 +55,8 @@
 | 27 | bug-003 | Fix menu zoom transition layout drift | user-reported after qa-002 | O | done |
 | 28 | bug-004 | Align start scene with control room computer flow | user-reported after bug-003 | O | done |
 | 29 | bug-005 | Hide 3D backdrop after terminal zoom | user-reported after bug-004 | O | done |
-| 30 | feat-007 | Implement external AI ECHO rules for category A | deferred; waiting for Q11 and scripted ECHO baseline | P2 | AI integration main push |
+| 30 | bug-006 | Render Hermes OS inside zoomed terminal screen | user-reported after bug-005 | O | done |
+| 31 | feat-007 | Implement external AI ECHO rules for category A | deferred; waiting for Q11 and scripted ECHO baseline | P2 | AI integration main push |
 
 ## Review / QA Gates
 
