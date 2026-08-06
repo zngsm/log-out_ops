@@ -43,7 +43,7 @@
 | 15 | bug-002 | Enforce blackout interaction lock in gameplay UI | clear after qa-001 | H | done |
 | 16 | feat-012 | Add DOCX-reference main menu and directed opening sequence | clear after current MVP baseline | I | done |
 | 17 | feat-013 | Add scene runtime and Act beat orchestration | clear after feat-012 | J | done |
-| 18 | feat-014 | Implement ECHO decision matrix and persona responses | clear after feat-013 | K | ready |
+| 18 | feat-014 | Implement ECHO decision matrix and persona responses | clear after feat-013 | K | done |
 | 19 | feat-015 | Add resource pressure HUD and threshold effects | clear after bug-001, bug-002 | K | resource pressure main push |
 | 20 | feat-016 | Improve Hermes file explorer interaction fidelity | clear after feat-011 | K | explorer fidelity main push |
 | 21 | chore-003 | Rewrite Category A content into diegetic clue layer | clear after chore-002 | K | content rewrite main push |
