@@ -30,7 +30,7 @@
 | 17 | feat-013 | feat | Add scene runtime and Act beat orchestration | done | dev-agent | no | feat-005, feat-010, feat-012 | feat-014, feat-020, qa-002 | project/tasks/feat-013.md |
 | 18 | feat-014 | feat | Implement ECHO decision matrix and persona responses | done | dev-agent | yes | feat-005, feat-013 | feat-018, feat-020, qa-002 | project/tasks/feat-014.md |
 | 19 | feat-015 | feat | Add resource pressure HUD and threshold effects | done | dev-agent | yes | feat-003, bug-001, bug-002 | feat-018, feat-019, qa-002 | project/tasks/feat-015.md |
-| 20 | feat-016 | feat | Improve Hermes file explorer interaction fidelity | todo | dev-agent | yes | feat-002, feat-011 | feat-017, qa-002 | project/tasks/feat-016.md |
+| 20 | feat-016 | feat | Improve Hermes file explorer interaction fidelity | done | dev-agent | yes | feat-002, feat-011 | feat-017, qa-002 | project/tasks/feat-016.md |
 | 21 | feat-017 | feat | Rework Log_Fixer into mini-program flow | todo | dev-agent | yes | feat-006, feat-016 | qa-002 | project/tasks/feat-017.md |
 | 22 | chore-003 | chore | Rewrite Category A content into diegetic clue layer | todo | dev-agent | yes | feat-004, chore-002 | qa-002 | project/tasks/chore-003.md |
 | 23 | feat-018 | feat | Add placeholder audio system and sound cues | todo | dev-agent | yes | feat-012, feat-014, feat-015 | feat-020, qa-002 | project/tasks/feat-018.md |
