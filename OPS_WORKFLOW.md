@@ -91,10 +91,11 @@ log-out_ops/
 ### 5. Development Execution
 
 - 개발 agent는 항상 task 문서 하나를 기준으로 작업한다.
-- 개발 agent는 브랜치를 `task-id-english-task-name` 형식으로 만든다.
+- 개발 agent는 기본적으로 최신 `main`에서 작업한다.
+- PR/브랜치 플로우는 사람이 명시적으로 요청한 경우에만 브랜치를 `task-id-english-task-name` 형식으로 만든다.
 - 작업 시작 시 상태를 `todo -> in_progress`로 바꾼다.
 - 구현과 검증이 끝나면 리뷰 agent에 스스로 리뷰를 요청한다.
-- 승인되면 commit과 push까지 완료하고 PR open 준비 상태로 만들고 상태를 `done`으로 바꾼다.
+- 승인되면 task-id commit message로 commit하고 `log-out/main`에 push한 뒤 상태를 `done`으로 바꾼다.
 - task 상태 변경과 관련 운영 문서 변경은 `log-out_ops`에도 반영한다.
 - `log-out_ops`는 엄격한 브랜치 전략 없이 최신 `main` 기준으로 갱신한다.
 - 반려되면 반려 사유만 수정하고 다시 리뷰를 요청한다.
@@ -211,7 +212,7 @@ PR Description
 3. commit 완료
 4. push 완료
 
-즉, PR open은 개발과 리뷰 루프가 끝난 뒤의 별도 단계다.
+즉, PR open은 기본 개발 플로우가 아니라 사람이 명시적으로 요청했을 때만 수행하는 별도 단계다.
 
 ## Task Ordering Rules
 

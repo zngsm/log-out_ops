@@ -27,7 +27,7 @@
 | 14 | bug-002 | bug | Enforce blackout interaction lock in gameplay UI | done | dev-agent | no | qa-001, feat-003, feat-008 | MVP human review | project/tasks/bug-002.md |
 | 15 | feat-007 | feat | Implement external AI ECHO rules for category A | deferred | dev-agent | no | Q11, pre-AI MVP QA | phase 2 AI work | project/tasks/feat-007.md |
 | 16 | feat-012 | feat | Add DOCX-reference main menu and directed opening sequence | done | dev-agent | no | feat-008, feat-009, feat-010 | feat-013, feat-018, feat-019 | project/tasks/feat-012.md |
-| 17 | feat-013 | feat | Add scene runtime and Act beat orchestration | todo | dev-agent | no | feat-005, feat-010, feat-012 | feat-014, feat-020, qa-002 | project/tasks/feat-013.md |
+| 17 | feat-013 | feat | Add scene runtime and Act beat orchestration | done | dev-agent | no | feat-005, feat-010, feat-012 | feat-014, feat-020, qa-002 | project/tasks/feat-013.md |
 | 18 | feat-014 | feat | Implement ECHO decision matrix and persona responses | todo | dev-agent | yes | feat-005, feat-013 | feat-018, feat-020, qa-002 | project/tasks/feat-014.md |
 | 19 | feat-015 | feat | Add resource pressure HUD and threshold effects | todo | dev-agent | yes | feat-003, bug-001, bug-002 | feat-018, feat-019, qa-002 | project/tasks/feat-015.md |
 | 20 | feat-016 | feat | Improve Hermes file explorer interaction fidelity | todo | dev-agent | yes | feat-002, feat-011 | feat-017, qa-002 | project/tasks/feat-016.md |
@@ -58,4 +58,4 @@
 - QA can run before `feat-007` as long as it tests deterministic scripted ECHO behavior rather than external AI behavior.
 - Phase 2 QA must cite original `LOG_OUT **.md` expectations, not only task acceptance criteria.
 - Every dev task must update its task md status from `todo` to `in_progress` to `done`.
-- Every dev task must follow branch, commit, review, push, and PR rules from the agent guides.
+- Current dev workflow is latest `main` -> task-scoped implementation -> task-id commit message -> push directly to `main`; PR/branch flow is only used when the human explicitly asks for it.

@@ -61,7 +61,8 @@ log-out/
 - 작업 시작 전 어떤 문서를 기준으로 삼았는지 명시한다.
 - 작업 완료 후 어떤 문서를 갱신했는지 남긴다.
 - 애매한 요구를 임의 해석하지 않는다.
-- DEV agent는 task별 브랜치를 `feat-001-setup-project` 형식으로 사용한다.
+- DEV agent는 기본적으로 최신 `main`에서 작업하고 task-id commit message로 `main`에 직접 push한다.
+- DEV agent는 사람이 명시적으로 PR/브랜치 플로우를 요청한 경우에만 task별 브랜치를 `feat-001-setup-project` 형식으로 사용한다.
 - DEV agent가 task 상태를 바꾸면 `log-out_ops` 문서도 함께 갱신하고 `main`에 반영한다.
 
 ## Agent Sequence
@@ -71,9 +72,9 @@ log-out/
 3. PM agent defines MVP and creates tasks
 4. DEV agent executes one task in `log-out`
 5. DEV agent requests REVIEW agent review and addresses feedback if needed
-6. After approval, DEV agent commits and pushes the task branch
+6. After approval, DEV agent commits and pushes directly to `log-out/main`
 7. DEV agent updates `log-out_ops` task state and related docs on `main`
-8. If requested, DEV agent opens PR using the approved task state
+8. If explicitly requested, DEV agent uses the PR/branch flow and opens PR using the approved task state
 9. If review loops exceed 2 rejections, DEV agent escalates to human
 10. PM agent prepares QA plan
 11. QA agent runs tests

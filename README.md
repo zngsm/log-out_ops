@@ -124,12 +124,12 @@ pm agent, 기획서 분석해줘
 반드시 아래를 한 사이클로 수행한다.
 
 1. `log-out_ops/project/tasks/feat-001.md` 읽기
-2. `log-out`에서 task 브랜치 생성
+2. `log-out`에서 최신 `main` 동기화
 3. 구현
 4. 검증
 5. 리뷰 승인 획득
-6. `log-out`에서 commit
-7. `log-out`에서 push
+6. `log-out`에서 task-id commit message로 commit
+7. `log-out/main`에 push
 8. `log-out_ops`의 task 상태 / 관련 운영 문서 갱신
 9. `log-out_ops`는 별도 브랜치 없이 최신 `main`에 반영
 
@@ -144,6 +144,8 @@ pr-open 해줘
 ```
 
 이 요청은 현재 완료되고 승인된 task를 기준으로 PR open 준비를 수행한다.
+
+기본 개발 플로우는 PR이 아니라 `main` 직접 푸시다. PR은 사람이 명시적으로 `pr-open 해줘`라고 요청한 경우에만 적용한다.
 
 - branch naming format: `<task-id>-<english-task-name>`
 - example: `feat-001-setup-project`

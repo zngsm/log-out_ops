@@ -41,18 +41,18 @@
 | 13 | qa-001 | Run deterministic MVP scenario QA and create bug tickets | clear after M5 branch merge | G | done; created bug-001 and bug-002 |
 | 14 | bug-001 | Connect oxygen timer to active gameplay session | clear after qa-001 | H | done |
 | 15 | bug-002 | Enforce blackout interaction lock in gameplay UI | clear after qa-001 | H | done |
-| 16 | feat-012 | Add DOCX-reference main menu and directed opening sequence | clear after current MVP baseline | I | done; branch pushed |
-| 17 | feat-013 | Add scene runtime and Act beat orchestration | clear after feat-012 | J | ready after feat-012 merge |
-| 18 | feat-014 | Implement ECHO decision matrix and persona responses | clear after feat-013 | K | ECHO rules PR |
-| 19 | feat-015 | Add resource pressure HUD and threshold effects | clear after bug-001, bug-002 | K | resource pressure PR |
-| 20 | feat-016 | Improve Hermes file explorer interaction fidelity | clear after feat-011 | K | explorer fidelity PR |
-| 21 | chore-003 | Rewrite Category A content into diegetic clue layer | clear after chore-002 | K | content rewrite PR |
-| 22 | feat-017 | Rework Log_Fixer into mini-program flow | clear after feat-016 | L | Log_Fixer PR |
-| 23 | feat-018 | Add placeholder audio system and sound cues | clear after feat-012, feat-014, feat-015 | L | audio PR |
-| 24 | feat-019 | Integrate DOCX-reference 3D control room with scene and resource state | clear after feat-012, feat-015 | L | 3D integration PR |
-| 25 | feat-020 | Add directed Ending A and result panel | clear after feat-013, feat-014, feat-018, feat-019 | M | ending PR |
-| 26 | qa-002 | Run original-source vertical slice QA | clear after M8 branches merge | N | bug tasks if failures are found |
-| 27 | feat-007 | Implement external AI ECHO rules for category A | deferred; waiting for Q11 and scripted ECHO baseline | P2 | AI integration PR |
+| 16 | feat-012 | Add DOCX-reference main menu and directed opening sequence | clear after current MVP baseline | I | done |
+| 17 | feat-013 | Add scene runtime and Act beat orchestration | clear after feat-012 | J | done |
+| 18 | feat-014 | Implement ECHO decision matrix and persona responses | clear after feat-013 | K | ready |
+| 19 | feat-015 | Add resource pressure HUD and threshold effects | clear after bug-001, bug-002 | K | resource pressure main push |
+| 20 | feat-016 | Improve Hermes file explorer interaction fidelity | clear after feat-011 | K | explorer fidelity main push |
+| 21 | chore-003 | Rewrite Category A content into diegetic clue layer | clear after chore-002 | K | content rewrite main push |
+| 22 | feat-017 | Rework Log_Fixer into mini-program flow | clear after feat-016 | L | Log_Fixer main push |
+| 23 | feat-018 | Add placeholder audio system and sound cues | clear after feat-012, feat-014, feat-015 | L | audio main push |
+| 24 | feat-019 | Integrate DOCX-reference 3D control room with scene and resource state | clear after feat-012, feat-015 | L | 3D integration main push |
+| 25 | feat-020 | Add directed Ending A and result panel | clear after feat-013, feat-014, feat-018, feat-019 | M | ending main push |
+| 26 | qa-002 | Run original-source vertical slice QA | clear after M8 main pushes | N | bug tasks if failures are found |
+| 27 | feat-007 | Implement external AI ECHO rules for category A | deferred; waiting for Q11 and scripted ECHO baseline | P2 | AI integration main push |
 
 ## Review / QA Gates
 

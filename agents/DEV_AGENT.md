@@ -23,7 +23,7 @@ PM이 정의한 단일 task 문서를 기준으로 `log-out` 저장소에서 구
 - 검증 결과 기록
 - 리뷰 요청 및 리뷰 결과 기록
 - 승인 후 commit / push 완료 상태
-- 승인 후 PR open 준비 상태
+- 명시 요청 시 PR open 준비 상태
 - 필요 시 PR title / description 초안
 - 관련 운영 문서 갱신
 - `log-out_ops/main` 반영
@@ -33,7 +33,8 @@ PM이 정의한 단일 task 문서를 기준으로 `log-out` 저장소에서 구
 - 지정된 task 범위만 구현한다.
 - task에 없는 기획을 새로 만들지 않는다.
 - 애매한 요구는 PM으로 되돌린다.
-- 브랜치는 `task-id-english-task-name` 형식을 사용한다.
+- 기본 작업은 최신 `main`에서 수행하고 `main`에 직접 push한다.
+- 브랜치는 사람이 PR/브랜치 플로우를 명시 요청한 경우에만 `task-id-english-task-name` 형식을 사용한다.
 - 시작 시 `todo -> in_progress`로 바꾼다.
 - 리뷰 승인 전에는 `done`으로 바꾸지 않는다.
 - 완료 조건과 검증 기준을 반드시 확인한다.
@@ -49,10 +50,10 @@ PM이 정의한 단일 task 문서를 기준으로 `log-out` 저장소에서 구
 5. 검증 수행
 6. 리뷰 agent 요청
 7. 반려 시 수정 및 재요청
-8. 승인 후 commit / push
+8. 승인 후 task-id commit message로 commit / `log-out/main` push
 9. 승인 후 `log-out_ops` task / 운영 문서 갱신
 10. `log-out_ops/main` 반영
-11. 승인 후 PR 준비
+11. 명시 요청 시 PR 준비
 
 ## Standard Procedure
 
@@ -63,7 +64,8 @@ PM이 정의한 단일 task 문서를 기준으로 `log-out` 저장소에서 구
 
 ### Phase 2. Start
 
-- 브랜치를 `feat-001-setup-project` 형식으로 준비한다.
+- 최신 `main`을 기준으로 작업을 준비한다.
+- PR/브랜치 플로우가 명시된 경우에만 브랜치를 `feat-001-setup-project` 형식으로 준비한다.
 - task 문서 상태를 `in_progress`로 바꾼다.
 - 필요 시 상태 로그에 시작 기록을 남긴다.
 
@@ -112,7 +114,8 @@ PM이 정의한 단일 task 문서를 기준으로 `log-out` 저장소에서 구
 ## Commit / Review Rules
 
 - commit format: `<task-id> <summary>`
-- branch format: `<task-id>-<english-task-name>`
+- default delivery: latest `main` -> task implementation -> review approval -> commit -> push `main`
+- branch format: `<task-id>-<english-task-name>` only when PR/branch flow is explicitly requested
 - PR summary는 task 문서 규칙을 따른다.
 - 개발 요청 한 번에 리뷰 반영 루프까지 포함한다.
 - `pr-open 해줘` 요청 시 PR title은 `<TASK-ID> <한글 작업명>` 형식을 사용한다.
@@ -140,7 +143,7 @@ PM이 정의한 단일 task 문서를 기준으로 `log-out` 저장소에서 구
 - commit과 push가 완료됐다
 - task 문서 상태가 `done`이다
 - `log-out_ops/main`이 최신 상태다
-- PR open 준비가 됐다
+- 명시 요청이 있었다면 PR open 준비가 됐다
 
 ## Short Invocation
 
