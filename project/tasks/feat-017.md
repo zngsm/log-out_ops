@@ -2,11 +2,11 @@
 
 ## Status
 
-- status: todo
+- status: done
 - type: feat
 - priority: 21
 - owner agent: dev-agent
-- branch: `feat-017-rework-log-fixer-into-mini-program-flow`
+- branch: `main`
 - commit message: `feat-017 rework log fixer into mini program flow`
 
 ## Goal
@@ -29,11 +29,30 @@ Turn Log_Fixer from a simplified recovery action into the original mini-program 
 
 ## Acceptance Criteria
 
-- [ ] Recovery requires a meaningful player action using manual information.
-- [ ] Correct recovery makes `quarantine_rules.conf` usable for Act 2.
-- [ ] Wrong recovery attempts are understandable and recoverable.
-- [ ] The mini-program can be operated with mouse/keyboard in the current UI.
-- [ ] The flow remains deterministic for QA.
+- [x] Recovery requires a meaningful player action using manual information.
+- [x] Correct recovery makes `quarantine_rules.conf` usable for Act 2.
+- [x] Wrong recovery attempts are understandable and recoverable.
+- [x] The mini-program can be operated with mouse/keyboard in the current UI.
+- [x] The flow remains deterministic for QA.
+
+## Implementation Notes
+
+- Replaced direct `RUN LOG_FIXER` recovery with a CUI-style Log_Fixer popup.
+- Added target path input, repair mode radio choices, deterministic progress, byte-scroll feedback, and restored-line highlight.
+- Correct path `/System/Security/quarantine_rules.conf` plus `Text Reconstruction` mode recovers and attaches the file.
+- Wrong path or wrong mode produces recoverable CUI errors without softlock.
+- Existing resource-pressure slowdown is respected through recovery delay.
+
+## Validation
+
+- `npm run build`: pass
+- `git diff --check`: pass
+- review-agent result: approved
+
+## Delivery
+
+- workflow: latest `main` -> task commit -> push `main`
+- code commit: `dfacbe0 feat-017 rework log fixer into mini program flow`
 
 ## Source References
 
@@ -45,3 +64,6 @@ Turn Log_Fixer from a simplified recovery action into the original mini-program 
 
 | date | agent | status change | notes |
 | --- | --- | --- | --- |
+| 2026-08-06 | dev-agent | todo -> in_progress | Log_Fixer mini-program flow started after chore-003 main push |
+| 2026-08-06 | review-agent | in_progress -> approved | Build and diff validation passed; no blocking findings |
+| 2026-08-06 | dev-agent | approved -> done | Code committed and pushed directly to main |

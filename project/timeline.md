@@ -47,7 +47,7 @@
 | 19 | feat-015 | Add resource pressure HUD and threshold effects | clear after bug-001, bug-002 | K | done |
 | 20 | feat-016 | Improve Hermes file explorer interaction fidelity | clear after feat-011 | K | done |
 | 21 | chore-003 | Rewrite Category A content into diegetic clue layer | clear after chore-002 | K | done |
-| 22 | feat-017 | Rework Log_Fixer into mini-program flow | clear after feat-016 | L | Log_Fixer main push |
+| 22 | feat-017 | Rework Log_Fixer into mini-program flow | clear after feat-016 | L | done |
 | 23 | feat-018 | Add placeholder audio system and sound cues | clear after feat-012, feat-014, feat-015 | L | audio main push |
 | 24 | feat-019 | Integrate DOCX-reference 3D control room with scene and resource state | clear after feat-012, feat-015 | L | 3D integration main push |
 | 25 | feat-020 | Add directed Ending A and result panel | clear after feat-013, feat-014, feat-018, feat-019 | M | ending main push |
