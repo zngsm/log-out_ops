@@ -34,10 +34,15 @@ PM/dev/QA agent는 아래 순서로 문서를 해석해야 한다.
 3. `project/human-input/LOG_OUT 로그 예시.md`
 4. `project/human-input/LOG_OUT AI 프롬포트 예시.md`
 5. `project/human-input/LOG_OUT 로그파일 구조.md`
-6. `project/human-input/LOG_OUT_PM_QA.md`
-7. PM이 생성한 `project/*.md`, `project/tasks/*.md`
+6. `project/human-input/우주선 탈출게임 개요.docx`
+7. `project/human-input/LOG_OUT visual 복사본.docx`
+8. `project/human-input/우주선 탈출게임 로그 예시.docx`
+9. `project/human-input/우주선 탈출 게임 로그 파일 구조.docx`
+10. `project/human-input/우주선 탈출 게임 AI 프롬프트 예시.docx`
+11. `project/human-input/LOG_OUT_PM_QA.md`
+12. PM이 생성한 `project/*.md`, `project/tasks/*.md`
 
-원본문서와 PM 파생 문서가 충돌하면 PM agent가 자의로 판단하지 않는다. 현재 phase의 정리는 [phase_2_original_source_replan.md](/Users/a202107061/private/log-out/log-out_ops/project/phase_2_original_source_replan.md)를 따른다.
+원본문서와 PM 파생 문서가 충돌하면 PM agent가 자의로 판단하지 않는다. 이미지 reference가 필요한 visual 판단은 DOCX를 우선한다. 현재 phase의 정리는 [phase_2_original_source_replan.md](/Users/a202107061/private/log-out/log-out_ops/project/phase_2_original_source_replan.md)와 [docx_source_reassessment.md](/Users/a202107061/private/log-out/log-out_ops/project/docx_source_reassessment.md)를 따른다.
 
 ## Folder Guide
 

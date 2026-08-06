@@ -2,10 +2,10 @@
 
 ## Document Meta
 
-- version: 0.5
+- version: 0.6
 - pm agent: codex
 - date: 2026-08-06
-- status: original-source phase 2 vertical slice planned
+- status: DOCX source phase 2 vertical slice planned
 
 ## Task Index
 
@@ -26,7 +26,7 @@
 | 13 | bug-001 | bug | Connect oxygen timer to active gameplay session | done | dev-agent | no | qa-001, feat-003 | MVP human review | project/tasks/bug-001.md |
 | 14 | bug-002 | bug | Enforce blackout interaction lock in gameplay UI | done | dev-agent | no | qa-001, feat-003, feat-008 | MVP human review | project/tasks/bug-002.md |
 | 15 | feat-007 | feat | Implement external AI ECHO rules for category A | deferred | dev-agent | no | Q11, pre-AI MVP QA | phase 2 AI work | project/tasks/feat-007.md |
-| 16 | feat-012 | feat | Add main menu and directed opening sequence | todo | dev-agent | no | feat-008, feat-009, feat-010 | feat-013, feat-018, feat-019 | project/tasks/feat-012.md |
+| 16 | feat-012 | feat | Add DOCX-reference main menu and directed opening sequence | todo | dev-agent | no | feat-008, feat-009, feat-010 | feat-013, feat-018, feat-019 | project/tasks/feat-012.md |
 | 17 | feat-013 | feat | Add scene runtime and Act beat orchestration | todo | dev-agent | no | feat-005, feat-010, feat-012 | feat-014, feat-020, qa-002 | project/tasks/feat-013.md |
 | 18 | feat-014 | feat | Implement ECHO decision matrix and persona responses | todo | dev-agent | yes | feat-005, feat-013 | feat-018, feat-020, qa-002 | project/tasks/feat-014.md |
 | 19 | feat-015 | feat | Add resource pressure HUD and threshold effects | todo | dev-agent | yes | feat-003, bug-001, bug-002 | feat-018, feat-019, qa-002 | project/tasks/feat-015.md |
@@ -34,7 +34,7 @@
 | 21 | feat-017 | feat | Rework Log_Fixer into mini-program flow | todo | dev-agent | yes | feat-006, feat-016 | qa-002 | project/tasks/feat-017.md |
 | 22 | chore-003 | chore | Rewrite Category A content into diegetic clue layer | todo | dev-agent | yes | feat-004, chore-002 | qa-002 | project/tasks/chore-003.md |
 | 23 | feat-018 | feat | Add placeholder audio system and sound cues | todo | dev-agent | yes | feat-012, feat-014, feat-015 | feat-020, qa-002 | project/tasks/feat-018.md |
-| 24 | feat-019 | feat | Integrate 3D control room with scene and resource state | todo | dev-agent | yes | feat-009, feat-012, feat-015 | feat-020, qa-002 | project/tasks/feat-019.md |
+| 24 | feat-019 | feat | Integrate DOCX-reference 3D control room with scene and resource state | todo | dev-agent | yes | feat-009, feat-012, feat-015 | feat-020, qa-002 | project/tasks/feat-019.md |
 | 25 | feat-020 | feat | Add directed Ending A and result panel | todo | dev-agent | no | feat-013, feat-014, feat-018, feat-019 | qa-002 | project/tasks/feat-020.md |
 | 26 | qa-002 | chore | Run original-source vertical slice QA | todo | qa-agent | no | feat-012, feat-013, feat-014, feat-015, feat-016, feat-017, feat-018, feat-019, feat-020, chore-003 | phase 2 bug tasks | project/tasks/qa-002.md |
 
@@ -46,6 +46,7 @@
 - `feat-007` is deferred to phase 2 because deterministic local ECHO rules are enough to validate the current MVP loop.
 - `feat-010`, `chore-002`, and `feat-011` are pre-AI MVP reinforcement tasks that improve comprehension, content density, and playability.
 - For phase 2, `project/phase_2_original_source_replan.md` and the original `LOG_OUT **.md` files are the source of truth. PM task docs must not override those documents unless a human answer explicitly says so.
+- The DOCX files in `project/human-input` are now the preferred visual source because their embedded images/GIF preserve references that can break in markdown.
 - `feat-012` and `feat-013` should run before most experience tasks because they define the menu/opening/scene skeleton.
 - `feat-014`, `feat-015`, `feat-016`, and `chore-003` can proceed in parallel after their dependencies because they affect ECHO logic, resource pressure, file interaction, and content copy respectively.
 - `feat-018` and `feat-019` should start after scene/resource direction is stable enough to wire audio and 3D state changes.
