@@ -41,8 +41,8 @@
 | 13 | qa-001 | Run deterministic MVP scenario QA and create bug tickets | clear after M5 branch merge | G | done; created bug-001 and bug-002 |
 | 14 | bug-001 | Connect oxygen timer to active gameplay session | clear after qa-001 | H | done |
 | 15 | bug-002 | Enforce blackout interaction lock in gameplay UI | clear after qa-001 | H | done |
-| 16 | feat-012 | Add DOCX-reference main menu and directed opening sequence | clear after current MVP baseline | I | menu/opening PR |
-| 17 | feat-013 | Add scene runtime and Act beat orchestration | clear after feat-012 | J | scene runtime PR |
+| 16 | feat-012 | Add DOCX-reference main menu and directed opening sequence | clear after current MVP baseline | I | done; branch pushed |
+| 17 | feat-013 | Add scene runtime and Act beat orchestration | clear after feat-012 | J | ready after feat-012 merge |
 | 18 | feat-014 | Implement ECHO decision matrix and persona responses | clear after feat-013 | K | ECHO rules PR |
 | 19 | feat-015 | Add resource pressure HUD and threshold effects | clear after bug-001, bug-002 | K | resource pressure PR |
 | 20 | feat-016 | Improve Hermes file explorer interaction fidelity | clear after feat-011 | K | explorer fidelity PR |
