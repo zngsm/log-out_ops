@@ -2,11 +2,11 @@
 
 ## Status
 
-- status: todo
+- status: done
 - type: chore
 - priority: 22
 - owner agent: dev-agent
-- branch: `chore-003-rewrite-category-a-content-into-diegetic-clue-layer`
+- branch: `main`
 - commit message: `chore-003 rewrite category a content into diegetic clue layer`
 
 ## Goal
@@ -29,11 +29,31 @@ Align Category A file contents with the original LOG_OUT examples while separati
 
 ## Acceptance Criteria
 
-- [ ] Required evidence files contain original-source clue information.
-- [ ] Production file contents do not directly say "this is the answer."
-- [ ] Debug/hint information is still available for QA or accessibility if enabled.
-- [ ] Decoy files feel plausible and do not accidentally satisfy evidence validation.
-- [ ] Act 3 remains `ai_priority_matrix.json` + `deleted_override.txt`.
+- [x] Required evidence files contain original-source clue information.
+- [x] Production file contents do not directly say "this is the answer."
+- [x] Debug/hint information is still available for QA or accessibility if enabled.
+- [x] Decoy files feel plausible and do not accidentally satisfy evidence validation.
+- [x] Act 3 remains `ai_priority_matrix.json` + `deleted_override.txt`.
+
+## Implementation Notes
+
+- Removed direct-answer `[PLAYER NOTE]`, `MVP target`, and system hint copy from production Category A file contents.
+- Added `debugHint` metadata to evidence/utility files so QA/accessibility hints remain available behind an explicit viewer toggle.
+- Added `SHOW QA HINT` / `HIDE QA HINT` action in the file viewer.
+- Preserved canonical evidence paths and validation compatibility.
+- Kept Act 3 evidence as `ai_priority_matrix.json` + `deleted_override.txt`.
+
+## Validation
+
+- `npm run build`: pass
+- `git diff --check`: pass
+- `rg -n "PLAYER NOTE|player_note|mvp_operator_note|System hint|MVP target|핵심" src/game/categoryAFileSystem.ts`: no production matches
+- review-agent result: approved
+
+## Delivery
+
+- workflow: latest `main` -> task commit -> push `main`
+- code commit: `76427ce chore-003 rewrite category a content into diegetic clue layer`
 
 ## Source References
 
@@ -49,3 +69,6 @@ Align Category A file contents with the original LOG_OUT examples while separati
 
 | date | agent | status change | notes |
 | --- | --- | --- | --- |
+| 2026-08-06 | dev-agent | todo -> in_progress | Category A diegetic clue rewrite started after feat-016 main push |
+| 2026-08-06 | review-agent | in_progress -> approved | Build, diff, and direct-answer text checks passed |
+| 2026-08-06 | dev-agent | approved -> done | Code committed and pushed directly to main |
