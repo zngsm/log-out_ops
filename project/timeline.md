@@ -52,7 +52,8 @@
 | 24 | feat-019 | Integrate DOCX-reference 3D control room with scene and resource state | clear after feat-012, feat-015 | L | done |
 | 25 | feat-020 | Add directed Ending A and result panel | clear after feat-013, feat-014, feat-018, feat-019 | M | done |
 | 26 | qa-002 | Run original-source vertical slice QA | clear after M8 main pushes | N | done; no blocking bug tasks created |
-| 27 | feat-007 | Implement external AI ECHO rules for category A | deferred; waiting for Q11 and scripted ECHO baseline | P2 | AI integration main push |
+| 27 | bug-003 | Fix menu zoom transition layout drift | user-reported after qa-002 | O | done |
+| 28 | feat-007 | Implement external AI ECHO rules for category A | deferred; waiting for Q11 and scripted ECHO baseline | P2 | AI integration main push |
 
 ## Review / QA Gates
 

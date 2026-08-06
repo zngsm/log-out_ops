@@ -37,6 +37,7 @@
 | 24 | feat-019 | feat | Integrate DOCX-reference 3D control room with scene and resource state | done | dev-agent | yes | feat-009, feat-012, feat-015 | feat-020, qa-002 | project/tasks/feat-019.md |
 | 25 | feat-020 | feat | Add directed Ending A and result panel | done | dev-agent | no | feat-013, feat-014, feat-018, feat-019 | qa-002 | project/tasks/feat-020.md |
 | 26 | qa-002 | chore | Run original-source vertical slice QA | done | qa-agent | no | feat-012, feat-013, feat-014, feat-015, feat-016, feat-017, feat-018, feat-019, feat-020, chore-003 | phase 2 bug tasks | project/tasks/qa-002.md |
+| 27 | bug-003 | bug | Fix menu zoom transition layout drift | done | dev-agent | no | qa-002 | human visual review | project/tasks/bug-003.md |
 
 ## Parallel Work Notes
 
