@@ -2,11 +2,11 @@
 
 ## Status
 
-- status: todo
+- status: done
 - type: feat
 - priority: 23
 - owner agent: dev-agent
-- branch: `feat-018-add-placeholder-audio-system-and-sound-cues`
+- branch: `main`
 - commit message: `feat-018 add placeholder audio system and sound cues`
 
 ## Goal
@@ -29,12 +29,31 @@ Add the minimum audio layer needed for the original LOG_OUT pressure fantasy to 
 
 ## Acceptance Criteria
 
-- [ ] Audio starts only after user interaction and can be muted.
-- [ ] Correct and wrong evidence submissions have distinct audio feedback.
-- [ ] Opening and blackout are audibly different from normal gameplay.
-- [ ] Opening has distinct audio beats for PLAY, alarm, decompression, door lock, crew notifications, communication cutoff, ECHO typing/ping, and HUD activation.
-- [ ] Missing audio files fall back gracefully.
-- [ ] QA can verify triggers without external services.
+- [x] Audio starts only after user interaction and can be muted.
+- [x] Correct and wrong evidence submissions have distinct audio feedback.
+- [x] Opening and blackout are audibly different from normal gameplay.
+- [x] Opening has distinct audio beats for PLAY, alarm, decompression, door lock, crew notifications, communication cutoff, ECHO typing/ping, and HUD activation.
+- [x] Missing audio files fall back gracefully.
+- [x] QA can verify triggers without external services.
+
+## Implementation Notes
+
+- Added `src/game/audioSystem.ts` with user-gesture-safe WebAudio synthetic fallback cues.
+- Added mute, volume, and enable controls to the HUD.
+- Wired cue triggers for PLAY, opening alarm/decompression/door lock/crew popup/comm glitch/ECHO typing/HUD ignition.
+- Wired distinct success, wrong surge, blackout, and ending-door cues.
+- No external services or static audio assets are required for QA verification.
+
+## Validation
+
+- `npm run build`: pass
+- `git diff --check`: pass
+- review-agent result: approved
+
+## Delivery
+
+- workflow: latest `main` -> task commit -> push `main`
+- code commit: `f30caed feat-018 add placeholder audio system and sound cues`
 
 ## Source References
 
@@ -65,3 +84,6 @@ Add the minimum audio layer needed for the original LOG_OUT pressure fantasy to 
 
 | date | agent | status change | notes |
 | --- | --- | --- | --- |
+| 2026-08-06 | dev-agent | todo -> in_progress | Placeholder audio system and sound cue implementation started after feat-017 main push |
+| 2026-08-06 | review-agent | in_progress -> approved | Build and diff validation passed; no blocking findings |
+| 2026-08-06 | dev-agent | approved -> done | Code committed and pushed directly to main |
