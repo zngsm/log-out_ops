@@ -18,8 +18,8 @@
 | M5 | pre-AI MVP 이해도, 콘텐츠 밀도, UX 보강 | feat-010, chore-002, feat-011 | done |
 | M6 | deterministic MVP QA 시나리오 수행 및 bug task 생성 | qa-001 | done with failures |
 | M7 | QA-discovered MVP blockers 수정 | bug-001, bug-002 | done |
-| M8 | DOCX 원문 기획 기반 vertical slice 재정렬 | feat-012, feat-013, feat-014, feat-015, feat-016, feat-017, chore-003, feat-018, feat-019, feat-020 | todo |
-| M9 | 원문 기준 vertical slice QA | qa-002 | todo |
+| M8 | DOCX 원문 기획 기반 vertical slice 재정렬 | feat-012, feat-013, feat-014, feat-015, feat-016, feat-017, chore-003, feat-018, feat-019, feat-020 | done |
+| M9 | 원문 기준 vertical slice QA | qa-002 | done with no blocking bugs |
 | P2 | external AI ECHO integration | feat-007 | deferred |
 
 ## Task Timeline
@@ -50,8 +50,8 @@
 | 22 | feat-017 | Rework Log_Fixer into mini-program flow | clear after feat-016 | L | done |
 | 23 | feat-018 | Add placeholder audio system and sound cues | clear after feat-012, feat-014, feat-015 | L | done |
 | 24 | feat-019 | Integrate DOCX-reference 3D control room with scene and resource state | clear after feat-012, feat-015 | L | done |
-| 25 | feat-020 | Add directed Ending A and result panel | clear after feat-013, feat-014, feat-018, feat-019 | M | ending main push |
-| 26 | qa-002 | Run original-source vertical slice QA | clear after M8 main pushes | N | bug tasks if failures are found |
+| 25 | feat-020 | Add directed Ending A and result panel | clear after feat-013, feat-014, feat-018, feat-019 | M | done |
+| 26 | qa-002 | Run original-source vertical slice QA | clear after M8 main pushes | N | done; no blocking bug tasks created |
 | 27 | feat-007 | Implement external AI ECHO rules for category A | deferred; waiting for Q11 and scripted ECHO baseline | P2 | AI integration main push |
 
 ## Review / QA Gates
