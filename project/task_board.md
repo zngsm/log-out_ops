@@ -39,6 +39,7 @@
 | 26 | qa-002 | chore | Run original-source vertical slice QA | done | qa-agent | no | feat-012, feat-013, feat-014, feat-015, feat-016, feat-017, feat-018, feat-019, feat-020, chore-003 | phase 2 bug tasks | project/tasks/qa-002.md |
 | 27 | bug-003 | bug | Fix menu zoom transition layout drift | done | dev-agent | no | qa-002 | human visual review | project/tasks/bug-003.md |
 | 28 | bug-004 | bug | Align start scene with control room computer flow | done | dev-agent | no | bug-003 | human visual review | project/tasks/bug-004.md |
+| 29 | bug-005 | bug | Hide 3D backdrop after terminal zoom | done | dev-agent | no | bug-004 | human visual review | project/tasks/bug-005.md |
 
 ## Parallel Work Notes
 
