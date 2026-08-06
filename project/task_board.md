@@ -34,7 +34,7 @@
 | 21 | feat-017 | feat | Rework Log_Fixer into mini-program flow | done | dev-agent | yes | feat-006, feat-016 | qa-002 | project/tasks/feat-017.md |
 | 22 | chore-003 | chore | Rewrite Category A content into diegetic clue layer | done | dev-agent | yes | feat-004, chore-002 | qa-002 | project/tasks/chore-003.md |
 | 23 | feat-018 | feat | Add placeholder audio system and sound cues | done | dev-agent | yes | feat-012, feat-014, feat-015 | feat-020, qa-002 | project/tasks/feat-018.md |
-| 24 | feat-019 | feat | Integrate DOCX-reference 3D control room with scene and resource state | todo | dev-agent | yes | feat-009, feat-012, feat-015 | feat-020, qa-002 | project/tasks/feat-019.md |
+| 24 | feat-019 | feat | Integrate DOCX-reference 3D control room with scene and resource state | done | dev-agent | yes | feat-009, feat-012, feat-015 | feat-020, qa-002 | project/tasks/feat-019.md |
 | 25 | feat-020 | feat | Add directed Ending A and result panel | todo | dev-agent | no | feat-013, feat-014, feat-018, feat-019 | qa-002 | project/tasks/feat-020.md |
 | 26 | qa-002 | chore | Run original-source vertical slice QA | todo | qa-agent | no | feat-012, feat-013, feat-014, feat-015, feat-016, feat-017, feat-018, feat-019, feat-020, chore-003 | phase 2 bug tasks | project/tasks/qa-002.md |
 

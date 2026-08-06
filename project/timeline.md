@@ -49,7 +49,7 @@
 | 21 | chore-003 | Rewrite Category A content into diegetic clue layer | clear after chore-002 | K | done |
 | 22 | feat-017 | Rework Log_Fixer into mini-program flow | clear after feat-016 | L | done |
 | 23 | feat-018 | Add placeholder audio system and sound cues | clear after feat-012, feat-014, feat-015 | L | done |
-| 24 | feat-019 | Integrate DOCX-reference 3D control room with scene and resource state | clear after feat-012, feat-015 | L | 3D integration main push |
+| 24 | feat-019 | Integrate DOCX-reference 3D control room with scene and resource state | clear after feat-012, feat-015 | L | done |
 | 25 | feat-020 | Add directed Ending A and result panel | clear after feat-013, feat-014, feat-018, feat-019 | M | ending main push |
 | 26 | qa-002 | Run original-source vertical slice QA | clear after M8 main pushes | N | bug tasks if failures are found |
 | 27 | feat-007 | Implement external AI ECHO rules for category A | deferred; waiting for Q11 and scripted ECHO baseline | P2 | AI integration main push |
