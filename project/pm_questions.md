@@ -2,10 +2,10 @@
 
 ## Document Meta
 
-- version: 0.2
+- version: 0.3
 - pm agent: codex
-- date: 2026-08-05
-- status: needs_human_input - experience realignment questions added
+- date: 2026-08-06
+- status: Q11 still blocking external AI; original-source phase 2 can proceed
 
 ## Blocking Questions
 
@@ -111,22 +111,13 @@ ECHO 판정은 외부 AI/API 연동으로 확정되었다. 구현을 시작하�
 
 ### Q12. Act 3 최종 퍼즐 방향성
 
-현재 문서와 구현 사이에 Act 3의 경험 방향 차이가 있습니다.
+### Answer
 
-- `scene_flow.md`: `auxiliary_capacitor.log` + `emergency_grid_switch.conf`로 문 개방 전력 문제를 해결하는 자원 배분 딜레마
-- 현재 구현: `ai_priority_matrix.json` + `deleted_override.txt`로 ECHO의 우선순위/오버라이드 수칙 충돌을 해결하는 정책 논리 퍼즐
+Resolved by the primary original source and Q4.
 
-MVP 최종 Act 3은 어떤 방향으로 확정할까요?
+Current Category A MVP and Phase 2 vertical slice keep `ai_priority_matrix.json` + `deleted_override.txt` as the canonical Act 3 solution.
 
-### Suggested Options
-
-- Option A: 현재 구현처럼 `ai_priority_matrix.json` + `deleted_override.txt`를 유지한다.
-- Option B: `scene_flow.md`처럼 `auxiliary_capacitor.log` + `emergency_grid_switch.conf`로 복구한다.
-- Option C: 둘을 결합해, ECHO가 전력 리스크로 거부한 뒤 플레이어가 보조 전력과 상위 수칙을 모두 입증하게 한다.
-
-### PM Recommendation
-
-Option C가 원 기획의 자원 압박과 논리 파쇄를 가장 잘 살립니다. 다만 구현 범위는 가장 큽니다.
+The older power-route pair, `auxiliary_capacitor.log` + `emergency_grid_switch.conf`, is not a blocker for current implementation. It can be reconsidered only as a later phase expansion, alternate route, or advanced ending after human approval.
 
 ### Q13. 다음 목표의 완성도 기준
 
@@ -135,6 +126,10 @@ Option C가 원 기획의 자원 압박과 논리 파쇄를 가장 잘 살립니
 ### PM Recommendation
 
 `first vertical slice that feels like the intended game`로 전환하는 것을 권장합니다.
+
+### Answer
+
+PM assumes Phase 2 should target a first vertical slice that feels like the intended game because the user explicitly requested re-planning against the original `LOG_OUT **.md` intent.
 
 ### Q14. 파일 내 직접 힌트 노출 정책
 
@@ -146,6 +141,10 @@ Option C가 원 기획의 자원 압박과 논리 파쇄를 가장 잘 살립니
 
 프로덕션 플레이에서는 숨기고, debug/hint layer로 분리하는 것을 권장합니다.
 
+### Answer
+
+PM assumes Phase 2 should move direct `[PLAYER NOTE]` style hints behind debug/hint UI while keeping diegetic file contents readable.
+
 ### Q15. ECHO AI 재개 시점
 
 외부 AI/API를 지금 재개할까요, 아니면 먼저 deterministic scripted ECHO 대화/연출 시스템을 만들어 의도한 경험을 API 없이 구현할까요?
@@ -153,3 +152,7 @@ Option C가 원 기획의 자원 압박과 논리 파쇄를 가장 잘 살립니
 ### PM Recommendation
 
 먼저 scripted ECHO를 구현하고, 외부 AI는 힌트/자유 대화 확장으로 붙이는 것을 권장합니다.
+
+### Answer
+
+PM assumes Phase 2 should implement deterministic scripted ECHO first. External AI remains blocked only by Q11.

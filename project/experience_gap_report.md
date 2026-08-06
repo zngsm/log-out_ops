@@ -2,16 +2,22 @@
 
 ## Document Meta
 
-- version: 0.1
+- version: 0.2
 - pm agent: codex
 - date: 2026-08-06
 - status: analysis complete
 - source planning docs:
+  - `project/human-input/LOG_OUT 기획서.md`
+  - `project/human-input/LOG_OUT visual 기획서.md`
+  - `project/human-input/LOG_OUT 로그 예시.md`
+  - `project/human-input/LOG_OUT AI 프롬포트 예시.md`
+  - `project/human-input/LOG_OUT 로그파일 구조.md`
   - `project/human-input/project_brief.md`
   - `project/human-input/gameplay_spec.md`
   - `project/human-input/scene_flow.md`
   - `project/human-input/direction_and_content.md`
   - `project/human-input/asset_plan.md`
+  - `project/phase_2_original_source_replan.md`
   - `project/pm_questions.md`
   - `project/mvp_scope.md`
 - implementation baseline:
@@ -97,13 +103,8 @@ Specific missing items:
 
 ### 4. Act 3 Intent Drifted
 
-Original intent conflict:
-The structured `scene_flow.md` defines Category A Act 3 as a resource allocation dilemma solved by:
-
-- `/Hardware/Power/auxiliary_capacitor.log`
-- `/System/Power/emergency_grid_switch.conf`
-
-The PM questions later resolved Category A MVP Act 3 to the original rough-plan pair:
+Original-source resolution:
+The primary `LOG_OUT 기획서.md` and `LOG_OUT 로그 예시.md` define Category A Act 3 as:
 
 - `ai_priority_matrix.json`
 - `deleted_override.txt`
@@ -112,13 +113,13 @@ Current result:
 The implementation uses `ai_priority_matrix.json` + `deleted_override.txt`.
 
 Gap:
-This is not necessarily wrong because Q4 resolved it, but the experience impact was under-analyzed. The implemented Act 3 became "policy priority contradiction" rather than "door opening consumes power and must be solved with independent emergency power."
+This is correct for the current MVP. The real gap is not the evidence pair itself; it is that the final confrontation does not yet feel like ECHO's highest-authority logic collapsing under pressure.
 
 Consequence:
-The final puzzle loses the concrete physical stakes of opening a door under low power. It becomes abstract policy logic, which feels less like an escape-room climax.
+The final puzzle currently feels too abstract because the scene lacks the original 5-second review mode, door unlock beat, audio, and high-stakes ECHO dialogue.
 
 PM correction needed:
-Either confirm that Act 3 should remain policy-priority based, or restore the power-route dilemma with new files. This is a human design decision, not something dev agent should infer.
+Keep the original-source Act 3 pair for Phase 2. Treat the old power-route variant as later expansion only.
 
 ### 5. Resource Pressure Exists Mechanically But Not Dramatically
 
@@ -211,7 +212,7 @@ If AI remains deferred, the deterministic MVP needs a richer scripted ECHO conve
 | --- | --- | --- | --- |
 | P0 | No explicit scene state/directing layer | high | Add scene runtime model and scene transition specs |
 | P0 | ECHO dialogue lacks staged logical defense | high | Implement scripted ECHO scene dialogue and response timing |
-| P0 | Act 3 climax lacks confirmed intended direction | high | Ask human to choose policy contradiction vs power-route dilemma |
+| P0 | Act 3 climax lacks scene direction despite confirmed evidence pair | high | Add final review mode, ECHO collapse dialogue, door release beat |
 | P1 | Audio/soundscape missing | high | Add placeholder WebAudio ambience/SFX plan and implementation |
 | P1 | Resource pressure not dramatized enough | medium-high | Add countdown, multiplier display, surge/reboot/critical feedback |
 | P1 | 3D scene does not react to gameplay | medium-high | Tie lights/camera/monitor intensity to power/Act state |
@@ -223,13 +224,9 @@ If AI remains deferred, the deterministic MVP needs a richer scripted ECHO conve
 
 ### Q12. Act 3 Final Puzzle Direction
 
-Which Act 3 direction should become the canonical MVP experience?
+Resolved. Phase 2 keeps `ai_priority_matrix.json` + `deleted_override.txt` because the original `LOG_OUT 기획서.md`, `LOG_OUT 로그 예시.md`, and Q4 already establish that pair as Category A MVP truth.
 
-- Option A: keep `ai_priority_matrix.json` + `deleted_override.txt`, focusing on ECHO's priority-rule contradiction.
-- Option B: restore `auxiliary_capacitor.log` + `emergency_grid_switch.conf`, focusing on the physical resource/door-opening dilemma.
-- Option C: combine both, where ECHO first refuses due to power risk, then the player must prove both emergency power availability and authority/priority override.
-
-PM recommendation: Option C is strongest for the original game fantasy, but it increases content and implementation scope.
+The old power-route idea can be tracked as a later expansion question, but it must not block current tasks.
 
 ### Q13. MVP Experience Bar
 
@@ -257,14 +254,17 @@ Recommended tasks:
 
 | task id | type | title | purpose |
 | --- | --- | --- | --- |
-| feat-012 | feat | Add scene runtime and Act beat orchestration | Represent Act 0-4 as explicit scenes with entry/exit and input lock rules |
-| chore-003 | chore | Rewrite Category A content into diegetic clue layer | Remove over-direct player notes from production copy and preserve optional debug hints |
-| feat-013 | feat | Implement scripted ECHO defense dialogue | Use planning dialogue IDs and staged logical refusal/partial success responses |
-| feat-014 | feat | Add resource pressure presentation | Countdown, multiplier, surge, reboot, critical feedback, and planned delays |
-| feat-015 | feat | Add placeholder audio feedback system | Ship hum, ECHO ping, wrong/success SFX, blackout silence/reboot |
-| feat-016 | feat | Integrate 3D scene with power and scene state | Lighting/camera/monitor state changes by Act and resource state |
-| feat-017 | feat | Rework Ending A into directed scene | 10-second door release sequence and result panel |
-| pm-002 | chore | Resolve Act 3 canonical direction | Human answer required for Q12 |
+| feat-012 | feat | Add main menu and directed opening sequence | Recreate the original entry flow before terminal control |
+| feat-013 | feat | Add scene runtime and Act beat orchestration | Represent opening, Acts, review, ending, failure, blackout as explicit scenes |
+| feat-014 | feat | Implement ECHO decision matrix and persona responses | Use original staged logical refusal/partial/redundant/repeat-hint behavior |
+| feat-015 | feat | Add resource pressure HUD and threshold effects | Countdown, multiplier, surge, reboot, critical feedback, and planned delays |
+| feat-016 | feat | Improve Hermes file explorer interaction fidelity | Path/search/tree/metadata/context-menu investigation UX |
+| feat-017 | feat | Rework Log_Fixer into mini-program flow | CUI popup, path input, repair mode, progress, restored highlights |
+| chore-003 | chore | Rewrite Category A content into diegetic clue layer | Remove direct player notes from production copy and preserve optional debug hints |
+| feat-018 | feat | Add placeholder audio system and sound cues | Ship hum, ECHO ping, wrong/success SFX, blackout silence/reboot |
+| feat-019 | feat | Integrate 3D control room with scene and resource state | Lighting/camera/monitor/door changes by scene and resource state |
+| feat-020 | feat | Add directed Ending A and result panel | Final review mode, door release sequence, result panel |
+| qa-002 | chore | Run original-source vertical slice QA | Validate against the original `LOG_OUT **.md` docs |
 
 ## PM Conclusion
 

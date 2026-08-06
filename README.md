@@ -23,6 +23,22 @@
 7. MVP 완료 후 PM agent가 QA 계획을 만들고 QA agent가 검증한다.
 8. 실패 항목은 bug task로 다시 생성한다.
 
+## Current Project Source Of Truth
+
+현재 LOG_OUT 프로젝트에서는 `project/human-input/LOG_OUT **.md` 원본문서가 최우선 기획 소스다.
+
+PM/dev/QA agent는 아래 순서로 문서를 해석해야 한다.
+
+1. `project/human-input/LOG_OUT 기획서.md`
+2. `project/human-input/LOG_OUT visual 기획서.md`
+3. `project/human-input/LOG_OUT 로그 예시.md`
+4. `project/human-input/LOG_OUT AI 프롬포트 예시.md`
+5. `project/human-input/LOG_OUT 로그파일 구조.md`
+6. `project/human-input/LOG_OUT_PM_QA.md`
+7. PM이 생성한 `project/*.md`, `project/tasks/*.md`
+
+원본문서와 PM 파생 문서가 충돌하면 PM agent가 자의로 판단하지 않는다. 현재 phase의 정리는 [phase_2_original_source_replan.md](/Users/a202107061/private/log-out/log-out_ops/project/phase_2_original_source_replan.md)를 따른다.
+
 ## Folder Guide
 
 ```text
@@ -36,6 +52,8 @@ log-out_ops/
     human-input/
     agent-output/
   project/
+    human-input/
+      LOG_OUT **.md
     project_brief.md
     gameplay_spec.md
     scene_flow.md
@@ -54,6 +72,8 @@ log-out_ops/
 ## What Humans Need To Fill
 
 사람이 처음 직접 작성해야 하는 문서는 아래 5개뿐이다.
+
+단, 현재 LOG_OUT처럼 사람이 이미 러프 원본문서 `LOG_OUT **.md`를 제공한 경우에는 이 원본문서가 최우선이다. 아래 5개 템플릿은 PM agent가 읽기 쉽게 보조 정리하는 문서이며, 원문 의도를 덮어쓰는 문서가 아니다.
 
 상세 기준은 [HANDOFF_SPEC.md](/Users/a202107061/private/log-out/log-out_ops/HANDOFF_SPEC.md)에 있다.
 

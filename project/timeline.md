@@ -2,10 +2,10 @@
 
 ## Document Meta
 
-- version: 0.4
+- version: 0.5
 - pm agent: codex
-- date: 2026-08-05
-- status: pre-AI MVP reinforcement plan confirmed
+- date: 2026-08-06
+- status: original-source phase 2 vertical slice planned
 
 ## Delivery Milestones
 
@@ -18,6 +18,8 @@
 | M5 | pre-AI MVP 이해도, 콘텐츠 밀도, UX 보강 | feat-010, chore-002, feat-011 | done |
 | M6 | deterministic MVP QA 시나리오 수행 및 bug task 생성 | qa-001 | done with failures |
 | M7 | QA-discovered MVP blockers 수정 | bug-001, bug-002 | done |
+| M8 | 원문 기획 기반 vertical slice 재정렬 | feat-012, feat-013, feat-014, feat-015, feat-016, feat-017, chore-003, feat-018, feat-019, feat-020 | todo |
+| M9 | 원문 기준 vertical slice QA | qa-002 | todo |
 | P2 | external AI ECHO integration | feat-007 | deferred |
 
 ## Task Timeline
@@ -39,7 +41,18 @@
 | 13 | qa-001 | Run deterministic MVP scenario QA and create bug tickets | clear after M5 branch merge | G | done; created bug-001 and bug-002 |
 | 14 | bug-001 | Connect oxygen timer to active gameplay session | clear after qa-001 | H | done |
 | 15 | bug-002 | Enforce blackout interaction lock in gameplay UI | clear after qa-001 | H | done |
-| 16 | feat-007 | Implement external AI ECHO rules for category A | deferred to phase 2; waiting for Q11 | P2 | AI integration PR |
+| 16 | feat-012 | Add main menu and directed opening sequence | clear after current MVP baseline | I | menu/opening PR |
+| 17 | feat-013 | Add scene runtime and Act beat orchestration | clear after feat-012 | J | scene runtime PR |
+| 18 | feat-014 | Implement ECHO decision matrix and persona responses | clear after feat-013 | K | ECHO rules PR |
+| 19 | feat-015 | Add resource pressure HUD and threshold effects | clear after bug-001, bug-002 | K | resource pressure PR |
+| 20 | feat-016 | Improve Hermes file explorer interaction fidelity | clear after feat-011 | K | explorer fidelity PR |
+| 21 | chore-003 | Rewrite Category A content into diegetic clue layer | clear after chore-002 | K | content rewrite PR |
+| 22 | feat-017 | Rework Log_Fixer into mini-program flow | clear after feat-016 | L | Log_Fixer PR |
+| 23 | feat-018 | Add placeholder audio system and sound cues | clear after feat-012, feat-014, feat-015 | L | audio PR |
+| 24 | feat-019 | Integrate 3D control room with scene and resource state | clear after feat-012, feat-015 | L | 3D integration PR |
+| 25 | feat-020 | Add directed Ending A and result panel | clear after feat-013, feat-014, feat-018, feat-019 | M | ending PR |
+| 26 | qa-002 | Run original-source vertical slice QA | clear after M8 branches merge | N | bug tasks if failures are found |
+| 27 | feat-007 | Implement external AI ECHO rules for category A | deferred; waiting for Q11 and scripted ECHO baseline | P2 | AI integration PR |
 
 ## Review / QA Gates
 
@@ -49,11 +62,12 @@
 | PM clarification gate | blocked task references unresolved Q id | human answer and updated docs |
 | QA gate 1 | M5 complete and code PRs merged | deterministic scenario result, failed cases, bug task creation |
 | bugfix gate 1 | bug-001 and bug-002 fixed | MVP can proceed to human review |
-| phase 2 gate | human answers Q11 and accepts AI/API integration timing | feat-007 can move from deferred to todo |
+| original-source gate | M8 tasks complete and merged | qa-002 validates the game against original LOG_OUT docs |
+| phase 2 AI gate | human answers Q11 and accepts AI/API integration timing | feat-007 can move from deferred to todo |
 
 ## Bottleneck Watchlist
 
 - 외부 AI/API provider, model, env var, fallback 정책이 확정되지 않으면 `feat-007`을 완료할 수 없지만, 이는 현재 deterministic MVP QA를 막지 않는다.
 - R3F 컴퓨터 배경은 MVP 범위로 확정되었으므로 `feat-009`를 `feat-002`와 병렬로 진행한다.
-- 오래된 source 문서의 Act 3 예시가 task 문서와 충돌할 경우 `project/pm_questions.md`와 `project/tasks/*.md`를 우선한다.
-- 현재 pre-AI MVP의 가장 큰 리스크는 외부 AI 부재가 아니라 인트로 설명 부족, 내부 파일 콘텐츠 밀도 부족, UX 가이드 부족이다.
+- 원문 `LOG_OUT **.md`와 파생 task 문서가 충돌하면 원문과 human answer를 우선한다.
+- 현재 가장 큰 리스크는 외부 AI 부재만이 아니라, 원문에서 요구한 메뉴/오프닝/씬 연출/ECHO 존재감/리소스 압박/파일 탐색감이 충분히 체감되지 않는 점이다.
