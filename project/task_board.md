@@ -45,7 +45,7 @@
 | 32 | bug-008 | bug | Align terminal screen zoom with monitor frame | done | dev-agent | no | bug-007 | bug-009 | project/tasks/bug-008.md |
 | 33 | bug-009 | bug | Re-run original-source QA after visual flow fixes | done | qa-agent | no | bug-007, bug-008 | human visual review | project/tasks/bug-009.md |
 | 34 | feat-021 | feat | Convert DOCX Category A logs into production game content | done | dev-agent | no | bug-009 | feat-022, feat-023, qa-003 | project/tasks/feat-021.md |
-| 35 | feat-022 | feat | Implement DOCX-based ECHO argument flow | todo | dev-agent | no | feat-021 | feat-023, qa-003, feat-007 | project/tasks/feat-022.md |
+| 35 | feat-022 | feat | Implement DOCX-based ECHO argument flow | done | dev-agent | no | feat-021 | feat-023, qa-003, feat-007 | project/tasks/feat-022.md |
 | 36 | feat-023 | feat | Add DOCX resource pressure feedback as gameplay feel | todo | dev-agent | no | feat-021, feat-022 | qa-003 | project/tasks/feat-023.md |
 | 37 | feat-024 | feat | Rebuild opening-to-terminal flow from visual DOCX | todo | dev-agent | yes | bug-009 | qa-003 | project/tasks/feat-024.md |
 | 38 | chore-004 | chore | Define final asset drop contract from DOCX references | todo | pm-agent | yes | feat-021, feat-024 | qa-003, human asset production | project/tasks/chore-004.md |

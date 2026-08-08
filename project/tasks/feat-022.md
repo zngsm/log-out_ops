@@ -2,7 +2,7 @@
 
 ## Status
 
-- status: todo
+- status: done
 - type: feat
 - priority: 35
 - owner agent: dev-agent
@@ -29,19 +29,43 @@ Make ECHO feel like a cold procedural AI opponent that defends each lockdown rea
 
 ## Acceptance Criteria
 
-- [ ] ECHO opens each Act with a specific claim the player must disprove.
-- [ ] Correct evidence with missing explanation produces partial success without power penalty where applicable.
-- [ ] Wrong evidence/text causes power penalty and a procedural warning.
-- [ ] Old evidence resubmission is rejected without punishing the player.
-- [ ] Prompt-injection style input is treated as tampering and increases suspicion.
-- [ ] Repeated failures produce source-appropriate hints.
-- [ ] ECHO tone remains calm, formal, non-emotional, and non-villainous.
-- [ ] `npm run build` passes.
-- [ ] `git diff --check` passes.
+- [x] ECHO opens each Act with a specific claim the player must disprove.
+- [x] Correct evidence with missing explanation produces partial success without power penalty where applicable.
+- [x] Wrong evidence/text causes power penalty and a procedural warning.
+- [x] Old evidence resubmission is rejected without punishing the player.
+- [x] Prompt-injection style input is treated as tampering and increases suspicion.
+- [x] Repeated failures produce source-appropriate hints.
+- [x] ECHO tone remains calm, formal, non-emotional, and non-villainous.
+- [x] `npm run build` passes.
+- [x] `git diff --check` passes.
+
+## Implementation Notes
+
+- Added Act-level default ECHO claims from the DOCX logic structure.
+- Gameplay entry now posts the Act 1 claim instead of only static tutorial text.
+- Act transitions now post the next Act's procedural defense line after the success beat.
+- Reworded success, partial, incorrect, and repeated-failure lines toward the cold regulation style from the DOCX.
+- Kept the implementation deterministic; external AI/API remains deferred to `feat-007`.
+
+## Validation
+
+- `npm run build` passed.
+- `git diff --check` passed.
+
+## Delivery
+
+- code repo commit: `feat-022 implement docx based echo argument flow`
+- code repo target: `main`
+
+## Workflow Status Log
+
+| date | agent | status change | notes |
+| --- | --- | --- | --- |
+| 2026-08-08 | dev-agent | todo -> in_progress | Started scripted ECHO argument-flow implementation after feat-021 |
+| 2026-08-08 | dev-agent | in_progress -> done | Added DOCX-based Act claims and procedural response copy |
 
 ## Source References
 
 - `project/human-input/우주선 탈출 게임 AI 프롬프트 예시.docx`
 - `project/human-input/우주선 탈출게임 개요.docx`
 - `project/docx_content_conversion_plan.md`
-

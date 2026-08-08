@@ -62,7 +62,7 @@
 | 32 | bug-008 | Align terminal screen zoom with monitor frame | source review after bug-007 | O | done |
 | 33 | bug-009 | Re-run original-source QA after visual flow fixes | after bug-007 and bug-008 | O | done; no new blocking bug tasks created |
 | 34 | feat-021 | Convert DOCX Category A logs into production game content | clear after bug-009 | P | done |
-| 35 | feat-022 | Implement DOCX-based ECHO argument flow | clear after feat-021 | Q | code main push |
+| 35 | feat-022 | Implement DOCX-based ECHO argument flow | clear after feat-021 | Q | done |
 | 36 | feat-024 | Rebuild opening-to-terminal flow from visual DOCX | clear after bug-009; can run near feat-022 | Q | code main push |
 | 37 | feat-023 | Add DOCX resource pressure feedback as gameplay feel | clear after feat-021 and feat-022 | R | code main push |
 | 38 | chore-004 | Define final asset drop contract from DOCX references | clear after feat-021 and feat-024 | R | ops main push |
