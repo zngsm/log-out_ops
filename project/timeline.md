@@ -65,7 +65,7 @@
 | 35 | feat-022 | Implement DOCX-based ECHO argument flow | clear after feat-021 | Q | done |
 | 36 | feat-024 | Rebuild opening-to-terminal flow from visual DOCX | clear after bug-009; can run near feat-022 | Q | done |
 | 37 | feat-023 | Add DOCX resource pressure feedback as gameplay feel | clear after feat-021 and feat-022 | R | done |
-| 38 | chore-004 | Define final asset drop contract from DOCX references | clear after feat-021 and feat-024 | R | ops main push |
+| 38 | chore-004 | Define final asset drop contract from DOCX references | clear after feat-021 and feat-024 | R | done |
 | 39 | qa-003 | Run DOCX-content vertical slice QA | clear after M10 | S | QA report and bug tasks or human review |
 | 40 | feat-007 | Implement external AI ECHO rules for category A | deferred; waiting for Q11 and scripted ECHO baseline | P2 | AI integration main push |
 

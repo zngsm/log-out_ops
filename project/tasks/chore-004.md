@@ -2,7 +2,7 @@
 
 ## Status
 
-- status: todo
+- status: done
 - type: chore
 - priority: 38
 - owner agent: pm-agent
@@ -32,11 +32,38 @@ Create a clear human-facing asset checklist so final art/audio can be dropped in
 
 ## Acceptance Criteria
 
-- [ ] Asset checklist is understandable from a human/art-team perspective.
-- [ ] Every required visual/audio asset has a target path and fallback behavior.
-- [ ] Control-room GLB node naming expectations are documented.
-- [ ] Audio naming and trigger expectations are documented.
-- [ ] No final asset is treated as mandatory for dev build success.
+- [x] Asset checklist is understandable from a human/art-team perspective.
+- [x] Every required visual/audio asset has a target path and fallback behavior.
+- [x] Control-room GLB node naming expectations are documented.
+- [x] Audio naming and trigger expectations are documented.
+- [x] No final asset is treated as mandatory for dev build success.
+
+## Output
+
+- Created `project/final_asset_drop_contract.md`.
+
+## Implementation Notes
+
+- Documented exact `public/assets` drop paths for 3D models, UI/images, FX overlays, and audio.
+- Added control-room GLB node expectations and player-hands animation clip expectations.
+- Added scene trigger map so asset timing matches the DOCX opening/gameplay/ending flow.
+- Documented placeholder fallback behavior for every required asset class.
+
+## Validation
+
+- `git diff --check` passed.
+
+## Delivery
+
+- ops repo commit: `chore-004 define final asset drop contract from docx references`
+- ops repo target: `main`
+
+## Workflow Status Log
+
+| date | agent | status change | notes |
+| --- | --- | --- | --- |
+| 2026-08-08 | pm-agent | todo -> in_progress | Started final asset contract after feat-024 |
+| 2026-08-08 | pm-agent | in_progress -> done | Published final asset drop contract with paths, specs, triggers, and fallbacks |
 
 ## Source References
 
@@ -44,4 +71,3 @@ Create a clear human-facing asset checklist so final art/audio can be dropped in
 - `project/human-input/우주선 탈출게임 개요.docx`
 - `project/human-input/asset_plan.md`
 - `project/docx_content_conversion_plan.md`
-
