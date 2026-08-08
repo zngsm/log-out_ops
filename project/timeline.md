@@ -20,6 +20,8 @@
 | M7 | QA-discovered MVP blockers 수정 | bug-001, bug-002 | done |
 | M8 | DOCX 원문 기획 기반 vertical slice 재정렬 | feat-012, feat-013, feat-014, feat-015, feat-016, feat-017, chore-003, feat-018, feat-019, feat-020 | done |
 | M9 | 원문 기준 vertical slice QA | qa-002 | done with no blocking bugs |
+| M10 | DOCX 원문을 실제 게임 콘텐츠로 변환 | feat-021, feat-022, feat-023, feat-024, chore-004 | planned |
+| M11 | DOCX 콘텐츠 기준 QA 및 사람 검토 준비 | qa-003 | planned |
 | P2 | external AI ECHO integration | feat-007 | deferred |
 
 ## Task Timeline
@@ -59,7 +61,13 @@
 | 31 | bug-007 | Restore compressed opening monitor entry flow | source review after bug-006 | O | done |
 | 32 | bug-008 | Align terminal screen zoom with monitor frame | source review after bug-007 | O | done |
 | 33 | bug-009 | Re-run original-source QA after visual flow fixes | after bug-007 and bug-008 | O | done; no new blocking bug tasks created |
-| 34 | feat-007 | Implement external AI ECHO rules for category A | deferred; waiting for Q11 and scripted ECHO baseline | P2 | AI integration main push |
+| 34 | feat-021 | Convert DOCX Category A logs into production game content | clear after bug-009 | P | code main push |
+| 35 | feat-022 | Implement DOCX-based ECHO argument flow | clear after feat-021 | Q | code main push |
+| 36 | feat-024 | Rebuild opening-to-terminal flow from visual DOCX | clear after bug-009; can run near feat-022 | Q | code main push |
+| 37 | feat-023 | Add DOCX resource pressure feedback as gameplay feel | clear after feat-021 and feat-022 | R | code main push |
+| 38 | chore-004 | Define final asset drop contract from DOCX references | clear after feat-021 and feat-024 | R | ops main push |
+| 39 | qa-003 | Run DOCX-content vertical slice QA | clear after M10 | S | QA report and bug tasks or human review |
+| 40 | feat-007 | Implement external AI ECHO rules for category A | deferred; waiting for Q11 and scripted ECHO baseline | P2 | AI integration main push |
 
 ## Review / QA Gates
 
@@ -78,3 +86,4 @@
 - R3F 컴퓨터 배경은 MVP 범위로 확정되었으므로 `feat-009`를 `feat-002`와 병렬로 진행한다.
 - 원문 `LOG_OUT **.md`, 새 DOCX 원문, 파생 task 문서가 충돌하면 DOCX/원문과 human answer를 우선한다. 이미지 reference가 필요한 경우 DOCX를 우선한다.
 - 현재 가장 큰 리스크는 외부 AI 부재만이 아니라, 원문에서 요구한 메뉴/오프닝/씬 연출/ECHO 존재감/리소스 압박/파일 탐색감이 충분히 체감되지 않는 점이다.
+- DOCX source files now provide enough Category A content for implementation; the remaining risk is conversion fidelity, not lack of source material.

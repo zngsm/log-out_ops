@@ -44,6 +44,12 @@
 | 31 | bug-007 | bug | Restore compressed opening monitor entry flow | done | dev-agent | no | bug-006 | bug-008 | project/tasks/bug-007.md |
 | 32 | bug-008 | bug | Align terminal screen zoom with monitor frame | done | dev-agent | no | bug-007 | bug-009 | project/tasks/bug-008.md |
 | 33 | bug-009 | bug | Re-run original-source QA after visual flow fixes | done | qa-agent | no | bug-007, bug-008 | human visual review | project/tasks/bug-009.md |
+| 34 | feat-021 | feat | Convert DOCX Category A logs into production game content | todo | dev-agent | no | bug-009 | feat-022, feat-023, qa-003 | project/tasks/feat-021.md |
+| 35 | feat-022 | feat | Implement DOCX-based ECHO argument flow | todo | dev-agent | no | feat-021 | feat-023, qa-003, feat-007 | project/tasks/feat-022.md |
+| 36 | feat-023 | feat | Add DOCX resource pressure feedback as gameplay feel | todo | dev-agent | no | feat-021, feat-022 | qa-003 | project/tasks/feat-023.md |
+| 37 | feat-024 | feat | Rebuild opening-to-terminal flow from visual DOCX | todo | dev-agent | yes | bug-009 | qa-003 | project/tasks/feat-024.md |
+| 38 | chore-004 | chore | Define final asset drop contract from DOCX references | todo | pm-agent | yes | feat-021, feat-024 | qa-003, human asset production | project/tasks/chore-004.md |
+| 39 | qa-003 | chore | Run DOCX-content vertical slice QA | todo | qa-agent | no | feat-021, feat-022, feat-023, feat-024, chore-004 | bug tasks or human review | project/tasks/qa-003.md |
 
 ## Parallel Work Notes
 
@@ -64,5 +70,7 @@
 - If a task depends on a question ID, PM must update `pm_questions.md` and this board after the human answer.
 - QA can run before `feat-007` as long as it tests deterministic scripted ECHO behavior rather than external AI behavior.
 - Phase 2 QA must cite original `LOG_OUT **.md` expectations, not only task acceptance criteria.
+- For the next phase, `project/docx_content_conversion_plan.md` is the controlling bridge between the DOCX source documents and playable implementation tasks.
+- The DOCX files are considered sufficient content source for Category A; dev agents should convert them into game files, ECHO rules, scene beats, and asset contracts instead of waiting for new prose.
 - Every dev task must update its task md status from `todo` to `in_progress` to `done`.
 - Current dev workflow is latest `main` -> task-scoped implementation -> task-id commit message -> push directly to `main`; PR/branch flow is only used when the human explicitly asks for it.
