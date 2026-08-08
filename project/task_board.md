@@ -47,7 +47,7 @@
 | 34 | feat-021 | feat | Convert DOCX Category A logs into production game content | done | dev-agent | no | bug-009 | feat-022, feat-023, qa-003 | project/tasks/feat-021.md |
 | 35 | feat-022 | feat | Implement DOCX-based ECHO argument flow | done | dev-agent | no | feat-021 | feat-023, qa-003, feat-007 | project/tasks/feat-022.md |
 | 36 | feat-023 | feat | Add DOCX resource pressure feedback as gameplay feel | done | dev-agent | no | feat-021, feat-022 | qa-003 | project/tasks/feat-023.md |
-| 37 | feat-024 | feat | Rebuild opening-to-terminal flow from visual DOCX | todo | dev-agent | yes | bug-009 | qa-003 | project/tasks/feat-024.md |
+| 37 | feat-024 | feat | Rebuild opening-to-terminal flow from visual DOCX | done | dev-agent | yes | bug-009 | qa-003 | project/tasks/feat-024.md |
 | 38 | chore-004 | chore | Define final asset drop contract from DOCX references | todo | pm-agent | yes | feat-021, feat-024 | qa-003, human asset production | project/tasks/chore-004.md |
 | 39 | qa-003 | chore | Run DOCX-content vertical slice QA | todo | qa-agent | no | feat-021, feat-022, feat-023, feat-024, chore-004 | bug tasks or human review | project/tasks/qa-003.md |
 

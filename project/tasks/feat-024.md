@@ -2,7 +2,7 @@
 
 ## Status
 
-- status: todo
+- status: done
 - type: feat
 - priority: 37
 - owner agent: dev-agent
@@ -36,17 +36,41 @@ Make the initial experience match the intended visual structure: visible control
 
 ## Acceptance Criteria
 
-- [ ] Initial screen reads as a spaceship control room with a computer, not an OS dashboard.
-- [ ] Computer/monitor click starts the entry flow.
-- [ ] The terminal appears to expand from inside the monitor frame.
-- [ ] Opening beats follow the DOCX 00:00~01:00 sequence, compressed only if debug speed is active.
-- [ ] Gameplay starts only after the terminal handoff beat.
-- [ ] The layout remains usable on desktop and mobile widths.
-- [ ] `npm run build` passes.
-- [ ] `git diff --check` passes.
+- [x] Initial screen reads as a spaceship control room with a computer, not an OS dashboard.
+- [x] Computer/monitor click starts the entry flow.
+- [x] The terminal appears to expand from inside the monitor frame.
+- [x] Opening beats follow the DOCX 00:00~01:00 sequence, compressed only if debug speed is active.
+- [x] Gameplay starts only after the terminal handoff beat.
+- [x] The layout remains usable on desktop and mobile widths.
+- [x] `npm run build` passes.
+- [x] `git diff --check` passes.
+
+## Implementation Notes
+
+- Reframed the initial overlay as a normal control-room standby state rather than an already-active lockdown state.
+- The computer hotspot now communicates monitor approach first, with ECHO lockdown reserved for the opening cutscene beats.
+- Added clearer first-person control-room/footer copy explaining the physical computer -> monitor zoom -> Hermes OS flow.
+- Added a secondary monitor reticle around the computer hotspot to make the clickable physical monitor target more legible.
+- Existing terminal surface animation from bug-008 remains the monitor-frame zoom handoff.
+
+## Validation
+
+- `npm run build` passed.
+- `git diff --check` passed.
+
+## Delivery
+
+- code repo commit: `feat-024 rebuild opening to terminal flow from visual docx`
+- code repo target: `main`
+
+## Workflow Status Log
+
+| date | agent | status change | notes |
+| --- | --- | --- | --- |
+| 2026-08-08 | dev-agent | todo -> in_progress | Started visual DOCX opening-to-terminal flow cleanup after feat-023 |
+| 2026-08-08 | dev-agent | in_progress -> done | Reframed initial room state and clarified physical monitor approach |
 
 ## Source References
 
 - `project/human-input/LOG_OUT visual 복사본.docx`
 - `project/docx_content_conversion_plan.md`
-
