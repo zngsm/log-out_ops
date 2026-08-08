@@ -2,7 +2,7 @@
 
 ## Status
 
-- status: todo
+- status: done
 - type: feat
 - priority: 34
 - owner agent: dev-agent
@@ -31,18 +31,42 @@ Replace placeholder-like internal file content with the concrete Category A cont
 
 ## Acceptance Criteria
 
-- [ ] Category A files match the DOCX source intent and paths closely.
-- [ ] Each required evidence file is discoverable through in-world clues, not direct answer labeling.
-- [ ] Noise files exist and are readable but do not falsely block progress.
-- [ ] Corrupted and recovered `quarantine_rules.conf` states both exist.
-- [ ] Security folder PIN discovery is driven by `email_chain_july.txt`.
-- [ ] Existing Act 1~3 progression still passes with the canonical evidence.
-- [ ] `npm run build` passes.
-- [ ] `git diff --check` passes.
+- [x] Category A files match the DOCX source intent and paths closely.
+- [x] Each required evidence file is discoverable through in-world clues, not direct answer labeling.
+- [x] Noise files exist and are readable but do not falsely block progress.
+- [x] Corrupted and recovered `quarantine_rules.conf` states both exist.
+- [x] Security folder PIN discovery is driven by `email_chain_july.txt`.
+- [x] Existing Act 1~3 progression still passes with the canonical evidence.
+- [x] `npm run build` passes.
+- [x] `git diff --check` passes.
+
+## Implementation Notes
+
+- Added DOCX source refs to Category A fixtures so PM/QA can trace content back to the actual `.docx` files.
+- Expanded `sensor_calib.log`, `email_chain_july.txt`, `tool_manual.txt`, `quarantine_rules.conf`, and final Act 3 files with DOCX-aligned diegetic details.
+- Removed production-facing direct answer labels from several noise/context files.
+- Initial gameplay no longer starts with `sensor_calib.log` already attached.
+- File viewer now hides evidence role metadata unless QA/debug hints are explicitly enabled.
+
+## Validation
+
+- `npm run build` passed.
+- `git diff --check` passed.
+
+## Delivery
+
+- code repo commit: `feat-021 convert docx category a logs into production game content`
+- code repo target: `main`
+
+## Workflow Status Log
+
+| date | agent | status change | notes |
+| --- | --- | --- | --- |
+| 2026-08-08 | dev-agent | todo -> in_progress | Started DOCX Category A content conversion from latest main |
+| 2026-08-08 | dev-agent | in_progress -> done | Replaced QA-like labels with diegetic file content and pushed code |
 
 ## Source References
 
 - `project/human-input/우주선 탈출게임 로그 예시.docx`
 - `project/human-input/우주선 탈출게임 개요.docx`
 - `project/docx_content_conversion_plan.md`
-

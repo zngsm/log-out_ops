@@ -44,7 +44,7 @@
 | 31 | bug-007 | bug | Restore compressed opening monitor entry flow | done | dev-agent | no | bug-006 | bug-008 | project/tasks/bug-007.md |
 | 32 | bug-008 | bug | Align terminal screen zoom with monitor frame | done | dev-agent | no | bug-007 | bug-009 | project/tasks/bug-008.md |
 | 33 | bug-009 | bug | Re-run original-source QA after visual flow fixes | done | qa-agent | no | bug-007, bug-008 | human visual review | project/tasks/bug-009.md |
-| 34 | feat-021 | feat | Convert DOCX Category A logs into production game content | todo | dev-agent | no | bug-009 | feat-022, feat-023, qa-003 | project/tasks/feat-021.md |
+| 34 | feat-021 | feat | Convert DOCX Category A logs into production game content | done | dev-agent | no | bug-009 | feat-022, feat-023, qa-003 | project/tasks/feat-021.md |
 | 35 | feat-022 | feat | Implement DOCX-based ECHO argument flow | todo | dev-agent | no | feat-021 | feat-023, qa-003, feat-007 | project/tasks/feat-022.md |
 | 36 | feat-023 | feat | Add DOCX resource pressure feedback as gameplay feel | todo | dev-agent | no | feat-021, feat-022 | qa-003 | project/tasks/feat-023.md |
 | 37 | feat-024 | feat | Rebuild opening-to-terminal flow from visual DOCX | todo | dev-agent | yes | bug-009 | qa-003 | project/tasks/feat-024.md |
