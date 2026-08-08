@@ -56,7 +56,10 @@
 | 28 | bug-004 | Align start scene with control room computer flow | user-reported after bug-003 | O | done |
 | 29 | bug-005 | Hide 3D backdrop after terminal zoom | user-reported after bug-004 | O | done |
 | 30 | bug-006 | Render Hermes OS inside zoomed terminal screen | user-reported after bug-005 | O | done |
-| 31 | feat-007 | Implement external AI ECHO rules for category A | deferred; waiting for Q11 and scripted ECHO baseline | P2 | AI integration main push |
+| 31 | bug-007 | Restore compressed opening monitor entry flow | source review after bug-006 | O | done |
+| 32 | bug-008 | Align terminal screen zoom with monitor frame | source review after bug-007 | O | done |
+| 33 | bug-009 | Re-run original-source QA after visual flow fixes | after bug-007 and bug-008 | O | done; no new blocking bug tasks created |
+| 34 | feat-007 | Implement external AI ECHO rules for category A | deferred; waiting for Q11 and scripted ECHO baseline | P2 | AI integration main push |
 
 ## Review / QA Gates
 

@@ -41,6 +41,9 @@
 | 28 | bug-004 | bug | Align start scene with control room computer flow | done | dev-agent | no | bug-003 | human visual review | project/tasks/bug-004.md |
 | 29 | bug-005 | bug | Hide 3D backdrop after terminal zoom | done | dev-agent | no | bug-004 | human visual review | project/tasks/bug-005.md |
 | 30 | bug-006 | bug | Render Hermes OS inside zoomed terminal screen | done | dev-agent | no | bug-005 | human visual review | project/tasks/bug-006.md |
+| 31 | bug-007 | bug | Restore compressed opening monitor entry flow | done | dev-agent | no | bug-006 | bug-008 | project/tasks/bug-007.md |
+| 32 | bug-008 | bug | Align terminal screen zoom with monitor frame | done | dev-agent | no | bug-007 | bug-009 | project/tasks/bug-008.md |
+| 33 | bug-009 | bug | Re-run original-source QA after visual flow fixes | done | qa-agent | no | bug-007, bug-008 | human visual review | project/tasks/bug-009.md |
 
 ## Parallel Work Notes
 
