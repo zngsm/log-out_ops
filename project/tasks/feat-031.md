@@ -1,45 +1,48 @@
-# feat-031 Localize File Content To Korean
+# feat-031 Convert cutscene presentation to CSS/SVG 2D and set terminal zoom to 100% full screen
 
-## Document Meta
+## Status
 
-- type: feat
 - status: done
-- owner: dev-agent
+- type: feat
 - priority: 46
-- created: 2026-08-09
-- completed: 2026-08-09
+- owner agent: dev-agent
+- branch: `feat-031-convert-cutscene-to-2d-and-full-screen-zoom`
+- commit message: `feat-031 convert cutscene presentation to css svg 2d and set terminal zoom to 100% full screen`
 
-## User Request
+## Goal
 
-파일 컨텐츠가 영어라 플레이어가 읽고 추리하기 어렵다. 게임의 핵심 플레이가 파일 내용을 읽는 구조이므로, 플레이어가 이해해야 하는 본문을 한국어 중심으로 바꾼다.
+Apply Change-001 visual requirements and Q19 answer: replace 3D cutscene presentation with CSS / SVG based 2D in-game cutscene presentation (while keeping the R3F 3D main menu background), and set the terminal zoom-in ratio from 90% monitor frame to 100% Full Screen.
 
 ## Scope
 
-- Translate Category A file titles and readable file body copy into Korean.
-- Preserve file names, paths, protocol ids, mode names, and system tokens where terminal fiction benefits from them.
-- Localize key evidence files for Act 1, Act 2, and Act 3.
-- Localize supporting/flavor logs enough that wrong files are still understandable.
-- Translate file viewer metadata labels from English to Korean.
-
-## Acceptance Criteria
-
-- Core evidence files can be understood by Korean players without interpreting long English prose.
-- Sensor calibration, quarantine expiry, AI priority, and deleted override clues remain clear.
-- System flavor remains intact through filenames, ids, and protocol tokens.
-- Production build passes.
+- Maintain R3F 3D background model for main menu.
+- Convert 3D cutscene beats to CSS / SVG based in-game 2D presentation (CSS transitions, SVG animations, 2D visual elements).
+- On [게임 시작] (Play) click, perform smooth zoom-in transition to 100% Full Screen terminal monitor view.
+- Remove 90% aspect ratio container padding/frame during gameplay terminal state.
 
 ## Dependencies
 
-- Previous: `feat-030`
-- Next: human play review or QA follow-up bugs
+- before: `bug-009`, `feat-024`
+- after: `feat-032`, `feat-033`, `feat-034`
 
-## Implementation Notes
+## Acceptance Criteria
 
-- Code commit: `feat-031 localize file content to korean`
-- Verification: `npm run build`, `git diff --check`
+- [x] Main menu displays 3D spaceship control-room background.
+- [x] Clicking [게임 시작] smoothly zooms camera/screen into terminal filling 100% of the viewport (Full Screen).
+- [x] Cutscene and transition beats are rendered using CSS / SVG based in-game 2D presentation elements instead of 3D cutscenes.
+- [x] Terminal view occupies full screen width and height without 90% margin cutoffs.
+- [x] `npm run build` passes.
+- [x] `git diff --check` passes.
 
-## Status Log
+## Review History
 
-- todo: user reported file contents are difficult because they are in English.
-- in_progress: Category A file data and viewer labels localized.
-- done: build passed and ops tracking updated.
+| round | reviewer | result | findings summary | follow-up status |
+| --- | --- | --- | --- | --- |
+| 1 | review-agent | approve | requirements satisfied with no regression | closed |
+
+## Source References
+
+- `project/changes/change-001.md`
+- `project/mvp_scope.md`
+- `project/pm_questions.md#Q19`
+

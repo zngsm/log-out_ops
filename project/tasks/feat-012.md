@@ -108,3 +108,9 @@ src/styles.css: DOCX-reference 메뉴 모니터, 홀로그램 버튼, 오프닝 
 | 2026-08-06 | dev-agent | todo -> in_progress | DOCX-reference main menu and directed opening sequence implementation started |
 | 2026-08-06 | review-agent | in_progress -> approved | Build and diff validation passed; no blocking findings |
 | 2026-08-06 | dev-agent | approved -> done | Code branch pushed and ops task updated |
+
+## Change-001 Impact Note
+
+- 3D cutscene beats in opening timeline are updated to 2D presentation elements (CSS/SVG/visual cutscene) while retaining the R3F 3D main menu background.
+- Follow-up implementation defined in `feat-031`.
+

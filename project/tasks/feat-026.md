@@ -66,3 +66,9 @@ Make the gameplay screen feel like a fixed in-world computer terminal instead of
 | 2026-08-09 | dev-agent | todo -> in_progress | Started terminal-screen layout correction from human visual feedback |
 | 2026-08-09 | dev-agent | in_progress -> done | Fixed desktop viewport, internal scrolling, and compact external HUD |
 
+## Change-001 Impact Note
+
+- Gameplay UI flow is updated to enter Company Intranet first, followed by split desktop/ECHO work UI during the 5-minute Rapport Phase, before shifting to the Category A puzzle terminal layout upon ECHO reboot.
+- Follow-up implementation defined in `feat-032`, `feat-033`, `feat-034`.
+
+

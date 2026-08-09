@@ -70,6 +70,13 @@ Make the initial experience match the intended visual structure: visible control
 | 2026-08-08 | dev-agent | todo -> in_progress | Started visual DOCX opening-to-terminal flow cleanup after feat-023 |
 | 2026-08-08 | dev-agent | in_progress -> done | Reframed initial room state and clarified physical monitor approach |
 
+## Change-001 Impact Note
+
+- Smooth Zoom-in transition from main menu to terminal monitor is updated to expand to 100% Full Screen (removing 90% aspect border).
+- Entry flow is updated to insert Company Intranet screen & [출근] button, followed by a 5-minute Rapport Phase before ECHO reboot and lockdown.
+- Follow-up implementation defined in `feat-031`, `feat-032`, `feat-033`, `feat-034`.
+
+
 ## Source References
 
 - `project/human-input/LOG_OUT visual 복사본.docx`

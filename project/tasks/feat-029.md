@@ -45,3 +45,9 @@
 - todo: user reported first-play purpose and game loop are unclear.
 - in_progress: mission brief modal and dynamic next-action strip added.
 - done: build passed and ops tracking updated.
+
+## Change-001 Impact Note
+
+- First-play mission onboarding is integrated into the 5-minute Rapport Phase (routine work tasks + ECHO assistant interaction) prior to ECHO reboot and quarantine declaration.
+- Follow-up implementation defined in `feat-033`.
+
