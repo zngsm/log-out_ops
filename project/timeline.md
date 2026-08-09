@@ -25,6 +25,7 @@
 | M12 | 완성일 긴급 콘텐츠 패스 | feat-025 | done |
 | M13 | 컴퓨터 터미널 고정 화면 UX 정렬 | feat-026 | done |
 | M14 | 상단 타이틀 상태바 HUD 정렬 | feat-027 | done |
+| M15 | 터미널 HUD/탐색기/ECHO 입력 오버플로우 수정 | feat-028 | done |
 | P2 | external AI ECHO integration | feat-007 | deferred |
 
 ## Task Timeline
@@ -73,7 +74,8 @@
 | 40 | feat-025 | Replace guide-like copy with playable in-world content | clear after qa-003 | T | done |
 | 41 | feat-026 | Reframe gameplay UI as fixed computer terminal screen | clear after feat-025 | U | done |
 | 42 | feat-027 | Move gameplay HUD into title status bar | clear after feat-026 | U | done |
-| 43 | feat-007 | Implement external AI ECHO rules for category A | deferred; waiting for Q11 and scripted ECHO baseline | P2 | AI integration main push |
+| 43 | feat-028 | Fix compact terminal HUD and explorer layout | clear after feat-027 | U | done |
+| 44 | feat-007 | Implement external AI ECHO rules for category A | deferred; waiting for Q11 and scripted ECHO baseline | P2 | AI integration main push |
 
 ## Review / QA Gates
 
@@ -97,3 +99,4 @@
 - After `feat-025`, remaining same-day review should focus on play feel, not task-document fidelity.
 - After `feat-026`, desktop UI review should judge whether the terminal feels like a full computer monitor rather than a normal webpage.
 - After `feat-027`, desktop UI review should confirm the HUD no longer covers file or chat content.
+- After `feat-028`, desktop UI review should confirm dense explorer rows, password modal access, and visible ECHO submit controls inside the fixed terminal.
