@@ -2,10 +2,10 @@
 
 ## Document Meta
 
-- version: 2.2
+- version: 2.3
 - pm agent: codex
 - date: 2026-08-10
-- status: Q31~Q55 answered; 6 UI/UX/Content/Bug Fix refinement specifications updated (1. quarantine_rules.conf offset developer note removed, 2. ECHO chat SYSTEM messages removed, 3. Main menu start screen meta copy removed, 4. Colleague messenger placeholder (자유 텍스트) label removed, 5. Colleague messenger Korean IME input leftover bug fixed, 6. Post-cutscene terminal UI visual unification with pre-cutscene workstation UI layout/header/2-split body structure)
+- status: Q31~Q56 answered; feat-037 specifications updated (meter bars for oxygen power, brighten 3d lights, start button intranet theme, stability/suspicion text removal)
 
 ## Blocking Questions
 

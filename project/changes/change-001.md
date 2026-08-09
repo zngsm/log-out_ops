@@ -161,13 +161,21 @@
 - **4. 비상 HUD 크기 확충 및 중앙 배치**: `O₂ LEVEL`, `POWER GRID`, `REMAINING TIME` 비상 HUD 카드의 시각적 크기를 키우고 고대비 라벨과 함께 상단 헤더 중앙(Center Alignment)에 균형감 있게 배치한다.
 - **5. `ACT-1 ACTIVE` 라벨 삭제 & 비상 HUD 위치 적용**: 좌측 패널 헤더의 `ACT-1 ACTIVE` (또는 `STEP 1 / 5`) 라벨을 전면 삭제하고 해당 중앙 공간에 비상 HUD를 매끄럽게 연동한다.
 
+### 15. 6가지 UI/UX/3D 개선 상세 사양 (Change-001 Follow-up v4.0 / feat-037)
+- **1. O₂ LEVEL & POWER GRID 닳는 바 UI**: `header-center-hud` 내 `O₂ LEVEL` 및 `POWER GRID`에 실시간으로 닳는 프로그레스 바 게이지(`.hud-bar-track` / `.hud-bar-fill`) 추가 및 렌더링.
+- **2. 시작 화면 문구 전면 삭제**: `평시 당직 모니터가 대기 중입니다`, `헤르메스호 통제실은 아직 정상 조명 상태입니다...` 안내 문구 전면 삭제.
+- **3. 로고 화면 상단 중앙 배치**: `THE ECHO PROTOCOL LOG_OUT` 타이틀 로고를 화면 상단 중앙 위치로 이동.
+- **4. START 버튼 변경**: 시작 메인 버튼 문구를 `START`로 변경하고 인트라넷 로그인 화면 색상 테마(티엘/사이언 글로우)와 자연스럽게 매칭.
+- **5. stability / suspicion 문구 전면 삭제**: ECHO 대화 답변 메시지 출력 시 `[stability ... / suspicion ...]` 텍스트 부착 제거 (순수 대사만 출력).
+- **6. 3D 배경 조명 및 모니터 테마 변경**: `ambientLight` 및 `pointLight` 조도를 키워서 3D 통제실 배경이 밝고 명확하게 보이도록 수정하고, 3D 모니터 발광(emissive) 색상을 기존 주황색(`e98d42`)에서 김우주의 인트라넷 로그인 화면 테마(딥 블루/티엘 `#0f4b46`)로 변경.
+
 ## Impact Analysis
 
-- **`project/pm_analysis.md`**: Core Loop, Visual Scope, Diegetic UI, 18+5+1+5가지 상세 게임플레이/UI/내용 정제 사양, 비상 컷신 전후 터미널 UI 레이아웃/헤더/2분할 구조 통일 사양 및 5가지 추가 UI/UX 개선 상세 사양 반영.
-- **`project/mvp_scope.md`**: MVP In Scope / Out of Scope 및 Acceptance Criteria에 18+5+1+5가지 상세 정제 사양, 컷신 전후 터미널 UI 100% 통일 검증 항목 및 5가지 추가 UI/UX 개선 검증 항목 완벽 명시.
-- **`project/pm_questions.md`**: Q49~Q60 신규 항목에 피드백 정제/버그 수정 사양, 비상 컷신 전후 터미널 UI 통일 사양 및 5가지 UI/UX 개선 사양 추가 및 답변 기록.
-- **`project/task_board.md`**: `feat-036` 신규 생성 및 `feat-035`, `feat-034`, `feat-033`, `feat-031`, `feat-030`, `feat-028`, `feat-027`, `feat-026` 태스크 명세 최신화.
-- **`project/tasks/*.md`**: 신규 태스크 문서 `feat-036.md` 생성 및 관련 태스크 전체 문서(`feat-026.md`, `feat-027.md`, `feat-028.md`, `feat-030.md`, `feat-033.md`, `feat-034.md`, `feat-035.md` 등)의 Status, Scope, Acceptance Criteria 최신화.
+- **`project/pm_analysis.md`**: Core Loop, Visual Scope, Diegetic UI, 18+5+1+5+6가지 상세 게임플레이/UI/3D 개선 사양 반영.
+- **`project/mvp_scope.md`**: MVP In Scope / Out of Scope 및 Acceptance Criteria에 6가지 UI/UX/3D 개선 검증 항목 반영.
+- **`project/pm_questions.md`**: Q56 신규 항목에 6가지 UI/UX/3D 개선 사양 추가 기록.
+- **`project/task_board.md`**: `feat-037` 신규 생성 및 done 반영.
+- **`project/tasks/*.md`**: 신규 태스크 문서 `feat-037.md` 생성 및 done 상태 기록.
 
 
 

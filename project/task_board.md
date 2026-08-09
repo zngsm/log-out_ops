@@ -63,7 +63,8 @@
 | 50 | bug-010 | bug | Fix ECHO message scroll and clipping | done | dev-agent | no | feat-034 | human visual review | project/tasks/bug-010.md |
 | 51 | bug-011 | bug | Fix workstation viewport focus drift | done | dev-agent | no | bug-010, feat-034 | human visual review | project/tasks/bug-011.md |
 | 52 | feat-035 | feat | Unify post-cutscene main puzzle terminal UI with pre-cutscene workstation UI layout, header, color theme, and 2-split body structure | done | dev-agent | no | feat-034, bug-011 | feat-036 | project/tasks/feat-035.md |
-| 53 | feat-036 | feat | Refine file explorer/viewer width ratio, translate all buttons to Korean, remove password hint text, expand and center-align emergency HUD, and remove ACT-1 ACTIVE label | in_progress | dev-agent | no | feat-035 | human visual review | project/tasks/feat-036.md |
+| 53 | feat-036 | feat | Refine file explorer/viewer width ratio, translate all buttons to Korean, remove password hint text, expand and center-align emergency HUD, and remove ACT-1 ACTIVE label | done | dev-agent | no | feat-035 | feat-037 | project/tasks/feat-036.md |
+| 54 | feat-037 | feat | Implement meter bars for oxygen power, brighten 3d lights, set start button and intranet monitor theme, remove stability suspicion meta texts | done | dev-agent | no | feat-036 | human visual review | project/tasks/feat-037.md |
 
 ## Parallel Work Notes
 

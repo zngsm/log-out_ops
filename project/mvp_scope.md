@@ -2,10 +2,10 @@
 
 ## Document Meta
 
-- version: 1.5
+- version: 1.6
 - pm agent: codex
 - date: 2026-08-10
-- status: confirmed - 사용자의 5가지 UI/UX 개선 요구사항 반영 완료 (FILE EXPLORER 약 180~200px 축소 & VIEWER 대폭 확장, 버튼 텍스트 한국어 전면 전환, 잠긴 파일 힌트 텍스트 전면 삭제, 비상 HUD 크기 확충 및 상단 헤더 중앙 배치, ACT-1 ACTIVE 라벨 삭제 및 비상 HUD 위치 연동)
+- status: confirmed - 6가지 UI/UX/3D 개선 요구사항 (feat-037) 반영 완료 (O2 LEVEL/POWER GRID 닳는 바 게이지 추가, 시작 화면 문구 전면 삭제, 로고 상단 중앙 배치, START 버튼 및 인트라넷 테마 매칭, stability/suspicion 메타 텍스트 전면 삭제, 3D 배경 조명 증대 및 3D 모니터 emissive 테마 변경)
 
 ## MVP Goal
 
