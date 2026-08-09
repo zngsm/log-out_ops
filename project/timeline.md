@@ -24,6 +24,7 @@
 | M11 | DOCX 콘텐츠 기준 QA 및 사람 검토 준비 | qa-003 | done |
 | M12 | 완성일 긴급 콘텐츠 패스 | feat-025 | done |
 | M13 | 컴퓨터 터미널 고정 화면 UX 정렬 | feat-026 | done |
+| M14 | 상단 타이틀 상태바 HUD 정렬 | feat-027 | done |
 | P2 | external AI ECHO integration | feat-007 | deferred |
 
 ## Task Timeline
@@ -71,7 +72,8 @@
 | 39 | qa-003 | Run DOCX-content vertical slice QA | clear after M10 | S | done; no blocking bug tasks |
 | 40 | feat-025 | Replace guide-like copy with playable in-world content | clear after qa-003 | T | done |
 | 41 | feat-026 | Reframe gameplay UI as fixed computer terminal screen | clear after feat-025 | U | done |
-| 42 | feat-007 | Implement external AI ECHO rules for category A | deferred; waiting for Q11 and scripted ECHO baseline | P2 | AI integration main push |
+| 42 | feat-027 | Move gameplay HUD into title status bar | clear after feat-026 | U | done |
+| 43 | feat-007 | Implement external AI ECHO rules for category A | deferred; waiting for Q11 and scripted ECHO baseline | P2 | AI integration main push |
 
 ## Review / QA Gates
 
@@ -94,3 +96,4 @@
 - QA-003 passed after build/server validation and source-matrix review; remaining risk is visual fidelity with final assets and browser-level interaction QA.
 - After `feat-025`, remaining same-day review should focus on play feel, not task-document fidelity.
 - After `feat-026`, desktop UI review should judge whether the terminal feels like a full computer monitor rather than a normal webpage.
+- After `feat-027`, desktop UI review should confirm the HUD no longer covers file or chat content.

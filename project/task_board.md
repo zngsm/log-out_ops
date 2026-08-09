@@ -52,6 +52,7 @@
 | 39 | qa-003 | chore | Run DOCX-content vertical slice QA | done | qa-agent | no | feat-021, feat-022, feat-023, feat-024, chore-004 | human review | project/tasks/qa-003.md |
 | 40 | feat-025 | feat | Replace guide-like copy with playable in-world content | done | dev-agent | no | qa-003 | human play review | project/tasks/feat-025.md |
 | 41 | feat-026 | feat | Reframe gameplay UI as fixed computer terminal screen | done | dev-agent | no | feat-025 | human visual review | project/tasks/feat-026.md |
+| 42 | feat-027 | feat | Move gameplay HUD into title status bar | done | dev-agent | no | feat-026 | human visual review | project/tasks/feat-027.md |
 
 ## Parallel Work Notes
 
@@ -77,5 +78,6 @@
 - QA-003 passed the DOCX-content vertical slice with residual risks around final assets, pixel comparison, and browser click automation.
 - `feat-025` is the urgent completion-day content pass: player-facing guide/spec language should be treated as a bug unless it is hidden behind diagnostic mode.
 - `feat-026` corrects the gameplay screen model: desktop gameplay is a fixed computer terminal with internal panel scrolling, not a webpage scroll layout.
+- `feat-027` keeps the resource/audio/ECHO HUD out of the bottom terminal workspace by treating it as a compact title-bar status strip.
 - Every dev task must update its task md status from `todo` to `in_progress` to `done`.
 - Current dev workflow is latest `main` -> task-scoped implementation -> task-id commit message -> push directly to `main`; PR/branch flow is only used when the human explicitly asks for it.
