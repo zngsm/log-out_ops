@@ -2,14 +2,14 @@
 
 ## Document Meta
 
-- version: 0.6
+- version: 0.7
 - pm agent: codex
 - date: 2026-08-09
-- status: confirmed - pre-AI deterministic MVP with Change-001 & Q21~Q23 resolved ([확인 완료] button workflow, messenger app UI & bubble UX, narrative resume choice)
+- status: confirmed - Cloudflare Worker Hermes NPC API 연동 (`feat-007`) 및 3초 타임아웃/100% 로컬 Fallback 안전장치 가동 사양 반영
 
 ## MVP Goal
 
-플레이어가 3D 메인 메뉴에서 100% Full Screen 터미널로 진입하여, 메타 텍스트가 전면 제거된 Diegetic 회사 인트라넷에서 로그인 폼(`woojoo.kim`, `**********`)을 확인하고 [출근] 후, ECHO 대화 브리핑 및 좌측 문서 하단 [확인 완료] 버튼 전환에 따른 순차 업무 흐름(자원 채굴 보고서, 전력/산소 보고서, 동료 메신저 팝업(좌측 업무 화면 경계 내 우상단)/앱 UI(좌측 업무 화면 내 드래그 자유 이동 Draggable UI) 및 축소 알림 버블(1, 좌측 업무 화면 경계 내 우하단), 지원자 이력서 검토 서사 판정 및 ECHO Q&A, ECHO 시스템 업데이트 기안 승인)을 진행한다. 이후 [업데이트 승인]에 의한 기습 리부팅 및 오판 비상 봉쇄(비상 HUD & 60분 타이머 가동)가 발생하면, Hermes OS에서 로그와 설정 파일을 조사해 Act 1~3을 통과하고 통제실 문을 열어 탈출하는 최소 완성형 플레이 경험을 만든다.
+플레이어가 3D 메인 메뉴에서 100% Full Screen 터미널로 진입하여, 메타 텍스트가 전면 제거된 Diegetic 회사 인트라넷에서 로그인 폼(`woojoo.kim`, `**********`)을 확인하고 [출근] 후, ECHO 대화 브리핑 및 좌측 문서 하단 [확인 완료] 버튼 전환에 따른 순차 업무 흐름(자원 채굴 보고서, 전력/산소 보고서, 동료 메신저 팝업(좌측 업무 화면 경계 내 우상단)/앱 UI(좌측 업무 화면 내 드래그 자유 이동 Draggable UI) 및 축소 알림 버블(1, 좌측 업무 화면 경계 내 우하단), 지원자 이력서 검토 서사 판정 및 ECHO Q&A, ECHO 시스템 업데이트 기안 승인)을 진행한다. 이후 [업데이트 승인]에 의한 기습 리부팅 및 오판 비상 봉쇄(비상 HUD & 60분 타이머 가동)가 발생하면, Hermes OS에서 로그와 설정 파일을 조사해 Act 1~3을 통과하고 통제실 문을 열어 탈출하는 최소 완성형 플레이 경험을 만든다. ECHO 및 동료 대화는 Cloudflare Worker NPC API(`https://royal-firefly-60c3.jwpark971219.workers.dev`)를 연동하되, 3초 타임아웃 및 100% 로컬 Fallback 안전장치로 오프라인/장애 시에도 끊김 없는 플레이를 보장한다.
 
 ## Proposed In Scope
 
@@ -33,6 +33,14 @@
   - 동료 질문 카피: 항상 점심 메뉴를 묻는 질문 (예: `"오늘 점심 메뉴 뭐먹을래?"`)
   - 자유 텍스트 답장 및 동료 1회 긍정 반응 수신 (`"그 메뉴 좋다!"`), 답장 입력창 하단 몰입 방해 메타 문구 (`"※ 1회 답장 완료 후 메신저 채널은 읽지 않음(1) 상태로 유지됩니다."`) 전면 제거 및 자연스러운 diegetic UX 유지 (추가 입력 시 `'읽지 않음(1)'` / `Unread` 상태 유지)
 - **지원자 이력서 검토 기능 및 서사적 판정**: ECHO의 적합성 질의 안내 대사, 여러 명의 지원자 후보 프로필 제시, 후보별 '적격'/'부적격' 판정 선택 버튼 (퍼즐/엔딩 미영향 서사적 선택 요소), ECHO 대화창 지원자 적합성 Q&A
+- **Cloudflare Worker 기반 Hermes NPC API 연동 및 100% 로컬 Fallback 안전장치 (`feat-007`)**:
+  - `https://royal-firefly-60c3.jwpark971219.workers.dev` endpoint 연동
+  - `npcId: 'echo'` (ECHO 대화 및 증거 제출 판정) / `npcId: 'coworker'` (동료 메신저 대화) 연동
+  - TypeScript 타입 정의 (`src/types/npc.ts`: `NpcRequestPayload`, `EchoNpcResponse`, `CoworkerNpcResponse`, `ApiErrorResponse`)
+  - API Client (`src/api/npcApiClient.ts`): `fetch` POST 요청, 3초 타임아웃 (`AbortController`)
+  - 네트워크 단절, HTTP 에러, 타임아웃, 예외 발생 시 100% 로컬 Fallback 대사/응답 반환 기능으로 끊김 없는 플레이 보장
+  - `WorkInterface.tsx` 동료 메신저 연동 (`npcId: 'coworker'`) & 로딩 타이핑 연출
+  - `evidenceSubmission.ts` 및 `App.tsx` ECHO API 연동 (`npcId: 'echo'`, `currentStage`, `history` 전달 및 `next_stage`, `door_unlocked`, `ending_b_triggered` 수신 전이)
 - **라포 형성 Phase 동안 비상 HUD(산소/전력) 및 60분 제한시간 타이머 미노출 / 미작동**
 - 업무 미션 중 "ECHO 시스템 업데이트 필요" 기안의 [업데이트 승인] 클릭 트리거 (유일/우선적 전환 조건)
 - [업데이트 승인] 클릭 시 ECHO 대화창 리부팅 (CSS/SVG 기반 visual glitch, 애니메이션, 사운드) 및 ECHO의 위협 요소 오판 / 비상 봉쇄 발령 연출
@@ -42,7 +50,7 @@
 - Act 3 정답 증거: `ai_priority_matrix.json` + `deleted_override.txt`
 - Hermes OS 파일 탐색기, 파일 뷰어, 증거 첨부, ECHO 대화창 제출
 - `Log_Fixer.exe` 또는 대체 복구 액션
-- deterministic local ECHO 판정 및 Act 전환
+- deterministic local ECHO 판정 및 Act 전환 (API 예외 발생 시 Fallback 가동)
 - Normal Ending A
 - placeholder visual/audio asset
 - 실제 60분 세션 및 debug mode 15분 세션/컷신 스킵
@@ -61,12 +69,11 @@
 - 라포 형성 Phase 동안의 비상 HUD/타이머 노출 및 산소/전력 차감
 - 10개 카테고리 procedural 생성 및 난이도별 seed 공유
 - Ending B/C 및 전 승무원 구출 루트
-- 외부 AI/API 기반 ECHO 응답 및 판정 (Phase 2로 분리)
+- Fallback 안전장치가 없거나 클라이언트에 direct API key를 노출하는 미검증 외부 연동 방식 (Cloudflare Worker NPC API + 3초 타임아웃 + 100% 로컬 Fallback 연동으로 확정 적용)
 
 ## Phase 2 Pending Decisions
 
-- 외부 AI/API provider, model, API key env var 이름 (Q11)
-- API 실패 시 fallback 정책 및 서버 경유 호출 여부
+- NPC API specification: Cloudflare Worker Hermes NPC API (`https://royal-firefly-60c3.jwpark971219.workers.dev`, `npcId: echo | coworker`, TypeScript 타입 `src/types/npc.ts`, 3초 타임아웃 및 100% 로컬 Fallback 포함)로 확정되어 `feat-007` 진행 중.
 
 ## MVP Acceptance Criteria
 
@@ -78,6 +85,7 @@
 - 전력/산소 보고서 또는 이력서 검토 중 전체 뷰포트나 우측 ECHO 영역이 아닌 **좌측 업무 화면(Desktop Workspace Panel / Left Panel) 경계 내부의 오른쪽 상단(Top-Right)**에 무작위 동료 메신저 알림 SFX/팝업이 발생한다.
 - 사용자가 팝업을 클릭하면 별도의 메신저 앱 창이 열리고(**좌측 업무 화면 경계 영역 안에서 자유롭게 드래그 위치 이동 가능**), 점심 메뉴 질문(`"오늘 점심 메뉴 뭐먹을래?"`)을 확인하며 자유 텍스트로 답장할 수 있다. 답장 입력창 하단의 몰입 방해 메타 문구(`"※ 1회 답장 완료 후 메신저 채널은 읽지 않음(1) 상태로 유지됩니다."`)는 전면 제거되어 노출되지 않으며, 답장 후 동료가 긍정 반응 메시지(`"그 메뉴 좋다!"`)를 1회 보내오며, 이후 추가 입력 시 자연스러운 diegetic UX로 `'읽지 않음(1)'` 상태가 유지된다.
 - 사용자가 메신저 팝업/채팅창을 축소(닫기)하면 **좌측 업무 화면(Desktop Workspace Panel / Left Panel) 경계 내부의 오른쪽 하단(Bottom-Right)**에 말풍선 채팅 앱 아이콘과 신규 메시지 알림 버블(숫자 `1`)이 표시되며, 아이콘 클릭 시 채팅 앱 창이 다시 열린다.
+- Cloudflare Worker NPC API (`https://royal-firefly-60c3.jwpark971219.workers.dev`)를 통해 ECHO (`npcId: 'echo'`) 및 동료 메신저 (`npcId: 'coworker'`)에 외부 AI 응답을 제공하며, 3초 타임아웃 미수신 또는 네트워크 단절/에러 발생 시 100% 로컬 Fallback 대사/응답으로 대체되어 게임이 중단 없이 정상 진행된다.
 - 이력서 검토 단계에서 사용자는 여러 명의 지원자 프로필을 확인하고 '적격'/'부적격' 평가 버튼을 누를 수 있으며(게임 진행/퍼즐/엔딩에는 미영향), ECHO 대화창으로 지원자 적합성에 대해 질의응답할 수 있다.
 - 라포 Phase 동안 비상 HUD 및 60분 타이머는 노출/작동하지 않는다.
 - 사용자가 "ECHO 시스템 업데이트 필요" 기안의 [업데이트 승인]을 클릭하면 ECHO 대화창이 리부팅된다.

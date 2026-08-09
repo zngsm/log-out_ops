@@ -2,10 +2,10 @@
 
 ## Document Meta
 
-- version: 0.9
+- version: 1.0
 - pm agent: codex
 - date: 2026-08-09
-- status: Change-001 (Q21~Q23 answers incorporated) task board finalized
+- status: feat-007 completed (done) for Cloudflare Worker NPC API integration with 3s timeout & local fallback
 
 ## Task Index
 
@@ -25,7 +25,7 @@
 | 12 | qa-001 | chore | Run MVP scenario QA and create bug tickets | done | qa-agent | no | feat-003, feat-005, feat-006, feat-008, feat-010, chore-002, feat-011 | bug-001, bug-002 | project/tasks/qa-001.md |
 | 13 | bug-001 | bug | Connect oxygen timer to active gameplay session | done | dev-agent | no | qa-001, feat-003 | MVP human review | project/tasks/bug-001.md |
 | 14 | bug-002 | bug | Enforce blackout interaction lock in gameplay UI | done | dev-agent | no | qa-001, feat-003, feat-008 | MVP human review | project/tasks/bug-002.md |
-| 15 | feat-007 | feat | Implement external AI ECHO rules for category A | deferred | dev-agent | no | Q11, pre-AI MVP QA | phase 2 AI work | project/tasks/feat-007.md |
+| 15 | feat-007 | feat | Integrate Cloudflare Worker NPC API for ECHO and Coworker Chat | done | dev-agent | no | feat-005, feat-033, feat-034 | QA, production play | project/tasks/feat-007.md |
 | 16 | feat-012 | feat | Add DOCX-reference main menu and directed opening sequence | done | dev-agent | no | feat-008, feat-009, feat-010 | feat-013, feat-018, feat-019 | project/tasks/feat-012.md |
 | 17 | feat-013 | feat | Add scene runtime and Act beat orchestration | done | dev-agent | no | feat-005, feat-010, feat-012 | feat-014, feat-020, qa-002 | project/tasks/feat-013.md |
 | 18 | feat-014 | feat | Implement ECHO decision matrix and persona responses | done | dev-agent | yes | feat-005, feat-013 | feat-018, feat-020, qa-002 | project/tasks/feat-014.md |
@@ -66,7 +66,7 @@
 - `feat-002`, `feat-003`, `feat-004`, and `feat-009` can start after `feat-001` because they touch different layers: UI shell, game state, content data, and 3D scene.
 - `chore-001` can run alongside implementation once `feat-004` defines the file data shape.
 - `feat-006` can proceed before final ECHO wording if the recovery interaction contract is stable.
-- `feat-007` is deferred to phase 2 because deterministic local ECHO rules are enough to validate the current MVP loop.
+- `feat-007` is activated (`in_progress`) to integrate Cloudflare Worker NPC API (`https://royal-firefly-60c3.jwpark971219.workers.dev`) for ECHO and Coworker chat, equipped with a 3s local timeout and 100% local fallback safeguard.
 - `feat-010`, `chore-002`, and `feat-011` are pre-AI MVP reinforcement tasks that improve comprehension, content density, and playability.
 - For phase 2, `project/phase_2_original_source_replan.md` and the original `LOG_OUT **.md` files are the source of truth. PM task docs must not override those documents unless a human answer explicitly says so.
 - The DOCX files in `project/human-input` are now the preferred visual source because their embedded images/GIF preserve references that can break in markdown.
@@ -79,7 +79,7 @@
 
 - Do not let dev agent decide unresolved planning conflicts independently.
 - If a task depends on a question ID, PM must update `pm_questions.md` and this board after the human answer.
-- QA can run before `feat-007` as long as it tests deterministic scripted ECHO behavior rather than external AI behavior.
+- `feat-007` includes 3s timeout and 100% local fallback mechanism so QA and gameplay testing can run seamlessly under any network condition.
 - Phase 2 QA must cite original `LOG_OUT **.md` expectations, not only task acceptance criteria.
 - For the next phase, `project/docx_content_conversion_plan.md` is the controlling bridge between the DOCX source documents and playable implementation tasks.
 - The DOCX files are considered sufficient content source for Category A; dev agents should convert them into game files, ECHO rules, scene beats, and asset contracts instead of waiting for new prose.
@@ -93,3 +93,4 @@
 - Change-001 tasks (`feat-031` -> `feat-032` -> `feat-033` -> `feat-034`) refactor the game intro: 100% full screen terminal zoom -> Company Intranet with diegetic login form (`woojoo.kim` / `**********`) & Clock-in (zero meta text: `🔒 READ-ONLY`, auto auth notice, and "Clock-in :: 2분할 업무 화면 진입" removed) -> Diegetic Workstation with simple [확인 완료] button sequential task transition (removing "(다음 업무로 이동)" sub-label & replacing developer guide ECHO dialogue with natural diegetic copy), live ECHO report reactions, random colleague messenger popup (left panel top-right, separate draggable app UI, minimized badge `1` at left panel bottom-right, free text reply for lunch menu & positive reaction, removing reply input box meta notice text "※ 1회 답장 완료 후 메신저 채널은 읽지 않음(1) 상태로 유지됩니다." & maintaining diegetic UX), candidate resume narrative evaluation & ECHO suitability Q&A -> ECHO System Update approval trigger & Reboot (CSS/SVG presentation) -> Lockdown & Emergency HUD / 60-min timer start & Main Puzzle.
 - Every dev task must update its task md status from `todo` to `in_progress` to `done`.
 - Current dev workflow is latest `main` -> task-scoped implementation -> task-id commit message -> push directly to `main`; PR/branch flow is only used when the human explicitly asks for it.
+

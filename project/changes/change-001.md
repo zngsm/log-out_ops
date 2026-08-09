@@ -2,16 +2,17 @@
 
 ## Document Meta
 
-- version: 1.3
+- version: 1.4
 - author: PM Agent
 - date: 2026-08-09
-- status: confirmed - Diegetic UI, [확인 완료] button workflow, messenger app/bubble UX, narrative resume choice detailed
+- status: confirmed - Cloudflare Worker Hermes NPC API 연동 (`feat-007`) 및 3초 타임아웃/100% 로컬 Fallback 안전장치 가동 사양 반영
 - target docs: `project/mvp_scope.md`, `project/pm_analysis.md`, `project/pm_questions.md`, `project/task_board.md`, `project/tasks/*.md`
 
 ## Background & Motivation
 
 기존 기획의 3D 컷신 연출 및 직접적 비상 봉쇄 진입 흐름을 조정하여, CSS/SVG 기반 2D 연출과 함께 게임 시작 직후 플레이어가 AI 관리자로서 ECHO와 상호작용하는 라포 형성(Rapport Building) Phase를 도입한다.
 사용자 피드백에 따라 개발자/시스템 메타 텍스트(답장 입력창 하단 메타 문구 "※ 1회 답장 완료 후 메신저 채널은 읽지 않음(1) 상태로 유지됩니다." 전면 제거 포함)를 전면 제거하여 Diegetic UI 몰입감을 완성하고, 좌측 탭 방식 대신 ECHO 대화 브리핑 및 좌측 보고서 하단 [확인 완료] 버튼 클릭에 의한 업무 순차 전환 흐름으로 적용한다. 또한 동료 메신저는 무작위 팝업 알림(좌측 업무 화면 경계 내 우상단)과 별도 메신저 앱 UI(좌측 업무 화면 내 드래그 자유 이동), 축소 시 알림 버블(숫자 `1`, 좌측 업무 화면 경계 내 우하단), 점심 메뉴 질문, 자유 텍스트 답장 및 동료 긍정 반응 1회 수신(메타 안내 문구 전면 제거 및 diegetic Unread 처리)으로 구체화하며, 지원자 이력서 검토는 몰입용 서사적 판정('적격'/'부적격' 결과는 퍼즐/엔딩에 영향 없음) 및 ECHO Q&A 기능을 제공한다.
+아울러 ECHO 대화/증거 판정 및 동료 메신저에 Cloudflare Worker 기반 Hermes NPC API(`https://royal-firefly-60c3.jwpark971219.workers.dev`)를 연동하되, 3초 타임아웃 및 100% 로컬 Fallback 안전장치를 필수로 도입하여 네트워크 장애나 예외 상황에서도 플레이가 중단되지 않는 견고한 아키텍처를 완성한다.
 
 ## Detailed Change Specifications
 
@@ -80,12 +81,21 @@
 - **비상 봉쇄 발령과 동시에 산소(100%)/전력(100%) 비상 HUD가 화면에 표시되고 60분 카운트다운 타이머가 작동을 시작한다.**
 - 이후 기존 기획의 본 퍼즐(파일 탐색, 증거 제출, Act 1~3 반박)로 진입한다.
 
+### 7. Cloudflare Worker 기반 Hermes NPC API 연동 및 100% 로컬 Fallback 안전장치 (`feat-007`)
+- **API Endpoint**: `https://royal-firefly-60c3.jwpark971219.workers.dev`
+- **NPC 대상**: `npcId: 'echo'` (ECHO 대화 및 증거 제출 판정) 및 `npcId: 'coworker'` (동료 메신저 대화)
+- **TypeScript 타입 정의**: `src/types/npc.ts` 생성 (`NpcRequestPayload`, `EchoNpcResponse`, `CoworkerNpcResponse`, `ApiErrorResponse`)
+- **API Client 및 안전장치**: `src/api/npcApiClient.ts` 구현 (`fetch` POST 요청, 3초 타임아웃 `AbortController` 적용, 네트워크 단절/타임아웃/에러 발생 시 100% 로컬 Fallback 반환)
+- **동료 메신저 연동**: `WorkInterface.tsx` 동료 메신저 API 연동 (`npcId: 'coworker'`) 및 응답 대기 시 로딩 타이핑 연출
+- **ECHO 대화 및 판정 연동**: `evidenceSubmission.ts` 및 `App.tsx` ECHO API 연동 (`npcId: 'echo'`, `currentStage`, `history` 전달 및 `next_stage`, `door_unlocked`, `ending_b_triggered` 수신 전이)
+
 ## Impact Analysis
 
-- **`project/pm_analysis.md`**: Core Loop, Visual Scope, Diegetic UI, ECHO 브리핑 & [확인 완료] 버튼 업무 전환, 동료 메신저 팝업(좌측 업무 화면 경계 내 우상단)/앱 UI(좌측 업무 화면 내 드래그 자유 이동) 및 축소 알림 버블(`1`, 좌측 업무 화면 경계 내 우하단), 지원자 이력서 검토(서사적 판정 및 ECHO Q&A) 반영.
-- **`project/mvp_scope.md`**: MVP In Scope / Out of Scope 및 Acceptance Criteria에 메타 텍스트 전면 제거, [확인 완료] 버튼 메커니즘, 실시간 반응, 동료 메신저 팝업(좌측 업무 화면 경계 내 우상단)/앱 UI(좌측 업무 화면 내 드래그 자유 이동)/알림 버블(좌측 업무 화면 경계 내 우하단), 이력서 검토 서사 요소 구체 사양 최신화.
-- **`project/pm_questions.md`**: Q21~Q23 답변 반영 완료 (이력서 판정 미영향, [확인 완료] 버튼 전환, 메신저 UI 영역 좌측 업무 화면 경계 고정 & 드래그 자유 이동 / 버블 / 대사 스크립트 사양).
-- **`project/task_board.md`**: `feat-031`~`feat-034` 작업 범위 및 상세 설명 최신화.
-- **`project/tasks/feat-031.md` ~ `feat-034.md`**: Diegetic UI, [확인 완료] 버튼 업무 전환, 메신저 팝업(좌측 업무 화면 경계 내 우상단)/앱 UI(좌측 업무 화면 내 드래그 자유 이동)/알림 버블(좌측 업무 화면 경계 내 우하단), 이력서 서사적 판정을 각 task 문서에 최신화.
+- **`project/pm_analysis.md`**: Core Loop, Visual Scope, Diegetic UI, ECHO 브리핑 & [확인 완료] 버튼 업무 전환, 동료 메신저 팝업(좌측 업무 화면 경계 내 우상단)/앱 UI(좌측 업무 화면 내 드래그 자유 이동) 및 축소 알림 버블(`1`, 좌측 업무 화면 경계 내 우하단), 지원자 이력서 검토(서사적 판정 및 ECHO Q&A), Cloudflare Worker NPC API 연동 및 로컬 Fallback 반영.
+- **`project/mvp_scope.md`**: MVP In Scope / Out of Scope 및 Acceptance Criteria에 메타 텍스트 전면 제거, [확인 완료] 버튼 메커니즘, 실시간 반응, 동료 메신저 팝업(좌측 업무 화면 경계 내 우상단)/앱 UI(좌측 업무 화면 내 드래그 자유 이동)/알림 버블(좌측 업무 화면 경계 내 우하단), 이력서 검토 서사 요소, Cloudflare Worker NPC API 연동 사양 최신화.
+- **`project/pm_questions.md`**: Q21~Q23 답변 반영 및 Q11 NPC API 명세 확정 반영.
+- **`project/task_board.md`**: `feat-007` status를 `in_progress`로 변경하고 관련 작업 보드 설명 및 Sequencing Notes 업데이트.
+- **`project/tasks/feat-007.md`**: status `in_progress`, title `feat-007 Integrate Cloudflare Worker NPC API for ECHO and Coworker Chat`, 상세 scope 및 acceptance criteria 최신화.
+
 
 
