@@ -17,6 +17,8 @@ Allow the player to attach evidence files, submit them to ECHO, and progress thr
 
 - Select or attach evidence files from the file explorer.
 - Clicking a file injects a removable `@{로그파일명}` context tag into the ECHO input.
+- Completely remove the `Evidence 0/1` tray block from dialogue window / composer header (Q34).
+- Restrict files inside `/Recycle_Bin/` from being attached to ECHO before recovery (enable attachment after recovery) (Q45).
 - Submit evidence with optional text input.
 - Validate evidence against current Act.
 - Move from Act 1 to Act 2 to Act 3 to ending-ready state.
@@ -41,6 +43,8 @@ Allow the player to attach evidence files, submit them to ECHO, and progress thr
 - [x] Correct Act evidence advances the game.
 - [x] Incorrect evidence does not advance the game and applies penalty.
 - [x] File click creates a visible removable `@{로그파일명}` tag in the input.
+- [x] `Evidence 0/1` tray block in dialogue window / composer header is completely removed (Q34).
+- [x] Files in `/Recycle_Bin/` cannot be attached before Log_Fixer recovery, and become attachable after recovery (Q45).
 - [x] Evidence submission payload includes text, tagged file ids, current act, and resource state.
 - [x] Act 3 evidence uses `ai_priority_matrix.json` + `deleted_override.txt`.
 - [x] Dev agent must not use the `auxiliary_capacitor.log` + `emergency_grid_switch.conf` pair for category A MVP Act 3.

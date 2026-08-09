@@ -16,11 +16,14 @@ Implement the MVP file recovery interaction needed to access restored security o
 ## Scope
 
 - Represent corrupted or locked files in the file system.
-- Add a `Log_Fixer.exe` style interaction.
+- Add a `Log_Fixer.exe` style interaction via file viewer `[OPEN WITH LOG_FIXER]` button.
+- Enforce that corrupted or deleted file contents are concealed (hidden) before Log_Fixer recovery (Q39).
 - Change file state from corrupted to recovered when the player completes the action.
-- Surface recovered content in the file viewer.
+- Surface recovered content in the file viewer only after recovery.
+- Completely remove developer meta text like `Available for act-2 evidence` upon recovery completion (Q42).
 - Require or expose password `8842` from `/Personnel/Dr_Kim/email_chain_july.txt` for the category A recovery path.
 - Recover `/System/Security/quarantine_rules.conf` for Act 2.
+- Restrict files in `/Recycle_Bin/` from being attached to ECHO before recovery (enable attachment after recovery) (Q45).
 
 ## Dependencies
 
@@ -30,6 +33,9 @@ Implement the MVP file recovery interaction needed to access restored security o
 ## Acceptance Criteria
 
 - [x] Recoverable files are visually distinguishable.
+- [x] Corrupted/deleted file contents are concealed before recovery (Q39).
+- [x] Developer meta text like `Available for act-2 evidence` upon completion is completely removed (Q42).
+- [x] Files in `/Recycle_Bin/` cannot be attached before recovery and become attachable after recovery (Q45).
 - [x] Recovery interaction changes file state.
 - [x] Recovered files can be submitted as evidence where relevant.
 - [x] Recovery action does not require final animation or sound asset.

@@ -15,12 +15,14 @@ Make the deterministic MVP playable without external AI by guiding the player th
 
 ## Scope
 
-- Add current Act objective copy near the ECHO panel or HUD.
+- Add current Act objective copy near the ECHO panel or HUD (diegetic copy only).
+- Completely remove `NEXT ACTION` banner/strip (Q40).
+- Completely remove Tool manual security notes (Q35).
+- Completely remove 'First objective' box and 'Open first file' button from `HOW TO PLAY` window (Q41).
 - Show required interaction hints, not exact answers.
 - Clarify that clicking a file attaches it as an evidence tag.
 - Clarify when evidence is blocked because a file is locked or corrupted.
 - Improve feedback after wrong submissions so the player understands whether the issue is file choice, recovery state, or explanation intent.
-- Add soft-lock prevention hints for password/recovery flow.
 - Do not implement external AI hint conversation.
 
 ## Dependencies
@@ -31,8 +33,11 @@ Make the deterministic MVP playable without external AI by guiding the player th
 ## Acceptance Criteria
 
 - [x] A first-time player can understand the next interaction without reading ops docs.
+- [x] `NEXT ACTION` strip/bar is completely removed (Q40).
+- [x] Tool manual security notes are completely removed (Q35).
+- [x] 'First objective' box and 'Open first file' button in `HOW TO PLAY` window are completely removed (Q41).
 - [x] Wrong submission feedback is actionable but does not reveal the complete solution.
-- [x] Recovery and password flow have visible guidance.
+- [x] Recovery and password flow have visible diegetic guidance.
 - [x] The UI clearly distinguishes selected file, attached evidence, locked file, corrupted file, and recovered file.
 - [x] The implementation remains compatible with future `feat-007` external AI integration.
 

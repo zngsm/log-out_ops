@@ -2,10 +2,10 @@
 
 ## Document Meta
 
-- version: 1.0
+- version: 2.0
 - pm agent: codex
 - date: 2026-08-10
-- status: Q26~Q30 answered; 5 UI/UX feedback specifications updated (Reboot cutscene glitch -1s/error +1s & messenger bubble hide on reboot, resume fixed text '✓ [확인 완료]' & grey disabled, log explorer 3-step refinement: ACT-1 100% removed, file source <dt> removed, h2/button-bar margin unified, Security Gate Korean modal, Blackout single center modal & Korean copy)
+- status: Q31~Q48 answered; 18 detailed gameplay/UI/content refinement specifications updated (Cutscene timeline rebooting -2s & lockdown +2s, File viewer <dt>증거성</dt>/<dt>상태</dt> removed, Act-1 Mission label removed, Evidence 0/1 tray removed, Tool manual security note removed, Log fixer sidebar mini program removed & [OPEN WITH LOG_FIXER] button kept, Locked file password location hint removed, Incorrect password location hint removed, Corrupted/deleted file concealment before Log_Fixer recovery, NEXT ACTION bar removed, HOW TO PLAY first objective & Open first file button removed, Log Fixer completion meta text removed, Timer HUD NORMAL SESSION & Act-1 labels removed, power_grid_maint.note diegetic Korean rewrite, Recycle_Bin attachment restriction before recovery, Sensor diagram prompt remnants removed & diegetic labels replacement, DIAGNOSTIC NOTE button removed, O2 LEVEL HUD drain x1.0x text removed)
 
 ## Blocking Questions
 
@@ -349,4 +349,151 @@ ECHO 채팅 대화 인식 방식 대신, **좌측 보고서/문서 하단에 [�
 1. **팝업 단일화**: 블랙아웃 발생 시 단 1개의 팝업만 노출한다 (Power Surge 팝업 중복 노출 차단).
 2. **화면 중앙 배치 (Center Modal)**: 팝업 위치를 기존 우상단에서 **화면 중앙(Center Modal)**으로 변경하고 강조 스타일을 적용한다.
 3. **한국어 경고 문구 변경**: `"⚠️ [전력 고갈] 주 전력 그리드 블랙아웃! OS 터미널 긴급 재부팅 중... (남은 시간: N초)"`로 변경한다.
+
+## 18 Detailed Gameplay/UI/Content Refinement Specifications (Change-001 Follow-up v1.9)
+
+### Q31. ECHO 리부팅 컷신 타임라인 세부 분할 조절 사양
+
+ECHO 패치 승인 후 발동하는 컷신 타임라인에서 rebooting(글리치/재부팅) 상태와 lockdown(emergency/비상) 상태의 지속 시간 조절 사양에 대한 결정입니다.
+
+### Answer
+
+rebooting 상태를 2초 줄이고, lockdown(emergency) 상태를 2초 연장하여 연출 타임라인 밸런스를 맞춘다.
+
+### Q32. 파일 뷰어 내 `<dt>증거성</dt>`, `<dt>상태</dt>` DL 항목 처리 사양
+
+파일 뷰어 하단 메타 데이터 정의 목록(DL) 중 `<dt>증거성</dt>` 및 `<dt>상태</dt>` 항목의 유지 여부에 대한 결정입니다.
+
+### Answer
+
+파일 뷰어 내 `<dt>증거성</dt>`과 `<dt>상태</dt>` DL 항목을 전면 삭제한다.
+
+### Q33. 우측 대화창/태스크 헤더의 `Act-1 Mission` 라벨 처리 사양
+
+우측 ECHO 대화창 및 태스크 헤더 영역에 노출되던 `Act-1 Mission` 라벨의 유지 여부에 대한 결정입니다.
+
+### Answer
+
+우측 대화창/태스크 헤더의 `Act-1 Mission` 라벨을 전면 삭제한다.
+
+### Q34. 대화창/작성기 헤더의 `Evidence 0/1` 트레이 처리 사양
+
+대화창 및 메시지 작성기 헤더에 노출되는 `Evidence 0/1` 트레이 영역의 유지 여부에 대한 결정입니다.
+
+### Answer
+
+대화창/작성기 헤더의 `Evidence 0/1` 트레이를 전면 삭제한다.
+
+### Q35. Tool manual 보안 메모 처리 사양
+
+Tool manual 문서 내에 포함된 `[보안 메모]` 등 비밀번호 힌트성 메타 노트의 유지 여부에 대한 결정입니다.
+
+### Answer
+
+Tool manual 보안 메모를 전면 삭제한다.
+
+### Q36. 좌측 사이드바 `Log fixer mini program` 카드/폼 처리 사양
+
+좌측 사이드바의 `Log fixer mini program` 카드/폼 및 파일 뷰어 내 `[OPEN WITH LOG_FIXER]` 버튼의 처리 방식에 대한 결정입니다.
+
+### Answer
+
+좌측 사이드바 `Log fixer mini program` 카드/폼은 전면 삭제한다. 단, 파일 뷰어 내부의 `[OPEN WITH LOG_FIXER]` 버튼은 파일 복구 전용 진입점으로 유지한다.
+
+### Q37. 잠긴 파일 비밀번호 위치 힌트 문구 처리 사양
+
+잠긴 파일 클릭 및 비밀번호 모달 노출 시 비밀번호가 숨겨진 위치를 알려주는 힌트 문구의 처리 방식에 대한 결정입니다.
+
+### Answer
+
+잠긴 파일 비밀번호 위치 힌트 문구를 전면 삭제한다.
+
+### Q38. 비밀번호 잘못 입력 시 위치 알려주는 힌트 문구 처리 사양
+
+잠긴 파일 비밀번호를 오입력했을 때 올바른 암호 위치를 알려주는 힌트 문구의 노출 여부에 대한 결정입니다.
+
+### Answer
+
+비밀번호 잘못 입력 시 위치를 알려주는 힌트 문구를 전면 삭제한다.
+
+### Q39. 손상/삭제된 파일 내용 복구 전 은폐 사양
+
+손상되거나 삭제된 로그 파일의 내용을 복구(Log_Fixer) 전에 미리 보여줄지 여부에 대한 결정입니다.
+
+### Answer
+
+손상/삭제된 파일 내용 확인은 파일 복구(Log_Fixer) 이후에만 가능하도록 변경하고, 복구 전에는 내용을 은폐(가림) 처리한다.
+
+### Q40. `NEXT ACTION` 띠/바 처리 사양
+
+화면 상단/하단에 노출되던 `NEXT ACTION` 안내 띠/바의 유지 여부에 대한 결정입니다.
+
+### Answer
+
+`NEXT ACTION` 띠/바를 전면 삭제한다.
+
+### Q41. `HOW TO PLAY` 창의 '첫 목표' 칸 및 'Open first file' 버튼 처리 사양
+
+`HOW TO PLAY` 창 내부에 노출되던 '첫 목표' 칸과 'Open first file' 바로가기 버튼의 유지 여부에 대한 결정입니다.
+
+### Answer
+
+`HOW TO PLAY` 창의 '첫 목표' 칸 및 'Open first file' 버튼을 전면 삭제한다.
+
+### Q42. Log Fixer 완료 시 메타 문구 처리 사양
+
+Log Fixer 파일 복구 완료 후 노출되던 `Available for act-2 evidence` 등 개발자풍 메타 문구의 유지 여부에 대한 결정입니다.
+
+### Answer
+
+Log Fixer 완료 시 `Available for act-2 evidence` 등 개발자풍 메타 문구를 전면 삭제한다.
+
+### Q43. 상단 타이머 HUD의 `NORMAL SESSION`, `Act-1` 라벨 문구 처리 사양
+
+상단 타이머 HUD 카드 내부에 노출되던 `NORMAL SESSION` 및 `Act-1` 라벨 문구의 유지 여부에 대한 결정입니다.
+
+### Answer
+
+상단 타이머 HUD의 `NORMAL SESSION`, `Act-1` 라벨 문구를 전면 삭제한다.
+
+### Q44. `power_grid_maint.note` 내용 디제틱 한국어 재작성 사양
+
+`power_grid_maint.note` 파일의 개발자풍 텍스트를 몰입감을 위한 디제틱 텍스트로 전환하는 것에 대한 결정입니다.
+
+### Answer
+
+`power_grid_maint.note` 내용을 자연스러운 디제틱 한국어 설명으로 전면 재작성한다.
+
+### Q45. 휴지통(`/Recycle_Bin/`) 파일 복구 전 첨부 제한 사양
+
+휴지통(`/Recycle_Bin/`) 디렉터리에 위치한 파일의 복구 전 ECHO 증거 첨부 가능 여부에 대한 결정입니다.
+
+### Answer
+
+휴지통(`/Recycle_Bin/`) 파일은 복구 전 첨부 불가 처리하고, 복구(Log_Fixer) 완료 후에만 첨부 가능하도록 변경한다.
+
+### Q46. Sensor diagram 개발자 프롬프트 잔재 삭제 및 디제틱 도면 교체 사양
+
+Sensor diagram 파일 내에 남아있는 개발자 프롬프트 잔재 텍스트와 도면 라벨 교체에 대한 결정입니다.
+
+### Answer
+
+Sensor diagram 개발자 프롬프트 잔재를 전면 삭제하고, 명시된 라벨(`SENSOR-BIO-04 열 감지 스캔 헤드`, `통제실 모듈 #04 장착 지점` 등)이 포함된 디제틱 도면으로 교체한다.
+
+### Q47. 파일 뷰어의 `DIAGNOSTIC NOTE` 버튼 처리 사양
+
+파일 뷰어 상단/하단에 위치하던 `DIAGNOSTIC NOTE` 버튼의 유지 여부에 대한 결정입니다.
+
+### Answer
+
+파일 뷰어의 `DIAGNOSTIC NOTE` 버튼을 전면 삭제한다.
+
+### Q48. `O₂ LEVEL` HUD 카드 하단 `drain x1.0x` 문구 처리 사양
+
+상단 HUD의 `O₂ LEVEL` 카드 하단에 노출되던 `drain x1.0x` 배율 문구의 유지 여부에 대한 결정입니다.
+
+### Answer
+
+`O₂ LEVEL` HUD 카드 하단 `drain x1.0x` 문구를 전면 삭제한다.
+
 

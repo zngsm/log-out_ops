@@ -20,6 +20,11 @@
 - Rework file explorer density from large grouped cards into compact directory/file rows.
 - Keep locked security files visible as discoverable entries, but open a password prompt when the player tries to access them.
 - Replace inline security unlock form with modal-style password prompt using natural Korean text: header `"보안 게이트 :: 제한 구역"`, message `"/System/Security 디렉터리는 김 박사의 비상 격리 프로토콜에 의해 잠겨 있습니다. 승무원 메일에서 발견된 직인 암호를 입력하십시오."` (Q29 user feedback).
+- Completely remove hint text explaining the location of passwords for locked files (Q37).
+- Completely remove hint text showing location when an incorrect password is entered (Q38).
+- Completely remove left sidebar `Log fixer mini program` card/form (while keeping `[OPEN WITH LOG_FIXER]` button inside file viewer) (Q36).
+- Completely remove `DIAGNOSTIC NOTE` button from file viewer (Q47).
+- Completely remove `<dt>증거성</dt>` and `<dt>상태</dt>` DL items from file viewer (Q32).
 - Unify margin spacing between file title (`h2`) and `[ATTACH TO ECHO]` / `[COPY PATH]` button bar (`.context-action-bar`) for consistent visual alignment (Q28 user feedback).
 - Hide player-facing scene-runtime debug card from the ECHO column to recover vertical space.
 - Reduce ECHO chat/input padding and textarea height so the submit button remains visible inside the fixed terminal screen.
@@ -30,6 +35,10 @@
 - HUD cards are no longer `fixed` overlays and do not cover file viewer, explorer, or ECHO chat content.
 - File explorer can show many directories/files in a compact explorer-like list.
 - Locked `/System/Security` entries prompt for a password modal with natural Korean text ("보안 게이트 :: 제한 구역", "/System/Security 디렉터리는 김 박사의 비상 격리 프로토콜에 의해 잠겨 있습니다...") on click instead of disappearing or using an inline form.
+- Password location hint text and incorrect password location hint text are completely removed from locked files and modals (Q37, Q38).
+- Left sidebar `Log fixer mini program` card/form is completely removed while file viewer `[OPEN WITH LOG_FIXER]` button is preserved (Q36).
+- `DIAGNOSTIC NOTE` button in file viewer is completely removed (Q47).
+- File viewer bottom `<dt>증거성</dt>` and `<dt>상태</dt>` DL items are completely removed (Q32).
 - File title (`h2`) and action buttons bar (`.context-action-bar`) maintain unified visual margin spacing.
 - ECHO evidence form submit button is visible without relying on page scroll.
 - Production build passes.

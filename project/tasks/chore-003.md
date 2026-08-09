@@ -16,6 +16,9 @@ Align Category A file contents with the original LOG_OUT examples while separati
 ## Scope
 
 - Re-check all Category A files against `LOG_OUT 로그 예시.md`.
+- Completely rewrite `power_grid_maint.note` into natural diegetic Korean description (Q44).
+- Replace Sensor diagram prompt remnants with diegetic diagram containing specified labels (`SENSOR-BIO-04 열 감지 스캔 헤드`, `통제실 모듈 #04 장착 지점`, etc.) (Q46).
+- Completely remove `<dt>증거성</dt>` and `<dt>상태</dt>` DL items from file viewer (Q32).
 - Keep exact canonical evidence paths for Act 1, Act 2, and Act 3.
 - Add or preserve original decoy/flavor files where they improve investigation density.
 - Move `[PLAYER NOTE]` or direct-answer text behind a debug/hint layer.
@@ -30,6 +33,9 @@ Align Category A file contents with the original LOG_OUT examples while separati
 ## Acceptance Criteria
 
 - [x] Required evidence files contain original-source clue information.
+- [x] `power_grid_maint.note` is rewritten as natural diegetic Korean text (Q44).
+- [x] Sensor diagram prompt remnants are replaced with diegetic diagram with specified labels (`SENSOR-BIO-04 열 감지 스캔 헤드`, `통제실 모듈 #04 장착 지점`, etc.) (Q46).
+- [x] File viewer bottom `<dt>증거성</dt>` and `<dt>상태</dt>` DL items are completely removed (Q32).
 - [x] Production file contents do not directly say "this is the answer."
 - [x] Debug/hint information is still available for QA or accessibility if enabled.
 - [x] Decoy files feel plausible and do not accidentally satisfy evidence validation.

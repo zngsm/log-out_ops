@@ -17,6 +17,8 @@ Move the current build away from guide/spec language and toward playable game co
 
 - Add more in-world logs, crew messages, system audits, life-support records, and Act 3 clue documents.
 - Remove or hide player-facing production/QA wording from the file explorer and viewer.
+- Completely remove developer meta text like `Available for act-2 evidence` upon Log Fixer completion (Q42).
+- Completely remove `DIAGNOSTIC NOTE` button from file viewer (Q47).
 - Make opening beat copy read like an unfolding scene rather than implementation direction.
 - Keep Category A Act 1~3 deterministic clear path intact.
 
@@ -28,7 +30,8 @@ Move the current build away from guide/spec language and toward playable game co
 ## Acceptance Criteria
 
 - [x] Player-facing file rows no longer expose evidence role labels by default.
-- [x] Source reference metadata is hidden unless diagnostic mode is enabled.
+- [x] Source reference metadata and developer meta text (`Available for act-2 evidence`) are completely removed (Q42).
+- [x] `DIAGNOSTIC NOTE` button in file viewer is completely removed (Q47).
 - [x] Password and recovery hints are presented as in-world security/diagnostic messages.
 - [x] Additional DOCX-derived files exist for lockdown audit, crew comms, O2 pressure, Act 3 rule hierarchy, and recycle-bin discovery.
 - [x] Opening beat copy no longer says `placeholder`.

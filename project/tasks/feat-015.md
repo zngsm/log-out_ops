@@ -15,7 +15,7 @@ Make oxygen and power feel like emergency pressure, not only numbers.
 
 ## Scope
 
-- Display O2 level, drain multiplier, power level, and elapsed/session time in the planned HUD style.
+- Display O2 level, power level, and elapsed/session time in the planned HUD style (completely removing `NORMAL SESSION` / `Act-1` labels (Q43) and `drain x1.0x` text (Q48)).
 - Apply power thresholds: Normal, Caution, Warning, Critical, Blackout.
 - Match the DOCX crisis monitor direction: red alert status, strong monitor glow, oxygen/power bars, and surrounding-room warning signage or placeholder equivalents.
 - Add Caution file/viewer delay, Warning Log_Fixer slowdown, Critical vignette/cursor shake, and Blackout reboot lock.
@@ -30,7 +30,7 @@ Make oxygen and power feel like emergency pressure, not only numbers.
 
 ## Acceptance Criteria
 
-- [x] HUD shows O2 percentage and current drain multiplier.
+- [x] HUD shows O2 percentage and power level, with `NORMAL SESSION`, `Act-1` labels and `drain x1.0x` text completely removed (Q43, Q48).
 - [x] Red Alert/Critical presentation affects both monitor UI and surrounding scene treatment when available.
 - [x] Power threshold changes affect visuals and at least one interaction timing behavior.
 - [x] Blackout includes a timed reboot sequence before power recovery.

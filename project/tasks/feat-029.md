@@ -17,17 +17,19 @@
 
 - Add an in-world mission brief when gameplay starts.
 - Explain the core loop: open file, attach evidence, explain contradiction to ECHO, submit.
-- Add a persistent `NEXT ACTION` strip that changes based on act progression, attached evidence, security unlock, and recovery state.
-- Provide a first-file shortcut so the player can immediately inspect `sensor_calib.log`.
+- Completely remove the `NEXT ACTION` banner/strip (Q40).
+- Completely remove the 'First objective' box and 'Open first file' button from `HOW TO PLAY` window (Q41).
+- Completely remove Tool manual security notes (Q35).
 - Preserve diegetic Hermes OS presentation instead of adding external webpage-style help text.
 
 ## Acceptance Criteria
 
 - On first terminal entry, the player sees why they are trapped and what the win condition is.
 - The player can understand that this is an evidence-investigation game.
-- The first required action points to `sensor_calib.log`.
-- The right-side ECHO submit loop is explained before the player needs to discover it alone.
-- `NEXT ACTION` updates through Act 1, Act 2, Act 3, and ending-ready states.
+- The `NEXT ACTION` strip/bar is completely removed (Q40).
+- The 'First objective' box and 'Open first file' button inside `HOW TO PLAY` window are completely removed (Q41).
+- Tool manual security notes are completely removed (Q35).
+- Right-side ECHO submit loop is explained before the player needs to discover it alone.
 - Production build passes.
 
 ## Dependencies

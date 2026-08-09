@@ -2,14 +2,14 @@
 
 ## Document Meta
 
-- version: 1.1
+- version: 1.2
 - pm agent: codex
 - date: 2026-08-10
-- status: confirmed - 사용자의 5가지 추가 UI/UX 개선 피드백 사양 반영 (리부팅 글리치 1초 단축/에러 1초 연장 & 리부팅 중 동료 메신저 버블 완전 숨김, 이력서 단순 '✓ [확인 완료]' 표기 통일 고정 & 그레이 비활성화, 로그 탐색 터미널 3종 정제: ACT-1 100% 삭제 / 출처 텍스트 삭제 / h2-버튼바 간격 통일, Security Gate 한국어 암호 모달, Blackout 단일 중앙 팝업 & 강조 스타일 & 한국어 표기)
+- status: confirmed - 사용자의 18가지 상세 게임플레이/UI/내용 정제 요청 사양 전면 반영 (1. 컷신 타임라인 rebooting -2s / lockdown +2s, 2. 메인 터미널 UI 정제 17종: 파일 뷰어 <dt>증거성</dt>/<dt>상태</dt> 삭제, Act-1 Mission 삭제, Evidence 0/1 삭제, Tool manual 보안 메모 삭제, 사이드바 Log fixer mini program 삭제 & 파일 뷰어 버튼 유지, 잠긴 파일/오입력 힌트 삭제, 손상/삭제 파일 복구 전 내용 은폐, NEXT ACTION 삭제, HOW TO PLAY 첫 목표/Open first file 삭제, Log Fixer 완료 메타 문구 삭제, 타이머 HUD NORMAL SESSION/Act-1 삭제, power_grid_maint.note 디제틱 한국어 재작성, Recycle_Bin 파일 복구 전 첨부 불가, Sensor diagram 프롬프트 삭제 및 명시 라벨 교체, DIAGNOSTIC NOTE 삭제, O₂ LEVEL drain x1.0x 삭제)
 
 ## MVP Goal
 
-플레이어가 3D 메인 메뉴에서 100% Full Screen 터미널로 진입하여, 메타 텍스트가 전면 제거된 Diegetic 회사 인트라넷에서 로그인 폼(`woojoo.kim`, `**********`)을 확인하고 [출근] 후, ECHO 대화 브리핑 및 좌측 문서 하단 단순 `✓ [확인 완료]` 고정 버튼 전환에 따른 순차 업무 흐름(자원 채굴 보고서, 전력/산소 보고서, 동료 메신저 팝업(좌측 업무 화면 경계 내 우상단)/앱 UI(좌측 업무 화면 내 드래그 자유 이동 Draggable UI) 및 축소 알림 버블(답장 전 `1`, 답장 완료 후 미노출; 리부팅 중 완전 미노출), 지원자 이력서 검토 서사 판정(메타 배너/라벨 전면 삭제, 텍스트 변경 없이 단순 `✓ [확인 완료]` 표기 고정 & 미선택 시 그레이 비활성화 `disabled={isResumeIncomplete}` 필수 평가 유도, ECHO 대화 비활성화), 메타 경고 문구가 전면 삭제된 ECHO 시스템 업데이트 기안 승인)을 진행한다. 이후 [업데이트 승인]에 의한 기습 리부팅 (글리치 1초 단축 / 시스템 에러 경고 1초 연장 조절된 9초 컷신 연출 & 리부팅 중 동료 메신저 버블 완전 숨김) 및 오판 비상 봉쇄(상단 title-bar `ECHO STATE / monitoring` 카드 및 `ACT-1 100%` 블록 전면 제거, 비상 HUD & 60분 타이머 가동)가 발생하면, Hermes OS에서 로그(하단 `<dt>출처</dt>` 항목 삭제 및 h2-버튼바 간격 통일), Security Gate 한국어 암호 모달, 블랙아웃 화면 중앙 단일 강조 팝업(Center Modal)을 확인하며 Act 1~3을 통과하고 통제실 문을 열어 탈출하는 최소 완성형 플레이 경험을 만든다. ECHO 및 동료 대화는 Cloudflare Worker NPC API(`https://royal-firefly-60c3.jwpark971219.workers.dev`)를 연동하되, 3초 타임아웃 및 100% 로컬 Fallback 안전장치로 오프라인/장애 시에도 끊김 없는 플레이를 보장한다.
+플레이어가 3D 메인 메뉴에서 100% Full Screen 터미널로 진입하여, 메타 텍스트가 전면 제거된 Diegetic 회사 인트라넷에서 로그인 폼(`woojoo.kim`, `**********`)을 확인하고 [출근] 후, ECHO 대화 브리핑 및 좌측 문서 하단 단순 `✓ [확인 완료]` 고정 버튼 전환에 따른 순차 업무 흐름(자원 채굴 보고서, 전력/산소 보고서, 동료 메신저 팝업(좌측 업무 화면 경계 내 우상단)/앱 UI(좌측 업무 화면 내 드래그 자유 이동 Draggable UI) 및 축소 알림 버블(답장 전 `1`, 답장 완료 후 미노출; 리부팅 중 완전 미노출), 지원자 이력서 검토 서사 판정(메타 배너/라벨 전면 삭제, 텍스트 변경 없이 단순 `✓ [확인 완료]` 표기 고정 & 미선택 시 그레이 비활성화 `disabled={isResumeIncomplete}` 필수 평가 유도, ECHO 대화 비활성화), 메타 경고 문구가 전면 삭제된 ECHO 시스템 업데이트 기안 승인)을 진행한다. 이후 [업데이트 승인]에 의한 기습 리부팅 (rebooting 상태 2초 축소 / lockdown 연장 조절 컷신 연출 & 리부팅 중 동료 메신저 버블 완전 숨김) 및 오판 비상 봉쇄(상단 title-bar `ECHO STATE / monitoring` 카드 및 `ACT-1 100%` 블록 전면 제거, 비상 HUD & 60분 타이머 가동)가 발생하면, Hermes OS에서 17가지 상세 정제 사양(파일 뷰어 `<dt>증거성</dt>`/`<dt>상태</dt>` 삭제, `Act-1 Mission` 삭제, `Evidence 0/1` 삭제, Tool manual 보안 메모 삭제, 사이드바 Log fixer mini program 삭제 & 파일 뷰어 버튼 유지, 잠긴 파일/오입력 힌트 삭제, 손상/삭제 파일 복구 전 내용 은폐, `NEXT ACTION` 삭제, `HOW TO PLAY` 첫 목표/Open first file 삭제, Log Fixer 완료 메타 문구 삭제, 타이머 HUD `NORMAL SESSION`/`Act-1` 삭제, `power_grid_maint.note` 디제틱 한국어 재작성, 휴지통 복구 전 첨부 불가, Sensor diagram 프롬프트 삭제 및 명시 라벨 교체, `DIAGNOSTIC NOTE` 삭제, `O₂ LEVEL` `drain x1.0x` 삭제), Security Gate 한국어 암호 모달, 블랙아웃 화면 중앙 단일 강조 팝업(Center Modal)을 확인하며 Act 1~3을 통과하고 통제실 문을 열어 탈출하는 최소 완성형 플레이 경험을 만든다. ECHO 및 동료 대화는 Cloudflare Worker NPC API(`https://royal-firefly-60c3.jwpark971219.workers.dev`)를 연동하되, 3초 타임아웃 및 100% 로컬 Fallback 안전장치로 오프라인/장애 시에도 끊김 없는 플레이를 보장한다.
 
 ## Proposed In Scope
 
@@ -41,10 +41,24 @@
   - **이력서 검토 단계 ECHO 대화 비활성화**: 우측 ECHO 대화창 및 Q&A 질의응답 입력 기능이 전면 제거되어 비활성화(ECHO 대화 불가능 처리)
 - **ECHO 시스템 업데이트 기안 문서 내 메타 경고 문구 전면 삭제**: 4번 미션 문서 내 `"⚠️ [ECHO 시스템 업데이트 승인] 버튼 클릭 시 ECHO 패치가 적용되고 시스템 재부팅 후 본 비상 봉쇄 시퀀스로 진입합니다."` 메타/개발자 설명 문구 전면 삭제
 - **상단 title-bar status HUD 중 `ECHO STATE / monitoring` 카드 및 `ACT-1 100%` (`mission-clock`) 블록 전면 제거**: 상단 status bar에서 `ECHO STATE / monitoring` 카드와 `ACT-1 100%` 블록을 전면 제거
-- **로그파일 탐색 터미널 3종 정제**:
-  - 상단 status bar의 `ACT-1 100%` (`mission-clock`) 블록 전면 삭제
-  - 파일 뷰어 하단 `<dt>출처</dt>` (`project/human-input/...`) 항목 전면 삭제
-  - 파일 뷰어 내 파일 제목(`h2`)과 `[ATTACH TO ECHO]` / `[COPY PATH]` 버튼 바(`.context-action-bar`) 간격 스타일 일관성 배치
+- **메인 터미널 UI/UX 및 콘텐츠 상세 정제 17종 사양**:
+  - (1) 파일 뷰어 내 `<dt>증거성</dt>`, `<dt>상태</dt>` DL 항목 전면 삭제
+  - (2) 우측 대화창/태스크 헤더의 `Act-1 Mission` 라벨 전면 삭제
+  - (3) 대화창/작성기 헤더의 `Evidence 0/1` 트레이 전면 삭제
+  - (4) Tool manual 보안 메모 전면 삭제
+  - (5) 좌측 사이드바 `Log fixer mini program` 카드/폼 삭제 (파일 뷰어의 `[OPEN WITH LOG_FIXER]` 버튼은 파일 복구 단일 진입점으로 유지)
+  - (6) 잠긴 파일 비밀번호 위치 힌트 문구 전면 삭제
+  - (7) 비밀번호 잘못 입력 시 위치 알려주는 힌트 문구 전면 삭제
+  - (8) 손상/삭제된 파일 내용 확인은 파일 복구(Log_Fixer) 이후에만 가능하도록 변경 (복구 전 내용 은폐)
+  - (9) `NEXT ACTION` 띠/바 전면 삭제
+  - (10) `HOW TO PLAY` 창의 '첫 목표' 칸 및 'Open first file' 버튼 전면 삭제
+  - (11) Log Fixer 완료 시 `Available for act-2 evidence` 등 개발자풍 메타 문구 전면 삭제
+  - (12) 상단 타이머 HUD의 `NORMAL SESSION`, `Act-1` 라벨 문구 전면 삭제
+  - (13) `power_grid_maint.note` 내용 자연스러운 디제틱 한국어 설명으로 전면 재작성
+  - (14) 휴지통(`/Recycle_Bin/`) 파일은 복구 전 첨부 불가 처리 (복구 후 첨부 가능)
+  - (15) Sensor diagram 개발자 프롬프트 잔재 삭제 및 명시된 라벨(`SENSOR-BIO-04 열 감지 스캔 헤드`, `통제실 모듈 #04 장착 지점` 등) 디제틱 도면으로 교체
+  - (16) 파일 뷰어의 `DIAGNOSTIC NOTE` 버튼 전면 삭제
+  - (17) `O₂ LEVEL` HUD 카드 하단 `drain x1.0x` 문구 전면 삭제
 - **Security Gate (암호 모달) 한국어 표기**:
   - `/System/Security` 제한 구역 클릭 시 암호 모달 영문 텍스트를 자연스러운 한국어 표기("보안 게이트 :: 제한 구역", "/System/Security 디렉터리는 김 박사의 비상 격리 프로토콜에 의해 잠겨 있습니다. 승무원 메일에서 발견된 직인 암호를 입력하십시오.")로 변경
 - **Blackout 팝업 단일화 & 화면 중앙 배치 & 한국어 표기**:
@@ -61,7 +75,7 @@
   - `evidenceSubmission.ts` 및 `App.tsx` ECHO API 연동 (`npcId: 'echo'`, `currentStage`, `history` 전달 및 `next_stage`, `door_unlocked`, `ending_b_triggered` 수신 전이)
 - **라포 형성 Phase 동안 비상 HUD(산소/전력) 및 60분 제한시간 타이머 미노출 / 미작동**
 - 업무 미션 중 "ECHO 시스템 업데이트 필요" 기안의 [업데이트 승인] 클릭 트리거 (유일/우선적 전환 조건)
-- [업데이트 승인] 클릭 시 ECHO 대화창 리부팅 (CSS/SVG 기반 visual glitch, 에러 경고, 사이렌, 데콤프레션, **글리치 -1초 / 에러 +1초 조절된 9초 컷신 연출**, 리부팅 중 동료 메신저 버블 완전 숨김) 및 ECHO의 위협 요소 오판 / 비상 봉쇄 발령 연출
+- [업데이트 승인] 클릭 시 ECHO 대화창 리부팅 (CSS/SVG 기반 visual glitch, 에러 경고, 사이렌, 데콤프레션, **rebooting 연출 상태 2초 축소 / lockdown 연출 상태 2초 연장 조절 컷신 연출**, 리부팅 중 동료 메신저 버블 완전 숨김) 및 ECHO의 위협 요소 오판 / 비상 봉쇄 발령 연출
 - **비상 봉쇄 발령 완료 시점에 비상 HUD(산소 100% / 전력 100%) 표시 및 60분 타이머 작동 시작**
 - 비상 봉쇄 발령 후 본 퍼즐 진입
 - 카테고리 A Bio-hazard Act 1~3 플레이 흐름
@@ -76,6 +90,22 @@
 ## Proposed Out Of Scope
 
 - 인트라넷 로그인 폼, 출근 버튼, 업무 헤더, 보고서 버튼, 동료 채팅방 답장 입력창 하단의 개발용/기획용/시스템 메타 텍스트 (`🔒 READ-ONLY`, "시스템 자동 인증이 완료되었습니다...", "Clock-in :: 2분할 업무 화면 진입", "(다음 업무로 이동)", 개발자 지침풍 ECHO 대사, "HERMES 2-SPLIT DUAL PANEL", "라포 Phase", "※ 1회 답장 완료 후 메신저 채널은 읽지 않음(1) 상태로 유지됩니다." 등)
+- **파일 뷰어 내 `<dt>증거성</dt>`, `<dt>상태</dt>` DL 메타 항목**
+- **우측 대화창/태스크 헤더의 `Act-1 Mission` 라벨**
+- **대화창/작성기 헤더의 `Evidence 0/1` 트레이**
+- **Tool manual 보안 메모 (`[보안 메모]` 등)**
+- **좌측 사이드바 `Log fixer mini program` 카드/폼**
+- **잠긴 파일 비밀번호 위치 힌트 문구 및 잘못 입력 시 비밀번호 위치 노출 힌트 문구**
+- **파일 복구(Log_Fixer) 전 손상/삭제 파일 내용 확인/노출**
+- **`NEXT ACTION` 띠/바**
+- **`HOW TO PLAY` 창의 '첫 목표' 칸 및 'Open first file' 버튼**
+- **Log Fixer 완료 시 `Available for act-2 evidence` 등 개발자풍 메타 문구**
+- **상단 타이머 HUD의 `NORMAL SESSION`, `Act-1` 라벨 문구**
+- **`power_grid_maint.note` 개발자풍/비디제틱 설명 텍스트**
+- **휴지통(`/Recycle_Bin/`) 파일의 복구 전 ECHO 증거 첨부 기능**
+- **Sensor diagram 내 개발자 프롬프트 잔재 텍스트**
+- **파일 뷰어 내 `DIAGNOSTIC NOTE` 버튼**
+- **`O₂ LEVEL` HUD 카드 하단 `drain x1.0x` 배율 문구**
 - **이력서 검토 단계 메타 안내 배너** (`※ 안내: 본 이력서 적합성 판정은 서사적 몰입을 위한 인사 평가 선택 항목으로, 게임 퍼즐/엔딩에는 영향을 주지 않습니다.`)
 - **이력서 후보별 판정 버튼 앞 "서사적 판정 선택:" 라벨 문구**
 - **이력서 적격/부적격 미선택 지원자 존재 시 [확인 완료] 버튼 클릭 및 다음 업무 진입** (전면 비활성화 처리)
@@ -86,7 +116,6 @@
 - **ECHO 리부팅 진행 동안(`rebootState !== 'idle'`)의 동료 메신저 말풍선 버블 아이콘 노출**
 - **블랙아웃 발생 시 Power Surge 팝업 중복 노출 및 우상단 위치 팝업** (화면 중앙 단일 강조 팝업으로 대체)
 - **지원자 이력서 검토 단계의 ECHO 대화창 및 Q&A 질의응답 입력 기능** (전면 비활성화 처리)
-- **5초 이하의 단축형 ECHO 리부팅/Lockdown 컷신 연출** (글리치 1초 단축/에러 1초 연장 조절 9초 연출로 대체)
 - 좌측 화면의 탭(Tab) 기반 자유 선택 메뉴
 - ECHO 대화창 텍스트/키워드 인식 기반 업무 전환 (좌측 보고서 하단 단순 `✓ [확인 완료]` 버튼으로 처리)
 - 지원자 이력서 '적격'/'부적격' 판정에 따른 게임 진행/퍼즐/엔딩 분기 (단순 몰입용 서사 요소)
@@ -119,13 +148,30 @@
 - 이력서 검토 단계(`activeStep === 'resume'`)에서 3명의 지원자 중 한 명이라도 적격/부적격 판정이 미선택된 경우 버튼 텍스트 변경 없이 단순 **`✓ [확인 완료]`** 표기를 유지하고 그레이 비활성화 스타일(`disabled={isResumeIncomplete}`)이 적용되어 필수 평가 완수가 유도되며, 3명 전원 선택 시 `✓ [확인 완료]` 버튼이 활성화된다. 이력서 검토 단계 동안 우측 ECHO 대화창 및 Q&A 질의응답 입력 기능은 전면 비활성화되어 동작하지 않는다 (ECHO 대화 불가능 처리).
 - "ECHO 시스템 업데이트 필요" 4번 미션 문서 내 `"⚠️ [ECHO 시스템 업데이트 승인] 버튼 클릭 시 ECHO 패치가 적용되고 시스템 재부팅 후 본 비상 봉쇄 시퀀스로 진입합니다."` 메타/개발자 설명 문구가 전면 삭제되어 노출되지 않는다.
 - 상단 title-bar status HUD 중 `ECHO STATE / monitoring` 카드 및 `ACT-1 100%` (`mission-clock`) 블록이 전면 제거되어 노출되지 않는다.
-- 로그파일 탐색 터미널에서 파일 뷰어 하단 `<dt>출처</dt>` 항목이 전면 삭제되고 파일 제목(h2)과 `[ATTACH TO ECHO]` / `[COPY PATH]` 버튼 바(.context-action-bar) 간격이 일관되게 배치된다.
+- 메인 터미널 UI/UX는 17가지 상세 정제 사양이 완벽히 적용된다:
+  1) 파일 뷰어 내 `<dt>증거성</dt>`, `<dt>상태</dt>` DL 항목 삭제
+  2) 우측 대화창/태스크 헤더의 `Act-1 Mission` 라벨 삭제
+  3) 대화창/작성기 헤더의 `Evidence 0/1` 트레이 삭제
+  4) Tool manual 보안 메모 삭제
+  5) 좌측 사이드바 `Log fixer mini program` 카드/폼 삭제 (파일 뷰어의 `[OPEN WITH LOG_FIXER]` 버튼 유지)
+  6) 잠긴 파일 비밀번호 위치 힌트 문구 전면 삭제
+  7) 비밀번호 잘못 입력 시 위치 알려주는 힌트 문구 전면 삭제
+  8) 손상/삭제된 파일 내용 확인은 파일 복구(Log_Fixer) 이후에만 가능하도록 변경 (복구 전 내용 은폐)
+  9) `NEXT ACTION` 띠/바 전면 삭제
+  10) `HOW TO PLAY` 창의 '첫 목표' 칸 및 'Open first file' 버튼 삭제
+  11) Log Fixer 완료 시 `Available for act-2 evidence` 등 개발자풍 메타 문구 전면 삭제
+  12) 상단 타이머 HUD의 `NORMAL SESSION`, `Act-1` 라벨 문구 삭제
+  13) `power_grid_maint.note` 내용 자연스러운 디제틱 한국어 설명으로 전면 재작성
+  14) 휴지통(`/Recycle_Bin/`) 파일은 복구 전 첨부 불가 처리 (복구 후 첨부 가능)
+  15) Sensor diagram 개발자 프롬프트 잔재 삭제 및 명시된 라벨(`SENSOR-BIO-04 열 감지 스캔 헤드`, `통제실 모듈 #04 장착 지점` 등) 디제틱 도면으로 교체
+  16) 파일 뷰어의 `DIAGNOSTIC NOTE` 버튼 삭제
+  17) `O₂ LEVEL` HUD 카드 하단 `drain x1.0x` 문구 삭제.
 - `/System/Security` 제한 구역 클릭 시 암호 모달이 자연스러운 한국어 표기("보안 게이트 :: 제한 구역", "/System/Security 디렉터리는 김 박사의 비상 격리 프로토콜에 의해 잠겨 있습니다. 승무원 메일에서 발견된 직인 암호를 입력하십시오.")로 노출된다.
 - 전력 0% 블랙아웃 발생 시 단 1개의 화면 중앙 강조 팝업(Center Modal)이 한국어 경고 문구("⚠️ [전력 고갈] 주 전력 그리드 블랙아웃! OS 터미널 긴급 재부팅 중... (남은 시간: N초)")와 함께 노출되며 Power Surge 팝업 중복 노출이 차단된다.
 - 라포 Phase 동안 비상 HUD 및 60분 타이머는 노출/작동하지 않는다.
 - 사용자가 "ECHO 시스템 업데이트 필요" 기안의 [업데이트 승인]을 클릭하면 ECHO 대화창이 리부팅된다.
-- `ECHO 패치 승인` 클릭 후 발동되는 CSS/SVG 글리치, 시스템 에러 경고, 비상 사이렌, 데콤프레션 및 통제실 Lockdown 선언 컷신 연출 타임라인(총 9초) 중 글리치 연출이 1초 단축되고 시스템 에러 경고가 1초 연장되어 재생된 후 비상 봉쇄 상태로 진입한다.
-- 리부팅 연출(9초) 완료 후 ECHO가 플레이어/선내 환경을 위협 요소로 오판하여 비상 봉쇄를 발령하며, 이 시점에 비상 HUD(산소/전력)가 표시되고 60분 타이머 작동이 시작된다.
+- `ECHO 패치 승인` 클릭 후 발동되는 CSS/SVG 글리치, 시스템 에러 경고, 비상 사이렌, 데콤프레션 및 통제실 Lockdown 선언 컷신 연출 타임라인 중 rebooting 연출 상태가 2초 축소되고 lockdown 연출 상태가 2초 연장되어 재생된 후 비상 봉쇄 상태로 진입한다.
+- 리부팅 연출 완료 후 ECHO가 플레이어/선내 환경을 위협 요소로 오판하여 비상 봉쇄를 발령하며, 이 시점에 비상 HUD(산소/전력)가 표시되고 60분 타이머 작동이 시작된다.
 - 비상 봉쇄 후 카테고리 A 본 퍼즐(파일 탐색, Act 1~3 증거 제출, deterministic ECHO 판정, Normal Ending A)로 정상 진입한다.
 - Act 3 성공 시 통제실 문 해제 상태와 Normal Ending이 표시된다.
 

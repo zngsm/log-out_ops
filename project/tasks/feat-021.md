@@ -17,6 +17,8 @@ Replace placeholder-like internal file content with the concrete Category A cont
 
 - Use `project/human-input/우주선 탈출게임 로그 예시.docx` as the primary source for Category A file tree and file contents.
 - Align the in-game tree around `/Logs`, `/Personnel`, `/System`, `/Utilities`, and `/Recycle_Bin`.
+- Completely rewrite `power_grid_maint.note` into natural diegetic Korean description (Q44).
+- Clean Sensor diagram content of developer prompt remnants and replace with diegetic diagram containing specified labels (`SENSOR-BIO-04 열 감지 스캔 헤드`, `통제실 모듈 #04 장착 지점`, etc.) (Q46).
 - Preserve the Category A Act path:
   - Act 1: `sensor_calib.log` proves sensor drift and 186-day missed calibration.
   - Act 2: `email_chain_july.txt` reveals Security PIN `8842`; `quarantine_rules.conf` is corrupted and requires `Log_Fixer.exe`; recovered content proves `+17520_HOURS` offset and expired 72-hour quarantine.
@@ -32,6 +34,8 @@ Replace placeholder-like internal file content with the concrete Category A cont
 ## Acceptance Criteria
 
 - [x] Category A files match the DOCX source intent and paths closely.
+- [x] `power_grid_maint.note` is rewritten into natural diegetic Korean text (Q44).
+- [x] Sensor diagram developer prompt remnants are removed and replaced with diegetic diagram containing specified labels (`SENSOR-BIO-04 열 감지 스캔 헤드`, `통제실 모듈 #04 장착 지점`, etc.) (Q46).
 - [x] Each required evidence file is discoverable through in-world clues, not direct answer labeling.
 - [x] Noise files exist and are readable but do not falsely block progress.
 - [x] Corrupted and recovered `quarantine_rules.conf` states both exist.

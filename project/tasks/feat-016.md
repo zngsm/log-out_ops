@@ -20,6 +20,9 @@ Make Hermes OS file investigation closer to the original ship-computer fantasy.
 - Separate single-click select from double-click open where feasible.
 - Add context-menu style actions: attach to ECHO, copy path, open with recovery tool.
 - Improve locked, corrupted, recovered, executable, image, and folder states.
+- Enforce that corrupted or deleted file contents are concealed before recovery (Q39).
+- Restrict files in `/Recycle_Bin/` from being attached to ECHO before recovery (enable attachment after recovery) (Q45).
+- Completely remove hint text explaining password locations for locked files and incorrect password entry hints (Q37, Q38).
 - Add viewer support or placeholder rendering for `sensor_diagram.png`.
 
 ## Dependencies
@@ -30,6 +33,9 @@ Make Hermes OS file investigation closer to the original ship-computer fantasy.
 ## Acceptance Criteria
 
 - [x] Player can understand file path, file type, and file state before opening.
+- [x] Corrupted and deleted file contents are concealed before Log_Fixer recovery (Q39).
+- [x] Files in `/Recycle_Bin/` cannot be attached before recovery and become attachable after recovery (Q45).
+- [x] Password location hints for locked files and incorrect password entry hints are completely removed (Q37, Q38).
 - [x] The interface reads as Hermes OS inside a physical monitor, not as a generic full-page web app.
 - [x] Top O2/Power bars, window controls, scrollbars, path bar, tree/list, preview, ECHO chat, input, and send control are visually coherent.
 - [x] Evidence attachment feels like an OS action, not just a puzzle button.

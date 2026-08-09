@@ -15,10 +15,13 @@ Turn Log_Fixer from a simplified recovery action into the original mini-program 
 
 ## Scope
 
-- Open `Log_Fixer.exe` as a CUI-style popup.
+- Open `Log_Fixer.exe` as a CUI-style popup when clicking `[OPEN WITH LOG_FIXER]` inside file viewer (Q36).
+- Completely remove the left sidebar `Log fixer mini program` card/form (Q36).
 - Let the player choose or enter the corrupted file path.
 - Require repair mode selection from the manual: `Header Repair`, `Offset Correction`, or `Text Reconstruction`.
 - Show progress, byte-scroll style feedback, and restored-line highlight.
+- Enforce that corrupted/deleted file contents are concealed before recovery (Q39).
+- Completely remove developer meta text like `Available for act-2 evidence` upon recovery completion (Q42).
 - Handle wrong file or wrong repair mode with non-softlocking feedback.
 - Respect resource-pressure modifiers, including Warning slowdown.
 
@@ -29,7 +32,10 @@ Turn Log_Fixer from a simplified recovery action into the original mini-program 
 
 ## Acceptance Criteria
 
-- [x] Recovery requires a meaningful player action using manual information.
+- [x] Recovery requires a meaningful player action using manual information initiated via file viewer `[OPEN WITH LOG_FIXER]` button.
+- [x] Left sidebar `Log fixer mini program` card/form is completely removed (Q36).
+- [x] Corrupted/deleted file contents are concealed before Log_Fixer recovery (Q39).
+- [x] Developer meta text like `Available for act-2 evidence` upon completion is completely removed (Q42).
 - [x] Correct recovery makes `quarantine_rules.conf` usable for Act 2.
 - [x] Wrong recovery attempts are understandable and recoverable.
 - [x] The mini-program can be operated with mouse/keyboard in the current UI.

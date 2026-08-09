@@ -18,6 +18,8 @@ Prevent gameplay HUD cards such as Audio System and Power Grid from covering the
 - Move visible HUD cards from the lower overlay position to the top title/status area.
 - Keep the HUD compact enough to read as status chips beside `LOG_OUT`.
 - Completely remove the `ACT-1 100%` (`mission-clock`) status bar block (Q28 user feedback).
+- Completely remove `NORMAL SESSION` and `Act-1` labels from top timer HUD (Q43).
+- Completely remove `drain x1.0x` text below `O₂ LEVEL` HUD card (Q48).
 - Remove bottom padding previously reserved for the lower HUD overlay.
 - Preserve mobile fallback behavior.
 
@@ -29,7 +31,7 @@ Prevent gameplay HUD cards such as Audio System and Power Grid from covering the
 ## Acceptance Criteria
 
 - [x] HUD no longer covers the lower terminal/file/chat area on desktop.
-- [x] Oxygen, power, timer, and audio status appear as compact top status chips (`ECHO STATE / monitoring` card and `ACT-1 100%` block completely removed).
+- [x] Oxygen, power, timer, and audio status appear as compact top status chips (`ECHO STATE / monitoring` card, `ACT-1 100%` block, `NORMAL SESSION` / `Act-1` labels, and `drain x1.0x` text completely removed).
 - [x] `LOG_OUT` title remains visible.
 - [x] Terminal work area keeps full vertical space for file tree, file viewer, and ECHO chat.
 - [x] `npm run build` passes.

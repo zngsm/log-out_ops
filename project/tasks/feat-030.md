@@ -19,9 +19,13 @@
 - Align player messages to the right and ECHO/system messages to the left.
 - Add message metadata so the newest answer and previous history are easier to scan.
 - Add automatic scroll-to-latest behavior when new chat messages arrive.
-- Split the composer into response header, evidence tray, text input, and send action.
+- Split the composer into response header, text input, and send action.
 - Rename submit action to `SEND TO ECHO` for clearer intent.
 - Completely remove the log file source text `<dt>출처</dt>` (`project/human-input/...`) item from the bottom of file viewer (Q28 user feedback).
+- Completely remove `<dt>증거성</dt>` and `<dt>상태</dt>` DL items from file viewer (Q32).
+- Completely remove `Act-1 Mission` label from right dialogue window / task header (Q33).
+- Completely remove `Evidence 0/1` tray block from dialogue window / composer header (Q34).
+- Completely remove `DIAGNOSTIC NOTE` button from file viewer (Q47).
 - Unify margin spacing between file title (`h2`) and `[ATTACH TO ECHO]` / `[COPY PATH]` button bar (`.context-action-bar`) (Q28 user feedback).
 
 ## Acceptance Criteria
@@ -29,8 +33,10 @@
 - Player can distinguish submitted messages from ECHO and SYSTEM responses.
 - Chat history remains scrollable inside the fixed terminal screen.
 - New responses scroll into view automatically.
-- Attached evidence is visibly associated with the message composer.
-- File viewer bottom `<dt>출처</dt>` source text is completely removed.
+- File viewer bottom `<dt>출처</dt>`, `<dt>증거성</dt>`, and `<dt>상태</dt>` DL items are completely removed (Q28, Q32).
+- `Act-1 Mission` label in top right dialogue window / task header is completely removed (Q33).
+- `Evidence 0/1` tray block in dialogue window / composer header is completely removed (Q34).
+- `DIAGNOSTIC NOTE` button in file viewer is completely removed (Q47).
 - Margin spacing between file title (`h2`) and action buttons bar (`.context-action-bar`) is visually unified.
 - Production build passes.
 
