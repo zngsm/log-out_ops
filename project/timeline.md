@@ -31,6 +31,7 @@
 | M18 | 2D 컷신/100% 터미널 줌/인트라넷 진입 흐름 전환 | feat-031, feat-032 | done |
 | M19 | 업무 화면/메신저/후보자 평가/업데이트 승인 흐름 구현 | feat-033, feat-034 | done |
 | M20 | ECHO 메시지 내부 스크롤/최신 포커스 수정 | bug-010 | done |
+| M21 | 워크스테이션 전체 화면 포커스 밀림 수정 | bug-011 | done |
 | P2 | external AI ECHO integration | feat-007 | deferred |
 
 ## Task Timeline
@@ -87,7 +88,8 @@
 | 48 | feat-033 | Build diegetic workstation layout, task flow, messenger, and candidate evaluation | clear after feat-032 | U | done |
 | 49 | feat-034 | Implement ECHO update approval trigger, reboot sequence, and lockdown HUD/timer transition | clear after feat-033 | U | done |
 | 50 | bug-010 | Fix ECHO message scroll and clipping | clear after feat-034 | U | done |
-| 51 | feat-007 | Implement external AI ECHO rules for category A | deferred; waiting for Q11 and scripted ECHO baseline | P2 | AI integration main push |
+| 51 | bug-011 | Fix workstation viewport focus drift | clear after bug-010 | U | done |
+| 52 | feat-007 | Implement external AI ECHO rules for category A | deferred; waiting for Q11 and scripted ECHO baseline | P2 | AI integration main push |
 
 ## Review / QA Gates
 
@@ -116,3 +118,4 @@
 - After `feat-030`, human play review should confirm submitted evidence, player text, ECHO review, and ECHO answer are readable as a conversation thread.
 - After `feat-031` through `feat-034`, human play review should confirm the player moves naturally from 2D cutscene to intranet, workstation tasks, ECHO update approval, reboot, and lockdown puzzle.
 - After `bug-010`, human visual review should confirm ECHO history scrolls internally and automatically lands on the newest appended message.
+- After `bug-011`, human visual review should confirm workstation latest-message focus does not scroll the whole viewport or clip the top header.

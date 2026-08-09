@@ -61,6 +61,7 @@
 | 48 | feat-033 | feat | Build diegetic workstation layout, simple [확인 완료] button task flow (removing '(다음 업무로 이동)' sub-label & developer guide ECHO dialogue), colleague messenger popup (left panel top-right)/draggable app UI with notification bubble (left panel bottom-right, removing reply input box meta notice text & maintaining diegetic UX), and candidate resume narrative evaluation | done | dev-agent | no | feat-032 | feat-034 | project/tasks/feat-033.md |
 | 49 | feat-034 | feat | Implement ECHO update approval trigger, CSS/SVG reboot sequence, and lockdown HUD/timer transition | done | dev-agent | no | feat-033 | qa-004 | project/tasks/feat-034.md |
 | 50 | bug-010 | bug | Fix ECHO message scroll and clipping | done | dev-agent | no | feat-034 | human visual review | project/tasks/bug-010.md |
+| 51 | bug-011 | bug | Fix workstation viewport focus drift | done | dev-agent | no | bug-010, feat-034 | human visual review | project/tasks/bug-011.md |
 
 ## Parallel Work Notes
 
@@ -93,5 +94,6 @@
 - `feat-030` makes ECHO conversation flow readable by separating history, player submissions, ECHO answers, evidence tray, and composer controls.
 - Change-001 tasks (`feat-031` -> `feat-032` -> `feat-033` -> `feat-034`) refactor the game intro: 100% full screen terminal zoom -> Company Intranet with diegetic login form (`woojoo.kim` / `**********`) & Clock-in (zero meta text: `🔒 READ-ONLY`, auto auth notice, and "Clock-in :: 2분할 업무 화면 진입" removed) -> Diegetic Workstation with simple [확인 완료] button sequential task transition (removing "(다음 업무로 이동)" sub-label & replacing developer guide ECHO dialogue with natural diegetic copy), live ECHO report reactions, random colleague messenger popup (left panel top-right, separate draggable app UI, minimized badge `1` at left panel bottom-right, free text reply for lunch menu & positive reaction, removing reply input box meta notice text "※ 1회 답장 완료 후 메신저 채널은 읽지 않음(1) 상태로 유지됩니다." & maintaining diegetic UX), candidate resume narrative evaluation & ECHO suitability Q&A -> ECHO System Update approval trigger & Reboot (CSS/SVG presentation) -> Lockdown & Emergency HUD / 60-min timer start & Main Puzzle.
 - `bug-010` ensures ECHO message history scrolls internally and always follows newly appended messages.
+- `bug-011` prevents workstation ECHO auto-focus from scrolling the whole viewport and clipping the top header.
 - Every dev task must update its task md status from `todo` to `in_progress` to `done`.
 - Current dev workflow is latest `main` -> task-scoped implementation -> task-id commit message -> push directly to `main`; PR/branch flow is only used when the human explicitly asks for it.
