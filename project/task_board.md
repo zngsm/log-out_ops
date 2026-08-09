@@ -93,7 +93,5 @@
 - Change-001 tasks (`feat-031` -> `feat-032` -> `feat-033` -> `feat-034`) refactor the game intro: 100% full screen terminal zoom -> Company Intranet with masked login form (`woojoo.kim` / `**********`) & Clock-in -> 2-split desktop/ECHO 5-Mission Rapport Phase (HUD/timer hidden) -> ECHO System Update approval trigger & Reboot (CSS/SVG presentation) -> Lockdown & Emergency HUD / 60-min timer start & Main Puzzle.
 - Every dev task must update its task md status from `todo` to `in_progress` to `done`.
 - Current dev workflow is latest `main` -> task-scoped implementation -> task-id commit message -> push directly to `main`; PR/branch flow is only used when the human explicitly asks for it.
-- Every dev task must update its task md status from `todo` to `in_progress` to `done`.
-- Current dev workflow is latest `main` -> task-scoped implementation -> task-id commit message -> push directly to `main`; PR/branch flow is only used when the human explicitly asks for it.
 
 

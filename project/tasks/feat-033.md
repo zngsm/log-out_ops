@@ -2,7 +2,7 @@
 
 ## Status
 
-- status: todo
+- status: done
 - type: feat
 - priority: 48
 - owner agent: dev-agent
@@ -36,14 +36,23 @@ Apply Change-001 rapport phase requirements and Q16, Q18 answers: build a split-
 
 ## Acceptance Criteria
 
-- [ ] Split layout is activated upon clicking [출근].
-- [ ] Left side displays work desktop UI; Right side displays ECHO chat window.
-- [ ] Emergency oxygen/power HUD and 60-minute timer are HIDDEN and INACTIVE during the rapport phase.
-- [ ] Left work UI renders 5 interactive work missions (resource mining graph/stats report, ship power/oxygen report, colleague message reply & reaction, applicant resume review, ECHO update approval proposal).
-- [ ] Replying to colleague message triggers reception of colleague reaction message.
-- [ ] ECHO initiates assistant dialogs (morning greeting, Earth report alert, briefing, small talk).
-- [ ] `npm run build` passes.
-- [ ] `git diff --check` passes.
+- [x] Split layout is activated upon clicking [출근].
+- [x] Left side displays work desktop UI; Right side displays ECHO chat window.
+- [x] Emergency oxygen/power HUD and 60-minute timer are HIDDEN and INACTIVE during the rapport phase.
+- [x] Left work UI renders 5 interactive work missions (resource mining graph/stats report, ship power/oxygen report, colleague message reply & reaction, applicant resume review, ECHO update approval proposal).
+- [x] Replying to colleague message triggers reception of colleague reaction message.
+- [x] ECHO initiates assistant dialogs (morning greeting, Earth report alert, briefing, small talk).
+- [x] `npm run build` passes.
+- [x] `git diff --check` passes.
+
+## Review History
+
+- 2026-08-09: APPROVED by review_agent.
+  - 2-split layout activation and responsive UI verified.
+  - Emergency HUD & 60-min timer hidden and inactive during rapport phase verified.
+  - All 5 daily work missions implemented and interactive.
+  - ECHO companion dialogs & reactions verified.
+  - `npm run build` and `git diff --check` passed cleanly.
 
 ## Source References
 
@@ -52,4 +61,5 @@ Apply Change-001 rapport phase requirements and Q16, Q18 answers: build a split-
 - `project/pm_analysis.md`
 - `project/pm_questions.md#Q16`
 - `project/pm_questions.md#Q18`
+
 
