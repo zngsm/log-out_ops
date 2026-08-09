@@ -55,6 +55,7 @@
 | 42 | feat-027 | feat | Move gameplay HUD into title status bar | done | dev-agent | no | feat-026 | human visual review | project/tasks/feat-027.md |
 | 43 | feat-028 | feat | Fix compact terminal HUD and explorer layout | done | dev-agent | no | feat-027 | human visual review | project/tasks/feat-028.md |
 | 44 | feat-029 | feat | Add first play mission onboarding | done | dev-agent | no | feat-028 | human play review | project/tasks/feat-029.md |
+| 45 | feat-030 | feat | Improve ECHO chat readability | done | dev-agent | no | feat-029 | human play review | project/tasks/feat-030.md |
 
 ## Parallel Work Notes
 
@@ -83,5 +84,6 @@
 - `feat-027` keeps the resource/audio/ECHO HUD out of the bottom terminal workspace by treating it as a compact title-bar status strip.
 - `feat-028` corrects the remaining visual overflow: HUD cards are no longer fixed overlays, the file explorer uses dense rows, locked files open a password modal, and ECHO submit remains visible.
 - `feat-029` makes the first-play loop explicit with an in-world mission brief and dynamic next-action guidance.
+- `feat-030` makes ECHO conversation flow readable by separating history, player submissions, ECHO answers, evidence tray, and composer controls.
 - Every dev task must update its task md status from `todo` to `in_progress` to `done`.
 - Current dev workflow is latest `main` -> task-scoped implementation -> task-id commit message -> push directly to `main`; PR/branch flow is only used when the human explicitly asks for it.
