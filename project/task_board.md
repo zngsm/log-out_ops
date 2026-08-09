@@ -56,6 +56,7 @@
 | 43 | feat-028 | feat | Fix compact terminal HUD and explorer layout | done | dev-agent | no | feat-027 | human visual review | project/tasks/feat-028.md |
 | 44 | feat-029 | feat | Add first play mission onboarding | done | dev-agent | no | feat-028 | human play review | project/tasks/feat-029.md |
 | 45 | feat-030 | feat | Improve ECHO chat readability | done | dev-agent | no | feat-029 | human play review | project/tasks/feat-030.md |
+| 46 | feat-031 | feat | Localize file content to Korean | done | dev-agent | no | feat-030 | human play review | project/tasks/feat-031.md |
 
 ## Parallel Work Notes
 
@@ -85,5 +86,6 @@
 - `feat-028` corrects the remaining visual overflow: HUD cards are no longer fixed overlays, the file explorer uses dense rows, locked files open a password modal, and ECHO submit remains visible.
 - `feat-029` makes the first-play loop explicit with an in-world mission brief and dynamic next-action guidance.
 - `feat-030` makes ECHO conversation flow readable by separating history, player submissions, ECHO answers, evidence tray, and composer controls.
+- `feat-031` reduces reading friction by translating the player-facing file contents and viewer metadata into Korean while preserving terminal file/path tokens.
 - Every dev task must update its task md status from `todo` to `in_progress` to `done`.
 - Current dev workflow is latest `main` -> task-scoped implementation -> task-id commit message -> push directly to `main`; PR/branch flow is only used when the human explicitly asks for it.

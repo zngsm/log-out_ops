@@ -28,6 +28,7 @@
 | M15 | 터미널 HUD/탐색기/ECHO 입력 오버플로우 수정 | feat-028 | done |
 | M16 | 첫 플레이 목적/조작/승리 조건 안내 | feat-029 | done |
 | M17 | ECHO 채팅 히스토리/제출/답변 가독성 개선 | feat-030 | done |
+| M18 | 파일 본문 한국어화 및 읽기 난이도 완화 | feat-031 | done |
 | P2 | external AI ECHO integration | feat-007 | deferred |
 
 ## Task Timeline
@@ -79,7 +80,8 @@
 | 43 | feat-028 | Fix compact terminal HUD and explorer layout | clear after feat-027 | U | done |
 | 44 | feat-029 | Add first play mission onboarding | clear after feat-028 | U | done |
 | 45 | feat-030 | Improve ECHO chat readability | clear after feat-029 | U | done |
-| 46 | feat-007 | Implement external AI ECHO rules for category A | deferred; waiting for Q11 and scripted ECHO baseline | P2 | AI integration main push |
+| 46 | feat-031 | Localize file content to Korean | clear after feat-030 | U | done |
+| 47 | feat-007 | Implement external AI ECHO rules for category A | deferred; waiting for Q11 and scripted ECHO baseline | P2 | AI integration main push |
 
 ## Review / QA Gates
 
@@ -106,3 +108,4 @@
 - After `feat-028`, desktop UI review should confirm dense explorer rows, password modal access, and visible ECHO submit controls inside the fixed terminal.
 - After `feat-029`, human play review should judge whether a cold player understands the goal, loop, and first action within 10 seconds.
 - After `feat-030`, human play review should confirm submitted evidence, player text, ECHO review, and ECHO answer are readable as a conversation thread.
+- After `feat-031`, human play review should confirm file reading difficulty comes from deduction, not English comprehension.
