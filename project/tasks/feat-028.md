@@ -19,7 +19,8 @@
 - Compact resource/audio/ECHO status cards so they sit beside `LOG_OUT` instead of covering terminal panels.
 - Rework file explorer density from large grouped cards into compact directory/file rows.
 - Keep locked security files visible as discoverable entries, but open a password prompt when the player tries to access them.
-- Replace inline security unlock form with modal-style password prompt.
+- Replace inline security unlock form with modal-style password prompt using natural Korean text: header `"보안 게이트 :: 제한 구역"`, message `"/System/Security 디렉터리는 김 박사의 비상 격리 프로토콜에 의해 잠겨 있습니다. 승무원 메일에서 발견된 직인 암호를 입력하십시오."` (Q29 user feedback).
+- Unify margin spacing between file title (`h2`) and `[ATTACH TO ECHO]` / `[COPY PATH]` button bar (`.context-action-bar`) for consistent visual alignment (Q28 user feedback).
 - Hide player-facing scene-runtime debug card from the ECHO column to recover vertical space.
 - Reduce ECHO chat/input padding and textarea height so the submit button remains visible inside the fixed terminal screen.
 
@@ -28,7 +29,8 @@
 - Desktop gameplay screen does not page-scroll; terminal panels remain internally scrollable.
 - HUD cards are no longer `fixed` overlays and do not cover file viewer, explorer, or ECHO chat content.
 - File explorer can show many directories/files in a compact explorer-like list.
-- Locked `/System/Security` entries prompt for a password on click instead of disappearing or using an inline form.
+- Locked `/System/Security` entries prompt for a password modal with natural Korean text ("보안 게이트 :: 제한 구역", "/System/Security 디렉터리는 김 박사의 비상 격리 프로토콜에 의해 잠겨 있습니다...") on click instead of disappearing or using an inline form.
+- File title (`h2`) and action buttons bar (`.context-action-bar`) maintain unified visual margin spacing.
 - ECHO evidence form submit button is visible without relying on page scroll.
 - Production build passes.
 

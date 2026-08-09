@@ -20,6 +20,7 @@ Make oxygen and power feel like emergency pressure, not only numbers.
 - Match the DOCX crisis monitor direction: red alert status, strong monitor glow, oxygen/power bars, and surrounding-room warning signage or placeholder equivalents.
 - Add Caution file/viewer delay, Warning Log_Fixer slowdown, Critical vignette/cursor shake, and Blackout reboot lock.
 - On wrong submission, show a clear power surge moment with ECHO warning copy.
+- On Blackout event (power 0%), render exactly ONE single alert popup (blocking duplicate Power Surge popup), positioned at **screen center (Center Modal)** with high-contrast emphasis styling and Korean alert text: `"⚠️ [전력 고갈] 주 전력 그리드 블랙아웃! OS 터미널 긴급 재부팅 중... (남은 시간: N초)"` (Q30 user feedback).
 - Keep debug timer and normal 60-minute mode separated.
 
 ## Dependencies
@@ -33,6 +34,7 @@ Make oxygen and power feel like emergency pressure, not only numbers.
 - [x] Red Alert/Critical presentation affects both monitor UI and surrounding scene treatment when available.
 - [x] Power threshold changes affect visuals and at least one interaction timing behavior.
 - [x] Blackout includes a timed reboot sequence before power recovery.
+- [x] On Blackout event (power 0%), exactly one single popup is rendered at screen center (Center Modal) with high-contrast emphasis style and Korean copy ("⚠️ [전력 고갈] 주 전력 그리드 블랙아웃! OS 터미널 긴급 재부팅 중... (남은 시간: N초)"), preventing duplicate Power Surge popups.
 - [x] Wrong evidence penalty feels like a ship-system event.
 - [x] Resource behavior remains deterministic and testable.
 

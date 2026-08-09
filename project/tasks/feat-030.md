@@ -21,6 +21,8 @@
 - Add automatic scroll-to-latest behavior when new chat messages arrive.
 - Split the composer into response header, evidence tray, text input, and send action.
 - Rename submit action to `SEND TO ECHO` for clearer intent.
+- Completely remove the log file source text `<dt>출처</dt>` (`project/human-input/...`) item from the bottom of file viewer (Q28 user feedback).
+- Unify margin spacing between file title (`h2`) and `[ATTACH TO ECHO]` / `[COPY PATH]` button bar (`.context-action-bar`) (Q28 user feedback).
 
 ## Acceptance Criteria
 
@@ -28,6 +30,8 @@
 - Chat history remains scrollable inside the fixed terminal screen.
 - New responses scroll into view automatically.
 - Attached evidence is visibly associated with the message composer.
+- File viewer bottom `<dt>출처</dt>` source text is completely removed.
+- Margin spacing between file title (`h2`) and action buttons bar (`.context-action-bar`) is visually unified.
 - Production build passes.
 
 ## Dependencies

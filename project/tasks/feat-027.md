@@ -11,12 +11,13 @@
 
 ## Goal
 
-Prevent gameplay HUD cards such as Audio System and Power Grid from covering the terminal work area.
+Prevent gameplay HUD cards such as Audio System and Power Grid from covering the terminal work area, completely removing `ECHO STATE / monitoring` card and `ACT-1 100%` (`mission-clock`) block from the top title status bar (Q25, Q28).
 
 ## Scope
 
 - Move visible HUD cards from the lower overlay position to the top title/status area.
 - Keep the HUD compact enough to read as status chips beside `LOG_OUT`.
+- Completely remove the `ACT-1 100%` (`mission-clock`) status bar block (Q28 user feedback).
 - Remove bottom padding previously reserved for the lower HUD overlay.
 - Preserve mobile fallback behavior.
 
@@ -28,7 +29,7 @@ Prevent gameplay HUD cards such as Audio System and Power Grid from covering the
 ## Acceptance Criteria
 
 - [x] HUD no longer covers the lower terminal/file/chat area on desktop.
-- [x] Oxygen, power, timer, ECHO state, and audio status appear as compact top status chips.
+- [x] Oxygen, power, timer, and audio status appear as compact top status chips (`ECHO STATE / monitoring` card and `ACT-1 100%` block completely removed).
 - [x] `LOG_OUT` title remains visible.
 - [x] Terminal work area keeps full vertical space for file tree, file viewer, and ECHO chat.
 - [x] `npm run build` passes.

@@ -2,10 +2,10 @@
 
 ## Document Meta
 
-- version: 0.9
+- version: 1.0
 - pm agent: codex
-- date: 2026-08-09
-- status: Q21~Q25 answered; Change-001 user feedback specifications updated (Resume review meta notice banner & '서사적 판정 선택:' label removed, unselected resume disabled [확인 완료] button required evaluation enforced, ECHO reboot cutscene extended 5s -> 9s)
+- date: 2026-08-10
+- status: Q26~Q30 answered; 5 UI/UX feedback specifications updated (Reboot cutscene glitch -1s/error +1s & messenger bubble hide on reboot, resume fixed text '✓ [확인 완료]' & grey disabled, log explorer 3-step refinement: ACT-1 100% removed, file source <dt> removed, h2/button-bar margin unified, Security Gate Korean modal, Blackout single center modal & Korean copy)
 
 ## Blocking Questions
 
@@ -299,4 +299,54 @@ ECHO 채팅 대화 인식 방식 대신, **좌측 보고서/문서 하단에 [�
 ### Answer
 
 상단 title-bar status HUD 중 `ECHO STATE / monitoring` 카드를 전면 제거한다.
+
+## 5 UI/UX Feedback Specifications (Change-001 Follow-up)
+
+### Q26. 리부팅 컷신 타임라인 세부 조절 & 동료 메신저 말풍선 버블 숨김 사양
+
+리부팅 컷신(총 9초)의 연출 타임라인 세부 분할 비율과 리부팅 동안 우하단 동료 메신저 말풍선 아이콘 표시 여부에 대한 결정입니다.
+
+### Answer
+
+1. **리부팅 컷신 타임라인 세부 조절**: 글리치 연출 타임라인을 1초 단축하고, 시스템 에러 경고 타임라인을 1초 연장한다 (전체 9초 컷신 유지).
+2. **동료 메신저 버블 완전 숨김**: 리부팅 연출 진행 동안(`rebootState !== 'idle'`) 우하단 동료 메신저 말풍선 버블 아이콘을 완전히 숨김(미노출) 처리한다.
+
+### Q27. 이력서 미선택 시 [확인 완료] 버튼 표기 & 그레이 비활성화 사양
+
+이력서 검토 단계에서 버튼 텍스트 표기 방식과 미선택 지원자 존재 시 비활성화 UI 스타일 처리 방식에 대한 결정입니다.
+
+### Answer
+
+1. **단순 `✓ [확인 완료]` 버튼 표기 고정**: 버튼 텍스트는 보조문구 없이 단순 `✓ [확인 완료]`로 통일 고정한다.
+2. **그레이 비활성화 스타일 적용**: 미선택 지원자 존재 시 텍스트 변경 대신 그레이(Grey) 비활성화 스타일(`disabled={isResumeIncomplete}`)을 적용한다.
+
+### Q28. 로그파일 탐색 터미널 3종 정제 사양
+
+로그파일 탐색 터미널 화면 UI 정제 요소 3가지에 대한 결정입니다.
+
+### Answer
+
+1. **`ACT-1 100%` HUD 삭제**: 상단 status bar의 `ACT-1 100%` (`mission-clock`) 블록을 전면 삭제한다.
+2. **로그파일 출처 텍스트 삭제**: 파일 뷰어 하단 `<dt>출처</dt>` (`project/human-input/...`) 항목을 전면 삭제한다.
+3. **파일 제목 & 버튼 바 간격 통일**: 파일 뷰어 내 파일 제목(`h2`)과 `[ATTACH TO ECHO]` / `[COPY PATH]` 버튼 바(`.context-action-bar`) 간의 간격 스타일을 일관되게 배치한다.
+
+### Q29. Security Gate (암호 모달) 한국어 표기 사양
+
+`/System/Security` 제한 구역 클릭 시 노출되는 암호 입력 모달의 텍스트 표기 언어에 대한 결정입니다.
+
+### Answer
+
+영문 텍스트를 직관적이고 자연스러운 한국어 표기로 변경한다:
+- **모달 타이틀**: `"보안 게이트 :: 제한 구역"`
+- **안내 문구**: `"/System/Security 디렉터리는 김 박사의 비상 격리 프로토콜에 의해 잠겨 있습니다. 승무원 메일에서 발견된 직인 암호를 입력하십시오."`
+
+### Q30. Blackout 팝업 단일화 & 화면 중앙 배치 & 한국어 표기 사양
+
+전력 고갈(0%) 블랙아웃 발생 시 팝업 노출 개수, 위치 및 경고 문구 표기에 대한 결정입니다.
+
+### Answer
+
+1. **팝업 단일화**: 블랙아웃 발생 시 단 1개의 팝업만 노출한다 (Power Surge 팝업 중복 노출 차단).
+2. **화면 중앙 배치 (Center Modal)**: 팝업 위치를 기존 우상단에서 **화면 중앙(Center Modal)**으로 변경하고 강조 스타일을 적용한다.
+3. **한국어 경고 문구 변경**: `"⚠️ [전력 고갈] 주 전력 그리드 블랙아웃! OS 터미널 긴급 재부팅 중... (남은 시간: N초)"`로 변경한다.
 
