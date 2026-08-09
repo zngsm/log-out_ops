@@ -2,16 +2,16 @@
 
 ## Document Meta
 
-- version: 1.4
+- version: 1.5
 - author: PM Agent
 - date: 2026-08-09
-- status: confirmed - Cloudflare Worker Hermes NPC API 연동 (`feat-007`) 및 3초 타임아웃/100% 로컬 Fallback 안전장치 가동 사양 반영
+- status: confirmed - Cloudflare Worker Hermes NPC API 연동 (`feat-007`), 3초 타임아웃/100% 로컬 Fallback 안전장치 및 답장 완료 후 축소 시 메신저 알림 버블(`1`) 미노출 사양 반영
 - target docs: `project/mvp_scope.md`, `project/pm_analysis.md`, `project/pm_questions.md`, `project/task_board.md`, `project/tasks/*.md`
 
 ## Background & Motivation
 
 기존 기획의 3D 컷신 연출 및 직접적 비상 봉쇄 진입 흐름을 조정하여, CSS/SVG 기반 2D 연출과 함께 게임 시작 직후 플레이어가 AI 관리자로서 ECHO와 상호작용하는 라포 형성(Rapport Building) Phase를 도입한다.
-사용자 피드백에 따라 개발자/시스템 메타 텍스트(답장 입력창 하단 메타 문구 "※ 1회 답장 완료 후 메신저 채널은 읽지 않음(1) 상태로 유지됩니다." 전면 제거 포함)를 전면 제거하여 Diegetic UI 몰입감을 완성하고, 좌측 탭 방식 대신 ECHO 대화 브리핑 및 좌측 보고서 하단 [확인 완료] 버튼 클릭에 의한 업무 순차 전환 흐름으로 적용한다. 또한 동료 메신저는 무작위 팝업 알림(좌측 업무 화면 경계 내 우상단)과 별도 메신저 앱 UI(좌측 업무 화면 내 드래그 자유 이동), 축소 시 알림 버블(숫자 `1`, 좌측 업무 화면 경계 내 우하단), 점심 메뉴 질문, 자유 텍스트 답장 및 동료 긍정 반응 1회 수신(메타 안내 문구 전면 제거 및 diegetic Unread 처리)으로 구체화하며, 지원자 이력서 검토는 몰입용 서사적 판정('적격'/'부적격' 결과는 퍼즐/엔딩에 영향 없음) 및 ECHO Q&A 기능을 제공한다.
+사용자 피드백에 따라 개발자/시스템 메타 텍스트(답장 입력창 하단 메타 문구 "※ 1회 답장 완료 후 메신저 채널은 읽지 않음(1) 상태로 유지됩니다." 전면 제거 포함)를 전면 제거하여 Diegetic UI 몰입감을 완성하고, 좌측 탭 방식 대신 ECHO 대화 브리핑 및 좌측 보고서 하단 [확인 완료] 버튼 클릭에 의한 업무 순차 전환 흐름으로 적용한다. 또한 동료 메신저는 무작위 팝업 알림(좌측 업무 화면 경계 내 우상단)과 별도 메신저 앱 UI(좌측 업무 화면 내 드래그 자유 이동), 축소 시 알림 버블(답장 전 축소 시 숫자 `1`, 답장 완료 후 축소 시 버블 미노출; 좌측 업무 화면 경계 내 우하단), 점심 메뉴 질문, 자유 텍스트 답장 및 동료 긍정 반응 1회 수신(메타 안내 문구 전면 제거 및 diegetic Unread 처리)으로 구체화하며, 지원자 이력서 검토는 몰입용 서사적 판정('적격'/'부적격' 결과는 퍼즐/엔딩에 영향 없음) 및 ECHO Q&A 기능을 제공한다.
 아울러 ECHO 대화/증거 판정 및 동료 메신저에 Cloudflare Worker 기반 Hermes NPC API(`https://royal-firefly-60c3.jwpark971219.workers.dev`)를 연동하되, 3초 타임아웃 및 100% 로컬 Fallback 안전장치를 필수로 도입하여 네트워크 장애나 예외 상황에서도 플레이가 중단되지 않는 견고한 아키텍처를 완성한다.
 
 ## Detailed Change Specifications
@@ -59,7 +59,7 @@
    - **트리거 시점**: 전력/산소 현황 보고서 검토 단계 또는 지원자 이력서 검토 단계 중 무작위(랜덤) 발생.
    - **팝업 연출 (좌측 업무 화면 내 경계 고정)**: 전체 뷰포트나 우측 ECHO 대화창 영역이 아닌, **좌측 업무 화면(Desktop Workspace Panel / Left Panel) 경계 내부의 오른쪽 상단(Top-Right)**에 메신저 팝업 알림이 발생한다 (알림 SFX 포함).
    - **별도 메신저 앱 UI (좌측 업무 화면 내 드래그 자유 이동)**: 팝업 클릭 시 별도의 메신저/채팅 앱 창 인터페이스가 열리며, **좌측 업무 화면 경계 영역 안에서 플레이어가 자유롭게 드래그하여 위치 이동(Draggable UI)**이 가능하다.
-   - **축소/무응답 UX & 신규 메시지 버블 (좌측 업무 화면 내 경계 고정)**: 플레이어가 팝업/채팅창을 축소(닫기)하여 나중에 응답할 수 있다. 축소 시 **좌측 업무 화면 경계 내부의 오른쪽 하단(Bottom-Right)**에 말풍선 채팅 앱 아이콘 + 신규 메시지 알림 버블(숫자 `1`)이 노출되며, 아이콘 클릭 시 채팅 앱 창이 재개된다.
+   - **축소/무응답 UX & 신규 메시지 버블 (좌측 업무 화면 내 경계 고정)**: 플레이어가 팝업/채팅창을 축소(닫기)하여 나중에 응답할 수 있다. 답장 전 축소 시에는 **좌측 업무 화면 경계 내부의 오른쪽 하단(Bottom-Right)**에 말풍선 채팅 앱 아이콘 + 빨간색 신규 메시지 알림 버블(숫자 `1`)이 노출되며(아이콘 클릭 시 채팅 앱 창 재개), 답장 완료 후 축소 시에는 축소된 말풍선 아이콘에 신규 메시지 알림 버블(숫자 `1`)이 더 이상 노출되지 않는다.
    - **질문 카피**: 동료가 항상 점심 메뉴를 묻는 질문을 전송한다 (예: `"오늘 점심 메뉴 뭐먹을래?"`).
    - **답장 및 동료 반응**: 플레이어가 자유 텍스트로 메뉴 답장을 전송하면 동료가 `"그 메뉴 좋다!"` 식의 긍정 반응 메시지를 1회 수신한다.
    - **메타 문구 전면 제거 및 Diegetic UX**: 동료 채팅방 답장 입력창 아래의 몰입 방해 메타 문구 `"※ 1회 답장 완료 후 메신저 채널은 읽지 않음(1) 상태로 유지됩니다."` 텍스트를 전면 제거한다. 플레이어 답장 후 메신저 앱 기능 및 UI는 자연스러운 diegetic UX를 유지하며, 어떠한 시스템 메타 보조 설명 문구도 노출하지 않도록 명시한다.
@@ -91,8 +91,8 @@
 
 ## Impact Analysis
 
-- **`project/pm_analysis.md`**: Core Loop, Visual Scope, Diegetic UI, ECHO 브리핑 & [확인 완료] 버튼 업무 전환, 동료 메신저 팝업(좌측 업무 화면 경계 내 우상단)/앱 UI(좌측 업무 화면 내 드래그 자유 이동) 및 축소 알림 버블(`1`, 좌측 업무 화면 경계 내 우하단), 지원자 이력서 검토(서사적 판정 및 ECHO Q&A), Cloudflare Worker NPC API 연동 및 로컬 Fallback 반영.
-- **`project/mvp_scope.md`**: MVP In Scope / Out of Scope 및 Acceptance Criteria에 메타 텍스트 전면 제거, [확인 완료] 버튼 메커니즘, 실시간 반응, 동료 메신저 팝업(좌측 업무 화면 경계 내 우상단)/앱 UI(좌측 업무 화면 내 드래그 자유 이동)/알림 버블(좌측 업무 화면 경계 내 우하단), 이력서 검토 서사 요소, Cloudflare Worker NPC API 연동 사양 최신화.
+- **`project/pm_analysis.md`**: Core Loop, Visual Scope, Diegetic UI, ECHO 브리핑 & [확인 완료] 버튼 업무 전환, 동료 메신저 팝업(좌측 업무 화면 경계 내 우상단)/앱 UI(좌측 업무 화면 내 드래그 자유 이동) 및 축소 알림 버블(답장 전 `1`, 답장 완료 후 미노출; 좌측 업무 화면 경계 내 우하단), 지원자 이력서 검토(서사적 판정 및 ECHO Q&A), Cloudflare Worker NPC API 연동 및 로컬 Fallback 반영.
+- **`project/mvp_scope.md`**: MVP In Scope / Out of Scope 및 Acceptance Criteria에 메타 텍스트 전면 제거, [확인 완료] 버튼 메커니즘, 실시간 반응, 동료 메신저 팝업(좌측 업무 화면 경계 내 우상단)/앱 UI(좌측 업무 화면 내 드래그 자유 이동)/알림 버블(답장 전 `1`, 답장 완료 후 미노출; 좌측 업무 화면 경계 내 우하단), 이력서 검토 서사 요소, Cloudflare Worker NPC API 연동 사양 최신화.
 - **`project/pm_questions.md`**: Q21~Q23 답변 반영 및 Q11 NPC API 명세 확정 반영.
 - **`project/task_board.md`**: `feat-007` status를 `in_progress`로 변경하고 관련 작업 보드 설명 및 Sequencing Notes 업데이트.
 - **`project/tasks/feat-007.md`**: status `in_progress`, title `feat-007 Integrate Cloudflare Worker NPC API for ECHO and Coworker Chat`, 상세 scope 및 acceptance criteria 최신화.
