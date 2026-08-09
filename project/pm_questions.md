@@ -2,10 +2,10 @@
 
 ## Document Meta
 
-- version: 0.8
+- version: 0.9
 - pm agent: codex
 - date: 2026-08-09
-- status: Q21~Q25 answered; Change-001 feedback specifications updated (Resume review ECHO dialogue disabled, update proposal meta warning text removed, title-bar ECHO STATE/monitoring HUD removed)
+- status: Q21~Q25 answered; Change-001 user feedback specifications updated (Resume review meta notice banner & '서사적 판정 선택:' label removed, unselected resume disabled [확인 완료] button required evaluation enforced, ECHO reboot cutscene extended 5s -> 9s)
 
 ## Blocking Questions
 
@@ -212,6 +212,7 @@ Change-001 기획 변경으로 라포 형성 Phase (약 5분간)에 AI 관리자
 ### Answer
 
 2D 컷신 연출은 **CSS / SVG 기반 인게임 연출**로 구현한다.
+`ECHO 패치 승인` 클릭 후 발동되는 CSS/SVG 글리치, 시스템 에러 경고, 비상 사이렌, 데콤프레션 및 통제실 Lockdown 선언까지의 컷신 연출 타임라인은 기존 5초에서 **9초로 연장**하여 적용한다.
 
 ### Q20. 회사 인트라넷 화면의 추가 로그인/보안 인증 UX 절차 여부
 
@@ -240,7 +241,11 @@ Change-001 기획 변경으로 라포 형성 Phase (약 5분간)에 AI 관리자
 ### Answer
 
 지원자 이력서 검토 시 '적격' / '부적격' 판정 선택 결과는 게임 진행, 퍼즐, 엔딩에 아무런 영향도 미치지 않음 (몰입용 서사적 선택 요소).
-**사용자 피드백 사양 반영**: 지원자 이력서 검토 단계에서는 ECHO 대화창 및 Q&A 질의응답 입력 기능이 전면 제거되어 ECHO 대화가 비활성화된다 (ECHO 대화 불가능 처리).
+**사용자 피드백 사양 반영**:
+1. **이력서 검토 단계 안내 문구 전면 제거**: `※ 안내: 본 이력서 적합성 판정은 서사적 몰입을 위한 인사 평가 선택 항목으로, 게임 퍼즐/엔딩에는 영향을 주지 않습니다.` 메타 텍스트 배너 전면 삭제.
+2. **"서사적 판정 선택" 라벨 문구 전면 제거**: 이력서 후보별 판정 버튼 앞의 `서사적 판정 선택:` 텍스트 전면 삭제.
+3. **적격/부적격 미선택 이력서 존재 시 [확인 완료] 버튼 비활성화 (필수 평가)**: 이력서 검토 단계(`activeStep === 'resume'`)에서 3명의 지원자 중 한 명이라도 적격/부적격 판정이 미선택된 경우 좌측 하단 `[확인 완료]` 버튼을 비활성화(disabled) 처리하여 필수 평가 완수 유도.
+4. **ECHO 대화 비활성화**: 지원자 이력서 검토 단계에서는 ECHO 대화창 및 Q&A 질의응답 입력 기능이 전면 제거되어 ECHO 대화가 비활성화된다 (ECHO 대화 불가능 처리).
 
 ### Q22. ECHO 대화 주도 업무 전환 시 플레이어 대화 요청 인식 규칙
 

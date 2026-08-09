@@ -11,7 +11,7 @@
 
 ## Goal
 
-Apply Change-001 requirements and Q21~Q23 user feedback answers: build a diegetic workstation layout (completely removing developer terms like "HERMES 2-SPLIT DUAL PANEL WORK INTERFACE" and "라포 Phase"), implement ECHO task briefing with natural diegetic introductory dialogues (replacing developer guide-style copy such as "좌측 보고서 하단의 [확인 완료] 버튼을 눌러 다음 업무로 진행하세요" with in-world dialogue) and left document bottom simple **[확인 완료]** button transition mechanism (completely removing "(다음 업무로 이동)" bracket sub-text; Q22: clicking button prints ECHO prompt "다음 업무는 [다음 업무명]입니다. 보여드릴게요." in right chat and transitions left document screen), output real-time ECHO reaction dialogues (max 2 per report), handle random colleague messenger popup notifications bounded within the left workspace panel top-right (좌측 업무 화면 오른쪽 상단) with dedicated draggable messenger app UI window within left workspace panel boundary (좌측 업무 화면 경계 내 위치 자유 이동), minimized speech-bubble icon with red badge `1` bounded within the left workspace panel bottom-right (좌측 업무 화면 오른쪽 하단) before reply and hidden after reply completion (Q23), lunch menu question ("오늘 점심 메뉴 뭐먹을래?"), free-text reply and 1-time positive reaction ("그 메뉴 좋다!"), completely removing reply input box meta text ("※ 1회 답장 완료 후 메신저 채널은 읽지 않음(1) 상태로 유지됩니다.") and maintaining natural diegetic UX while keeping subsequent player messages as `Unread(1)` (Q23), and implement applicant resume review with candidate evaluation ('적격'/'부적격' decision with zero gameplay/puzzle/ending impact - narrative choice) while completely disabling the right ECHO chat window and Q&A dialogue input during the resume review stage (ECHO 대화 비활성화) (Q21).
+Apply Change-001 requirements and Q21~Q23 user feedback answers: build a diegetic workstation layout (completely removing developer terms like "HERMES 2-SPLIT DUAL PANEL WORK INTERFACE" and "라포 Phase"), implement ECHO task briefing with natural diegetic introductory dialogues (replacing developer guide-style copy such as "좌측 보고서 하단의 [확인 완료] 버튼을 눌러 다음 업무로 진행하세요" with in-world dialogue) and left document bottom simple **[확인 완료]** button transition mechanism (completely removing "(다음 업무로 이동)" bracket sub-text; Q22: clicking button prints ECHO prompt "다음 업무는 [다음 업무명]입니다. 보여드릴게요." in right chat and transitions left document screen), output real-time ECHO reaction dialogues (max 2 per report), handle random colleague messenger popup notifications bounded within the left workspace panel top-right (좌측 업무 화면 오른쪽 상단) with dedicated draggable messenger app UI window within left workspace panel boundary (좌측 업무 화면 경계 내 위치 자유 이동), minimized speech-bubble icon with red badge `1` bounded within the left workspace panel bottom-right (좌측 업무 화면 오른쪽 하단) before reply and hidden after reply completion (Q23), lunch menu question ("오늘 점심 메뉴 뭐먹을래?"), free-text reply and 1-time positive reaction ("그 메뉴 좋다!"), completely removing reply input box meta text ("※ 1회 답장 완료 후 메신저 채널은 읽지 않음(1) 상태로 유지됩니다.") and maintaining natural diegetic UX while keeping subsequent player messages as `Unread(1)` (Q23), and implement applicant resume review with candidate evaluation ('적격'/'부적격' decision with zero gameplay/puzzle/ending impact - narrative choice) while completely removing meta notice banner (`※ 안내: 본 이력서 적합성 판정은...`) and `서사적 판정 선택:` label, enforcing disabled [확인 완료] button when any unselected candidates exist to require complete evaluation of all 3 applicants, and completely disabling the right ECHO chat window and Q&A dialogue input during the resume review stage (ECHO 대화 비활성화) (Q21).
 
 ## Scope
 
@@ -37,12 +37,15 @@ Apply Change-001 requirements and Q21~Q23 user feedback answers: build a diegeti
   - **Reply & Reaction**: Player inputs free-text reply ➔ Colleague sends 1 positive reaction message (`"그 메뉴 좋다!"`).
   - **Remove Meta Guidance Text & Maintain Diegetic UX**: Completely remove immersion-breaking meta notice text under reply input box (`"※ 1회 답장 완료 후 메신저 채널은 읽지 않음(1) 상태로 유지됩니다."`). Maintain natural diegetic UI/UX after player reply without exposing any system meta guidance text.
   - **Infinite Conversation Prevention**: Subsequent player messages after 1-time reaction maintain `Unread` (`읽지 않음(1)`) status naturally without system meta guidance text.
-- **Applicant Resume Review Stage & Narrative Choice (ECHO Dialogue Disabled)** (Q21):
-  - Present multiple applicant candidate profiles on left screen.
+- **Applicant Resume Review Stage & Narrative Choice (Meta Text Removal & Enforced Required Evaluation)** (Q21):
+  - Present 3 applicant candidate profiles on left screen.
   - Provide candidate-by-candidate 'Qualified' (적격) / 'Unqualified' (부적격) decision buttons.
+  - **Remove Meta Notice Banner**: Completely remove `※ 안내: 본 이력서 적합성 판정은 서사적 몰입을 위한 인사 평가 선택 항목으로, 게임 퍼즐/엔딩에는 영향을 주지 않습니다.` meta text banner.
+  - **Remove "서사적 판정 선택" Label**: Completely remove `서사적 판정 선택:` label text in front of decision buttons for each candidate.
+  - **Enforce Required Evaluation via Disabled [확인 완료] Button**: In the resume review stage (`activeStep === 'resume'`), if any of the 3 candidates has an unselected ('none') evaluation status, disable (disabled) the left bottom **[확인 완료]** button to compel complete evaluation of all 3 candidates before proceeding.
   - **Zero Gameplay Impact**: Explicitly enforce that decision results have zero impact on game progression, puzzles, or endings (narrative immersive choice element).
   - **Disable ECHO Dialogue / Q&A**: Completely remove and disable right ECHO chat window interaction and Q&A dialogue input functionality during the applicant resume review stage (ECHO 대화 불가능 처리).
-  - Left bottom [확인 완료] button click transitions to ECHO Update Proposal.
+  - Left bottom [확인 완료] button click (enabled once all 3 candidates are evaluated) transitions to ECHO Update Proposal.
 - **Keep Emergency HUD & Timer Inactive**:
   - Emergency HUD (oxygen/power) and 60-minute session timer remain **HIDDEN and INACTIVE** during the entire rapport phase.
 
@@ -61,7 +64,11 @@ Apply Change-001 requirements and Q21~Q23 user feedback answers: build a diegeti
 - [x] Clicking popup opens dedicated messenger app window displaying lunch menu question (`"오늘 점심 메뉴 뭐먹을래?"`), which allows player to freely drag and reposition within the left workspace panel boundary (Draggable UI).
 - [x] Minimizing/closing messenger displays a speech-bubble chat icon + red notification bubble (`1`) before reply strictly bounded within left workspace panel bottom-right (좌측 업무 화면 내 오른쪽 하단), and after reply completion, minimizing/closing removes the red notification bubble (`1`) from the icon.
 - [x] Player can reply with free text in colleague messenger; colleague sends 1 positive reaction message (`"그 메뉴 좋다!"`), reply input box meta text (`"※ 1회 답장 완료 후 메신저 채널은 읽지 않음(1) 상태로 유지됩니다."`) is completely removed, and subsequent player messages maintain 'Unread(1)' (`읽지 않음(1)`) state with natural diegetic UX.
-- [x] Applicant resume review displays multiple candidate profiles with 'Qualified' / 'Unqualified' decision buttons (with 0 impact on gameplay/ending), while right ECHO chat window and Q&A dialogue input are completely disabled during this stage (ECHO 대화 비활성화).
+- [x] Applicant resume review displays 3 candidate profiles with 'Qualified' / 'Unqualified' decision buttons (with 0 impact on gameplay/ending).
+- [x] Applicant resume review meta notice banner (`※ 안내: 본 이력서 적합성 판정은...`) is completely removed from the screen.
+- [x] Label text `서사적 판정 선택:` in front of decision buttons is completely removed.
+- [x] Left bottom [확인 완료] button is disabled when any candidate has an unselected evaluation state, enforcing complete evaluation of all 3 applicants before progressing to the update proposal.
+- [x] Right ECHO chat window and Q&A dialogue input are completely disabled during the resume review stage (ECHO 대화 비활성화).
 - [x] Emergency oxygen/power HUD and 60-minute timer are HIDDEN and INACTIVE during the rapport phase.
 - [x] `npm run build` passes.
 - [x] `git diff --check` passes.
@@ -73,7 +80,7 @@ Apply Change-001 requirements and Q21~Q23 user feedback answers: build a diegeti
   - Sequential document transition via left bottom [확인 완료] button & ECHO prompt ("다음 업무는 [다음 업무명]입니다. 보여드릴게요.") verified (left tabs removed).
   - Real-time ECHO reaction dialogues (max 2 per report) verified.
   - Colleague messenger popup (left panel top-right), dedicated draggable messenger app UI window within left panel, minimized bubble badge 1 (left panel bottom-right before reply / hidden after reply completion), free-text reply + 1-time positive reaction ("그 메뉴 좋다!"), meta notice text removal ("※ 1회 답장 완료 후 메신저 채널은 읽지 않음(1) 상태로 유지됩니다."), and subsequent diegetic Unread(1) status verified.
-  - Applicant resume review with 3 candidate profiles, 'Qualified'/'Unqualified' decision buttons (0 impact on gameplay/ending), and ECHO dialogue/Q&A disabled verified.
+  - Applicant resume review with 3 candidate profiles, 'Qualified'/'Unqualified' decision buttons (0 impact on gameplay/ending), meta notice banner removal, '서사적 판정 선택:' label removal, disabled [확인 완료] button for unselected candidates, and ECHO dialogue/Q&A disabled verified.
   - Emergency HUD and 60-minute timer hidden & inactive during rapport phase verified.
   - `npm run build` and `git diff --check` passed cleanly.
 
