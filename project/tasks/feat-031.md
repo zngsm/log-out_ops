@@ -16,6 +16,7 @@ Apply Change-001 visual requirements and Q19 answer: replace 3D cutscene present
 ## Scope
 
 - Maintain R3F 3D background model for main menu.
+- Completely remove developer/meta copy from main menu landing screen: `CONTROL ROOM STANDBY` card label, `1인칭 통제실 / 컴퓨터는 물리적 오브젝트입니다`, and `클릭 후 봉쇄 컷신을 거쳐 모니터 내부 Hermes OS로 진입합니다` bottom guidance box (Q51 user feedback).
 - Convert 3D cutscene beats to CSS / SVG based in-game 2D presentation (CSS transitions, SVG animations, 2D visual elements).
 - On [게임 시작] (Play) click, perform smooth zoom-in transition to 100% Full Screen terminal monitor view.
 - Remove 90% aspect ratio container padding/frame during gameplay terminal state.
@@ -27,7 +28,7 @@ Apply Change-001 visual requirements and Q19 answer: replace 3D cutscene present
 
 ## Acceptance Criteria
 
-- [x] Main menu displays 3D spaceship control-room background.
+- [x] Main menu displays 3D spaceship control-room background with zero meta copy (`CONTROL ROOM STANDBY` card label, `1인칭 통제실...`, `클릭 후 봉쇄 컷신...` completely removed; Q51 user feedback).
 - [x] Clicking [게임 시작] smoothly zooms camera/screen into terminal filling 100% of the viewport (Full Screen).
 - [x] Cutscene and transition beats are rendered using CSS / SVG based in-game 2D presentation elements instead of 3D cutscenes.
 - [x] Terminal view occupies full screen width and height without 90% margin cutoffs.

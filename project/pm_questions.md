@@ -2,10 +2,10 @@
 
 ## Document Meta
 
-- version: 2.0
+- version: 2.1
 - pm agent: codex
 - date: 2026-08-10
-- status: Q31~Q48 answered; 18 detailed gameplay/UI/content refinement specifications updated (Cutscene timeline rebooting -2s & lockdown +2s, File viewer <dt>증거성</dt>/<dt>상태</dt> removed, Act-1 Mission label removed, Evidence 0/1 tray removed, Tool manual security note removed, Log fixer sidebar mini program removed & [OPEN WITH LOG_FIXER] button kept, Locked file password location hint removed, Incorrect password location hint removed, Corrupted/deleted file concealment before Log_Fixer recovery, NEXT ACTION bar removed, HOW TO PLAY first objective & Open first file button removed, Log Fixer completion meta text removed, Timer HUD NORMAL SESSION & Act-1 labels removed, power_grid_maint.note diegetic Korean rewrite, Recycle_Bin attachment restriction before recovery, Sensor diagram prompt remnants removed & diegetic labels replacement, DIAGNOSTIC NOTE button removed, O2 LEVEL HUD drain x1.0x text removed)
+- status: Q31~Q54 answered; 5 new UI/UX/Content/Bug Fix refinement specifications updated (1. quarantine_rules.conf offset developer note removed, 2. ECHO chat SYSTEM messages removed, 3. Main menu start screen meta copy removed, 4. Colleague messenger placeholder (자유 텍스트) label removed, 5. Colleague messenger Korean IME input leftover bug fixed, 6. ECHO patch proposal bottom text removal maintained)
 
 ## Blocking Questions
 
@@ -495,5 +495,56 @@ Sensor diagram 개발자 프롬프트 잔재를 전면 삭제하고, 명시된 �
 ### Answer
 
 `O₂ LEVEL` HUD 카드 하단 `drain x1.0x` 문구를 전면 삭제한다.
+
+## 5 UI/UX Refinement & Bug Fix Feedback Specifications (Change-001 Follow-up v2.1)
+
+### Q49. `quarantine_rules.conf` 파일 내용 내 오프셋 개발자 해설 주석 처리 사양
+
+`quarantine_rules.conf` 오프셋 값 항목 뒤에 기재되어 있던 개발자 해설풍 주석 (`<-- 치명적 오차: 약 2년 앞으로 밀림`)의 처리 방식에 대한 결정입니다.
+
+### Answer
+
+개발자 해설풍 문구 (`<-- 치명적 오차: 약 2년 앞으로 밀림`)를 전면 삭제하고, 단순 `시간 오프셋 값: +17,520시간`으로 디제틱하게 표기 고정한다.
+
+### Q50. ECHO 대화창 내 SYSTEM 스피커 메시지 처리 사양
+
+ECHO 대화창 메시지 목록에 노출되던 SYSTEM 스피커 메시지(시스템 알림/상태)의 노출 여부에 대한 결정입니다.
+
+### Answer
+
+ECHO 대화창 내 SYSTEM 스피커 메시지를 전면 제거하고, 오직 ECHO 대사 및 플레이어가 제출한 항목만 노출하도록 변경한다.
+
+### Q51. 메인 메뉴 시작 화면 3D 카 라벨 및 메타 카피 처리 사양
+
+게임 시작 화면(3D 메인 메뉴) 카드 라벨 `CONTROL ROOM STANDBY` 및 하단 안내 설명 칸 문구의 노출 여부에 대한 결정입니다.
+
+### Answer
+
+메인 메뉴 시작 화면의 `CONTROL ROOM STANDBY` 카 라벨, `1인칭 통제실 / 컴퓨터는 물리적 오브젝트입니다`, `클릭 후 봉쇄 컷신을 거쳐 모니터 내부 Hermes OS로 진입합니다` 하단 안내 칸 카피를 전면 삭제한다.
+
+### Q52. 동료 메신저 입력창 placeholder 보조 라벨 처리 사양
+
+동료 메신저 입력창 placeholder에 노출되던 `(자유 텍스트)` 보조 라벨의 노출 여부에 대한 결정입니다.
+
+### Answer
+
+입력창 placeholder의 `(자유 텍스트)` 보조 라벨을 전면 삭제하고 단순 `답장을 입력하세요...`로 표기한다.
+
+### Q53. 동료 메신저 입력 시 한글 IME 중복 입력 및 전송 후 잔류 버그 수정 사양
+
+동료 메신저 입력창에서 한글 IME 조합 상태에서 엔터 키 입력 또는 전송 버튼 클릭 시, 조합 중이던 글자/마지막 단어가 전송 후 입력창에 자동 잔류되거나 재입력되는 현상의 조치 방식에 대한 결정입니다.
+
+### Answer
+
+한글 IME 조합 상태(`isComposing`) 감지 및 synthetic input clear 처리를 통해 전송 시 시점 단일 처리와 전송 직후 입력창 완전 초기화(빈 문자열 보장)를 수행하여 중복 잔류/재입력 현상의 원인을 차단한다.
+
+### Q54. ECHO 패치 기안문 하단 문구 삭제 상태 확인 및 유지 사양
+
+ECHO 패치 기안문(4번 미션) 하단에 작성되어 있던 `본 비상 봉쇄 시퀀스로 진입합니다` 경고 문구의 삭제 상태 확인 및 유지 여부에 대한 결정입니다.
+
+### Answer
+
+ECHO 패치 기안문 하단 `본 비상 봉쇄 시퀀스로 진입합니다` 문구가 이미 삭제 완료되었음을 확인하고 해당 삭제 상태를 유지한다.
+
 
 

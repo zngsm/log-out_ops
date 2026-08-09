@@ -22,6 +22,7 @@ Replace placeholder-like internal file content with the concrete Category A cont
 - Preserve the Category A Act path:
   - Act 1: `sensor_calib.log` proves sensor drift and 186-day missed calibration.
   - Act 2: `email_chain_july.txt` reveals Security PIN `8842`; `quarantine_rules.conf` is corrupted and requires `Log_Fixer.exe`; recovered content proves `+17520_HOURS` offset and expired 72-hour quarantine.
+  - Completely remove developer explanation note (`<-- 치명적 오차: 약 2년 앞으로 밀림`) from `quarantine_rules.conf` offset item, displaying purely diegetic `시간 오프셋 값: +17,520시간` (Q49 user feedback).
   - Act 3: `ai_priority_matrix.json` + `deleted_override.txt` prove ECHO cannot prioritize mission/security over human life.
 - Remove or hide production-facing `PLAYER NOTE`, `QA hint`, or direct answer copy.
 - Keep optional debug hints behind an explicit debug/hint state only.
@@ -39,6 +40,7 @@ Replace placeholder-like internal file content with the concrete Category A cont
 - [x] Each required evidence file is discoverable through in-world clues, not direct answer labeling.
 - [x] Noise files exist and are readable but do not falsely block progress.
 - [x] Corrupted and recovered `quarantine_rules.conf` states both exist.
+- [x] Developer explanation note (`<-- 치명적 오차: 약 2년 앞으로 밀림`) is completely removed from `quarantine_rules.conf` offset item (Q49 user feedback).
 - [x] Security folder PIN discovery is driven by `email_chain_july.txt`.
 - [x] Existing Act 1~3 progression still passes with the canonical evidence.
 - [x] `npm run build` passes.

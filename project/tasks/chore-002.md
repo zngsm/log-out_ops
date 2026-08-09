@@ -17,6 +17,7 @@ Fill the MVP Hermes OS file contents with enough readable in-world text for the 
 
 - Expand Category A file contents using `project/human-input/LOG_OUT 로그 예시.md`.
 - Completely rewrite `power_grid_maint.note` with natural diegetic Korean explanation (Q44).
+- Completely remove developer explanation note (`<-- 치명적 오차: 약 2년 앞으로 밀림`) from `quarantine_rules.conf` offset item, displaying purely diegetic `시간 오프셋 값: +17,520시간` (Q49 user feedback).
 - Clean Sensor diagram content of developer prompt remnants and replace with diegetic diagram containing specified labels (`SENSOR-BIO-04 열 감지 스캔 헤드`, `통제실 모듈 #04 장착 지점`, etc.) (Q46).
 - Completely remove Tool manual security notes (Q35).
 - Use `project/human-input/LOG_OUT 로그파일 구조.md` to add useful decoy/flavor files where they improve exploration density.
@@ -34,6 +35,7 @@ Fill the MVP Hermes OS file contents with enough readable in-world text for the 
 
 - [x] Each required evidence file contains enough text for a human player to infer why it matters.
 - [x] `power_grid_maint.note` is rewritten with natural diegetic Korean description (Q44).
+- [x] Developer explanation note (`<-- 치명적 오차: 약 2년 앞으로 밀림`) is completely removed from `quarantine_rules.conf` offset item (Q49 user feedback).
 - [x] Sensor diagram developer prompt remnants are removed and replaced with diegetic diagram containing specified labels (`SENSOR-BIO-04 열 감지 스캔 헤드`, `통제실 모듈 #04 장착 지점`, etc.) (Q46).
 - [x] Tool manual security notes are completely removed (Q35).
 - [x] At least a small number of non-critical flavor/decoy files make the file system feel populated.

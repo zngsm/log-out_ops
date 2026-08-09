@@ -2,17 +2,17 @@
 
 ## Document Meta
 
-- version: 1.9
+- version: 2.0
 - author: PM Agent
 - date: 2026-08-10
-- status: confirmed - 사용자의 18가지 상세 게임플레이/UI/내용 정제 요청 사양 전면 반영 (1. 컷신 타임라인: rebooting -2초, lockdown +2초, 2. 메인 터미널 UI 정제 17종: (1) 파일 뷰어 <dt>증거성</dt>/<dt>상태</dt> 삭제, (2) Act-1 Mission 라벨 삭제, (3) Evidence 0/1 트레이 삭제, (4) Tool manual 보안 메모 삭제, (5) 사이드바 Log fixer mini program 삭제 & 파일 뷰어 버튼 유지, (6) 잠긴 파일 비밀번호 위치 힌트 삭제, (7) 비밀번호 오입력 힌트 삭제, (8) 손상/삭제 파일 복구 전 내용 은폐, (9) NEXT ACTION 띠 삭제, (10) HOW TO PLAY 첫 목표/Open first file 삭제, (11) Log Fixer 완료 메타 문구 삭제, (12) 타이머 HUD NORMAL SESSION/Act-1 삭제, (13) power_grid_maint.note 디제틱 한국어 재작성, (14) Recycle_Bin 파일 복구 전 첨부 불가, (15) Sensor diagram 프롬프트 삭제 및 명시된 라벨 교체, (16) DIAGNOSTIC NOTE 버튼 삭제, (17) O₂ LEVEL drain x1.0x 삭제)
+- status: confirmed - 사용자의 5가지 신규 추가 UI/UX/내용/버그 수정 피드백 사양 전면 반영 (1. `quarantine_rules.conf` 오프셋 개발자 해설 주석 전면 삭제, 2. ECHO 대화창 SYSTEM 스피커 메시지 전면 제거, 3. 메인 메뉴 시작 화면 메타 카피 전면 삭제, 4. 동료 메신저 placeholder (자유 텍스트) 보조 라벨 전면 삭제, 5. 동료 메신저 한글 IME 전송 후 단어 자동 잔류/재입력 버그 원인 차단 및 초기화 보장, 6. ECHO 패치 기안문 하단 문구 삭제 상태 유지)
 - target docs: `project/mvp_scope.md`, `project/pm_analysis.md`, `project/pm_questions.md`, `project/task_board.md`, `project/tasks/*.md`
 
 ## Background & Motivation
 
 기존 기획의 3D 컷신 연출 및 직접적 비상 봉쇄 진입 흐름을 조정하여, CSS/SVG 기반 2D 연출과 함께 게임 시작 직후 플레이어가 AI 관리자로서 ECHO와 상호작용하는 라포 형성(Rapport Building) Phase를 도입한다.
 사용자 피드백에 따라 개발자/시스템 메타 텍스트를 전면 제거하여 Diegetic UI 몰입감을 완성하고, 상단 title-bar status HUD 중 `ECHO STATE / monitoring` 카드 및 `ACT-1 100%` (`mission-clock`) 블록을 전면 제거한다. 이력서 검토 시 단순 `✓ [확인 완료]`로 버튼 텍스트를 통일 고정하고 미선택 지원자 존재 시 그레이 비활성화 스타일(`disabled={isResumeIncomplete}`)을 적용하며, ECHO 리부팅 연출 타임라인 중 rebooting 상태를 2초 줄이고 lockdown(emergency) 상태를 2초 연장함과 동시에 리부팅 진행 동안(`rebootState !== 'idle'`) 우하단 동료 메신저 말풍선 버블 아이콘을 완전히 숨김(미노출) 처리한다.
-또한 파일 뷰어 내 `<dt>증거성</dt>`/`<dt>상태</dt>` DL 삭제, 우측 대화창/태스크 헤더의 `Act-1 Mission` 삭제, 대화창/작성기 헤더의 `Evidence 0/1` 트레이 삭제, Tool manual 보안 메모 삭제, 좌측 사이드바 `Log fixer mini program` 삭제(파일 뷰어 [OPEN WITH LOG_FIXER] 버튼 유지), 잠긴 파일 및 오입력 시 암호 위치 힌트 삭제, 손상/삭제 파일 복구 전 내용 은폐, `NEXT ACTION` 띠 삭제, `HOW TO PLAY` 첫 목표/Open first file 삭제, Log Fixer 완료 메타 문구 삭제, 상단 타이머 HUD의 `NORMAL SESSION`/`Act-1` 라벨 삭제, `power_grid_maint.note` 디제틱 한국어 재작성, 휴지통(`/Recycle_Bin/`) 파일 복구 전 첨부 불가, Sensor diagram 프롬프트 삭제 및 명시된 라벨(`SENSOR-BIO-04 열 감지 스캔 헤드`, `통제실 모듈 #04 장착 지점` 등) 디제틱 도면 교체, 파일 뷰어 `DIAGNOSTIC NOTE` 삭제, `O₂ LEVEL` HUD `drain x1.0x` 삭제 등 18가지 상세 게임플레이/UI/내용 정제 사양을 완벽히 적용한다.
+또한 추가 사용자 피드백에 따라 `quarantine_rules.conf` 파일 내용에서 오프셋 개발자 해설풍 주석(`<-- 치명적 오차: 약 2년 앞으로 밀림`)을 전면 삭제하고 단순 `시간 오프셋 값: +17,520시간`으로 고정하며, ECHO 대화창의 SYSTEM 스피커 메시지를 전면 제거하여 ECHO 대사 및 플레이어 제출 항목만 노출한다. 메인 메뉴 시작 화면의 `CONTROL ROOM STANDBY` 카 라벨, `1인칭 통제실 / 컴퓨터는 물리적 오브젝트입니다`, `클릭 후 봉쇄 컷신을 거쳐 모니터 내부 Hermes OS로 진입합니다` 하단 안내 칸 카피를 전면 삭제하고, 동료 메신저 입력창 placeholder의 `(자유 텍스트)` 보조 라벨을 전면 삭제하며(`답장을 입력하세요...`), 한글 IME 조합 및 전송 후 마지막 단어가 자동 잔류/재입력되는 버그의 원인을 차단하고 전송 후 완전 초기화를 보장한다. (ECHO 패치 기안문 하단 문구 삭제 상태는 확인 완료 및 지속 유지)
 아울러 ECHO 대화/증거 판정 및 동료 메신저에 Cloudflare Worker 기반 Hermes NPC API(`https://royal-firefly-60c3.jwpark971219.workers.dev`)를 연동하되, 3초 타임아웃 및 100% 로컬 Fallback 안전장치를 필수로 도입하여 네트워크 장애나 예외 상황에서도 플레이가 중단되지 않는 견고한 아키텍처를 완성한다.
 
 ## Detailed Change Specifications
@@ -134,13 +134,21 @@
   - (16) 파일 뷰어의 `DIAGNOSTIC NOTE` 버튼 삭제.
   - (17) `O₂ LEVEL` HUD 카드 하단 `drain x1.0x` 문구 삭제.
 
+### 12. 5가지 UI/UX 정제 및 버그 수정 상세 사양 (Change-001 Follow-up v2.0)
+- **1. `quarantine_rules.conf` 파일 내용 정제**: 오프셋 값 항목에서 개발자 해설풍 문구 (`<-- 치명적 오차: 약 2년 앞으로 밀림`) 전면 삭제 (단순 `시간 오프셋 값: +17,520시간` 표기 고정).
+- **2. ECHO 대화창 SYSTEM 메시지 제거**: ECHO 대화창 메시지 목록에서 SYSTEM 스피커 메시지 전면 제거 (오직 ECHO 대사 및 플레이어 제출 항목만 노출).
+- **3. 메인 메뉴 시작 화면 메타 카피 삭제**: `CONTROL ROOM STANDBY` 카 라벨, `1인칭 통제실 / 컴퓨터는 물리적 오브젝트입니다`, `클릭 후 봉쇄 컷신을 거쳐 모니터 내부 Hermes OS로 진입합니다` 하단 안내 칸 전면 삭제.
+- **4. 동료 메신저 UI 정제**: 입력창 placeholder의 `(자유 텍스트)` 보조 라벨 전면 삭제 (`답장을 입력하세요...` 표기).
+- **5. 동료 메신저 입력 버그 수정**: 한글 IME 조합 상태(`isComposing`) 감지 및 synthetic clear 처리를 적용하여 전송 후 입력창에 마지막 단어가 자동 잔류/재입력되는 현원인 차단 및 전송 후 빈 문자열 초기화 보장.
+- **6. [기 완료 항목 확인 및 유지]**: ECHO 패치 기안문 하단 `본 비상 봉쇄 시퀀스로 진입합니다` 문구 이미 삭제 완료되었음을 확인 및 해당 상태 지속 유지.
+
 ## Impact Analysis
 
-- **`project/pm_analysis.md`**: Core Loop, Visual Scope, Diegetic UI, ECHO 브리핑 & `✓ [확인 완료]` 버튼 업무 전환, 18가지 상세 게임플레이/UI/내용 정제 사양 반영 (리부팅 -2s / 락다운 +2s, 파일 뷰어 `<dt>증거성</dt>`/`<dt>상태</dt>` 삭제, `Act-1 Mission` 라벨 삭제, `Evidence 0/1` 트레이 삭제, Tool manual 보안 메모 삭제, 사이드바 `Log fixer mini program` 삭제, 잠긴 파일/오입력 힌트 삭제, 복구 전 손상/삭제 파일 내용 은폐, `NEXT ACTION` 띠 삭제, `HOW TO PLAY` 첫 목표/Open first file 삭제, Log Fixer 완료 메타 문구 삭제, 타이머 HUD `NORMAL SESSION`/`Act-1` 삭제, `power_grid_maint.note` 디제틱 한국어 재작성, 휴지통 복구 전 첨부 불가, Sensor diagram 프롬프트 삭제 및 명시 라벨 교체, `DIAGNOSTIC NOTE` 버튼 삭제, `O₂ LEVEL` `drain x1.0x` 삭제).
-- **`project/mvp_scope.md`**: MVP In Scope / Out of Scope 및 Acceptance Criteria에 18가지 상세 정제 사양 완벽 명시.
-- **`project/pm_questions.md`**: Q31~Q48 신규 항목에 18가지 상세 정제 사양 추가 및 답변 기록.
-- **`project/task_board.md`**: `feat-034`, `feat-030`, `feat-028`, `feat-029`, `feat-027`, `feat-015`, `feat-017`, `feat-006`, `feat-005`, `feat-016`, `chore-002`, `chore-003`, `feat-025`, `feat-011`, `bug-001` 태스크 명세 최신화.
-- **`project/tasks/*.md`**: 관련 태스크 전체 문서의 Status, Scope, Acceptance Criteria 최신화.
+- **`project/pm_analysis.md`**: Core Loop, Visual Scope, Diegetic UI, ECHO 브리핑 & `✓ [확인 완료]` 버튼 업무 전환, 18가지 상세 게임플레이/UI/내용 정제 사양 및 5가지 신규 피드백 정제/버그 수정 사양 반영 (`quarantine_rules.conf` 오프셋 해설 주석 삭제, ECHO 대화창 SYSTEM 메시지 제거, 메인 메뉴 메타 카피 삭제, 동료 메신저 placeholder 보조 라벨 삭제, 한글 IME 전송 잔류 버그 원인 차단 및 초기화 보장, ECHO 패치 기안문 하단 문구 삭제 유지).
+- **`project/mvp_scope.md`**: MVP In Scope / Out of Scope 및 Acceptance Criteria에 18가지 상세 정제 사양 및 5가지 신규 피드백 정제/버그 수정 사양 완벽 명시.
+- **`project/pm_questions.md`**: Q49~Q54 신규 항목에 5가지 피드백 정제/버그 수정 사양 및 기 완료 확인 항목 추가 및 답변 기록.
+- **`project/task_board.md`**: `feat-034`, `feat-033`, `feat-031`, `feat-030`, `feat-028`, `feat-029`, `feat-027`, `feat-021`, `chore-002`, `feat-015`, `feat-017`, `feat-006`, `feat-005`, `feat-016`, `chore-003`, `feat-025`, `feat-011`, `bug-001` 태스크 명세 최신화.
+- **`project/tasks/*.md`**: 관련 태스크 전체 문서(`feat-021.md`, `feat-030.md`, `feat-031.md`, `feat-033.md`, `feat-034.md`, `chore-002.md` 등)의 Status, Scope, Acceptance Criteria 최신화.
 
 
 

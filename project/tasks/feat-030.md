@@ -16,7 +16,8 @@
 ## Scope
 
 - Rework ECHO message history into chat-style bubbles.
-- Align player messages to the right and ECHO/system messages to the left.
+- Align player messages to the right and ECHO messages to the left.
+- Completely remove SYSTEM speaker messages from ECHO chat history so only ECHO dialogues and player submissions are visible (Q50 user feedback).
 - Add message metadata so the newest answer and previous history are easier to scan.
 - Add automatic scroll-to-latest behavior when new chat messages arrive.
 - Split the composer into response header, text input, and send action.
@@ -30,7 +31,7 @@
 
 ## Acceptance Criteria
 
-- Player can distinguish submitted messages from ECHO and SYSTEM responses.
+- Player can distinguish submitted messages from ECHO responses (SYSTEM speaker messages are completely removed; Q50 user feedback).
 - Chat history remains scrollable inside the fixed terminal screen.
 - New responses scroll into view automatically.
 - File viewer bottom `<dt>출처</dt>`, `<dt>증거성</dt>`, and `<dt>상태</dt>` DL items are completely removed (Q28, Q32).

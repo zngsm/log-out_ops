@@ -2,10 +2,10 @@
 
 ## Document Meta
 
-- version: 1.3
+- version: 1.4
 - pm agent: codex
 - date: 2026-08-10
-- status: task board updated with 18 detailed gameplay/UI/content refinement specifications (rebooting cutscene -2s & lockdown +2s, File viewer <dt>증거성</dt>/<dt>상태</dt> removed, Act-1 Mission label removed, Evidence 0/1 tray removed, Tool manual security note removed, Log fixer sidebar mini program removed & [OPEN WITH LOG_FIXER] button kept, Locked file password location hint removed, Incorrect password location hint removed, Corrupted/deleted file concealment before Log_Fixer recovery, NEXT ACTION bar removed, HOW TO PLAY first objective & Open first file button removed, Log Fixer completion meta text removed, Timer HUD NORMAL SESSION & Act-1 labels removed, power_grid_maint.note diegetic Korean rewrite, Recycle_Bin attachment restriction before recovery, Sensor diagram prompt remnants removed & diegetic labels replacement, DIAGNOSTIC NOTE button removed, O2 LEVEL HUD drain x1.0x text removed)
+- status: task board updated with 18+5 detailed gameplay/UI/content/bug fix refinement specifications (quarantine_rules.conf offset developer note removed (+17,520시간 표기), ECHO chat SYSTEM messages removed, Main menu start screen meta copy removed, Colleague messenger placeholder (자유 텍스트) label removed, Colleague messenger Korean IME input leftover bug fixed, ECHO patch proposal bottom text removal maintained, rebooting cutscene -2s & lockdown +2s, File viewer <dt>증거성</dt>/<dt>상태</dt> removed, Act-1 Mission label removed, Evidence 0/1 tray removed, Tool manual security note removed, Log fixer sidebar mini program removed & [OPEN WITH LOG_FIXER] button kept, Locked file password location hint removed, Incorrect password location hint removed, Corrupted/deleted file concealment before Log_Fixer recovery, NEXT ACTION bar removed, HOW TO PLAY first objective & Open first file button removed, Log Fixer completion meta text removed, Timer HUD NORMAL SESSION & Act-1 labels removed, power_grid_maint.note diegetic Korean rewrite, Recycle_Bin attachment restriction before recovery, Sensor diagram prompt remnants removed & diegetic labels replacement, DIAGNOSTIC NOTE button removed, O2 LEVEL HUD drain x1.0x text removed)
 
 ## Task Index
 
@@ -74,7 +74,7 @@
 - `feat-014`, `feat-015`, `feat-016`, and `chore-003` can proceed in parallel after their dependencies because they affect ECHO logic, resource pressure, file interaction, and content copy respectively.
 - `feat-018` and `feat-019` should start after scene/resource direction is stable enough to wire audio and 3D state changes.
 - For Change-001 & 18 UI/UX refinement items: `feat-031` (CSS/SVG 2D cutscene & 100% full screen), `feat-032` (diegetic intranet screen), `feat-033` (diegetic workstation, fixed `✓ [확인 완료]` button sequential task transition with grey disabled styling `disabled={isResumeIncomplete}`, live ECHO reactions, random colleague messenger popup with draggable app UI & minimized badge `1` at bottom-right before reply / hidden after reply / hidden during reboot, free text lunch menu reply & positive reaction, candidate resume review narrative evaluation with 0 gameplay impact, meta notice banner & '서사적 판정 선택:' label removal, fixed `✓ [확인 완료]` text with grey disabled styling, and ECHO dialogue/Q&A disabled), and `feat-034` (update proposal with zero meta warning text, approval reboot trigger, adjusted reboot cutscene timeline (rebooting -2s / lockdown +2s) with messenger bubble hidden during reboot, post-reboot HUD/timer start & title-bar ECHO STATE/monitoring and `ACT-1 100%` HUD removal) form the sequential pre-puzzle narrative flow.
-- Terminal UI/UX & Content Refinements 17종 are reflected across `feat-030`, `feat-028`, `feat-029`, `feat-027`, `feat-015`, `feat-017`, `feat-006`, `feat-005`, `feat-016`, `chore-002`, `chore-003`, `feat-025`, `feat-011`, `bug-001` task definitions.
+- Terminal UI/UX & Content Refinements 17종 + 5종 신규 피드백 정제/버그 수정 사양: `quarantine_rules.conf` 오프셋 해설 주석 삭제 (`chore-002`, `feat-021`), ECHO 대화창 SYSTEM 메시지 전면 제거 (`feat-030`), 메인 메뉴 시작 화면 메타 카피 전면 삭제 (`feat-031`, `feat-024`), 동료 메신저 placeholder `(자유 텍스트)` 삭제 및 한글 IME 입력 버그 수정 (`feat-033`), ECHO 패치 기안문 하단 문구 삭제 상태 유지 (`feat-034`) 등이 태스크 정의 전반에 최신 반영됨.
 
 ## Sequencing Notes
 

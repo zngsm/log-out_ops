@@ -15,7 +15,7 @@ Apply Change-001 transition requirements and Q17~Q19, Q24~Q26, Q31 answers: embe
 
 ## Scope
 
-- Embed "ECHO 시스템 업데이트 필요" (ECHO System Update Required) proposal task within the left work desktop UI, completely removing developer warning meta text (`"⚠️ [ECHO 시스템 업데이트 승인] 버튼 클릭 시 ECHO 패치가 적용되고 시스템 재부팅 후 본 비상 봉쇄 시퀀스로 진입합니다."`) (Q24).
+- Embed "ECHO 시스템 업데이트 필요" (ECHO System Update Required) proposal task within the left work desktop UI, completely removing developer warning meta text (`"⚠️ [ECHO 시스템 업데이트 승인] 버튼 클릭 시 ECHO 패치가 적용되고 시스템 재부팅 후 본 비상 봉쇄 시퀀스로 진입합니다."`) and bottom text (`본 비상 봉쇄 시퀀스로 진입합니다`) (Q24, Q54 user feedback).
 - Completely remove the `ECHO STATE / monitoring` card from top title-bar status HUD (Q25).
 - On player clicking [업데이트 승인] (Approve Update) — the exclusive transition trigger (Q17):
   - Trigger ECHO chat window reboot sequence (CSS / SVG visual glitch, rebooting animation, sound cue) with an **adjusted cutscene timeline** (rebooting state duration shortened by 2s, lockdown emergency state duration extended by 2s) (Q19, Q26, Q31).
@@ -32,7 +32,7 @@ Apply Change-001 transition requirements and Q17~Q19, Q24~Q26, Q31 answers: embe
 
 ## Acceptance Criteria
 
-- [x] "ECHO 시스템 업데이트 필요" proposal is present in the work mission list with developer warning meta text (`"⚠️ [ECHO 시스템 업데이트 승인] 버튼 클릭 시..."`) completely removed.
+- [x] "ECHO 시스템 업데이트 필요" proposal is present in the work mission list with developer warning meta text (`"⚠️ [ECHO 시스템 업데이트 승인] 버튼 클릭 시..."`) and bottom text (`본 비상 봉쇄 시퀀스로 진입합니다`) completely removed (Q24, Q54 user feedback).
 - [x] `ECHO STATE / monitoring` card is completely removed from the top title-bar status HUD.
 - [x] Clicking [업데이트 승인] is the exclusive transition trigger that initiates ECHO chat reboot sequence.
 - [x] Reboot sequence displays CSS / SVG visual glitch, rebooting animation, system error warning, emergency siren, and decompression across an adjusted cutscene timeline (rebooting state shortened by 2s, lockdown emergency state extended by 2s - Q31).

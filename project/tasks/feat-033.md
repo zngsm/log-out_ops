@@ -36,6 +36,8 @@ Apply Change-001 requirements and Q21~Q23, Q26~Q27 user feedback answers: build 
   - **Complete Messenger Bubble Hide During Reboot**: During ECHO reboot presentation (`rebootState !== 'idle'`), the bottom-right colleague messenger speech-bubble icon is completely hidden (unrendered) from the screen (Q26 user feedback).
   - **Question Copy**: Always asks for lunch menu (e.g., `"오늘 점심 메뉴 뭐먹을래?"`).
   - **Reply & Reaction**: Player inputs free-text reply ➔ Colleague sends 1 positive reaction message (`"그 메뉴 좋다!"`).
+  - **Input Box Placeholder Refinement (Q52)**: Completely remove `(자유 텍스트)` sub-label from input box placeholder, displaying purely `답장을 입력하세요...`.
+  - **Korean IME Composition & Post-Send Input Bug Fix (Q53)**: Intercept `isComposing` state and apply synthetic clear upon sending so that the last composed Korean word does not auto-persist or re-input after submission, guaranteeing an empty input box.
   - **Remove Meta Guidance Text & Maintain Diegetic UX**: Completely remove immersion-breaking meta notice text under reply input box (`"※ 1회 답장 완료 후 메신저 채널은 읽지 않음(1) 상태로 유지됩니다."`). Maintain natural diegetic UI/UX after player reply without exposing any system meta guidance text.
   - **Infinite Conversation Prevention**: Subsequent player messages after 1-time reaction maintain `Unread` (`읽지 않음(1)`) status naturally without system meta guidance text.
 - **Applicant Resume Review Stage & Narrative Choice (Meta Text Removal, Fixed Label & Grey Disabled Styling)** (Q21, Q27):
@@ -65,7 +67,7 @@ Apply Change-001 requirements and Q21~Q23, Q26~Q27 user feedback answers: build 
 - [x] Clicking popup opens dedicated messenger app window displaying lunch menu question (`"오늘 점심 메뉴 뭐먹을래?"`), which allows player to freely drag and reposition within the left workspace panel boundary (Draggable UI).
 - [x] Minimizing/closing messenger displays a speech-bubble chat icon + red notification bubble (`1`) before reply strictly bounded within left workspace panel bottom-right (좌측 업무 화면 내 오른쪽 하단), and after reply completion, minimizing/closing removes the red notification bubble (`1`) from the icon.
 - [x] During ECHO reboot presentation (`rebootState !== 'idle'`), the bottom-right colleague messenger speech-bubble icon is completely hidden (unrendered) from the screen.
-- [x] Player can reply with free text in colleague messenger; colleague sends 1 positive reaction message (`"그 메뉴 좋다!"`), reply input box meta text (`"※ 1회 답장 완료 후 메신저 채널은 읽지 않음(1) 상태로 유지됩니다."`) is completely removed, and subsequent player messages maintain 'Unread(1)' (`읽지 않음(1)`) state with natural diegetic UX.
+- [x] Player can reply with free text in colleague messenger; colleague sends 1 positive reaction message (`"그 메뉴 좋다!"`), reply input box meta text (`"※ 1회 답장 완료 후 메신저 채널은 읽지 않음(1) 상태로 유지됩니다."`) and placeholder sub-label `(자유 텍스트)` (Q52) are completely removed, Korean IME composition and post-send input residual bug is fixed to ensure a clean empty input box (Q53), and subsequent player messages maintain 'Unread(1)' (`읽지 않음(1)`) state with natural diegetic UX.
 - [x] Applicant resume review displays 3 candidate profiles with 'Qualified' / 'Unqualified' decision buttons (with 0 impact on gameplay/ending).
 - [x] Applicant resume review meta notice banner (`※ 안내: 본 이력서 적합성 판정은...`) is completely removed from the screen.
 - [x] Label text `서사적 판정 선택:` in front of decision buttons is completely removed.
