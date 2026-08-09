@@ -2,10 +2,10 @@
 
 ## Document Meta
 
-- version: 2.3
+- version: 2.4
 - pm agent: codex
 - date: 2026-08-10
-- status: Q31~Q56 answered; feat-037 specifications updated (meter bars for oxygen power, brighten 3d lights, start button intranet theme, stability/suspicion text removal)
+- status: Q31~Q61 answered; feat-038 specifications updated (remove start button shimmer animation, brighten 3d scene lights to ambient 1.8/point 16.0, remove lockdown broadcast transition text, double explorer panel width to 360px, empty echo input and set korean placeholder)
 
 ## Blocking Questions
 
@@ -612,6 +612,19 @@ FILE EXPLORER 영역 너비를 약 180~200px 고정으로 축소하고, FILE VIE
 ### Answer
 
 좌측 패널 헤더의 `ACT-1 ACTIVE` (또는 `STEP 1 / 5`) 라벨을 전면 삭제하고, 해당 중앙 공간에 확충된 비상 HUD를 매끄럽게 연동 및 통합 배치한다.
+
+### Q61. START 버튼 펄스 제거, 3D 조도 상향, START 클릭 방송 문구 삭제, 탐색기 패널 360px 확장, ECHO 입력창 기본문구 제거 및 한글 placeholder 설정 사양
+
+feat-038에서 수행하는 5가지 UI/UX/3D 개선사항에 대한 결정입니다.
+
+### Answer
+
+1. START 버튼(`.computer-hotspot`)의 shimmer/pulse 애니메이션을 전면 제거하여 정적 사이언 글로우 테마로 고정한다.
+2. `SpaceshipComputerScene.tsx` 3D 배경의 `ambientLight` 조도를 `1.8`, `pointLight` 조도를 `16.0`으로 대폭 상향하여 3D 통제실 배경을 밝게 표현한다.
+3. START 버튼 클릭 시 순간 flashing되던 `<div className="lockdown-broadcast">` 텍스트 블록을 전면 삭제하여 화면 전환 시 불필요한 텍스트 노출을 방지한다.
+4. 로그 탐색 터미널의 `.explorer-panel` 너비를 기존 190px에서 2배인 360px(`flex: 0 0 360px; width: 360px;`)로 넓혀 파일 탐색기 항목의 가독성을 대폭 확보한다.
+5. ECHO 증거 제출 텍스트박스 기본 입력문구(`getDefaultPrompt(...)`)를 전면 제거하여 시작 및 스테이지 변경 시 `messageInput`을 빈 문자열 `""`로 초기화하고, 작성기 `textarea`에 `placeholder="ECHO에게 제출할 증거를 입력하세요..."`를 추가한다.
+
 
 
 

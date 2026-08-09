@@ -2,10 +2,10 @@
 
 ## Document Meta
 
-- version: 1.6
+- version: 1.7
 - pm agent: codex
 - date: 2026-08-10
-- status: confirmed - 6가지 UI/UX/3D 개선 요구사항 (feat-037) 반영 완료 (O2 LEVEL/POWER GRID 닳는 바 게이지 추가, 시작 화면 문구 전면 삭제, 로고 상단 중앙 배치, START 버튼 및 인트라넷 테마 매칭, stability/suspicion 메타 텍스트 전면 삭제, 3D 배경 조명 증대 및 3D 모니터 emissive 테마 변경)
+- status: confirmed - 5가지 UI/UX/3D 개선 요구사항 (feat-038) 반영 완료 (START 버튼 pulse 애니메이션 삭제, 3D 배경 ambient 1.8/point 16.0 조도 상향, START 클릭 transition broadcast 텍스트 삭제, explorer panel 너비 360px 2배 확장, ECHO 제출 기본문구 제거 및 한글 placeholder 설정)
 
 ## MVP Goal
 
@@ -301,6 +301,13 @@
 - 2분할 바디(`work-split-body`) 좌측 패널(`work-left-panel`)에는 파일 탐색기와 파일 뷰어가 통합 배치되고, 우측 패널(`work-right-panel` / `echo-chat-panel`)에는 ECHO 대화 및 증거 제출 컴포저 패널이 통합 렌더링되며, 컷신 전후 터미널 화면 프레임, 패널 헤더 스타일, 스크롤바, 테두리 그라디언트, 폰트 크기가 100% 시각적으로 완벽하게 연결된다.
 - 비상 봉쇄 후 카테고리 A 본 퍼즐(파일 탐색, Act 1~3 증거 제출, deterministic ECHO 판정, Normal Ending A)로 정상 진입한다.
 - Act 3 성공 시 통제실 문 해제 상태와 Normal Ending이 표시된다.
+- **feat-038 5가지 UI/UX/3D 개선 검증**:
+  1) START 버튼(`.computer-hotspot`) pulse/shimmer 무한 애니메이션이 완전히 제거되어 정적 사이언 글로우 테마로 안정적으로 유지된다.
+  2) `SpaceshipComputerScene.tsx` 3D 배경의 `ambientLight` 조도가 `1.8`, `pointLight` 조도가 `16.0`으로 대폭 상향되어 3D 통제실 배경이 한층 밝게 표현된다.
+  3) START 버튼 클릭 화면 전환 시 순간 flashing되던 `<div className="lockdown-broadcast">` 텍스트 블록이 전면 삭제되어 전환 시 불필요한 텍스트가 노출되지 않는다.
+  4) 로그 탐색 터미널의 `.explorer-panel` 너비가 기존 190px에서 2배인 360px (`flex: 0 0 360px; width: 360px;`)로 확대되어 파일 목록의 가독성이 획기적으로 향상된다.
+  5) ECHO 증거 제출 텍스트박스 기본 입력문구(`getDefaultPrompt(...)`)가 전면 제거되어 시작 및 스테이지 변경 시 `messageInput`이 빈 문자열 `""`로 초기화되고, `textarea`에 `placeholder="ECHO에게 제출할 증거를 입력하세요..."` 문구가 정상 표시된다.
+
 
 
 

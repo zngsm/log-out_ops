@@ -2,10 +2,10 @@
 
 ## Document Meta
 
-- version: 1.6
+- version: 1.7
 - pm agent: codex
 - date: 2026-08-10
-- status: task board updated with feat-036 (refining file explorer width 180~200px / viewer width expansion, full Korean button translation, removing password hint text, expanding center-aligned emergency HUD, removing ACT-1 ACTIVE label) and 18+5+1+5 detailed refinement specifications
+- status: task board updated with feat-038 (removing start button shimmer animation, brightening 3D scene lights to ambient 1.8/point 16.0, removing lockdown broadcast text during transition, doubling explorer panel width to 360px, initializing ECHO prompt input to empty string and setting Korean placeholder)
 
 ## Task Index
 
@@ -65,6 +65,7 @@
 | 52 | feat-035 | feat | Unify post-cutscene main puzzle terminal UI with pre-cutscene workstation UI layout, header, color theme, and 2-split body structure | done | dev-agent | no | feat-034, bug-011 | feat-036 | project/tasks/feat-035.md |
 | 53 | feat-036 | feat | Refine file explorer/viewer width ratio, translate all buttons to Korean, remove password hint text, expand and center-align emergency HUD, and remove ACT-1 ACTIVE label | done | dev-agent | no | feat-035 | feat-037 | project/tasks/feat-036.md |
 | 54 | feat-037 | feat | Implement meter bars for oxygen power, brighten 3d lights, set start button and intranet monitor theme, remove stability suspicion meta texts | done | dev-agent | no | feat-036 | human visual review | project/tasks/feat-037.md |
+| 55 | feat-038 | feat | Remove start button shimmer animation, brighten 3d scene lights, remove start click broadcast flash, double explorer panel width to 360px, empty echo input and set korean placeholder | done | dev-agent | no | feat-037 | human visual review | project/tasks/feat-038.md |
 
 ## Parallel Work Notes
 

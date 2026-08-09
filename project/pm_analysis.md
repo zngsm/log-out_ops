@@ -2,10 +2,10 @@
 
 ## Document Meta
 
-- version: 1.6
+- version: 1.7
 - pm agent: codex
 - date: 2026-08-10
-- status: updated - 6가지 UI/UX/3D 개선 요구사항 (feat-037) 반영 완료 (O2 LEVEL/POWER GRID 닳는 바 게이지 추가, 시작 화면 문구 전면 삭제, 로고 상단 중앙 배치, START 버튼 및 인트라넷 테마 매칭, stability/suspicion 메타 텍스트 전면 삭제, 3D 배경 조명 증대 및 3D 모니터 emissive 테마 변경)
+- status: updated - 5가지 UI/UX/3D 개선 요구사항 (feat-038) 반영 완료 (START 버튼 pulse 애니메이션 삭제, 3D 배경 ambient 1.8/point 16.0 조도 상향, START 클릭 transition broadcast 텍스트 삭제, explorer panel 너비 360px 2배 확장, ECHO 제출 기본문구 제거 및 한글 placeholder 설정)
 - source folder: `project/human-input`
 
 ## Source Documents
@@ -107,9 +107,9 @@ Resolved: Cloudflare Worker 기반 Hermes NPC API 명세(`https://royal-firefly-
 
 - 기획 방향성 분석: ready (Change-001 및 Q21~Q60 사용자 피드백, 5가지 추가 UI/UX 개선 사양, Cloudflare Worker NPC API 명세 반영 완료)
 - MVP 범위 확정: ready for Cloudflare Worker NPC API integrated MVP with Diegetic/ECHO-driven flow, 5 UI/UX refinements, and 100% local fallback
-- 전체 task 확정: `feat-001`~`feat-036` (완료 및 비상 컷신 전후 터미널 UI 레이아웃/헤더/2분할 구조 통일 및 5가지 추가 UI/UX 개선 사양 반영), `feat-007` (done - Cloudflare Worker NPC API & 100% 로컬 Fallback)
-- Active Task: `feat-036` (new UI/UX refinement task)
-- 미확정 항목: 없음 (Q1~Q60 전 항목 답변/명세 수립 완료)
+- 전체 task 확정: `feat-001`~`feat-038` (완료 - 5가지 추가 UI/UX/3D 개선 사양 feat-038 반영 완료)
+- Active Task: `feat-038` (done)
+- 미확정 항목: 없음 (Q1~Q61 전 항목 답변/명세 수립 완료)
 
 ## Recommended PM Decision
 

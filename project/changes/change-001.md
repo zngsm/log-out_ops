@@ -4,10 +4,10 @@
 
 ## Document Meta
 
-- version: 3.0
+- version: 5.0
 - author: PM Agent
 - date: 2026-08-10
-- status: confirmed - 사용자의 피드백 요구사항 전면 반영 (1. 파일 탐색기 약 180~200px 축소 및 파일 뷰어 대폭 확장, 2. 주요 버튼 텍스트 한국어 전면 전환, 3. 잠긴 파일 힌트 텍스트 전면 삭제, 4. 비상 HUD 크기 확충 및 상단 헤더 중앙 배치, 5. ACT-1 ACTIVE 라벨 삭제 및 비상 HUD 연동)
+- status: confirmed - feat-038 (1. START 버튼 펄스 제거, 2. 3D 조도 상향, 3. START 클릭 전환 문구 삭제, 4. 탐색기 패널 360px 2배 확장, 5. ECHO 입력창 기본문구 제거 및 한글 placeholder 설정) 사양 반영
 - target docs: `project/mvp_scope.md`, `project/pm_analysis.md`, `project/pm_questions.md`, `project/task_board.md`, `project/tasks/*.md`
 
 ## Background & Motivation
@@ -169,13 +169,21 @@
 - **5. stability / suspicion 문구 전면 삭제**: ECHO 대화 답변 메시지 출력 시 `[stability ... / suspicion ...]` 텍스트 부착 제거 (순수 대사만 출력).
 - **6. 3D 배경 조명 및 모니터 테마 변경**: `ambientLight` 및 `pointLight` 조도를 키워서 3D 통제실 배경이 밝고 명확하게 보이도록 수정하고, 3D 모니터 발광(emissive) 색상을 기존 주황색(`e98d42`)에서 김우주의 인트라넷 로그인 화면 테마(딥 블루/티엘 `#0f4b46`)로 변경.
 
+### 16. 5가지 UI/UX/3D 개선 상세 사양 (Change-001 Follow-up v5.0 / feat-038)
+- **1. START 버튼 펄스/빛 애니메이션 전면 제거**: `.computer-hotspot`의 shimmer/pulse 무한 애니메이션을 전면 제거하고 정적 사이언 글로우 테마로 고정.
+- **2. 3D 배경 조도 추가 상향**: `SpaceshipComputerScene.tsx` 3D 배경의 `ambientLight` 조도를 `1.8`, `pointLight` 조도를 `16.0`으로 대폭 늘려 3D 통제실 배경을 밝게 변경.
+- **3. START 클릭 순간 flashing 텍스트 전면 삭제**: START 버튼 클릭 시 순간 flashing되던 `<div className="lockdown-broadcast">` 텍스트 블록 전면 삭제 (`appPhase === "transition"` 시 아무 텍스트도 보이지 않도록 처리).
+- **4. 파일 탐색기 패널 너비 2배 확장**: 로그 탐색 터미널의 `.explorer-panel` 너비를 기존 190px에서 **2배인 360px**(`flex: 0 0 360px; width: 360px;`)로 넓혀 파일 탐색기 항목 가독성 대폭 확보.
+- **5. ECHO 제출 기본 문구 제거 및 한글 placeholder 설정**: ECHO 증거 제출 텍스트박스 기본 입력문구(`getDefaultPrompt(...)`) 전면 제거 (시작 및 스테이지 변경 시 `messageInput`을 빈 문자열 `""`로 초기화), 작성기 `textarea`에 `placeholder="ECHO에게 제출할 증거를 입력하세요..."` 추가.
+
 ## Impact Analysis
 
-- **`project/pm_analysis.md`**: Core Loop, Visual Scope, Diegetic UI, 18+5+1+5+6가지 상세 게임플레이/UI/3D 개선 사양 반영.
-- **`project/mvp_scope.md`**: MVP In Scope / Out of Scope 및 Acceptance Criteria에 6가지 UI/UX/3D 개선 검증 항목 반영.
-- **`project/pm_questions.md`**: Q56 신규 항목에 6가지 UI/UX/3D 개선 사양 추가 기록.
-- **`project/task_board.md`**: `feat-037` 신규 생성 및 done 반영.
-- **`project/tasks/*.md`**: 신규 태스크 문서 `feat-037.md` 생성 및 done 상태 기록.
+- **`project/pm_analysis.md`**: Core Loop, Visual Scope, Diegetic UI, 18+5+1+5+6+5가지 상세 게임플레이/UI/3D 개선 사양 반영.
+- **`project/mvp_scope.md`**: MVP In Scope / Out of Scope 및 Acceptance Criteria에 5가지 UI/UX/3D 개선 검증 항목 반영.
+- **`project/pm_questions.md`**: Q61 신규 항목에 5가지 UI/UX/3D 개선 사양 추가 기록.
+- **`project/task_board.md`**: `feat-038` 신규 생성 및 done 반영.
+- **`project/tasks/*.md`**: 신규 태스크 문서 `feat-038.md` 생성 및 done 상태 기록.
+
 
 
 
