@@ -11,17 +11,17 @@
 
 ## Goal
 
-Apply Change-001 requirements and Q21~Q23 user feedback answers: build a diegetic workstation layout (completely removing developer terms like "HERMES 2-SPLIT DUAL PANEL WORK INTERFACE" and "라포 Phase"), implement ECHO task briefing and left document bottom [확인 완료] (Confirmation Complete) button transition mechanism (Q22: clicking button prints ECHO prompt "다음 업무는 [다음 업무명]입니다. 보여드릴게요." in right chat and transitions left document screen), output real-time ECHO reaction dialogues (max 2 per report), handle random colleague messenger popup notifications at top-right with dedicated messenger app UI window, minimized speech-bubble icon with red badge `1` at bottom-right of 2-split workstation screen, lunch menu question ("오늘 점심 메뉴 뭐먹을래?"), free-text reply and 1-time positive reaction ("그 메뉴 좋다!"), maintaining subsequent player messages as `Unread(1)` (Q23), and implement applicant resume review with candidate evaluation ('적격'/'부적격' decision with zero gameplay/puzzle/ending impact - narrative choice) & ECHO suitability Q&A (Q21).
+Apply Change-001 requirements and Q21~Q23 user feedback answers: build a diegetic workstation layout (completely removing developer terms like "HERMES 2-SPLIT DUAL PANEL WORK INTERFACE" and "라포 Phase"), implement ECHO task briefing with natural diegetic introductory dialogues (replacing developer guide-style copy such as "좌측 보고서 하단의 [확인 완료] 버튼을 눌러 다음 업무로 진행하세요" with in-world dialogue) and left document bottom simple **[확인 완료]** button transition mechanism (completely removing "(다음 업무로 이동)" bracket sub-text; Q22: clicking button prints ECHO prompt "다음 업무는 [다음 업무명]입니다. 보여드릴게요." in right chat and transitions left document screen), output real-time ECHO reaction dialogues (max 2 per report), handle random colleague messenger popup notifications at top-right with dedicated messenger app UI window, minimized speech-bubble icon with red badge `1` at bottom-right of 2-split workstation screen, lunch menu question ("오늘 점심 메뉴 뭐먹을래?"), free-text reply and 1-time positive reaction ("그 메뉴 좋다!"), maintaining subsequent player messages as `Unread(1)` (Q23), and implement applicant resume review with candidate evaluation ('적격'/'부적격' decision with zero gameplay/puzzle/ending impact - narrative choice) & ECHO suitability Q&A (Q21).
 
 ## Scope
 
 - **Diegetic Workstation UI**:
   - Remove all developer terms from UI header: "HERMES 2-SPLIT DUAL PANEL WORK INTERFACE", "라포 Phase" etc.
   - Render authentic Hermes Workstation interface.
-- **ECHO Task Briefing & [확인 완료] Button Document Transition (Remove Left Tabs & Chat Text Matching)** (Q22):
+- **ECHO Task Briefing & Simple [확인 완료] Button Document Transition (Remove Left Tabs & Meta Sub-texts)** (Q22):
   - Remove tab-based free selection menu on left panel.
-  - ECHO briefs daily tasks on right chat panel and pushes initial document to left panel.
-  - Place prominent **[확인 완료]** (Confirmation Complete) button at the bottom of left document/report screen.
+  - ECHO briefs daily tasks on right chat panel using natural diegetic dialogues (removing guide-style text such as "좌측 보고서 하단의 [확인 완료] 버튼을 눌러 다음 업무로 진행하세요").
+  - Place prominent **[확인 완료]** button at the bottom of left document/report screen, completely removing "(다음 업무로 이동)" bracket sub-text (rendered solely as `[확인 완료]`).
   - On player clicking **[확인 완료]**:
     1. Right ECHO chat outputs: `"다음 업무는 [다음 업무명]입니다. 보여드릴게요."`
     2. Left panel transitions to the next work document/report.
@@ -54,7 +54,7 @@ Apply Change-001 requirements and Q21~Q23 user feedback answers: build a diegeti
 ## Acceptance Criteria
 
 - [x] Workstation header contains zero developer terms ("HERMES 2-SPLIT DUAL PANEL", "라포 Phase" removed).
-- [x] Tab-based selection on left panel is removed; ECHO briefs tasks on right chat panel and document transition is triggered via left bottom [확인 완료] button.
+- [x] Tab-based selection on left panel is removed; ECHO briefs tasks on right chat panel with natural diegetic dialogues (developer guide-style copy removed) and document transition is triggered via left bottom simple **[확인 완료]** button (without "(다음 업무로 이동)" sub-label).
 - [x] Clicking [확인 완료] outputs ECHO prompt `"다음 업무는 [다음 업무명]입니다. 보여드릴게요."` in right chat and transitions left panel to next document.
 - [x] ECHO outputs real-time reaction dialogues (max 2) while player reads reports.
 - [x] Colleague messenger popup event triggers randomly during Power/O2 report or resume review stage with notification SFX and top-right (오른쪽 상단) popup window.
