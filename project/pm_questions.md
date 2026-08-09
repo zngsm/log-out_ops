@@ -2,10 +2,10 @@
 
 ## Document Meta
 
-- version: 0.7
+- version: 0.8
 - pm agent: codex
 - date: 2026-08-09
-- status: Q21~Q23 answered; Change-001 & post-reply messenger notification bubble specifications updated; Q11 still blocking external AI
+- status: Q21~Q25 answered; Change-001 feedback specifications updated (Resume review ECHO dialogue disabled, update proposal meta warning text removed, title-bar ECHO STATE/monitoring HUD removed)
 
 ## Blocking Questions
 
@@ -240,6 +240,7 @@ Change-001 기획 변경으로 라포 형성 Phase (약 5분간)에 AI 관리자
 ### Answer
 
 지원자 이력서 검토 시 '적격' / '부적격' 판정 선택 결과는 게임 진행, 퍼즐, 엔딩에 아무런 영향도 미치지 않음 (몰입용 서사적 선택 요소).
+**사용자 피드백 사양 반영**: 지원자 이력서 검토 단계에서는 ECHO 대화창 및 Q&A 질의응답 입력 기능이 전면 제거되어 ECHO 대화가 비활성화된다 (ECHO 대화 불가능 처리).
 
 ### Q22. ECHO 대화 주도 업무 전환 시 플레이어 대화 요청 인식 규칙
 
@@ -277,4 +278,20 @@ ECHO 채팅 대화 인식 방식 대신, **좌측 보고서/문서 하단에 [�
 - **축소/무응답 UX & 신규 메시지 버블 (좌측 업무 화면 내 경계 고정)**: 플레이어가 팝업/채팅창을 축소(닫기)하여 나중에 응답할 수 있음. 답장 전 축소 시에는 **좌측 업무 화면 경계 내부의 오른쪽 하단(Bottom-Right)**에 말풍선 채팅 앱 아이콘 + 빨간색 신규 메시지 알림 버블(숫자 `1`)이 노출되며 (아이콘 클릭 시 채팅 앱 재개), 플레이어가 답장을 완료한 후 채팅창을 축소(닫기)하는 경우에는 축소된 말풍선 아이콘에 신규 메시지 알림 버블(숫자 `1`)이 더 이상 노출되지 않도록 처리한다.
 - **메타 문구 제거 & Diegetic UX**: 동료 채팅방 답장 입력창 아래의 몰입 방해 메타 문구 `"※ 1회 답장 완료 후 메신저 채널은 읽지 않음(1) 상태로 유지됩니다."` 텍스트를 전면 제거한다. 플레이어 답장 후 메신저 앱 기능 및 UI는 자연스러운 diegetic UX를 유지하며, 어떠한 시스템 메타 보조 설명 문구도 노출하지 않는다.
 - **무한 대화 방지**: 답장 ➔ 동료 긍정 반응 수신 후, 플레이어가 추가 메시지를 전송하더라도 메타 안내 문구 없이 자연스러운 diegetic UX(추가 메시지 전송 시 읽지 않음(Unread) 상태 유지)를 유지한다.
+
+### Q24. ECHO 시스템 업데이트 기안 내 메타 경고 문구 처리 사양
+
+4번 미션 (ECHO 시스템 업데이트 필요) 문서 내 메타/개발자 설명 문구 노출 여부에 대한 결정입니다.
+
+### Answer
+
+4번 미션 문서 내 `"⚠️ [ECHO 시스템 업데이트 승인] 버튼 클릭 시 ECHO 패치가 적용되고 시스템 재부팅 후 본 비상 봉쇄 시퀀스로 진입합니다."` 메타/개발자 설명 문구를 전면 삭제한다.
+
+### Q25. 상단 title-bar status HUD 내 ECHO STATE / monitoring 카드 처리 사양
+
+상단 title-bar status HUD 구성 요소 중 `ECHO STATE / monitoring` 카드의 유지 여부에 대한 결정입니다.
+
+### Answer
+
+상단 title-bar status HUD 중 `ECHO STATE / monitoring` 카드를 전면 제거한다.
 

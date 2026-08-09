@@ -11,11 +11,12 @@
 
 ## Goal
 
-Apply Change-001 transition requirements and Q17, Q18, Q19 answers: embed "ECHO 시스템 업데이트 필요" proposal in the work mission list, trigger ECHO reboot upon approval click (exclusive transition trigger), present reboot using CSS / SVG in-game effects, and transition into emergency lockdown state with oxygen/power HUD display and 60-minute timer activation.
+Apply Change-001 transition requirements and Q17~Q19, Q24~Q25 answers: embed "ECHO 시스템 업데이트 필요" proposal in the work mission list (completely removing developer warning meta text "⚠️ [ECHO 시스템 업데이트 승인] 버튼 클릭 시 ECHO 패치가 적용되고 시스템 재부팅 후 본 비상 봉쇄 시퀀스로 진입합니다." - Q24), trigger ECHO reboot upon approval click (exclusive transition trigger), present reboot using CSS / SVG in-game effects, transition into emergency lockdown state with oxygen/power HUD display and 60-minute timer activation, and completely remove `ECHO STATE / monitoring` card from top title-bar status HUD (Q25).
 
 ## Scope
 
-- Embed "ECHO 시스템 업데이트 필요" (ECHO System Update Required) proposal task within the left work desktop UI.
+- Embed "ECHO 시스템 업데이트 필요" (ECHO System Update Required) proposal task within the left work desktop UI, completely removing developer warning meta text (`"⚠️ [ECHO 시스템 업데이트 승인] 버튼 클릭 시 ECHO 패치가 적용되고 시스템 재부팅 후 본 비상 봉쇄 시퀀스로 진입합니다."`) (Q24).
+- Completely remove the `ECHO STATE / monitoring` card from top title-bar status HUD (Q25).
 - On player clicking [업데이트 승인] (Approve Update) — the exclusive transition trigger (Q17):
   - Trigger ECHO chat window reboot sequence (CSS / SVG visual glitch, rebooting animation, sound cue) (Q19).
 - Post-reboot lockdown transition:
@@ -30,7 +31,8 @@ Apply Change-001 transition requirements and Q17, Q18, Q19 answers: embed "ECHO 
 
 ## Acceptance Criteria
 
-- [x] "ECHO 시스템 업데이트 필요" proposal is present in the work mission list.
+- [x] "ECHO 시스템 업데이트 필요" proposal is present in the work mission list with developer warning meta text (`"⚠️ [ECHO 시스템 업데이트 승인] 버튼 클릭 시..."`) completely removed.
+- [x] `ECHO STATE / monitoring` card is completely removed from the top title-bar status HUD.
 - [x] Clicking [업데이트 승인] is the exclusive transition trigger that initiates ECHO chat reboot sequence.
 - [x] Reboot sequence displays CSS / SVG visual glitch, rebooting animation, and sound cue.
 - [x] Re-opened ECHO misinterprets player as threat and issues lockdown declaration.
@@ -43,6 +45,8 @@ Apply Change-001 transition requirements and Q17, Q18, Q19 answers: embed "ECHO 
 
 - 2026-08-09: `review_agent` approved implementation.
   - Exclusive transition trigger on [업데이트 승인] verified.
+  - ECHO update proposal meta warning text removal verified.
+  - Title-bar `ECHO STATE / monitoring` HUD card removal verified.
   - CSS / SVG visual glitch & reboot sequence (`RebootGlitchPresentation`) verified with audio cues (`comm-glitch`, `reboot`, `warning-siren`, `door-lock`, `decompression`).
   - ECHO lockdown declaration and emergency HUD / 60-minute timer transition verified.
   - `npm run build` and `git diff --check` verified clean.
@@ -55,3 +59,5 @@ Apply Change-001 transition requirements and Q17, Q18, Q19 answers: embed "ECHO 
 - `project/pm_questions.md#Q17`
 - `project/pm_questions.md#Q18`
 - `project/pm_questions.md#Q19`
+- `project/pm_questions.md#Q24`
+- `project/pm_questions.md#Q25`
