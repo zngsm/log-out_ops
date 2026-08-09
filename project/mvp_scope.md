@@ -2,10 +2,10 @@
 
 ## Document Meta
 
-- version: 1.3
+- version: 1.4
 - pm agent: codex
 - date: 2026-08-10
-- status: confirmed - 18가지 상세 정제 사양 및 5가지 신규 추가 UI/UX/내용/버그 수정 피드백 사양 반영 완료 (1. quarantine_rules.conf 오프셋 개발자 주석 삭제 (+17,520시간 표기), 2. ECHO 대화창 SYSTEM 스피커 메시지 전면 제거, 3. 메인 메뉴 시작 화면 메타 카피 전면 삭제, 4. 동료 메신저 placeholder (자유 텍스트) 보조 라벨 전면 삭제, 5. 동료 메신저 한글 IME 전송 후 단어 자동 잔류/재입력 버그 원인 차단 및 초기화 보장, 6. ECHO 패치 기안문 하단 문구 삭제 상태 유지)
+- status: confirmed - 18가지 상세 정제 사양, 5가지 피드백 정제/버그 수정 사양 및 비상 컷신 전후 터미널 UI 레이아웃/헤더/2분할 구조 100% 통일 사양 반영 완료 (WorkInterface layout/header/body <-> App terminal-frame, HERMES WORKSTATION & HERMES SHIP SYSTEM COMMAND, worker name, ● EMERGENCY LOCKDOWN ACTIVE, compact emergency HUD, 1.6fr:1fr 2-split body, frame/scrollbar/border gradient/font size 100% visual continuity)
 
 ## MVP Goal
 
@@ -83,6 +83,11 @@
 - [업데이트 승인] 클릭 시 ECHO 대화창 리부팅 (CSS/SVG 기반 visual glitch, 에러 경고, 사이렌, 데콤프레션, **rebooting 연출 상태 2초 축소 / lockdown 연출 상태 2초 연장 조절 컷신 연출**, 리부팅 중 동료 메신저 버블 완전 숨김) 및 ECHO의 위협 요소 오판 / 비상 봉쇄 발령 연출
 - **비상 봉쇄 발령 완료 시점에 비상 HUD(산소 100% / 전력 100%) 표시 및 60분 타이머 작동 시작**
 - 비상 봉쇄 발령 후 본 퍼즐 진입
+- **비상 컷신 전후 터미널 UI/UX 레이아웃, 헤더, 색상 테마 및 2분할 구조 통일 (`feat-035`)**:
+  - 비상 컷신 이전 워크스테이션 UI(`WorkInterface.tsx`: `work-split-container`, `work-header`, `work-split-body`, `work-left-panel`, `work-right-panel`)와 비상 컷신 이후 인게임 메인 퍼즐 터미널 UI(`App.tsx`: `terminal-frame`)의 레이아웃, 헤더, 색상 테마 및 2분할 구조 통일
+  - **헤더 (`work-header` 스타일 통일)**: 좌측 `HERMES WORKSTATION` 뱃지 및 `HERMES SHIP SYSTEM COMMAND` 타이틀, 우측 `근무자: 김우주 (AI 관리 담당자)`, `● EMERGENCY LOCKDOWN ACTIVE` 비상 상태 표시 및 컴팩트 비상 HUD (`[O₂ Level]`, `[Power Grid]`, `[REMAINING TIME]`) 배치
+  - **2분할 패널 바디 (`work-split-body` 1.6fr 1fr 구조 통일)**: 좌측 패널(`work-left-panel`)에 파일 탐색기 & 파일 뷰어 통합 배치, 우측 패널(`work-right-panel` / `echo-chat-panel`)에 ECHO 대화 & 증거 제출 컴포저 패널 통합 렌더링
+  - **시각적 연속성 100% 보장**: 컷신 전후 터미널 화면 프레임, 패널 헤더 스타일, 스크롤바, 테두리 그라디언트, 폰트 크기가 100% 동일하게 연결되어 플레이어가 단절감 없이 몰입 유지
 - 카테고리 A Bio-hazard Act 1~3 플레이 흐름
 - Act 3 정답 증거: `ai_priority_matrix.json` + `deleted_override.txt`
 - Hermes OS 파일 탐색기, 파일 뷰어, 증거 첨부, ECHO 대화창 제출
@@ -137,6 +142,7 @@
 - 라포 형성 Phase 시간 경과에 의한 자동 봉쇄 전환 (업데이트 승인 클릭으로만 전환)
 - 라포 형성 Phase 동안의 비상 HUD/타이머 노출 및 산소/전력 차감
 - 10개 카테고리 procedural 생성 및 난이도별 seed 공유
+- 비상 컷신 전후 이원화되거나 이질감을 주는 터미널 UI 레이아웃, 헤더 스타일, 색상 테마 및 패널 바디 비율
 - Ending B/C 및 전 승무원 구출 루트
 - Fallback 안전장치가 없거나 클라이언트에 direct API key를 노출하는 미검증 외부 연동 방식 (Cloudflare Worker NPC API + 3초 타임아웃 + 100% 로컬 Fallback 연동으로 확정 적용)
 
@@ -185,6 +191,9 @@
 - 사용자가 "ECHO 시스템 업데이트 필요" 기안의 [업데이트 승인]을 클릭하면 ECHO 대화창이 리부팅된다.
 - `ECHO 패치 승인` 클릭 후 발동되는 CSS/SVG 글리치, 시스템 에러 경고, 비상 사이렌, 데콤프레션 및 통제실 Lockdown 선언 컷신 연출 타임라인 중 rebooting 연출 상태가 2초 축소되고 lockdown 연출 상태가 2초 연장되어 재생된 후 비상 봉쇄 상태로 진입한다.
 - 리부팅 연출 완료 후 ECHO가 플레이어/선내 환경을 위협 요소로 오판하여 비상 봉쇄를 발령하며, 이 시점에 비상 HUD(산소/전력)가 표시되고 60분 타이머 작동이 시작된다.
+- 비상 컷신 이후 진입하는 메인 퍼즐 터미널 UI(`App.tsx`: `terminal-frame`)는 비상 컷신 이전 워크스테이션 UI(`WorkInterface.tsx`: `work-split-container`, `work-header`, `work-split-body`, `work-left-panel`, `work-right-panel`)와 레이아웃, 헤더, 색상 테마 및 1.6fr 1fr 2분할 구조가 100% 통일된다.
+- 헤더(`work-header`) 좌측에는 `HERMES WORKSTATION` 뱃지와 `HERMES SHIP SYSTEM COMMAND` 타이틀이, 우측에는 `근무자: 김우주 (AI 관리 담당자)`, `● EMERGENCY LOCKDOWN ACTIVE` 상태 표시 및 컴팩트 비상 HUD (`[O₂ Level]`, `[Power Grid]`, `[REMAINING TIME]`)가 통합 배치된다.
+- 2분할 바디(`work-split-body`) 좌측 패널(`work-left-panel`)에는 파일 탐색기와 파일 뷰어가 통합 배치되고, 우측 패널(`work-right-panel` / `echo-chat-panel`)에는 ECHO 대화 및 증거 제출 컴포저 패널이 통합 렌더링되며, 컷신 전후 터미널 화면 프레임, 패널 헤더 스타일, 스크롤바, 테두리 그라디언트, 폰트 크기가 100% 시각적으로 완벽하게 연결된다.
 - 비상 봉쇄 후 카테고리 A 본 퍼즐(파일 탐색, Act 1~3 증거 제출, deterministic ECHO 판정, Normal Ending A)로 정상 진입한다.
 - Act 3 성공 시 통제실 문 해제 상태와 Normal Ending이 표시된다.
 

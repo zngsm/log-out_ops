@@ -2,10 +2,10 @@
 
 ## Document Meta
 
-- version: 1.3
+- version: 1.4
 - pm agent: codex
 - date: 2026-08-10
-- status: updated - 18가지 상세 정제 사양 및 5가지 신규 추가 UI/UX/내용/버그 수정 피드백 사양 반영 완료 (1. quarantine_rules.conf 오프셋 개발자 주석 삭제 (+17,520시간 표기), 2. ECHO 대화창 SYSTEM 스피커 메시지 전면 제거, 3. 메인 메뉴 시작 화면 메타 카피 전면 삭제, 4. 동료 메신저 placeholder (자유 텍스트) 보조 라벨 전면 삭제, 5. 동료 메신저 한글 IME 전송 후 단어 자동 잔류/재입력 버그 원인 차단 및 초기화 보장, 6. ECHO 패치 기안문 하단 문구 삭제 상태 유지)
+- status: updated - 비상 컷신 전후 터미널 UI 레이아웃, 헤더, 색상 테마 및 2분할 구조 통일 사양 반영 완료 (WorkInterface layout/header/body <-> App terminal-frame, HERMES WORKSTATION & HERMES SHIP SYSTEM COMMAND, worker name, ● EMERGENCY LOCKDOWN ACTIVE, compact emergency HUD, 1.6fr:1fr 2-split body, frame/scrollbar/border gradient/font size 100% visual continuity)
 - source folder: `project/human-input`
 
 ## Source Documents
@@ -56,6 +56,8 @@
 18) Sensor diagram 개발자 프롬프트 잔재 삭제 및 디제틱 도면 교체
 19) 파일 뷰어 `DIAGNOSTIC NOTE` 버튼 삭제 및 `O₂ LEVEL` HUD `drain x1.0x` 문구 삭제.
 
+또한 비상 컷신 이후 진입하는 메인 퍼즐 터미널 UI(`App.tsx`: `terminal-frame`)는 비상 컷신 이전 워크스테이션 UI(`WorkInterface.tsx`: `work-split-container`, `work-header`, `work-split-body`, `work-left-panel`, `work-right-panel`)와 레이아웃, 헤더 스타일, 색상 테마 및 1.6fr : 1fr 2분할 바디 구조가 100% 동일하게 통일된다. 헤더 좌측에는 `HERMES WORKSTATION` 뱃지와 `HERMES SHIP SYSTEM COMMAND` 타이틀이, 우측에는 `근무자: 김우주 (AI 관리 담당자)`, `● EMERGENCY LOCKDOWN ACTIVE` 비상 표시 및 컴팩트 비상 HUD (`[O₂ Level]`, `[Power Grid]`, `[REMAINING TIME]`)가 배치된다. 2분할 패널 바디는 좌측(`work-left-panel`) 파일 탐색기 & 파일 뷰어 통합 뷰포트, 우측(`work-right-panel` / `echo-chat-panel`) ECHO 대화 & 증거 제출 컴포저 통합 렌더링으로 연결되어 컷신 전후 화면 프레임, 패널 헤더 스타일, 스크롤바, 테두리 그라디언트, 폰트 크기가 100% 시각적으로 완벽하게 통일된다.
+
 또한 `/System/Security` 제한 구역 클릭 시에는 한국어 암호 모달("보안 게이트 :: 제한 구역", "/System/Security 디렉터리는 김 박사의 비상 격리 프로토콜에 의해 잠겨 있습니다. 승무원 메일에서 발견된 직인 암호를 입력하십시오.")이 호출되며, 전력 0% 차감으로 인한 블랙아웃 발생 시에는 화면 중앙 단일 강조 팝업(Center Modal)과 한국어 문구("⚠️ [전력 고갈] 주 전력 그리드 블랙아웃! OS 터미널 긴급 재부팅 중... (남은 시간: N초)")가 노출된다. ECHO 대화 및 동료 대화는 Cloudflare Worker NPC API(`https://royal-firefly-60c3.jwpark971219.workers.dev`)를 연동하되, 3초 타임아웃 및 100% 로컬 Fallback 안전장치를 가동하여 오프라인/네트워크 단절 시에도 완전한 플레이를 보장한다.
 
 ## Core Loop
@@ -81,13 +83,13 @@
 
 Resolved: MVP에서는 카테고리 A 단일 시나리오만 먼저 구현한다. 나머지 시나리오는 MVP 이후 확장 후보로 둔다.
 
-### Visual implementation scope (Updated by Change-001 & Q19, Q26, Q31, Q51)
+### Visual implementation scope (Updated by Change-001 & Q19, Q26, Q31, Q51, Q55)
 
-Resolved: 메인 메뉴 화면의 배경 우주선/컴퓨터는 R3F 기반 3D 모델을 유지하되, 시작 화면 카드 라벨(`CONTROL ROOM STANDBY`) 및 하단 안내 문구 칸을 전면 삭제한다. 3D 컷신 기획은 **CSS / SVG 기반 2D 인게임 연출**로 변경한다. 메인 메뉴에서 터미널 진입 연출은 Smooth Zoom-in을 유지하되 화면 모니터 비율을 기존 90%가 아닌 **100% Full Screen**으로 채운다. `ECHO 패치 승인` 클릭 후 발동되는 rebooting/lockdown 컷신 연출 타임라인은 rebooting 상태를 2초 줄이고 lockdown 상태를 2초 연장한다. 리부팅 진행 동안(`rebootState !== 'idle'`) 우하단 동료 메신저 말풍선 버블 아이콘은 화면에서 완전히 숨김(미노출) 처리한다.
+Resolved: 메인 메뉴 화면의 배경 우주선/컴퓨터는 R3F 기반 3D 모델을 유지하되, 시작 화면 카드 라벨(`CONTROL ROOM STANDBY`) 및 하단 안내 문구 칸을 전면 삭제한다. 3D 컷신 기획은 **CSS / SVG 기반 2D 인게임 연출**로 변경한다. 메인 메뉴에서 터미널 진입 연출은 Smooth Zoom-in을 유지하되 화면 모니터 비율을 기존 90%가 아닌 **100% Full Screen**으로 채운다. `ECHO 패치 승인` 클릭 후 발동되는 rebooting/lockdown 컷신 연출 타임라인은 rebooting 상태를 2초 줄이고 lockdown 상태를 2초 연장한다. 리부팅 진행 동안(`rebootState !== 'idle'`) 우하단 동료 메신저 말풍선 버블 아이콘은 화면에서 완전히 숨김(미노출) 처리한다. 비상 컷신 이후 나오는 메인 퍼즐 터미널 UI(`App.tsx`: `terminal-frame`)는 컷신 이전 워크스테이션 UI(`WorkInterface.tsx`: `work-split-container`, `work-header`, `work-split-body`, `work-left-panel`, `work-right-panel`)와 레이아웃, 헤더, 색상 테마, 1.6fr 1fr 2분할 구조, 프레임, 스크롤바, 테두리 그라디언트, 폰트 크기가 100% 동일하게 통일 연결된다.
 
-### Narrative & Entry Flow (Updated by Change-001, Q16~Q54 User Feedback)
+### Narrative & Entry Flow (Updated by Change-001, Q16~Q55 User Feedback)
 
-Resolved: 게임 진입 직후 비상 봉쇄 상태로 바로 들어가지 않고, **회사 인트라넷 (Diegetic 로그인 폼 `woojoo.kim`/`**********`, 메타 텍스트 전면 제거) -> [출근] -> Workstation (탭 제거, ECHO 업무 브리핑, 좌측 하단 단순 `✓ [확인 완료]` 버튼 업무 전환, 실시간 반응 대사, 동료 메신저 무작위 팝업(좌측 업무 화면 경계 내 우상단)/앱 UI(좌측 업무 화면 내 드래그 자유 이동 Draggable UI)/알림 버블(답장 전 `1`, 답장 완료 후 미노출; 리부팅 동안 완전 미노출; placeholder `(자유 텍스트)` 삭제 ➔ `답장을 입력하세요...`, IME 입력 전송 버그 수정), 이력서 안내 배너 및 '서사적 판정 선택:' 라벨 삭제, 버튼 표기 단순 `✓ [확인 완료]` 고정 & 미선택 이력서 존재 시 그레이 비활성화 필수 평가, 이력서 검토 중 ECHO 대화 비활성화) -> ECHO 시스템 업데이트 승인 (기안 내 메타 경고 문구 및 하단 문구 전면 삭제) -> ECHO 리부팅 (rebooting -2s/lockdown +2s 조절 컷신 연출 & 메신저 버블 숨김) -> 비상 봉쇄 & 비상 HUD/60분 타이머 가동 -> 본 퍼즐 진입 (`quarantine_rules.conf` 오프셋 해설 주석 삭제, ECHO 대화창 SYSTEM 메시지 전면 제거 등 신규 정제 사양 포함 18+5가지 상세 메인 터미널 UI/내용 정제 사양 반영)** 순서로 전개한다.
+Resolved: 게임 진입 직후 비상 봉쇄 상태로 바로 들어가지 않고, **회사 인트라넷 (Diegetic 로그인 폼 `woojoo.kim`/`**********`, 메타 텍스트 전면 제거) -> [출근] -> Workstation (탭 제거, ECHO 업무 브리핑, 좌측 하단 단순 `✓ [확인 완료]` 버튼 업무 전환, 실시간 반응 대사, 동료 메신저 무작위 팝업(좌측 업무 화면 경계 내 우상단)/앱 UI(좌측 업무 화면 내 드래그 자유 이동 Draggable UI)/알림 버블(답장 전 `1`, 답장 완료 후 미노출; 리부팅 동안 완전 미노출; placeholder `(자유 텍스트)` 삭제 ➔ `답장을 입력하세요...`, IME 입력 전송 버그 수정), 이력서 안내 배너 및 '서사적 판정 선택:' 라벨 삭제, 버튼 표기 단순 `✓ [확인 완료]` 고정 & 미선택 이력서 존재 시 그레이 비활성화 필수 평가, 이력서 검토 중 ECHO 대화 비활성화) -> ECHO 시스템 업데이트 승인 (기안 내 메타 경고 문구 및 하단 문구 전면 삭제) -> ECHO 리부팅 (rebooting -2s/lockdown +2s 조절 컷신 연출 & 메신저 버블 숨김) -> 비상 봉쇄 & 비상 HUD/60분 타이머 가동 -> 통일된 뷰포트의 본 퍼즐 진입 (`WorkInterface`와 `terminal-frame` 레이아웃/헤더/2분할 구조/컴팩트 비상 HUD/스타일 100% 동일 연결)** 순서로 전개한다.
 
 ### Act 3 evidence scope
 
@@ -99,15 +101,15 @@ Resolved: Cloudflare Worker 기반 Hermes NPC API 명세(`https://royal-firefly-
 
 ## PM Readiness
 
-- 기획 방향성 분석: ready (Change-001 및 Q21~Q54 사용자 피드백, Cloudflare Worker NPC API 명세 반영 완료)
+- 기획 방향성 분석: ready (Change-001 및 Q21~Q55 사용자 피드백, Cloudflare Worker NPC API 명세 반영 완료)
 - MVP 범위 확정: ready for Cloudflare Worker NPC API integrated MVP with Diegetic/ECHO-driven flow and 100% local fallback
-- 전체 task 확정: `feat-001`~`feat-034` (완료 및 18+5가지 상세 정제 반영), `feat-007` (done - Cloudflare Worker NPC API & 100% 로컬 Fallback)
-- Active Task: `feat-007` (completed)
-- 미확정 항목: 없음 (Q1~Q54 전 항목 답변/명세 수립 완료)
+- 전체 task 확정: `feat-001`~`feat-035` (완료 및 비상 컷신 전후 터미널 UI 레이아웃/헤더/2분할 구조 통일 반영), `feat-007` (done - Cloudflare Worker NPC API & 100% 로컬 Fallback)
+- Active Task: `feat-035` (new terminal UI visual unification task)
+- 미확정 항목: 없음 (Q1~Q55 전 항목 답변/명세 수립 완료)
 
 ## Recommended PM Decision
 
-Cloudflare Worker NPC API 연동과 함께 3초 타임아웃 및 100% 로컬 Fallback 안전장치를 적용하는 `feat-007`을 완료하고, 신규 5가지 UI/UX 정제 및 버그 수정 사양을 포함한 상세 운영 명세를 운영 문서 전반에 적용하여 개발 및 QA 검증 표준으로 확정한다.
+Cloudflare Worker NPC API 연동과 함께 3초 타임아웃 및 100% 로컬 Fallback 안전장치를 적용하는 `feat-007`을 완료하고, 비상 컷신 전후 터미널 UI 레이아웃/헤더/2분할 구조 100% 통일 사양(`feat-035`) 및 신규 UI/UX 정제/버그 수정 사양을 포함한 상세 운영 명세를 운영 문서 전반에 적용하여 개발 및 QA 검증 표준으로 확정한다.
 
 
 

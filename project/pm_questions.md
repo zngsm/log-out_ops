@@ -2,10 +2,10 @@
 
 ## Document Meta
 
-- version: 2.1
+- version: 2.2
 - pm agent: codex
 - date: 2026-08-10
-- status: Q31~Q54 answered; 5 new UI/UX/Content/Bug Fix refinement specifications updated (1. quarantine_rules.conf offset developer note removed, 2. ECHO chat SYSTEM messages removed, 3. Main menu start screen meta copy removed, 4. Colleague messenger placeholder (자유 텍스트) label removed, 5. Colleague messenger Korean IME input leftover bug fixed, 6. ECHO patch proposal bottom text removal maintained)
+- status: Q31~Q55 answered; 6 UI/UX/Content/Bug Fix refinement specifications updated (1. quarantine_rules.conf offset developer note removed, 2. ECHO chat SYSTEM messages removed, 3. Main menu start screen meta copy removed, 4. Colleague messenger placeholder (자유 텍스트) label removed, 5. Colleague messenger Korean IME input leftover bug fixed, 6. Post-cutscene terminal UI visual unification with pre-cutscene workstation UI layout/header/2-split body structure)
 
 ## Blocking Questions
 
@@ -545,6 +545,24 @@ ECHO 패치 기안문(4번 미션) 하단에 작성되어 있던 `본 비상 봉
 ### Answer
 
 ECHO 패치 기안문 하단 `본 비상 봉쇄 시퀀스로 진입합니다` 문구가 이미 삭제 완료되었음을 확인하고 해당 삭제 상태를 유지한다.
+
+## Terminal UI Visual Unification Specification (Change-001 Follow-up v2.2)
+
+### Q55. 비상 컷신 전후 터미널 UI/UX 레이아웃, 헤더, 색상 테마 및 2분할 구조 통일 사양
+
+비상 컷신 이전 워크스테이션 UI(`WorkInterface.tsx`)와 비상 컷신 이후 인게임 메인 퍼즐 터미널 UI(`App.tsx`)의 레이아웃, 헤더, 색상 테마 및 패널 구조가 이원화되어 플레이 시 이질감이 발생할 수 있습니다. 비상 컷신 전후 터미널 UI의 구체적 통일 사양을 어떻게 정립해야 할까요?
+
+### Answer
+
+비상 컷신 이후의 메인 퍼즐 터미널 UI를 컷신 이전 워크스테이션 UI와 100% 동일한 레이아웃 및 스타일로 통일하여 플레이어에게 단절감 없는 몰입을 제공한다:
+1. **레이아웃 & 2분할 구조 통일**: 비상 컷신 이전 워크스테이션 UI(`WorkInterface.tsx`: `work-split-container`, `work-header`, `work-split-body`, `work-left-panel`, `work-right-panel`)와 비상 컷신 이후 인게임 메인 퍼즐 터미널 UI(`App.tsx`: `terminal-frame`)의 레이아웃, 헤더, 색상 테마 및 2분할 바디 구조를 상호 통일한다.
+2. **헤더 (`work-header` 스타일 통일)**:
+   - 좌측: `HERMES WORKSTATION` 뱃지, `HERMES SHIP SYSTEM COMMAND` 타이틀 배치.
+   - 우측: `근무자: 김우주 (AI 관리 담당자)`, `● EMERGENCY LOCKDOWN ACTIVE` 비상 상태 표시 및 컴팩트 비상 HUD (`[O₂ Level]`, `[Power Grid]`, `[REMAINING TIME]`) 배치.
+3. **2분할 패널 바디 (`work-split-body` 1.6fr 1fr 구조 통일)**:
+   - 좌측 패널(`work-left-panel`): 파일 탐색기(File Explorer) 및 파일 뷰어(File Viewer)를 통합 배치하여 일관된 터미널 뷰포트 제공.
+   - 우측 패널(`work-right-panel` / `echo-chat-panel`): ECHO 대화 및 증거 제출(Evidence Submission) 컴포저 패널을 컷신 이전과 동일한 뷰 및 스타일로 통합 렌더링.
+4. **시각적 연속성 100% 보장**: 컷신 전후 터미널 화면 프레임, 패널 헤더 스타일, 스크롤바, 테두리 그라디언트 및 폰트 크기가 100% 동일하게 연결되어 플레이어가 단절감 없이 몰입을 유지한다.
 
 
 

@@ -2,10 +2,10 @@
 
 ## Document Meta
 
-- version: 2.0
+- version: 2.1
 - author: PM Agent
 - date: 2026-08-10
-- status: confirmed - 사용자의 5가지 신규 추가 UI/UX/내용/버그 수정 피드백 사양 전면 반영 (1. `quarantine_rules.conf` 오프셋 개발자 해설 주석 전면 삭제, 2. ECHO 대화창 SYSTEM 스피커 메시지 전면 제거, 3. 메인 메뉴 시작 화면 메타 카피 전면 삭제, 4. 동료 메신저 placeholder (자유 텍스트) 보조 라벨 전면 삭제, 5. 동료 메신저 한글 IME 전송 후 단어 자동 잔류/재입력 버그 원인 차단 및 초기화 보장, 6. ECHO 패치 기안문 하단 문구 삭제 상태 유지)
+- status: confirmed - 사용자의 피드백 요구사항 전면 반영 (1. `quarantine_rules.conf` 오프셋 해설 주석 삭제, 2. ECHO 대화창 SYSTEM 메시지 제거, 3. 메인 메뉴 메타 카피 삭제, 4. 동료 메신저 placeholder 라벨 삭제, 5. 동료 메신저 한글 IME 잔류 버그 수정, 6. ECHO 패치 기안문 하단 문구 삭제 유지, 7. 비상 컷신 전후 터미널 UI 레이아웃, 헤더, 색상 테마 및 2분할 구조 통일)
 - target docs: `project/mvp_scope.md`, `project/pm_analysis.md`, `project/pm_questions.md`, `project/task_board.md`, `project/tasks/*.md`
 
 ## Background & Motivation
@@ -13,6 +13,7 @@
 기존 기획의 3D 컷신 연출 및 직접적 비상 봉쇄 진입 흐름을 조정하여, CSS/SVG 기반 2D 연출과 함께 게임 시작 직후 플레이어가 AI 관리자로서 ECHO와 상호작용하는 라포 형성(Rapport Building) Phase를 도입한다.
 사용자 피드백에 따라 개발자/시스템 메타 텍스트를 전면 제거하여 Diegetic UI 몰입감을 완성하고, 상단 title-bar status HUD 중 `ECHO STATE / monitoring` 카드 및 `ACT-1 100%` (`mission-clock`) 블록을 전면 제거한다. 이력서 검토 시 단순 `✓ [확인 완료]`로 버튼 텍스트를 통일 고정하고 미선택 지원자 존재 시 그레이 비활성화 스타일(`disabled={isResumeIncomplete}`)을 적용하며, ECHO 리부팅 연출 타임라인 중 rebooting 상태를 2초 줄이고 lockdown(emergency) 상태를 2초 연장함과 동시에 리부팅 진행 동안(`rebootState !== 'idle'`) 우하단 동료 메신저 말풍선 버블 아이콘을 완전히 숨김(미노출) 처리한다.
 또한 추가 사용자 피드백에 따라 `quarantine_rules.conf` 파일 내용에서 오프셋 개발자 해설풍 주석(`<-- 치명적 오차: 약 2년 앞으로 밀림`)을 전면 삭제하고 단순 `시간 오프셋 값: +17,520시간`으로 고정하며, ECHO 대화창의 SYSTEM 스피커 메시지를 전면 제거하여 ECHO 대사 및 플레이어 제출 항목만 노출한다. 메인 메뉴 시작 화면의 `CONTROL ROOM STANDBY` 카 라벨, `1인칭 통제실 / 컴퓨터는 물리적 오브젝트입니다`, `클릭 후 봉쇄 컷신을 거쳐 모니터 내부 Hermes OS로 진입합니다` 하단 안내 칸 카피를 전면 삭제하고, 동료 메신저 입력창 placeholder의 `(자유 텍스트)` 보조 라벨을 전면 삭제하며(`답장을 입력하세요...`), 한글 IME 조합 및 전송 후 마지막 단어가 자동 잔류/재입력되는 버그의 원인을 차단하고 전송 후 완전 초기화를 보장한다. (ECHO 패치 기안문 하단 문구 삭제 상태는 확인 완료 및 지속 유지)
+아울러 비상 컷신 이후 나오는 메인 퍼즐 터미널 UI를 비상 컷신 이전 워크스테이션 UI와 100% 동일한 레이아웃, 헤더 스타일, 색상 테마 및 1.6fr 1fr 2분할 구조로 통일하여 컷신 전후 시각적 연속성을 완벽하게 제공한다.
 아울러 ECHO 대화/증거 판정 및 동료 메신저에 Cloudflare Worker 기반 Hermes NPC API(`https://royal-firefly-60c3.jwpark971219.workers.dev`)를 연동하되, 3초 타임아웃 및 100% 로컬 Fallback 안전장치를 필수로 도입하여 네트워크 장애나 예외 상황에서도 플레이가 중단되지 않는 견고한 아키텍처를 완성한다.
 
 ## Detailed Change Specifications
@@ -142,13 +143,23 @@
 - **5. 동료 메신저 입력 버그 수정**: 한글 IME 조합 상태(`isComposing`) 감지 및 synthetic clear 처리를 적용하여 전송 후 입력창에 마지막 단어가 자동 잔류/재입력되는 현원인 차단 및 전송 후 빈 문자열 초기화 보장.
 - **6. [기 완료 항목 확인 및 유지]**: ECHO 패치 기안문 하단 `본 비상 봉쇄 시퀀스로 진입합니다` 문구 이미 삭제 완료되었음을 확인 및 해당 상태 지속 유지.
 
+### 13. 비상 컷신 전후 터미널 UI/UX 레이아웃, 헤더, 색상 테마 및 2분할 구조 통일 사양 (Change-001 Follow-up v2.2)
+- **1. 워크스테이션 UI 및 메인 퍼즐 터미널 UI 구조 통일**: 비상 컷신 이전 워크스테이션 UI(`WorkInterface.tsx`: `work-split-container`, `work-header`, `work-split-body`, `work-left-panel`, `work-right-panel`)와 비상 컷신 이후 인게임 메인 퍼즐 터미널 UI(`App.tsx`: `terminal-frame`)의 레이아웃, 헤더, 색상 테마 및 2분할 구조를 100% 통일.
+- **2. 헤더 (`work-header` 스타일 통일)**:
+  - 좌측: `HERMES WORKSTATION` 뱃지, `HERMES SHIP SYSTEM COMMAND` 타이틀 배치.
+  - 우측: `근무자: 김우주 (AI 관리 담당자)`, `● EMERGENCY LOCKDOWN ACTIVE` 비상 상태 표시 및 컴팩트 비상 HUD (`[O₂ Level]`, `[Power Grid]`, `[REMAINING TIME]`) 배치.
+- **3. 2분할 패널 바디 (`work-split-body` 1.6fr 1fr 구조 통일)**:
+  - 좌측 패널(`work-left-panel`): 파일 탐색기(File Explorer) 및 파일 뷰어(File Viewer)를 통합 배치하여 일관된 터미널 뷰포트 제공.
+  - 우측 패널(`work-right-panel` / `echo-chat-panel`): ECHO 대화 및 증거 제출(Evidence Submission) 컴포저 패널을 컷신 이전과 동일한 뷰 및 스타일로 통합 렌더링.
+- **4. 시각적 연속성 100% 보장**: 컷신 전후 터미널 화면 프레임, 패널 헤더 스타일, 스크롤바, 테두리 그라디언트 및 폰트 크기를 100% 동일하게 연결하여 플레이어가 단절감 없이 몰입 유지.
+
 ## Impact Analysis
 
-- **`project/pm_analysis.md`**: Core Loop, Visual Scope, Diegetic UI, ECHO 브리핑 & `✓ [확인 완료]` 버튼 업무 전환, 18가지 상세 게임플레이/UI/내용 정제 사양 및 5가지 신규 피드백 정제/버그 수정 사양 반영 (`quarantine_rules.conf` 오프셋 해설 주석 삭제, ECHO 대화창 SYSTEM 메시지 제거, 메인 메뉴 메타 카피 삭제, 동료 메신저 placeholder 보조 라벨 삭제, 한글 IME 전송 잔류 버그 원인 차단 및 초기화 보장, ECHO 패치 기안문 하단 문구 삭제 유지).
-- **`project/mvp_scope.md`**: MVP In Scope / Out of Scope 및 Acceptance Criteria에 18가지 상세 정제 사양 및 5가지 신규 피드백 정제/버그 수정 사양 완벽 명시.
-- **`project/pm_questions.md`**: Q49~Q54 신규 항목에 5가지 피드백 정제/버그 수정 사양 및 기 완료 확인 항목 추가 및 답변 기록.
-- **`project/task_board.md`**: `feat-034`, `feat-033`, `feat-031`, `feat-030`, `feat-028`, `feat-029`, `feat-027`, `feat-021`, `chore-002`, `feat-015`, `feat-017`, `feat-006`, `feat-005`, `feat-016`, `chore-003`, `feat-025`, `feat-011`, `bug-001` 태스크 명세 최신화.
-- **`project/tasks/*.md`**: 관련 태스크 전체 문서(`feat-021.md`, `feat-030.md`, `feat-031.md`, `feat-033.md`, `feat-034.md`, `chore-002.md` 등)의 Status, Scope, Acceptance Criteria 최신화.
+- **`project/pm_analysis.md`**: Core Loop, Visual Scope, Diegetic UI, ECHO 브리핑 & `✓ [확인 완료]` 버튼 업무 전환, 18가지 상세 게임플레이/UI/내용 정제 사양 및 5가지 피드백 정제/버그 수정 사양, 비상 컷신 전후 터미널 UI 레이아웃/헤더/2분할 구조 통일 사양 반영.
+- **`project/mvp_scope.md`**: MVP In Scope / Out of Scope 및 Acceptance Criteria에 18가지 상세 정제 사양, 5가지 피드백 정제/버그 수정 사양, 비상 컷신 전후 터미널 UI 100% 통일 검증 항목 완벽 명시.
+- **`project/pm_questions.md`**: Q49~Q55 신규 항목에 피드백 정제/버그 수정 사양 및 비상 컷신 전후 터미널 UI 통일 사양 추가 및 답변 기록.
+- **`project/task_board.md`**: `feat-035` 신규 생성 및 `feat-034`, `feat-033`, `feat-031`, `feat-030`, `feat-028`, `feat-027`, `feat-026` 태스크 명세 최신화.
+- **`project/tasks/*.md`**: 신규 태스크 문서 `feat-035.md` 생성 및 관련 태스크 전체 문서(`feat-026.md`, `feat-027.md`, `feat-028.md`, `feat-030.md`, `feat-033.md`, `feat-034.md` 등)의 Status, Scope, Acceptance Criteria 최신화.
 
 
 

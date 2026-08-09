@@ -64,4 +64,6 @@ Apply Change-001 transition requirements and Q17~Q19, Q24~Q26, Q31 answers: embe
 - `project/pm_questions.md#Q24`
 - `project/pm_questions.md#Q25`
 - `project/pm_questions.md#Q31`
+- `project/pm_questions.md#Q55`
+- `project/tasks/feat-035.md`
 
