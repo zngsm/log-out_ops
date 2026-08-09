@@ -2,10 +2,10 @@
 
 ## Document Meta
 
-- version: 0.8
+- version: 0.9
 - pm agent: codex
 - date: 2026-08-09
-- status: Change-001 (Q16~Q20 answers incorporated) task board finalized
+- status: Change-001 (Q21~Q23 answers incorporated) task board finalized
 
 ## Task Index
 
@@ -57,8 +57,8 @@
 | 44 | feat-029 | feat | Add first play mission onboarding | done | dev-agent | no | feat-028 | human play review | project/tasks/feat-029.md |
 | 45 | feat-030 | feat | Improve ECHO chat readability | done | dev-agent | no | feat-029 | human play review | project/tasks/feat-030.md |
 | 46 | feat-031 | feat | Convert cutscene presentation to CSS/SVG 2D and set terminal zoom to 100% full screen | done | dev-agent | yes | bug-009, feat-024 | feat-032 | project/tasks/feat-031.md |
-| 47 | feat-032 | feat | Implement company intranet landing with pre-filled login form (woojoo.kim / **********) and clock-in button | done | dev-agent | no | feat-031 | feat-033 | project/tasks/feat-032.md |
-| 48 | feat-033 | feat | Build dual-panel work interface and 5-mission ECHO rapport phase flow | done | dev-agent | no | feat-032 | feat-034 | project/tasks/feat-033.md |
+| 47 | feat-032 | feat | Implement diegetic intranet landing with pre-filled login form (woojoo.kim / **********), removing meta text, and clock-in button | done | dev-agent | no | feat-031 | feat-033 | project/tasks/feat-032.md |
+| 48 | feat-033 | feat | Build diegetic workstation layout, [확인 완료] button task flow, colleague messenger popup/app UI with notification bubble, and candidate resume narrative evaluation | done | dev-agent | no | feat-032 | feat-034 | project/tasks/feat-033.md |
 | 49 | feat-034 | feat | Implement ECHO update approval trigger, CSS/SVG reboot sequence, and lockdown HUD/timer transition | done | dev-agent | no | feat-033 | qa-004 | project/tasks/feat-034.md |
 
 ## Parallel Work Notes
@@ -73,7 +73,7 @@
 - `feat-012` and `feat-013` should run before most experience tasks because they define the menu/opening/scene skeleton.
 - `feat-014`, `feat-015`, `feat-016`, and `chore-003` can proceed in parallel after their dependencies because they affect ECHO logic, resource pressure, file interaction, and content copy respectively.
 - `feat-018` and `feat-019` should start after scene/resource direction is stable enough to wire audio and 3D state changes.
-- For Change-001, `feat-031` (CSS/SVG 2D cutscene & 100% full screen) updates the visual frame and can be tested alongside `feat-032` (intranet screen with pre-filled login). `feat-033` (5-mission rapport phase, HUD/timer hidden) and `feat-034` (update approval reboot trigger, post-reboot HUD/timer start) form the sequential pre-puzzle narrative flow.
+- For Change-001, `feat-031` (CSS/SVG 2D cutscene & 100% full screen) updates the visual frame and can be tested alongside `feat-032` (diegetic intranet screen with pre-filled login and zero meta text). `feat-033` (diegetic workstation, [확인 완료] button document transition, live ECHO reactions, random colleague messenger popup with separate app UI & minimized badge `1`, free-text reply for lunch menu & positive reaction, applicant resume review narrative evaluation with 0 gameplay impact & ECHO Q&A) and `feat-034` (update approval reboot trigger, post-reboot HUD/timer start) form the sequential pre-puzzle narrative flow.
 
 ## Sequencing Notes
 
@@ -90,8 +90,9 @@
 - `feat-028` corrects the remaining visual overflow: HUD cards are no longer fixed overlays, the file explorer uses dense rows, locked files open a password modal, and ECHO submit remains visible.
 - `feat-029` makes the first-play loop explicit with an in-world mission brief and dynamic next-action guidance.
 - `feat-030` makes ECHO conversation flow readable by separating history, player submissions, ECHO answers, evidence tray, and composer controls.
-- Change-001 tasks (`feat-031` -> `feat-032` -> `feat-033` -> `feat-034`) refactor the game intro: 100% full screen terminal zoom -> Company Intranet with masked login form (`woojoo.kim` / `**********`) & Clock-in -> 2-split desktop/ECHO 5-Mission Rapport Phase (HUD/timer hidden) -> ECHO System Update approval trigger & Reboot (CSS/SVG presentation) -> Lockdown & Emergency HUD / 60-min timer start & Main Puzzle.
+- Change-001 tasks (`feat-031` -> `feat-032` -> `feat-033` -> `feat-034`) refactor the game intro: 100% full screen terminal zoom -> Company Intranet with diegetic login form (`woojoo.kim` / `**********`) & Clock-in (zero meta text) -> Diegetic Workstation with [확인 완료] button sequential task transition, live ECHO report reactions, random colleague messenger popup (separate app UI, minimized badge `1`, free text reply for lunch menu & positive reaction, unread handling), candidate resume narrative evaluation & ECHO suitability Q&A -> ECHO System Update approval trigger & Reboot (CSS/SVG presentation) -> Lockdown & Emergency HUD / 60-min timer start & Main Puzzle.
 - Every dev task must update its task md status from `todo` to `in_progress` to `done`.
 - Current dev workflow is latest `main` -> task-scoped implementation -> task-id commit message -> push directly to `main`; PR/branch flow is only used when the human explicitly asks for it.
+
 
 
