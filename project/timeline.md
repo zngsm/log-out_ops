@@ -28,7 +28,9 @@
 | M15 | 터미널 HUD/탐색기/ECHO 입력 오버플로우 수정 | feat-028 | done |
 | M16 | 첫 플레이 목적/조작/승리 조건 안내 | feat-029 | done |
 | M17 | ECHO 채팅 히스토리/제출/답변 가독성 개선 | feat-030 | done |
-| M18 | 파일 본문 한국어화 및 읽기 난이도 완화 | feat-031 | done |
+| M18 | 2D 컷신/100% 터미널 줌/인트라넷 진입 흐름 전환 | feat-031, feat-032 | done |
+| M19 | 업무 화면/메신저/후보자 평가/업데이트 승인 흐름 구현 | feat-033, feat-034 | done |
+| M20 | ECHO 메시지 내부 스크롤/최신 포커스 수정 | bug-010 | done |
 | P2 | external AI ECHO integration | feat-007 | deferred |
 
 ## Task Timeline
@@ -80,8 +82,12 @@
 | 43 | feat-028 | Fix compact terminal HUD and explorer layout | clear after feat-027 | U | done |
 | 44 | feat-029 | Add first play mission onboarding | clear after feat-028 | U | done |
 | 45 | feat-030 | Improve ECHO chat readability | clear after feat-029 | U | done |
-| 46 | feat-031 | Localize file content to Korean | clear after feat-030 | U | done |
-| 47 | feat-007 | Implement external AI ECHO rules for category A | deferred; waiting for Q11 and scripted ECHO baseline | P2 | AI integration main push |
+| 46 | feat-031 | Convert cutscene presentation to CSS/SVG 2D and set terminal zoom to 100% full screen | clear after bug-009 and feat-024 | U | done |
+| 47 | feat-032 | Implement diegetic intranet landing with pre-filled login form and clock-in | clear after feat-031 | U | done |
+| 48 | feat-033 | Build diegetic workstation layout, task flow, messenger, and candidate evaluation | clear after feat-032 | U | done |
+| 49 | feat-034 | Implement ECHO update approval trigger, reboot sequence, and lockdown HUD/timer transition | clear after feat-033 | U | done |
+| 50 | bug-010 | Fix ECHO message scroll and clipping | clear after feat-034 | U | done |
+| 51 | feat-007 | Implement external AI ECHO rules for category A | deferred; waiting for Q11 and scripted ECHO baseline | P2 | AI integration main push |
 
 ## Review / QA Gates
 
@@ -108,4 +114,5 @@
 - After `feat-028`, desktop UI review should confirm dense explorer rows, password modal access, and visible ECHO submit controls inside the fixed terminal.
 - After `feat-029`, human play review should judge whether a cold player understands the goal, loop, and first action within 10 seconds.
 - After `feat-030`, human play review should confirm submitted evidence, player text, ECHO review, and ECHO answer are readable as a conversation thread.
-- After `feat-031`, human play review should confirm file reading difficulty comes from deduction, not English comprehension.
+- After `feat-031` through `feat-034`, human play review should confirm the player moves naturally from 2D cutscene to intranet, workstation tasks, ECHO update approval, reboot, and lockdown puzzle.
+- After `bug-010`, human visual review should confirm ECHO history scrolls internally and automatically lands on the newest appended message.
