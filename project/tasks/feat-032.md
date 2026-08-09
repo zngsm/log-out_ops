@@ -2,7 +2,7 @@
 
 ## Status
 
-- status: todo
+- status: done
 - type: feat
 - priority: 47
 - owner agent: dev-agent
@@ -32,13 +32,20 @@ Apply Change-001 opening requirement and Q20 answer: render a company intranet l
 
 ## Acceptance Criteria
 
-- [ ] Intranet landing page renders immediately after 100% full screen terminal transition.
-- [ ] Login form displays pre-filled read-only Username `woojoo.kim` and Password `**********` (read-only / uneditable by player).
-- [ ] Character profile ('김우주', AI ECHO 담당자) is subtly visible on the intranet screen.
-- [ ] [출근] button is clearly positioned and interactive.
-- [ ] Clicking [출근] transitions the UI into the dual-panel work interface.
-- [ ] `npm run build` passes.
-- [ ] `git diff --check` passes.
+- [x] Intranet landing page renders immediately after 100% full screen terminal transition.
+- [x] Login form displays pre-filled read-only Username `woojoo.kim` and Password `**********` (read-only / uneditable by player).
+- [x] Character profile ('김우주', AI ECHO 담당자) is subtly visible on the intranet screen.
+- [x] [출근] button is clearly positioned and interactive.
+- [x] Clicking [출근] transitions the UI into the dual-panel work interface.
+- [x] `npm run build` passes.
+- [x] `git diff --check` passes.
+
+## Review History
+
+- Date: 2026-08-09
+- Reviewer: review_agent
+- Result: APPROVED
+- Summary: All acceptance criteria met. Company Intranet landing page rendered immediately after terminal zoom-in transition with read-only masked login form (Username: woojoo.kim, Password: **********), character profile ('김우주', AI ECHO 담당자), and interactive [출근] (Clock-in) button transitioning to the 2-split work interface (Desktop Workstation + ECHO chat). Build and git diff check passed cleanly.
 
 ## Source References
 
