@@ -22,6 +22,7 @@
 | M9 | 원문 기준 vertical slice QA | qa-002 | done with no blocking bugs |
 | M10 | DOCX 원문을 실제 게임 콘텐츠로 변환 | feat-021, feat-022, feat-023, feat-024, chore-004 | done |
 | M11 | DOCX 콘텐츠 기준 QA 및 사람 검토 준비 | qa-003 | done |
+| M12 | 완성일 긴급 콘텐츠 패스 | feat-025 | done |
 | P2 | external AI ECHO integration | feat-007 | deferred |
 
 ## Task Timeline
@@ -67,7 +68,8 @@
 | 37 | feat-023 | Add DOCX resource pressure feedback as gameplay feel | clear after feat-021 and feat-022 | R | done |
 | 38 | chore-004 | Define final asset drop contract from DOCX references | clear after feat-021 and feat-024 | R | done |
 | 39 | qa-003 | Run DOCX-content vertical slice QA | clear after M10 | S | done; no blocking bug tasks |
-| 40 | feat-007 | Implement external AI ECHO rules for category A | deferred; waiting for Q11 and scripted ECHO baseline | P2 | AI integration main push |
+| 40 | feat-025 | Replace guide-like copy with playable in-world content | clear after qa-003 | T | done |
+| 41 | feat-007 | Implement external AI ECHO rules for category A | deferred; waiting for Q11 and scripted ECHO baseline | P2 | AI integration main push |
 
 ## Review / QA Gates
 
@@ -88,3 +90,4 @@
 - 현재 가장 큰 리스크는 외부 AI 부재만이 아니라, 원문에서 요구한 메뉴/오프닝/씬 연출/ECHO 존재감/리소스 압박/파일 탐색감이 충분히 체감되지 않는 점이다.
 - DOCX source files now provide enough Category A content for implementation; the remaining risk is conversion fidelity, not lack of source material.
 - QA-003 passed after build/server validation and source-matrix review; remaining risk is visual fidelity with final assets and browser-level interaction QA.
+- After `feat-025`, remaining same-day review should focus on play feel, not task-document fidelity.
