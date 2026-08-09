@@ -2,7 +2,7 @@
 
 ## Status
 
-- status: todo
+- status: done
 - type: feat
 - priority: 49
 - owner agent: dev-agent
@@ -30,14 +30,22 @@ Apply Change-001 transition requirements and Q17, Q18, Q19 answers: embed "ECHO 
 
 ## Acceptance Criteria
 
-- [ ] "ECHO 시스템 업데이트 필요" proposal is present in the work mission list.
-- [ ] Clicking [업데이트 승인] is the exclusive transition trigger that initiates ECHO chat reboot sequence.
-- [ ] Reboot sequence displays CSS / SVG visual glitch, rebooting animation, and sound cue.
-- [ ] Re-opened ECHO misinterprets player as threat and issues lockdown declaration.
-- [ ] Emergency oxygen/power HUD appears and 60-minute countdown timer starts running upon lockdown declaration.
-- [ ] Gameplay transitions to Category A main puzzle loop (Act 1~3).
-- [ ] `npm run build` passes.
-- [ ] `git diff --check` passes.
+- [x] "ECHO 시스템 업데이트 필요" proposal is present in the work mission list.
+- [x] Clicking [업데이트 승인] is the exclusive transition trigger that initiates ECHO chat reboot sequence.
+- [x] Reboot sequence displays CSS / SVG visual glitch, rebooting animation, and sound cue.
+- [x] Re-opened ECHO misinterprets player as threat and issues lockdown declaration.
+- [x] Emergency oxygen/power HUD appears and 60-minute countdown timer starts running upon lockdown declaration.
+- [x] Gameplay transitions to Category A main puzzle loop (Act 1~3).
+- [x] `npm run build` passes.
+- [x] `git diff --check` passes.
+
+## Review History
+
+- 2026-08-09: `review_agent` approved implementation.
+  - Exclusive transition trigger on [업데이트 승인] verified.
+  - CSS / SVG visual glitch & reboot sequence (`RebootGlitchPresentation`) verified with audio cues (`comm-glitch`, `reboot`, `warning-siren`, `door-lock`, `decompression`).
+  - ECHO lockdown declaration and emergency HUD / 60-minute timer transition verified.
+  - `npm run build` and `git diff --check` verified clean.
 
 ## Source References
 
@@ -47,4 +55,3 @@ Apply Change-001 transition requirements and Q17, Q18, Q19 answers: embed "ECHO 
 - `project/pm_questions.md#Q17`
 - `project/pm_questions.md#Q18`
 - `project/pm_questions.md#Q19`
-
