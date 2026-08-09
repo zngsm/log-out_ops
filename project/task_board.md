@@ -51,6 +51,7 @@
 | 38 | chore-004 | chore | Define final asset drop contract from DOCX references | done | pm-agent | yes | feat-021, feat-024 | qa-003, human asset production | project/tasks/chore-004.md |
 | 39 | qa-003 | chore | Run DOCX-content vertical slice QA | done | qa-agent | no | feat-021, feat-022, feat-023, feat-024, chore-004 | human review | project/tasks/qa-003.md |
 | 40 | feat-025 | feat | Replace guide-like copy with playable in-world content | done | dev-agent | no | qa-003 | human play review | project/tasks/feat-025.md |
+| 41 | feat-026 | feat | Reframe gameplay UI as fixed computer terminal screen | done | dev-agent | no | feat-025 | human visual review | project/tasks/feat-026.md |
 
 ## Parallel Work Notes
 
@@ -75,5 +76,6 @@
 - The DOCX files are considered sufficient content source for Category A; dev agents should convert them into game files, ECHO rules, scene beats, and asset contracts instead of waiting for new prose.
 - QA-003 passed the DOCX-content vertical slice with residual risks around final assets, pixel comparison, and browser click automation.
 - `feat-025` is the urgent completion-day content pass: player-facing guide/spec language should be treated as a bug unless it is hidden behind diagnostic mode.
+- `feat-026` corrects the gameplay screen model: desktop gameplay is a fixed computer terminal with internal panel scrolling, not a webpage scroll layout.
 - Every dev task must update its task md status from `todo` to `in_progress` to `done`.
 - Current dev workflow is latest `main` -> task-scoped implementation -> task-id commit message -> push directly to `main`; PR/branch flow is only used when the human explicitly asks for it.

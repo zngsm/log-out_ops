@@ -23,6 +23,7 @@
 | M10 | DOCX 원문을 실제 게임 콘텐츠로 변환 | feat-021, feat-022, feat-023, feat-024, chore-004 | done |
 | M11 | DOCX 콘텐츠 기준 QA 및 사람 검토 준비 | qa-003 | done |
 | M12 | 완성일 긴급 콘텐츠 패스 | feat-025 | done |
+| M13 | 컴퓨터 터미널 고정 화면 UX 정렬 | feat-026 | done |
 | P2 | external AI ECHO integration | feat-007 | deferred |
 
 ## Task Timeline
@@ -69,7 +70,8 @@
 | 38 | chore-004 | Define final asset drop contract from DOCX references | clear after feat-021 and feat-024 | R | done |
 | 39 | qa-003 | Run DOCX-content vertical slice QA | clear after M10 | S | done; no blocking bug tasks |
 | 40 | feat-025 | Replace guide-like copy with playable in-world content | clear after qa-003 | T | done |
-| 41 | feat-007 | Implement external AI ECHO rules for category A | deferred; waiting for Q11 and scripted ECHO baseline | P2 | AI integration main push |
+| 41 | feat-026 | Reframe gameplay UI as fixed computer terminal screen | clear after feat-025 | U | done |
+| 42 | feat-007 | Implement external AI ECHO rules for category A | deferred; waiting for Q11 and scripted ECHO baseline | P2 | AI integration main push |
 
 ## Review / QA Gates
 
@@ -91,3 +93,4 @@
 - DOCX source files now provide enough Category A content for implementation; the remaining risk is conversion fidelity, not lack of source material.
 - QA-003 passed after build/server validation and source-matrix review; remaining risk is visual fidelity with final assets and browser-level interaction QA.
 - After `feat-025`, remaining same-day review should focus on play feel, not task-document fidelity.
+- After `feat-026`, desktop UI review should judge whether the terminal feels like a full computer monitor rather than a normal webpage.
