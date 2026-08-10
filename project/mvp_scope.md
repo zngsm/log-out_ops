@@ -2,10 +2,10 @@
 
 ## Document Meta
 
-- version: 1.7
+- version: 1.8
 - pm agent: codex
 - date: 2026-08-10
-- status: confirmed - 5가지 UI/UX/3D 개선 요구사항 (feat-038) 반영 완료 (START 버튼 pulse 애니메이션 삭제, 3D 배경 ambient 1.8/point 16.0 조도 상향, START 클릭 transition broadcast 텍스트 삭제, explorer panel 너비 360px 2배 확장, ECHO 제출 기본문구 제거 및 한글 placeholder 설정)
+- status: confirmed - 7가지 핵심 게임플레이/UI/버그 수정 요구사항 (feat-039) 반영 완료 (초기 ECHO 대사 삭제, 로그 파일 뷰어 헤더 컴팩트화, CHECKPOINT HINT 삭제, 제출 전송 후 입력창/첨부 초기화, Log_Fixer 복구 후 자동 첨부 방지, 휴지통 파일 Log_Fixer 복구 지원, Act 2 성공 후 Act 3 엄격 전이 및 엔딩 조기 발동 방지)
 
 ## MVP Goal
 
@@ -46,6 +46,14 @@
 - **상단 title-bar status HUD 중 `ECHO STATE / monitoring` 카드 및 `ACT-1 100%` (`mission-clock`) 블록 전면 제거**: 상단 status bar에서 `ECHO STATE / monitoring` 카드와 `ACT-1 100%` 블록을 전면 제거
 - **ECHO 대화창 SYSTEM 스피커 메시지 전면 제거**: ECHO 대화창 메시지 목록에서 SYSTEM 스피커 메시지 전면 제거 (오직 ECHO 대사 및 플레이어 제출 항목만 노출)
 - **`quarantine_rules.conf` 파일 내용 정제**: 오프셋 값 항목에서 개발자 해설풍 문구 (`<-- 치명적 오차: 약 2년 앞으로 밀림`) 전면 삭제 (단순 `시간 오프셋 값: +17,520시간` 표기 고정)
+- **7가지 핵심 게임플레이/UI/버그 수정 상세 사양 (`feat-039`)**:
+  - 1. **초기 ECHO 대사 삭제**: "김우주 담당자님, 출근이 확인되었습니다..." 브리핑 문구 전면 삭제
+  - 2. **로그 파일 뷰어 헤더 컴팩트화**: 제목(h2), 경로, 분류 박스의 폰트 및 여백을 최소화하여 파일 본문 내용(`<pre>`)이 뷰어 영역의 대부분을 차지하도록 레이아웃 조절
+  - 3. **CHECKPOINT HINT 삭제**: "첨부한 파일 조합이 현재 Act와 맞지 않습니다..." 힌트 문구 및 관련 안내 블록 전면 삭제
+  - 4. **제출 전송 후 입력창/첨부 초기화**: 메시지 전송(제출) 시 성공/실패 여부와 관계없이 작성기 입력창(`messageInput = ""`)과 첨부된 파일 트레이(`attachedFileIds = []`)를 즉시 빈 상태로 완전 초기화
+  - 5. **Log_Fixer 사용 후 자동 첨부 방지**: Log_Fixer로 파일 복구 완료 시 뷰어 선택(`selectFile`)만 수행하고, ECHO에 자동 첨부(`attachedFileIds` 연동)되지 않도록 변경 (수동 `[ECHO에 증거 첨부]` 클릭 필요)
+  - 6. **휴지통(`/Recycle_Bin/`) 파일 Log_Fixer 복구 지원**: 휴지통 내부 손상/삭제 파일(`blackbox_raw.log`, `deleted_override.txt` 등) 선택 시 `[LOG_FIXER로 데이터 복구]` 버튼을 활성화하고 복구(`recoveredFileIds` 연동) 지원
+  - 7. **Act 2 클리어 후 Act 3 전이 및 엔딩 조기 발동 버그 수정**: Act 2 성공 시엔 엄격하게 Act 3(`act-3`)로만 전이하고, Act 3 조합 증거 검증 완료 전에는 `door_unlocked` 또는 `ending-ready` 상태로 전이되지 않도록 방어 로직 강화
 - **5가지 추가 UI/UX 개선 상세 사양 (`feat-036`)**:
   - 1. **파일 탐색기 & 뷰어 비율 조절**: FILE EXPLORER 영역 너비를 축소(약 180~200px 고정)하고 FILE VIEWER 영역 너비를 대폭 확장하여 로그 문서 및 텍스트 데이터 가독성 극대화
   - 2. **버튼 텍스트 한국어 전면 전환**:
@@ -112,6 +120,12 @@
 
 ## Proposed Out Of Scope
 
+- **초기 ECHO 브리핑 대사** ("김우주 담당자님, 출근이 확인되었습니다...")
+- **CHECKPOINT HINT 문구 및 관련 안내 블록** ("첨부한 파일 조합이 현재 Act와 맞지 않습니다...")
+- **제출 후 입력창 잔류 텍스트 및 첨부 트레이 잔류 항목** (성공/실패 상관없이 전송 즉시 완전 초기화)
+- **Log_Fixer 완료 후 ECHO에 파일 자동 첨부 기능** (뷰어 선택만 수행, 수동 첨부 유도)
+- **휴지통 파일 복구 불가 상태** (Log_Fixer 복구 지원으로 전환)
+- **Act 2 성공 후 조기 엔딩 발동 및 door_unlocked 직행 전이** (Act 3 엄격 전이 적용)
 - 시작 화면 메타 카피 (`CONTROL ROOM STANDBY` 카 라벨, `1인칭 통제실 / 컴퓨터는 물리적 오브젝트입니다`, `클릭 후 봉쇄 컷신을 거쳐 모니터 내부 Hermes OS로 진입합니다` 하단 안내 칸)
 - 동료 메신저 입력창 placeholder 내 `(자유 텍스트)` 보조 라벨
 - 동료 메신저 입력 시 한글 IME 조합/전송 직후 마지막 단어 자동 잔류/재입력 현상
@@ -184,6 +198,14 @@
 - 상단 title-bar status HUD 중 `ECHO STATE / monitoring` 카드 및 `ACT-1 100%` (`mission-clock`) 블록이 전면 제거되어 노출되지 않는다.
 - ECHO 대화창 메시지 목록에는 SYSTEM 스피커 메시지가 노출되지 않으며 오직 ECHO 대사 및 플레이어 제출 항목만 노출된다.
 - `/System/Security/quarantine_rules.conf` 파일 내용 내 오프셋 값 항목에 개발자 해설풍 주석(`<-- 치명적 오차: 약 2년 앞으로 밀림`)이 삭제되고 단순 `시간 오프셋 값: +17,520시간`으로 노출된다.
+- **7가지 핵심 피드백 검증 항목 (`feat-039`)**:
+  - 초기 ECHO 대사 ("김우주 담당자님, 출근이 확인되었습니다...")가 전면 삭제되어 노출되지 않는다.
+  - 로그 파일 뷰어 헤더 (h2, 경로, 분류 박스)가 컴팩트화되어 본문(`<pre>`) 영역이 파일 뷰어의 대부분을 차지한다.
+  - CHECKPOINT HINT 문구 ("첨부한 파일 조합이 현재 Act와 맞지 않습니다...") 및 관련 안내 블록이 전면 삭제된다.
+  - 메시지 전송(제출) 시 성공/실패 여부와 관계없이 작성기 입력창(`messageInput = ""`)과 첨부된 파일 트레이(`attachedFileIds = []`)가 즉시 빈 상태로 완전 초기화된다.
+  - Log_Fixer로 파일 복구 완료 시 뷰어 선택(`selectFile`)만 수행되며 ECHO에 자동 첨부되지 않는다 (수동 첨부 필요).
+  - 휴지통(`/Recycle_Bin/`) 내 손상/삭제 파일 선택 시 `[LOG_FIXER로 데이터 복구]` 버튼이 활성화되고 복구(`recoveredFileIds` 연동)가 가능하다.
+  - Act 2 성공 시엔 엄격하게 Act 3(`act-3`)로만 전이하며 Act 3 조합 증거 검증 완료 전엔 `door_unlocked` 또는 `ending-ready` 상태로 전이되지 않는다.
 - **5가지 추가 UI/UX 개선 검증 항목 (`feat-036`)**:
   - FILE EXPLORER 영역 너비가 약 180~200px 고정으로 축소되고 FILE VIEWER 영역 너비가 대폭 확장되어 로그 문서 가독성이 극대화된다.
   - 인게임 주요 버튼 텍스트가 한국어로 전면 전환된다 (`ATTACH TO ECHO` ➔ `ECHO에 증거 첨부`, `COPY PATH`/`PATH COPIED` ➔ `경로 복사`/`경로 복사 완료`, `OPEN WITH LOG_FIXER` ➔ `LOG_FIXER로 데이터 복구`, `UNLOCK`/`OPEN` ➔ `해제`/`열기`, `CANCEL` ➔ `취소`, `SUBMIT` ➔ `증거 제출`, `START INVESTIGATION` ➔ `조사 시작`).

@@ -2,10 +2,10 @@
 
 ## Document Meta
 
-- version: 2.4
+- version: 2.5
 - pm agent: codex
 - date: 2026-08-10
-- status: Q31~Q61 answered; feat-038 specifications updated (remove start button shimmer animation, brighten 3d scene lights to ambient 1.8/point 16.0, remove lockdown broadcast transition text, double explorer panel width to 360px, empty echo input and set korean placeholder)
+- status: Q31~Q62 answered; feat-039 specifications updated (1. remove initial ECHO dialogue, 2. compact log viewer header, 3. remove checkpoint hint, 4. reset input and attachments on submit, 5. prevent auto-attach after log fixer, 6. support log fixer for Recycle_Bin files, 7. enforce strict Act 2 to Act 3 transition and prevent early ending)
 
 ## Blocking Questions
 
@@ -624,6 +624,21 @@ feat-038에서 수행하는 5가지 UI/UX/3D 개선사항에 대한 결정입니
 3. START 버튼 클릭 시 순간 flashing되던 `<div className="lockdown-broadcast">` 텍스트 블록을 전면 삭제하여 화면 전환 시 불필요한 텍스트 노출을 방지한다.
 4. 로그 탐색 터미널의 `.explorer-panel` 너비를 기존 190px에서 2배인 360px(`flex: 0 0 360px; width: 360px;`)로 넓혀 파일 탐색기 항목의 가독성을 대폭 확보한다.
 5. ECHO 증거 제출 텍스트박스 기본 입력문구(`getDefaultPrompt(...)`)를 전면 제거하여 시작 및 스테이지 변경 시 `messageInput`을 빈 문자열 `""`로 초기화하고, 작성기 `textarea`에 `placeholder="ECHO에게 제출할 증거를 입력하세요..."`를 추가한다.
+
+### Q62. 7가지 핵심 게임플레이/UI/버그 수정 상세 사양
+
+feat-039에서 수행하는 7가지 핵심 게임플레이/UI/버그 수정 사양에 대한 결정입니다.
+
+### Answer
+
+1. **초기 ECHO 대사 삭제**: "김우주 담당자님, 출근이 확인되었습니다. 헤르메스호 업무 데스크탑과 관리 AI ECHO 보조 채널이 활성화되었습니다" 초기 브리핑 문구 전면 삭제.
+2. **로그 파일 뷰어 헤더 컴팩트화**: 제목(h2), 경로, 분류 박스의 폰트 및 여백을 최소화하여 파일 본문 내용(`<pre>`)이 뷰어 영역의 대부분을 차지하도록 레이아웃 조절.
+3. **CHECKPOINT HINT 삭제**: "첨부한 파일 조합이 현재 Act와 맞지 않습니다. 파일 뷰어의 Evidence 항목과 현재 목표를 다시 대조하세요." 힌트 문구 및 관련 안내 블록 전면 삭제.
+4. **제출 전송 후 입력창/첨부 초기화**: 메시지 전송(제출) 시 성공/실패 여부와 관계없이 작성기 입력창(`messageInput = ""`)과 첨부된 파일 트레이(`attachedFileIds = []`)를 즉시 빈 상태로 완전 초기화.
+5. **Log_Fixer 사용 후 자동 첨부 방지**: Log_Fixer로 파일 복구 완료 시 뷰어 선택(`selectFile`)만 수행하고, ECHO에 자동 첨부(`attachedFileIds` 연동)되지 않도록 변경 (플레이어가 수동으로 `[ECHO에 증거 첨부]` 클릭 필요).
+6. **휴지통(`/Recycle_Bin/`) 파일 Log_Fixer 복구 지원**: 휴지통 내부 손상/삭제 파일(`blackbox_raw.log`, `deleted_override.txt` 등) 선택 시 `[LOG_FIXER로 데이터 복구]` 버튼을 활성화하고 복구(`recoveredFileIds` 연동) 가능하도록 수정.
+7. **Act 2 클리어 후 Act 3 전이 및 엔딩 조기 발동 버그 수정**: Act 2 성공 시엔 엄격하게 Act 3(`act-3`)로만 전이하고, Act 3 조합 증거 검증 완료 전에는 `door_unlocked` 또는 `ending-ready` 상태로 전이되지 않도록 방어 로직 강화.
+
 
 
 

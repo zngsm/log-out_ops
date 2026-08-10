@@ -4,10 +4,10 @@
 
 ## Document Meta
 
-- version: 5.0
+- version: 6.0
 - author: PM Agent
 - date: 2026-08-10
-- status: confirmed - feat-038 (1. START 버튼 펄스 제거, 2. 3D 조도 상향, 3. START 클릭 전환 문구 삭제, 4. 탐색기 패널 360px 2배 확장, 5. ECHO 입력창 기본문구 제거 및 한글 placeholder 설정) 사양 반영
+- status: confirmed - feat-039 (7가지 핵심 게임플레이/UI/버그 수정: 초기 ECHO 대사 삭제, 로그 파일 뷰어 헤더 컴팩트화, CHECKPOINT HINT 삭제, 제출 전송 후 입력창/첨부 초기화, Log_Fixer 사용 후 자동 첨부 방지, 휴지통 파일 Log_Fixer 복구 지원, Act 2 성공 후 Act 3 엄격 전이 및 엔딩 조기 발동 방지) 사양 반영
 - target docs: `project/mvp_scope.md`, `project/pm_analysis.md`, `project/pm_questions.md`, `project/task_board.md`, `project/tasks/*.md`
 
 ## Background & Motivation
@@ -16,7 +16,7 @@
 사용자 피드백에 따라 개발자/시스템 메타 텍스트를 전면 제거하여 Diegetic UI 몰입감을 완성하고, 상단 title-bar status HUD 중 `ECHO STATE / monitoring` 카드 및 `ACT-1 100%` (`mission-clock`) 블록을 전면 제거한다. 이력서 검토 시 단순 `✓ [확인 완료]`로 버튼 텍스트를 통일 고정하고 미선택 지원자 존재 시 그레이 비활성화 스타일(`disabled={isResumeIncomplete}`)을 적용하며, ECHO 리부팅 연출 타임라인 중 rebooting 상태를 2초 줄이고 lockdown(emergency) 상태를 2초 연장함과 동시에 리부팅 진행 동안(`rebootState !== 'idle'`) 우하단 동료 메신저 말풍선 버블 아이콘을 완전히 숨김(미노출) 처리한다.
 또한 추가 사용자 피드백에 따라 `quarantine_rules.conf` 파일 내용에서 오프셋 개발자 해설풍 주석(`<-- 치명적 오차: 약 2년 앞으로 밀림`)을 전면 삭제하고 단순 `시간 오프셋 값: +17,520시간`으로 고정하며, ECHO 대화창의 SYSTEM 스피커 메시지를 전면 제거하여 ECHO 대사 및 플레이어 제출 항목만 노출한다. 메인 메뉴 시작 화면의 `CONTROL ROOM STANDBY` 카 라벨, `1인칭 통제실 / 컴퓨터는 물리적 오브젝트입니다`, `클릭 후 봉쇄 컷신을 거쳐 모니터 내부 Hermes OS로 진입합니다` 하단 안내 칸 카피를 전면 삭제하고, 동료 메신저 입력창 placeholder의 `(자유 텍스트)` 보조 라벨을 전면 삭제하며(`답장을 입력하세요...`), 한글 IME 조합 및 전송 후 마지막 단어가 자동 잔류/재입력되는 버그의 원인을 차단하고 전송 후 완전 초기화를 보장한다. (ECHO 패치 기안문 하단 문구 삭제 상태는 확인 완료 및 지속 유지)
 아울러 비상 컷신 이후 나오는 메인 퍼즐 터미널 UI를 비상 컷신 이전 워크스테이션 UI와 100% 동일한 레이아웃, 헤더 스타일, 색상 테마 및 1.6fr 1fr 2분할 구조로 통일하여 컷신 전후 시각적 연속성을 완벽하게 제공한다.
-나아가 최신 사용자 피드백 5가지 요구사항을 반영하여, FILE EXPLORER 너비를 약 180~200px 고정으로 축소하고 FILE VIEWER 너비를 대폭 확장하여 가독성을 극대화하고, 주요 버튼 텍스트(`ATTACH TO ECHO` ➔ `ECHO에 증거 첨부`, `COPY PATH` ➔ `경로 복사`, `OPEN WITH LOG_FIXER` ➔ `LOG_FIXER로 데이터 복구`, `UNLOCK`/`OPEN` ➔ `해제`/`열기`, `CANCEL` ➔ `취소`, `SUBMIT` ➔ `증거 제출`, `START INVESTIGATION` ➔ `조사 시작`)를 한국어로 전면 전환한다. 잠긴 파일 열람/암호 폼 내 `승무원 메일에서...` 힌트 및 영문 힌트를 전면 삭제하고, 비상 HUD(`O₂ LEVEL`, `POWER GRID`, `REMAINING TIME`) 크기를 확장하여 상단 헤더 중앙에 배치하며, 좌측 패널의 `ACT-1 ACTIVE` 라벨을 전면 삭제하고 중앙 공간에 비상 HUD를 매끄럽게 연동한다.
+나아가 최신 사용자 피드백 7가지 핵심 요구사항을 반영하여, 1) 초기 ECHO 대사("김우주 담당자님, 출근이 확인되었습니다...")를 전면 삭제하고, 2) 로그 파일 뷰어 헤더(h2, 경로, 분류 박스)를 컴팩트화하여 본문(<pre>)이 뷰어 대부분을 차지하도록 조절하며, 3) CHECKPOINT HINT("첨부한 파일 조합이 현재 Act와 맞지 않습니다...") 힌트 문구 및 관련 안내 블록을 전면 삭제한다. 4) 메시지 전송(제출) 시 성공/실패 여부와 무관하게 작성기 입력창(messageInput = "")과 첨부 트레이(attachedFileIds = [])를 즉시 빈 상태로 완전 초기화하고, 5) Log_Fixer 복구 완료 시 뷰어 선택(selectFile)만 수행하고 ECHO 자동 첨부를 방지(수동 첨부 필요)하며, 6) 휴지통(/Recycle_Bin/) 내 손상/삭제 파일 선택 시 [LOG_FIXER로 데이터 복구] 버튼 활성화 및 복구(recoveredFileIds 연동)를 지원한다. 7) Act 2 클리어 후엔 엄격하게 Act 3(act-3)로만 전이하고, Act 3 조합 증거 검증 완료 전에는 door_unlocked 또는 ending-ready 상태로 전이되지 않도록 방어 로직을 강화한다.
 아울러 ECHO 대화/증거 판정 및 동료 메신저에 Cloudflare Worker 기반 Hermes NPC API(`https://royal-firefly-60c3.jwpark971219.workers.dev`)를 연동하되, 3초 타임아웃 및 100% 로컬 Fallback 안전장치를 필수로 도입하여 네트워크 장애나 예외 상황에서도 플레이가 중단되지 않는 견고한 아키텍처를 완성한다.
 
 
@@ -174,15 +174,22 @@
 - **2. 3D 배경 조도 추가 상향**: `SpaceshipComputerScene.tsx` 3D 배경의 `ambientLight` 조도를 `1.8`, `pointLight` 조도를 `16.0`으로 대폭 늘려 3D 통제실 배경을 밝게 변경.
 - **3. START 클릭 순간 flashing 텍스트 전면 삭제**: START 버튼 클릭 시 순간 flashing되던 `<div className="lockdown-broadcast">` 텍스트 블록 전면 삭제 (`appPhase === "transition"` 시 아무 텍스트도 보이지 않도록 처리).
 - **4. 파일 탐색기 패널 너비 2배 확장**: 로그 탐색 터미널의 `.explorer-panel` 너비를 기존 190px에서 **2배인 360px**(`flex: 0 0 360px; width: 360px;`)로 넓혀 파일 탐색기 항목 가독성 대폭 확보.
-- **5. ECHO 제출 기본 문구 제거 및 한글 placeholder 설정**: ECHO 증거 제출 텍스트박스 기본 입력문구(`getDefaultPrompt(...)`) 전면 제거 (시작 및 스테이지 변경 시 `messageInput`을 빈 문자열 `""`로 초기화), 작성기 `textarea`에 `placeholder="ECHO에게 제출할 증거를 입력하세요..."` 추가.
+### 17. 7가지 핵심 게임플레이/UI/버그 수정 상세 사양 (Change-001 Follow-up v6.0 / feat-039)
+- **1. 초기 ECHO 대사 삭제**: "김우주 담당자님, 출근이 확인되었습니다. 헤르메스호 업무 데스크탑과 관리 AI ECHO 보조 채널이 활성화되었습니다" 초기 브리핑 문구 전면 삭제.
+- **2. 로그 파일 뷰어 헤더 컴팩트화**: 제목(h2), 경로, 분류 박스의 폰트 및 여백을 최소화하여 파일 본문 내용(`<pre>`)이 뷰어 영역의 대부분을 차지하도록 레이아웃 조절.
+- **3. CHECKPOINT HINT 삭제**: "첨부한 파일 조합이 현재 Act와 맞지 않습니다. 파일 뷰어의 Evidence 항목과 현재 목표를 다시 대조하세요." 힌트 문구 및 관련 안내 블록 전면 삭제.
+- **4. 제출 전송 후 입력창/첨부 초기화**: 메시지 전송(제출) 시 성공/실패 여부와 관계없이 작성기 입력창(`messageInput = ""`)과 첨부된 파일 트레이(`attachedFileIds = []`)를 즉시 빈 상태로 완전 초기화.
+- **5. Log_Fixer 사용 후 자동 첨부 방지**: Log_Fixer로 파일 복구 완료 시 뷰어 선택(`selectFile`)만 수행하고, ECHO에 자동 첨부(`attachedFileIds` 연동)되지 않도록 변경 (플레이어가 수동으로 `[ECHO에 증거 첨부]` 클릭 필요).
+- **6. 휴지통(`/Recycle_Bin/`) 파일 Log_Fixer 복구 지원**: 휴지통 내부 손상/삭제 파일(`blackbox_raw.log`, `deleted_override.txt` 등) 선택 시 `[LOG_FIXER로 데이터 복구]` 버튼을 활성화하고 복구(`recoveredFileIds` 연동) 가능하도록 수정.
+- **7. Act 2 클리어 후 Act 3 전이 및 엔딩 조기 발동 버그 수정**: Act 2 성공 시엔 엄격하게 Act 3(`act-3`)로만 전이하고, Act 3 조합 증거 검증 완료 전에는 `door_unlocked` 또는 `ending-ready` 상태로 전이되지 않도록 방어 로직 강화.
 
 ## Impact Analysis
 
-- **`project/pm_analysis.md`**: Core Loop, Visual Scope, Diegetic UI, 18+5+1+5+6+5가지 상세 게임플레이/UI/3D 개선 사양 반영.
-- **`project/mvp_scope.md`**: MVP In Scope / Out of Scope 및 Acceptance Criteria에 5가지 UI/UX/3D 개선 검증 항목 반영.
-- **`project/pm_questions.md`**: Q61 신규 항목에 5가지 UI/UX/3D 개선 사양 추가 기록.
-- **`project/task_board.md`**: `feat-038` 신규 생성 및 done 반영.
-- **`project/tasks/*.md`**: 신규 태스크 문서 `feat-038.md` 생성 및 done 상태 기록.
+- **`project/pm_analysis.md`**: Core Loop, Visual Scope, Diegetic UI, 18+5+1+5+6+5+7가지 상세 게임플레이/UI/3D/버그 수정 사양 반영.
+- **`project/mvp_scope.md`**: MVP In Scope / Out of Scope 및 Acceptance Criteria에 7가지 핵심 피드백 검증 항목 반영.
+- **`project/pm_questions.md`**: Q62 신규 항목에 7가지 핵심 피드백 사양 추가 기록.
+- **`project/task_board.md`**: `feat-039` 신규 생성 및 done 반영.
+- **`project/tasks/*.md`**: 신규 태스크 문서 `feat-039.md` 생성 및 done 상태 기록.
 
 
 

@@ -2,10 +2,10 @@
 
 ## Document Meta
 
-- version: 1.7
+- version: 1.8
 - pm agent: codex
 - date: 2026-08-10
-- status: task board updated with feat-038 (removing start button shimmer animation, brightening 3D scene lights to ambient 1.8/point 16.0, removing lockdown broadcast text during transition, doubling explorer panel width to 360px, initializing ECHO prompt input to empty string and setting Korean placeholder)
+- status: task board updated with feat-039 (refining initial ECHO intro, compacting log viewer header, removing checkpoint hint, clearing input/attachments on submit, preventing auto-attach after log fixer, enabling log fixer for Recycle_Bin files, enforcing strict Act 2 to Act 3 transition)
 
 ## Task Index
 
@@ -65,7 +65,8 @@
 | 52 | feat-035 | feat | Unify post-cutscene main puzzle terminal UI with pre-cutscene workstation UI layout, header, color theme, and 2-split body structure | done | dev-agent | no | feat-034, bug-011 | feat-036 | project/tasks/feat-035.md |
 | 53 | feat-036 | feat | Refine file explorer/viewer width ratio, translate all buttons to Korean, remove password hint text, expand and center-align emergency HUD, and remove ACT-1 ACTIVE label | done | dev-agent | no | feat-035 | feat-037 | project/tasks/feat-036.md |
 | 54 | feat-037 | feat | Implement meter bars for oxygen power, brighten 3d lights, set start button and intranet monitor theme, remove stability suspicion meta texts | done | dev-agent | no | feat-036 | human visual review | project/tasks/feat-037.md |
-| 55 | feat-038 | feat | Remove start button shimmer animation, brighten 3d scene lights, remove start click broadcast flash, double explorer panel width to 360px, empty echo input and set korean placeholder | done | dev-agent | no | feat-037 | human visual review | project/tasks/feat-038.md |
+| 55 | feat-038 | feat | Remove start button shimmer animation, brighten 3d scene lights, remove start click broadcast flash, double explorer panel width to 360px, empty echo input and set korean placeholder | done | dev-agent | no | feat-037 | feat-039 | project/tasks/feat-038.md |
+| 56 | feat-039 | feat | Refine initial ECHO intro, compact log viewer header, remove checkpoint hint, reset input and attachments after submit, prevent auto-attach after log fixer, support log fixer for Recycle_Bin files, and enforce strict Act 2 to Act 3 transition | done | dev-agent | no | feat-038 | human visual review | project/tasks/feat-039.md |
 
 ## Parallel Work Notes
 
@@ -106,6 +107,7 @@
 - `bug-011` prevents workstation ECHO auto-focus from scrolling the whole viewport and clipping the top header.
 - `feat-035` unifies post-cutscene terminal UI layout (`terminal-frame`), header (`work-header`), color theme, and 2-split body structure (`work-split-body` 1.6fr : 1fr) with pre-cutscene workstation UI (`WorkInterface.tsx`), ensuring 100% visual continuity before and after emergency lockdown.
 - `feat-036` applies 5 UI/UX refinements: explorer width ~180-200px fixed & viewer width expanded, button text fully translated to Korean (`ECHO에 증거 첨부`, `경로 복사`/`경로 복사 완료`, `LOG_FIXER로 데이터 복구`, `해제`/`열기`, `취소`, `증거 제출`, `조사 시작`), password hint text completely removed, emergency HUD expanded & center-aligned, and `ACT-1 ACTIVE` label removed with emergency HUD integrated into center header.
+- `feat-039` applies 7 core gameplay/UI/bug fix refinements: initial ECHO intro removed ("김우주 담당자님, 출근이 확인되었습니다..."), log viewer header (h2, path, classification) compacted for maximum `<pre>` body view, checkpoint hint ("첨부한 파일 조합이 현재 Act와 맞지 않습니다...") removed, input (`messageInput = ""`) and attachment tray (`attachedFileIds = []`) cleared immediately upon submission regardless of pass/fail, Log_Fixer recovery performs viewer selection (`selectFile`) only without auto-attaching to ECHO, corrupted/deleted files in `/Recycle_Bin/` support `[LOG_FIXER로 데이터 복구]` recovery, and Act 2 clear strictly transitions to Act 3 (`act-3`) with strict guardrails preventing early transition to `door_unlocked` / ending state.
 - Every dev task must update its task md status from `todo` to `in_progress` to `done`.
 - Current dev workflow is latest `main` -> task-scoped implementation -> task-id commit message -> push directly to `main`; PR/branch flow is only used when the human explicitly asks for it.
 
