@@ -2,10 +2,10 @@
 
 ## Document Meta
 
-- version: 2.5
+- version: 2.6
 - pm agent: codex
 - date: 2026-08-10
-- status: Q31~Q62 answered; feat-039 specifications updated (1. remove initial ECHO dialogue, 2. compact log viewer header, 3. remove checkpoint hint, 4. reset input and attachments on submit, 5. prevent auto-attach after log fixer, 6. support log fixer for Recycle_Bin files, 7. enforce strict Act 2 to Act 3 transition and prevent early ending)
+- status: Q31~Q63 answered; feat-040 specifications updated (1. sensor_diagram bottom note deleted, 2. crew_comms_buffer speakers updated to diegetic crew names, 3. email_chain_july previous reply note deleted, 4. tool_manual drag-and-drop text replaced with LOG_FIXER button click instruction)
 
 ## Blocking Questions
 
@@ -638,6 +638,20 @@ feat-039에서 수행하는 7가지 핵심 게임플레이/UI/버그 수정 사�
 5. **Log_Fixer 사용 후 자동 첨부 방지**: Log_Fixer로 파일 복구 완료 시 뷰어 선택(`selectFile`)만 수행하고, ECHO에 자동 첨부(`attachedFileIds` 연동)되지 않도록 변경 (플레이어가 수동으로 `[ECHO에 증거 첨부]` 클릭 필요).
 6. **휴지통(`/Recycle_Bin/`) 파일 Log_Fixer 복구 지원**: 휴지통 내부 손상/삭제 파일(`blackbox_raw.log`, `deleted_override.txt` 등) 선택 시 `[LOG_FIXER로 데이터 복구]` 버튼을 활성화하고 복구(`recoveredFileIds` 연동) 가능하도록 수정.
 7. **Act 2 클리어 후 Act 3 전이 및 엔딩 조기 발동 버그 수정**: Act 2 성공 시엔 엄격하게 Act 3(`act-3`)로만 전이하고, Act 3 조합 증거 검증 완료 전에는 `door_unlocked` 또는 `ending-ready` 상태로 전이되지 않도록 방어 로직 강화.
+
+## 4 Log File Text Refinement Specifications (Change-001 Follow-up v7.0 / feat-040)
+
+### Q63. 4가지 로그 파일 텍스트 정제 상세 사양
+
+로그 파일들(`sensor_diagram.png`/`sensor_diagram.txt`, `crew_comms_buffer.log`, `email_chain_july.txt`, `tool_manual.txt`) 본문 내 부적절하거나 구 버전 안내/메타 문구의 정제 사양에 대한 결정입니다.
+
+### Answer
+
+사용자의 4가지 로그 파일 텍스트 정제 요구사항을 전면 반영한다:
+1. **`sensor_diagram.png` (sensor_diagram.txt) 하단 문구 전면 삭제**: 본문 하단 `※ 이 도면은 SENSOR-BIO-04가 ECHO_SEC201_AUTO에 직접 연결된 유일한 열 감지 헤드임을 나타냅니다.` 문구를 전면 삭제한다.
+2. **`crew_comms_buffer.log` 본문 대화 화자 표기 변경**: 본문 대화 화자 표기를 알파벳 (A, B, C)에서 디제틱 승무원 이름(`박진수 (엔지니어)`, `이민아 (통신관)`, `최성현 (보안관)`)으로 전면 변경한다.
+3. **`email_chain_july.txt` 하단 이전 답장 문구 전면 삭제**: 본문 하단 `--- 이전 답장 / 김 박사 --- 이 문제가 근무 중 발생하면 김우주가 모듈 #04에 가장 먼저 갇힐 겁니다. 운영 인력이 찾을 수 있을 만큼은 눈에 띄되, 터미널 배너에는 보이지 않는 곳에 코드를 남겨 주세요.` 문구를 전면 삭제한다.
+4. **`tool_manual.txt` 툴 사용 안내 텍스트 변경**: 본문 툴 사용 안내 텍스트 중 `...해당 파일을 드래그하여 드롭하세요.` 문구를 실제 게임플레이 방식인 `텍스트 파일 열람 시 #404_CORRUPTED 표시가 뜨면 파일 뷰어 상단의 [LOG_FIXER로 데이터 복구] 버튼을 클릭하세요.`로 변경한다.
 
 
 

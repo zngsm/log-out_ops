@@ -2,10 +2,10 @@
 
 ## Document Meta
 
-- version: 1.8
+- version: 1.9
 - pm agent: codex
 - date: 2026-08-10
-- status: task board updated with feat-039 (refining initial ECHO intro, compacting log viewer header, removing checkpoint hint, clearing input/attachments on submit, preventing auto-attach after log fixer, enabling log fixer for Recycle_Bin files, enforcing strict Act 2 to Act 3 transition)
+- status: task board updated with feat-040 (refining 4 log file texts: removing sensor_diagram bottom note, updating crew_comms_buffer speakers to diegetic crew names, removing email_chain_july previous reply note, updating tool_manual drag-and-drop text to LOG_FIXER button click instruction)
 
 ## Task Index
 
@@ -67,6 +67,7 @@
 | 54 | feat-037 | feat | Implement meter bars for oxygen power, brighten 3d lights, set start button and intranet monitor theme, remove stability suspicion meta texts | done | dev-agent | no | feat-036 | human visual review | project/tasks/feat-037.md |
 | 55 | feat-038 | feat | Remove start button shimmer animation, brighten 3d scene lights, remove start click broadcast flash, double explorer panel width to 360px, empty echo input and set korean placeholder | done | dev-agent | no | feat-037 | feat-039 | project/tasks/feat-038.md |
 | 56 | feat-039 | feat | Refine initial ECHO intro, compact log viewer header, remove checkpoint hint, reset input and attachments after submit, prevent auto-attach after log fixer, support log fixer for Recycle_Bin files, and enforce strict Act 2 to Act 3 transition | done | dev-agent | no | feat-038 | human visual review | project/tasks/feat-039.md |
+| 57 | feat-040 | feat | Refine 4 log file texts (sensor_diagram, crew_comms_buffer, email_chain_july, tool_manual) | done | dev-agent | no | feat-039 | human visual review | project/tasks/feat-040.md |
 
 ## Parallel Work Notes
 
@@ -108,6 +109,7 @@
 - `feat-035` unifies post-cutscene terminal UI layout (`terminal-frame`), header (`work-header`), color theme, and 2-split body structure (`work-split-body` 1.6fr : 1fr) with pre-cutscene workstation UI (`WorkInterface.tsx`), ensuring 100% visual continuity before and after emergency lockdown.
 - `feat-036` applies 5 UI/UX refinements: explorer width ~180-200px fixed & viewer width expanded, button text fully translated to Korean (`ECHO에 증거 첨부`, `경로 복사`/`경로 복사 완료`, `LOG_FIXER로 데이터 복구`, `해제`/`열기`, `취소`, `증거 제출`, `조사 시작`), password hint text completely removed, emergency HUD expanded & center-aligned, and `ACT-1 ACTIVE` label removed with emergency HUD integrated into center header.
 - `feat-039` applies 7 core gameplay/UI/bug fix refinements: initial ECHO intro removed ("김우주 담당자님, 출근이 확인되었습니다..."), log viewer header (h2, path, classification) compacted for maximum `<pre>` body view, checkpoint hint ("첨부한 파일 조합이 현재 Act와 맞지 않습니다...") removed, input (`messageInput = ""`) and attachment tray (`attachedFileIds = []`) cleared immediately upon submission regardless of pass/fail, Log_Fixer recovery performs viewer selection (`selectFile`) only without auto-attaching to ECHO, corrupted/deleted files in `/Recycle_Bin/` support `[LOG_FIXER로 데이터 복구]` recovery, and Act 2 clear strictly transitions to Act 3 (`act-3`) with strict guardrails preventing early transition to `door_unlocked` / ending state.
+- `feat-040` applies 4 log file text refinements: `sensor_diagram.png` (sensor_diagram.txt) bottom note deleted, `crew_comms_buffer.log` speakers converted to diegetic crew names (`박진수 (엔지니어)`, `이민아 (통신관)`, `최성현 (보안관)`), `email_chain_july.txt` bottom previous reply note deleted, and `tool_manual.txt` drag-and-drop text replaced with `텍스트 파일 열람 시 #404_CORRUPTED 표시가 뜨면 파일 뷰어 상단의 [LOG_FIXER로 데이터 복구] 버튼을 클릭하세요.`
 - Every dev task must update its task md status from `todo` to `in_progress` to `done`.
 - Current dev workflow is latest `main` -> task-scoped implementation -> task-id commit message -> push directly to `main`; PR/branch flow is only used when the human explicitly asks for it.
 

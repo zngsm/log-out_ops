@@ -18,8 +18,8 @@ Fill the MVP Hermes OS file contents with enough readable in-world text for the 
 - Expand Category A file contents using `project/human-input/LOG_OUT 로그 예시.md`.
 - Completely rewrite `power_grid_maint.note` with natural diegetic Korean explanation (Q44).
 - Completely remove developer explanation note (`<-- 치명적 오차: 약 2년 앞으로 밀림`) from `quarantine_rules.conf` offset item, displaying purely diegetic `시간 오프셋 값: +17,520시간` (Q49 user feedback).
-- Clean Sensor diagram content of developer prompt remnants and replace with diegetic diagram containing specified labels (`SENSOR-BIO-04 열 감지 스캔 헤드`, `통제실 모듈 #04 장착 지점`, etc.) (Q46).
-- Completely remove Tool manual security notes (Q35).
+- Clean Sensor diagram content of developer prompt remnants and replace with diegetic diagram containing specified labels (`SENSOR-BIO-04 열 감지 스캔 헤드`, `통제실 모듈 #04 장착 지점`, etc.) (Q46) and completely remove bottom note `※ 이 도면은 SENSOR-BIO-04가 ECHO_SEC201_AUTO에 직접 연결된 유일한 열 감지 헤드임을 나타냅니다.` (Q63 / feat-040).
+- Completely remove Tool manual security notes (Q35) and replace drag-and-drop instruction with `텍스트 파일 열람 시 #404_CORRUPTED 표시가 뜨면 파일 뷰어 상단의 [LOG_FIXER로 데이터 복구] 버튼을 클릭하세요.` (Q63 / feat-040).
 - Use `project/human-input/LOG_OUT 로그파일 구조.md` to add useful decoy/flavor files where they improve exploration density.
 - Keep required evidence files and ids unchanged unless PM explicitly approves a contract change.
 - Preserve Act 3 MVP truth: `ai_priority_matrix.json` + `deleted_override.txt`.

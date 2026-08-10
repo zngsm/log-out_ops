@@ -43,7 +43,7 @@ Move the current build away from guide/spec language and toward playable game co
 - Added:
   - `/Logs/LifeSupport/o2_low_power_budget.log`
   - `/Logs/Events/lockdown_audit.log`
-  - `/Logs/Events/crew_comms_buffer.log`
+  - `/Logs/Events/crew_comms_buffer.log` (speakers converted from A, B, C to diegetic crew names: `박진수 (엔지니어)`, `이민아 (통신관)`, `최성현 (보안관)` per Q63 / feat-040)
   - `/Personnel/Engineer_Park/power_grid_maint.note`
   - `/System/Security/protocol_101.txt`
   - `/Recycle_Bin/recovery_manifest.log`

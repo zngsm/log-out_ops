@@ -2,10 +2,10 @@
 
 ## Document Meta
 
-- version: 1.8
+- version: 1.9
 - pm agent: codex
 - date: 2026-08-10
-- status: updated - 7가지 핵심 게임플레이/UI/버그 수정 요구사항 (feat-039) 반영 완료 (초기 ECHO 대사 삭제, 로그 파일 뷰어 헤더 컴팩트화, CHECKPOINT HINT 삭제, 제출 전송 후 입력창/첨부 초기화, Log_Fixer 복구 후 자동 첨부 방지, 휴지통 파일 Log_Fixer 복구 지원, Act 2 성공 후 Act 3 엄격 전이 및 엔딩 조기 발동 방지)
+- status: updated - 4가지 로그 파일 텍스트 정제 요구사항 (feat-040) 반영 완료 (sensor_diagram 하단 문구 삭제, crew_comms_buffer 알파벳 화자 디제틱 승무원 이름 전면 변경, email_chain_july 이전 답장 김 박사 문구 삭제, tool_manual 드래그 앤 드롭 문구 [LOG_FIXER로 데이터 복구] 버튼 클릭 변경)
 - source folder: `project/human-input`
 
 ## Source Documents
@@ -35,7 +35,7 @@
 
 이후 헤르메스 Workstation 화면에서 개발용 용어("2분할 업무 화면", "라포 Phase" 등)와 보조 메타 문구("(다음 업무로 이동)" 괄호 텍스트 등)가 완전 제거되고 단순 `✓ [확인 완료]`로 버튼 텍스트가 통일 고정된 상태에서, 자연스러운 Diegetic 대사를 바탕으로 진행한다. ECHO가 우측 대화창에서 업무를 브리핑하고 좌측 하단 `✓ [확인 완료]` 버튼 클릭에 따라 업무 문서를 순차적으로 진행한다. 보고서 읽기 중 ECHO의 실시간 반응 대사(최대 2개), [확인 완료] 버튼 클릭 시 ECHO의 `"다음 업무는 [다음 업무명]입니다. 보여드릴게요."` 대사 안내 및 화면 전환, 업무 중 무작위 발생하는 동료 메신저 알림 팝업(좌측 업무 화면 경계 내 우상단)/앱 UI(좌측 업무 화면 내 드래그 자유 이동 Draggable UI) 및 축소 알림 버블(답장 전 축소 시 숫자 `1`, 답장 완료 후 축소 시 미노출; 리부팅 진행 동안 `rebootState !== 'idle'` 아이콘 완전 숨김), 점심 메뉴 질문(`"오늘 점심 메뉴 뭐먹을래?"`), 자유 텍스트 답장 후 동료 긍정 반응(`"그 메뉴 좋다!"`) 1회 수신(입력창 placeholder 내 `(자유 텍스트)` 보조 라벨 전면 삭제 ➔ `답장을 입력하세요...` 표기, 한글 IME 조합 및 전송 후 잔류/재입력 버그 원인 차단 및 완전 초기화 보장), 지원자 이력서 3명 후보 서사적 적격/부적격 판정(안내 배너 및 `서사적 판정 선택:` 라벨 전면 삭제, 텍스트 변경 없이 단순 `✓ [확인 완료]` 표기 고정 & 미선택 시 그레이 비활성화 `disabled={isResumeIncomplete}`로 필수 평가 유도, 퍼즐/엔딩 영향 없음 & 이력서 검토 단계 ECHO 대화/Q&A 전면 비활성화)을 거친다.
 
-이후 메타 경고 문구("⚠️ [ECHO 시스템 업데이트 승인]...") 및 하단 문구가 전면 삭제된 "ECHO 시스템 업데이트 필요" 기안 승인으로 본 퍼즐(ECHO 패치 승인 클릭 후 rebooting 상태 2초 축소, lockdown 상태 2초 연장된 9초 컷신 연출, 비상 HUD & 60분 타이머 가동)로 진입한다. 본 퍼즐 진입 후 메인 터미널 UI 및 콘텐츠는 18가지 상세 정제 사양과 함께 다음 7가지 핵심 피드백 정제/버그 수정 사양, 비상 컷신 전후 터미널 UI 통일 사양 및 5가지 UI/UX 개선 상세 사양이 엄격히 준수된다:
+이후 메타 경고 문구("⚠️ [ECHO 시스템 업데이트 승인]...") 및 하단 문구가 전면 삭제된 "ECHO 시스템 업데이트 필요" 기안 승인으로 본 퍼즐(ECHO 패치 승인 클릭 후 rebooting 상태 2초 축소, lockdown 상태 2초 연장된 9초 컷신 연출, 비상 HUD & 60분 타이머 가동)로 진입한다. 본 퍼즐 진입 후 메인 터미널 UI 및 콘텐츠는 18가지 상세 정제 사양과 함께 다음 7가지 핵심 피드백 정제/버그 수정 사양, 비상 컷신 전후 터미널 UI 통일 사양, 5가지 UI/UX 개선 상세 사양 및 4가지 로그 파일 텍스트 정제 사양이 엄격히 준수된다:
 1) 초기 ECHO 대사 전면 삭제 ("김우주 담당자님, 출근이 확인되었습니다..." 삭제)
 2) 로그 파일 뷰어 헤더 컴팩트화 (h2, 경로, 분류 박스 폰트/여백 최소화하여 본문 `<pre>`가 영역 대부분을 차지하도록 레이아웃 조절)
 3) CHECKPOINT HINT 삭제 ("첨부한 파일 조합이 현재 Act와 맞지 않습니다..." 힌트 문구 및 관련 안내 블록 전면 삭제)
@@ -65,7 +65,11 @@
 27) 상단 타이머 HUD의 `NORMAL SESSION`, `Act-1` 라벨 문구 삭제
 28) `power_grid_maint.note` 내용 디제틱 한국어 재작성 및 휴지통(`/Recycle_Bin/`) 파일 복구 전 첨부 불가 처리
 29) Sensor diagram 개발자 프롬프트 잔재 삭제 및 디제틱 도면 교체
-30) 파일 뷰어 `DIAGNOSTIC NOTE` 버튼 삭제 및 `O₂ LEVEL` HUD `drain x1.0x` 문구 삭제.
+30) 파일 뷰어 `DIAGNOSTIC NOTE` 버튼 삭제 및 `O₂ LEVEL` HUD `drain x1.0x` 문구 삭제
+31) `sensor_diagram.png` (sensor_diagram.txt) 본문 하단 열 감지 헤드 문구 전면 삭제
+32) `crew_comms_buffer.log` 본문 대화 화자 표기를 알파벳 (A, B, C)에서 디제틱 승무원 이름(`박진수 (엔지니어)`, `이민아 (통신관)`, `최성현 (보안관)`)으로 전면 변경
+33) `email_chain_july.txt` 본문 하단 김 박사 이전 답장 문구 전면 삭제
+34) `tool_manual.txt` 드래그 앤 드롭 안내 텍스트를 실제 게임플레이 방식인 `텍스트 파일 열람 시 #404_CORRUPTED 표시가 뜨면 파일 뷰어 상단의 [LOG_FIXER로 데이터 복구] 버튼을 클릭하세요.`로 변경.
 
 또한 비상 컷신 이후 진입하는 메인 퍼즐 터미널 UI(`App.tsx`: `terminal-frame`)는 비상 컷신 이전 워크스테이션 UI(`WorkInterface.tsx`: `work-split-container`, `work-header`, `work-split-body`, `work-left-panel`, `work-right-panel`)와 레이아웃, 헤더 스타일, 색상 테마 및 1.6fr : 1fr 2분할 바디 구조가 100% 동일하게 통일된다. 헤더 좌측에는 `HERMES WORKSTATION` 뱃지와 `HERMES SHIP SYSTEM COMMAND` 타이틀이, 중앙 공간에는 상단 헤더 중앙에 균형 배치된 확장 비상 HUD (`[O₂ Level]`, `[Power Grid]`, `[REMAINING TIME]`)가, 우측에는 `근무자: 김우주 (AI 관리 담당자)` 및 `● EMERGENCY LOCKDOWN ACTIVE` 비상 표시가 배치된다. 2분할 패널 바디는 좌측(`work-left-panel`) 파일 탐색기(약 180~200px 고정 너비) & 파일 뷰어(대폭 확장 너비) 통합 뷰포트, 우측(`work-right-panel` / `echo-chat-panel`) ECHO 대화 & 증거 제출 컴포저 통합 렌더링으로 연결되어 컷신 전후 화면 프레임, 패널 헤더 스타일, 스크롤바, 테두리 그라디언트, 폰트 크기가 100% 시각적으로 완벽하게 통일된다.
 
@@ -112,11 +116,11 @@ Resolved: Cloudflare Worker 기반 Hermes NPC API 명세(`https://royal-firefly-
 
 ## PM Readiness
 
-- 기획 방향성 분석: ready (Change-001 및 Q21~Q60 사용자 피드백, 5가지 추가 UI/UX 개선 사양, Cloudflare Worker NPC API 명세 반영 완료)
-- MVP 범위 확정: ready for Cloudflare Worker NPC API integrated MVP with Diegetic/ECHO-driven flow, 5 UI/UX refinements, and 100% local fallback
-- 전체 task 확정: `feat-001`~`feat-039` (완료 - 7가지 핵심 게임플레이/UI/버그 수정 사양 feat-039 반영 완료)
-- Active Task: `feat-039` (done)
-- 미확정 항목: 없음 (Q1~Q62 전 항목 답변/명세 수립 완료)
+- 기획 방향성 분석: ready (Change-001 및 Q21~Q63 사용자 피드백, 5가지 추가 UI/UX 개선 사양, Cloudflare Worker NPC API 명세, 4가지 로그 파일 텍스트 정제 사양 반영 완료)
+- MVP 범위 확정: ready for Cloudflare Worker NPC API integrated MVP with Diegetic/ECHO-driven flow, 5 UI/UX refinements, 4 log file text refinements, and 100% local fallback
+- 전체 task 확정: `feat-001`~`feat-040` (완료 - 4가지 로그 파일 텍스트 정제 사양 feat-040 반영 완료)
+- Active Task: `feat-040` (done)
+- 미확정 항목: 없음 (Q1~Q63 전 항목 답변/명세 수립 완료)
 
 ## Recommended PM Decision
 

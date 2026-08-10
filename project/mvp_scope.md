@@ -2,14 +2,14 @@
 
 ## Document Meta
 
-- version: 1.8
+- version: 1.9
 - pm agent: codex
 - date: 2026-08-10
-- status: confirmed - 7가지 핵심 게임플레이/UI/버그 수정 요구사항 (feat-039) 반영 완료 (초기 ECHO 대사 삭제, 로그 파일 뷰어 헤더 컴팩트화, CHECKPOINT HINT 삭제, 제출 전송 후 입력창/첨부 초기화, Log_Fixer 복구 후 자동 첨부 방지, 휴지통 파일 Log_Fixer 복구 지원, Act 2 성공 후 Act 3 엄격 전이 및 엔딩 조기 발동 방지)
+- status: confirmed - 4가지 로그 파일 텍스트 정제 요구사항 (feat-040) 반영 완료 (sensor_diagram 하단 문구 삭제, crew_comms_buffer 알파벳 화자 디제틱 승무원 이름 전면 변경, email_chain_july 이전 답장 김 박사 문구 삭제, tool_manual 드래그 앤 드롭 문구 [LOG_FIXER로 데이터 복구] 버튼 클릭 변경)
 
 ## MVP Goal
 
-플레이어가 메타 카피(`CONTROL ROOM STANDBY`, 하단 안내 칸)가 전면 삭제된 3D 메인 메뉴에서 100% Full Screen 터미널로 진입하여, 메타 텍스트가 전면 제거된 Diegetic 회사 인트라넷에서 로그인 폼(`woojoo.kim`, `**********`)을 확인하고 [출근] 후, ECHO 대화 브리핑 및 좌측 문서 하단 단순 `✓ [확인 완료]` 고정 버튼 전환에 따른 순차 업무 흐름(자원 채굴 보고서, 전력/산소 보고서, 동료 메신저 팝업(좌측 업무 화면 경계 내 우상단)/앱 UI(좌측 업무 화면 내 드래그 자유 이동 Draggable UI)/축소 알림 버블(답장 전 `1`, 답장 완료 후 미노출; 리부팅 중 완전 미노출; placeholder `(자유 텍스트)` 삭제 ➔ `답장을 입력하세요...`, IME 입력 버그 수정), 지원자 이력서 검토 서사 판정(메타 배너/라벨 전면 삭제, 텍스트 변경 없이 단순 `✓ [확인 완료]` 표기 고정 & 미선택 시 그레이 비활성화 `disabled={isResumeIncomplete}` 필수 평가 유도, ECHO 대화 비활성화), 메타 경고 문구 및 하단 문구가 전면 삭제된 ECHO 시스템 업데이트 기안 승인)을 진행한다. 이후 [업데이트 승인]에 의한 기습 리부팅 (rebooting 상태 2초 축소 / lockdown 연장 조절 컷신 연출 & 리부팅 중 동료 메신저 버블 완전 숨김) 및 오판 비상 봉쇄(상단 title-bar `ECHO STATE / monitoring` 카드 및 `ACT-1 100%` 블록 전면 제거, 상단 헤더 중앙 확장 비상 HUD & 60분 타이머 가동)가 발생하면, Hermes OS에서 `quarantine_rules.conf` 오프셋 해설 주석 삭제 (+17,520시간 표기), ECHO 대화창 SYSTEM 메시지 전면 제거 등 18+5가지 상세 정제 사양(파일 탐색기 약 180~200px 축소 & 뷰어 대폭 확장, 버튼 텍스트 한국어 전면 전환, 잠긴 파일 힌트 텍스트 전면 삭제, `ACT-1 ACTIVE` 라벨 전면 삭제 및 비상 HUD 연동, 파일 뷰어 `<dt>증거성</dt>`/`<dt>상태</dt>` 삭제, `Act-1 Mission` 삭제, `Evidence 0/1` 삭제, Tool manual 보안 메모 삭제, 사이드바 Log fixer mini program 삭제 & 파일 뷰어 `[LOG_FIXER로 데이터 복구]` 버튼 유지, 복구 전 손상/삭제 파일 내용 은폐, `NEXT ACTION` 삭제, `HOW TO PLAY` 첫 목표/Open first file 삭제, Log Fixer 완료 메타 문구 삭제, 타이머 HUD `NORMAL SESSION`/`Act-1` 삭제, `power_grid_maint.note` 디제틱 한국어 재작성, 휴지통 복구 전 첨부 불가, Sensor diagram 프롬프트 삭제 및 명시 라벨 교체, `DIAGNOSTIC NOTE` 삭제, `O₂ LEVEL` `drain x1.0x` 삭제), Security Gate 한국어 암호 모달(힌트 문구 전면 삭제), 블랙아웃 화면 중앙 단일 강조 팝업(Center Modal)을 확인하며 Act 1~3을 통과하고 통제실 문을 열어 탈출하는 최소 완성형 플레이 경험을 만든다. ECHO 및 동료 대화는 Cloudflare Worker NPC API(`https://royal-firefly-60c3.jwpark971219.workers.dev`)를 연동하되, 3초 타임아웃 및 100% 로컬 Fallback 안전장치로 오프라인/장애 시에도 끊김 없는 플레이를 보장한다.
+플레이어가 메타 카피(`CONTROL ROOM STANDBY`, 하단 안내 칸)가 전면 삭제된 3D 메인 메뉴에서 100% Full Screen 터미널로 진입하여, 메타 텍스트가 전면 제거된 Diegetic 회사 인트라넷에서 로그인 폼(`woojoo.kim`, `**********`)을 확인하고 [출근] 후, ECHO 대화 브리핑 및 좌측 문서 하단 단순 `✓ [확인 완료]` 고정 버튼 전환에 따른 순차 업무 흐름(자원 채굴 보고서, 전력/산소 보고서, 동료 메신저 팝업(좌측 업무 화면 경계 내 우상단)/앱 UI(좌측 업무 화면 내 드래그 자유 이동 Draggable UI)/축소 알림 버블(답장 전 `1`, 답장 완료 후 미노출; 리부팅 중 완전 미노출; placeholder `(자유 텍스트)` 삭제 ➔ `답장을 입력하세요...`, IME 입력 버그 수정), 지원자 이력서 검토 서사 판정(메타 배너/라벨 전면 삭제, 텍스트 변경 없이 단순 `✓ [확인 완료]` 표기 고정 & 미선택 시 그레이 비활성화 `disabled={isResumeIncomplete}` 필수 평가 유도, ECHO 대화 비활성화), 메타 경고 문구 및 하단 문구가 전면 삭제된 ECHO 시스템 업데이트 기안 승인)을 진행한다. 이후 [업데이트 승인]에 의한 기습 리부팅 (rebooting 상태 2초 축소 / lockdown 연장 조절 컷신 연출 & 리부팅 중 동료 메신저 버블 완전 숨김) 및 오판 비상 봉쇄(상단 title-bar `ECHO STATE / monitoring` 카드 및 `ACT-1 100%` 블록 전면 제거, 상단 헤더 중앙 확장 비상 HUD & 60분 타이머 가동)가 발생하면, Hermes OS에서 `quarantine_rules.conf` 오프셋 해설 주석 삭제 (+17,520시간 표기), ECHO 대화창 SYSTEM 메시지 전면 제거 등 18+5가지 상세 정제 사양(파일 탐색기 약 180~200px 축소 & 뷰어 대폭 확장, 버튼 텍스트 한국어 전면 전환, 잠긴 파일 힌트 텍스트 전면 삭제, `ACT-1 ACTIVE` 라벨 전면 삭제 및 비상 HUD 연동, 파일 뷰어 `<dt>증거성</dt>`/`<dt>상태</dt>` 삭제, `Act-1 Mission` 삭제, `Evidence 0/1` 삭제, Tool manual 보안 메모 삭제, 사이드바 Log fixer mini program 삭제 & 파일 뷰어 `[LOG_FIXER로 데이터 복구]` 버튼 유지, 복구 전 손상/삭제 파일 내용 은폐, `NEXT ACTION` 삭제, `HOW TO PLAY` 첫 목표/Open first file 삭제, Log Fixer 완료 메타 문구 삭제, 타이머 HUD `NORMAL SESSION`/`Act-1` 삭제, `power_grid_maint.note` 디제틱 한국어 재작성, 휴지통 복구 전 첨부 불가, Sensor diagram 프롬프트 삭제 및 명시 라벨 교체, `DIAGNOSTIC NOTE` 삭제, `O₂ LEVEL` `drain x1.0x` 삭제)과 4가지 로그 파일 텍스트 정제 사양(sensor_diagram 열 감지 헤드 하단 문구 삭제, crew_comms_buffer 알파벳 화자 디제틱 승무원 이름 전환, email_chain_july 김 박사 이전 답장 문구 삭제, tool_manual 드래그 앤 드롭 문구 [LOG_FIXER로 데이터 복구] 버튼 클릭 변경), Security Gate 한국어 암호 모달(힌트 문구 전면 삭제), 블랙아웃 화면 중앙 단일 강조 팝업(Center Modal)을 확인하며 Act 1~3을 통과하고 통제실 문을 열어 탈출하는 최소 완성형 플레이 경험을 만든다. ECHO 및 동료 대화는 Cloudflare Worker NPC API(`https://royal-firefly-60c3.jwpark971219.workers.dev`)를 연동하되, 3초 타임아웃 및 100% 로컬 Fallback 안전장치로 오프라인/장애 시에도 끊김 없는 플레이를 보장한다.
 
 ## Proposed In Scope
 
@@ -46,6 +46,11 @@
 - **상단 title-bar status HUD 중 `ECHO STATE / monitoring` 카드 및 `ACT-1 100%` (`mission-clock`) 블록 전면 제거**: 상단 status bar에서 `ECHO STATE / monitoring` 카드와 `ACT-1 100%` 블록을 전면 제거
 - **ECHO 대화창 SYSTEM 스피커 메시지 전면 제거**: ECHO 대화창 메시지 목록에서 SYSTEM 스피커 메시지 전면 제거 (오직 ECHO 대사 및 플레이어 제출 항목만 노출)
 - **`quarantine_rules.conf` 파일 내용 정제**: 오프셋 값 항목에서 개발자 해설풍 문구 (`<-- 치명적 오차: 약 2년 앞으로 밀림`) 전면 삭제 (단순 `시간 오프셋 값: +17,520시간` 표기 고정)
+- **4가지 로그 파일 텍스트 정제 상세 사양 (`feat-040`)**:
+  - 1. **`sensor_diagram.png` (sensor_diagram.txt) 하단 문구 삭제**: 본문 하단 `※ 이 도면은 SENSOR-BIO-04가 ECHO_SEC201_AUTO에 직접 연결된 유일한 열 감지 헤드임을 나타냅니다.` 문구 전면 삭제
+  - 2. **`crew_comms_buffer.log` 본문 대화 화자 표기 변경**: 본문 대화 화자 표기를 알파벳 (A, B, C)에서 디제틱 승무원 이름(`박진수 (엔지니어)`, `이민아 (통신관)`, `최성현 (보안관)`)으로 전면 변경
+  - 3. **`email_chain_july.txt` 하단 이전 답장 문구 삭제**: 본문 하단 `--- 이전 답장 / 김 박사 --- 이 문제가 근무 중 발생하면 김우주가 모듈 #04에 가장 먼저 갇힐 겁니다. 운영 인력이 찾을 수 있을 만큼은 눈에 띄되, 터미널 배너에는 보이지 않는 곳에 코드를 남겨 주세요.` 문구 전면 삭제
+  - 4. **`tool_manual.txt` 툴 사용 안내 텍스트 변경**: 본문 툴 사용 안내 텍스트 중 `...해당 파일을 드래그하여 드롭하세요.` 문구를 실제 게임플레이 방식인 `텍스트 파일 열람 시 #404_CORRUPTED 표시가 뜨면 파일 뷰어 상단의 [LOG_FIXER로 데이터 복구] 버튼을 클릭하세요.`로 변경
 - **7가지 핵심 게임플레이/UI/버그 수정 상세 사양 (`feat-039`)**:
   - 1. **초기 ECHO 대사 삭제**: "김우주 담당자님, 출근이 확인되었습니다..." 브리핑 문구 전면 삭제
   - 2. **로그 파일 뷰어 헤더 컴팩트화**: 제목(h2), 경로, 분류 박스의 폰트 및 여백을 최소화하여 파일 본문 내용(`<pre>`)이 뷰어 영역의 대부분을 차지하도록 레이아웃 조절
@@ -120,6 +125,10 @@
 
 ## Proposed Out Of Scope
 
+- **`sensor_diagram.png` (sensor_diagram.txt) 본문 하단 열 감지 헤드 문구** (`※ 이 도면은 SENSOR-BIO-04가 ECHO_SEC201_AUTO에 직접 연결된 유일한 열 감지 헤드임을 나타냅니다.` 전면 삭제)
+- **`crew_comms_buffer.log` 본문 대화 알파벳 화자 표기 (A, B, C)** (디제틱 승무원 이름 `박진수 (엔지니어)`, `이민아 (통신관)`, `최성현 (보안관)`으로 전면 전환)
+- **`email_chain_july.txt` 본문 하단 김 박사 이전 답장 문구** (`--- 이전 답장 / 김 박사 --- 이 문제가 근무 중 발생하면 김우주가 모듈 #04에 가장 먼저 갇힐 겁니다...` 전면 삭제)
+- **`tool_manual.txt` 드래그 앤 드롭 툴 안내 문구** (`...해당 파일을 드래그하여 드롭하세요.` ➔ `텍스트 파일 열람 시 #404_CORRUPTED 표시가 뜨면 파일 뷰어 상단의 [LOG_FIXER로 데이터 복구] 버튼을 클릭하세요.`로 변경)
 - **초기 ECHO 브리핑 대사** ("김우주 담당자님, 출근이 확인되었습니다...")
 - **CHECKPOINT HINT 문구 및 관련 안내 블록** ("첨부한 파일 조합이 현재 Act와 맞지 않습니다...")
 - **제출 후 입력창 잔류 텍스트 및 첨부 트레이 잔류 항목** (성공/실패 상관없이 전송 즉시 완전 초기화)
@@ -198,6 +207,11 @@
 - 상단 title-bar status HUD 중 `ECHO STATE / monitoring` 카드 및 `ACT-1 100%` (`mission-clock`) 블록이 전면 제거되어 노출되지 않는다.
 - ECHO 대화창 메시지 목록에는 SYSTEM 스피커 메시지가 노출되지 않으며 오직 ECHO 대사 및 플레이어 제출 항목만 노출된다.
 - `/System/Security/quarantine_rules.conf` 파일 내용 내 오프셋 값 항목에 개발자 해설풍 주석(`<-- 치명적 오차: 약 2년 앞으로 밀림`)이 삭제되고 단순 `시간 오프셋 값: +17,520시간`으로 노출된다.
+- **4가지 로그 파일 텍스트 정제 검증 항목 (`feat-040`)**:
+  - `sensor_diagram.png` (sensor_diagram.txt) 본문 하단 열 감지 헤드 문구가 전면 삭제된다.
+  - `crew_comms_buffer.log` 본문 대화 화자 표기가 알파벳 (A, B, C)에서 디제틱 승무원 이름(`박진수 (엔지니어)`, `이민아 (통신관)`, `최성현 (보안관)`)으로 전면 전환된다.
+  - `email_chain_july.txt` 본문 하단 김 박사 이전 답장 문구가 전면 삭제된다.
+  - `tool_manual.txt` 드래그 앤 드롭 문구가 실제 게임플레이 방식인 `텍스트 파일 열람 시 #404_CORRUPTED 표시가 뜨면 파일 뷰어 상단의 [LOG_FIXER로 데이터 복구] 버튼을 클릭하세요.`로 변경된다.
 - **7가지 핵심 피드백 검증 항목 (`feat-039`)**:
   - 초기 ECHO 대사 ("김우주 담당자님, 출근이 확인되었습니다...")가 전면 삭제되어 노출되지 않는다.
   - 로그 파일 뷰어 헤더 (h2, 경로, 분류 박스)가 컴팩트화되어 본문(`<pre>`) 영역이 파일 뷰어의 대부분을 차지한다.

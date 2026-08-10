@@ -4,10 +4,10 @@
 
 ## Document Meta
 
-- version: 6.0
+- version: 7.0
 - author: PM Agent
 - date: 2026-08-10
-- status: confirmed - feat-039 (7가지 핵심 게임플레이/UI/버그 수정: 초기 ECHO 대사 삭제, 로그 파일 뷰어 헤더 컴팩트화, CHECKPOINT HINT 삭제, 제출 전송 후 입력창/첨부 초기화, Log_Fixer 사용 후 자동 첨부 방지, 휴지통 파일 Log_Fixer 복구 지원, Act 2 성공 후 Act 3 엄격 전이 및 엔딩 조기 발동 방지) 사양 반영
+- status: confirmed - feat-040 (4가지 로그 파일 텍스트 정제: sensor_diagram 하단 문구 삭제, crew_comms_buffer 알파벳 화자 디제틱 승무원 이름 전면 변경, email_chain_july 이전 답장 김 박사 문구 삭제, tool_manual 드래그 앤 드롭 문구 [LOG_FIXER로 데이터 복구] 버튼 클릭 변경) 사양 반영
 - target docs: `project/mvp_scope.md`, `project/pm_analysis.md`, `project/pm_questions.md`, `project/task_board.md`, `project/tasks/*.md`
 
 ## Background & Motivation
@@ -18,6 +18,7 @@
 아울러 비상 컷신 이후 나오는 메인 퍼즐 터미널 UI를 비상 컷신 이전 워크스테이션 UI와 100% 동일한 레이아웃, 헤더 스타일, 색상 테마 및 1.6fr 1fr 2분할 구조로 통일하여 컷신 전후 시각적 연속성을 완벽하게 제공한다.
 나아가 최신 사용자 피드백 7가지 핵심 요구사항을 반영하여, 1) 초기 ECHO 대사("김우주 담당자님, 출근이 확인되었습니다...")를 전면 삭제하고, 2) 로그 파일 뷰어 헤더(h2, 경로, 분류 박스)를 컴팩트화하여 본문(<pre>)이 뷰어 대부분을 차지하도록 조절하며, 3) CHECKPOINT HINT("첨부한 파일 조합이 현재 Act와 맞지 않습니다...") 힌트 문구 및 관련 안내 블록을 전면 삭제한다. 4) 메시지 전송(제출) 시 성공/실패 여부와 무관하게 작성기 입력창(messageInput = "")과 첨부 트레이(attachedFileIds = [])를 즉시 빈 상태로 완전 초기화하고, 5) Log_Fixer 복구 완료 시 뷰어 선택(selectFile)만 수행하고 ECHO 자동 첨부를 방지(수동 첨부 필요)하며, 6) 휴지통(/Recycle_Bin/) 내 손상/삭제 파일 선택 시 [LOG_FIXER로 데이터 복구] 버튼 활성화 및 복구(recoveredFileIds 연동)를 지원한다. 7) Act 2 클리어 후엔 엄격하게 Act 3(act-3)로만 전이하고, Act 3 조합 증거 검증 완료 전에는 door_unlocked 또는 ending-ready 상태로 전이되지 않도록 방어 로직을 강화한다.
 아울러 ECHO 대화/증거 판정 및 동료 메신저에 Cloudflare Worker 기반 Hermes NPC API(`https://royal-firefly-60c3.jwpark971219.workers.dev`)를 연동하되, 3초 타임아웃 및 100% 로컬 Fallback 안전장치를 필수로 도입하여 네트워크 장애나 예외 상황에서도 플레이가 중단되지 않는 견고한 아키텍처를 완성한다.
+또한 최신 사용자 4가지 로그 파일 텍스트 정제 사양을 전면 반영하여, `sensor_diagram.png` (sensor_diagram.txt) 본문 하단 열 감지 헤드 문구 전면 삭제, `crew_comms_buffer.log` 알파벳 화자를 디제틱 승무원 이름(`박진수 (엔지니어)`, `이민아 (통신관)`, `최성현 (보안관)`)으로 전면 전환, `email_chain_july.txt` 하단 김 박사 이전 답장 문구 전면 삭제, `tool_manual.txt` 드래그 앤 드롭 안내 텍스트를 실제 게임플레이 방식인 `[LOG_FIXER로 데이터 복구]` 버튼 클릭 안내로 변경한다.
 
 
 ## Detailed Change Specifications
@@ -183,13 +184,19 @@
 - **6. 휴지통(`/Recycle_Bin/`) 파일 Log_Fixer 복구 지원**: 휴지통 내부 손상/삭제 파일(`blackbox_raw.log`, `deleted_override.txt` 등) 선택 시 `[LOG_FIXER로 데이터 복구]` 버튼을 활성화하고 복구(`recoveredFileIds` 연동) 가능하도록 수정.
 - **7. Act 2 클리어 후 Act 3 전이 및 엔딩 조기 발동 버그 수정**: Act 2 성공 시엔 엄격하게 Act 3(`act-3`)로만 전이하고, Act 3 조합 증거 검증 완료 전에는 `door_unlocked` 또는 `ending-ready` 상태로 전이되지 않도록 방어 로직 강화.
 
+### 18. 4가지 로그 파일 텍스트 정제 상세 사양 (Change-001 Follow-up v7.0 / feat-040)
+- **1. `sensor_diagram.png` (sensor_diagram.txt) 하단 문구 삭제**: 본문 하단 `※ 이 도면은 SENSOR-BIO-04가 ECHO_SEC201_AUTO에 직접 연결된 유일한 열 감지 헤드임을 나타냅니다.` 문구 전면 삭제.
+- **2. `crew_comms_buffer.log` 본문 대화 화자 표기 변경**: 본문 대화 화자 표기를 알파벳 (A, B, C)에서 디제틱 승무원 이름(`박진수 (엔지니어)`, `이민아 (통신관)`, `최성현 (보안관)`)으로 전면 변경.
+- **3. `email_chain_july.txt` 하단 이전 답장 문구 삭제**: 본문 하단 `--- 이전 답장 / 김 박사 --- 이 문제가 근무 중 발생하면 김우주가 모듈 #04에 가장 먼저 갇힐 겁니다. 운영 인력이 찾을 수 있을 만큼은 눈에 띄되, 터미널 배너에는 보이지 않는 곳에 코드를 남겨 주세요.` 문구 전면 삭제.
+- **4. `tool_manual.txt` 툴 사용 안내 텍스트 변경**: 본문 툴 사용 안내 텍스트 중 `...해당 파일을 드래그하여 드롭하세요.` 문구를 실제 게임플레이 방식인 `텍스트 파일 열람 시 #404_CORRUPTED 표시가 뜨면 파일 뷰어 상단의 [LOG_FIXER로 데이터 복구] 버튼을 클릭하세요.`로 변경.
+
 ## Impact Analysis
 
-- **`project/pm_analysis.md`**: Core Loop, Visual Scope, Diegetic UI, 18+5+1+5+6+5+7가지 상세 게임플레이/UI/3D/버그 수정 사양 반영.
-- **`project/mvp_scope.md`**: MVP In Scope / Out of Scope 및 Acceptance Criteria에 7가지 핵심 피드백 검증 항목 반영.
-- **`project/pm_questions.md`**: Q62 신규 항목에 7가지 핵심 피드백 사양 추가 기록.
-- **`project/task_board.md`**: `feat-039` 신규 생성 및 done 반영.
-- **`project/tasks/*.md`**: 신규 태스크 문서 `feat-039.md` 생성 및 done 상태 기록.
+- **`project/pm_analysis.md`**: Core Loop, Visual Scope, Diegetic UI, 18+5+1+5+6+5+7+4가지 상세 게임플레이/UI/3D/버그 수정/텍스트 정제 사양 반영.
+- **`project/mvp_scope.md`**: MVP In Scope / Out of Scope 및 Acceptance Criteria에 4가지 로그 파일 텍스트 정제 검증 항목 반영.
+- **`project/pm_questions.md`**: Q63 신규 항목에 4가지 로그 파일 텍스트 정제 사양 추가 기록.
+- **`project/task_board.md`**: `feat-040` 신규 생성 및 done 반영.
+- **`project/tasks/*.md`**: 신규 태스크 문서 `feat-040.md` 생성 및 done 상태 기록.
 
 
 

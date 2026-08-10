@@ -21,7 +21,7 @@ Replace placeholder-like internal file content with the concrete Category A cont
 - Clean Sensor diagram content of developer prompt remnants and replace with diegetic diagram containing specified labels (`SENSOR-BIO-04 열 감지 스캔 헤드`, `통제실 모듈 #04 장착 지점`, etc.) (Q46).
 - Preserve the Category A Act path:
   - Act 1: `sensor_calib.log` proves sensor drift and 186-day missed calibration.
-  - Act 2: `email_chain_july.txt` reveals Security PIN `8842`; `quarantine_rules.conf` is corrupted and requires `Log_Fixer.exe`; recovered content proves `+17520_HOURS` offset and expired 72-hour quarantine.
+  - Act 2: `email_chain_july.txt` reveals Security PIN `8842` (with bottom note `--- 이전 답장 / 김 박사 ---...` completely removed per Q63 / feat-040); `quarantine_rules.conf` is corrupted and requires `Log_Fixer.exe`; recovered content proves `+17520_HOURS` offset and expired 72-hour quarantine.
   - Completely remove developer explanation note (`<-- 치명적 오차: 약 2년 앞으로 밀림`) from `quarantine_rules.conf` offset item, displaying purely diegetic `시간 오프셋 값: +17,520시간` (Q49 user feedback).
   - Act 3: `ai_priority_matrix.json` + `deleted_override.txt` prove ECHO cannot prioritize mission/security over human life.
 - Remove or hide production-facing `PLAYER NOTE`, `QA hint`, or direct answer copy.
