@@ -4,10 +4,10 @@
 
 ## Document Meta
 
-- version: 7.0
+- version: 8.0
 - author: PM Agent
 - date: 2026-08-10
-- status: confirmed - feat-040 (4가지 로그 파일 텍스트 정제: sensor_diagram 하단 문구 삭제, crew_comms_buffer 알파벳 화자 디제틱 승무원 이름 전면 변경, email_chain_july 이전 답장 김 박사 문구 삭제, tool_manual 드래그 앤 드롭 문구 [LOG_FIXER로 데이터 복구] 버튼 클릭 변경) 사양 반영
+- status: confirmed - feat-041 (4가지 세부 개선 요구사항: 메신저 점심 대사 "우주씨, 오늘 점심 뭐 드실래요?" 정제, Power Surge 팝업 한국어화 및 2초 상향, 일시정지 ⏸️ 버튼 추가, 일시정지 모달 & 8px 블러 & 타이머/산소 멈춤 기능) 사양 반영
 - target docs: `project/mvp_scope.md`, `project/pm_analysis.md`, `project/pm_questions.md`, `project/task_board.md`, `project/tasks/*.md`
 
 ## Background & Motivation
@@ -19,7 +19,7 @@
 나아가 최신 사용자 피드백 7가지 핵심 요구사항을 반영하여, 1) 초기 ECHO 대사("김우주 담당자님, 출근이 확인되었습니다...")를 전면 삭제하고, 2) 로그 파일 뷰어 헤더(h2, 경로, 분류 박스)를 컴팩트화하여 본문(<pre>)이 뷰어 대부분을 차지하도록 조절하며, 3) CHECKPOINT HINT("첨부한 파일 조합이 현재 Act와 맞지 않습니다...") 힌트 문구 및 관련 안내 블록을 전면 삭제한다. 4) 메시지 전송(제출) 시 성공/실패 여부와 무관하게 작성기 입력창(messageInput = "")과 첨부 트레이(attachedFileIds = [])를 즉시 빈 상태로 완전 초기화하고, 5) Log_Fixer 복구 완료 시 뷰어 선택(selectFile)만 수행하고 ECHO 자동 첨부를 방지(수동 첨부 필요)하며, 6) 휴지통(/Recycle_Bin/) 내 손상/삭제 파일 선택 시 [LOG_FIXER로 데이터 복구] 버튼 활성화 및 복구(recoveredFileIds 연동)를 지원한다. 7) Act 2 클리어 후엔 엄격하게 Act 3(act-3)로만 전이하고, Act 3 조합 증거 검증 완료 전에는 door_unlocked 또는 ending-ready 상태로 전이되지 않도록 방어 로직을 강화한다.
 아울러 ECHO 대화/증거 판정 및 동료 메신저에 Cloudflare Worker 기반 Hermes NPC API(`https://royal-firefly-60c3.jwpark971219.workers.dev`)를 연동하되, 3초 타임아웃 및 100% 로컬 Fallback 안전장치를 필수로 도입하여 네트워크 장애나 예외 상황에서도 플레이가 중단되지 않는 견고한 아키텍처를 완성한다.
 또한 최신 사용자 4가지 로그 파일 텍스트 정제 사양을 전면 반영하여, `sensor_diagram.png` (sensor_diagram.txt) 본문 하단 열 감지 헤드 문구 전면 삭제, `crew_comms_buffer.log` 알파벳 화자를 디제틱 승무원 이름(`박진수 (엔지니어)`, `이민아 (통신관)`, `최성현 (보안관)`)으로 전면 전환, `email_chain_july.txt` 하단 김 박사 이전 답장 문구 전면 삭제, `tool_manual.txt` 드래그 앤 드롭 안내 텍스트를 실제 게임플레이 방식인 `[LOG_FIXER로 데이터 복구]` 버튼 클릭 안내로 변경한다.
-
+나아가 사용자의 4가지 세부 개선 요구사항을 반영하여, 1) 메신저 점심 대사를 `"우주씨, 오늘 점심 뭐 드실래요?"`로 정제하고, 2) 오답 제출 시 나타나는 Power Surge 팝업 지속시간을 2초(2000ms)로 연장하며 타이틀과 메시지("전력 서지 경고", "ECHO 경고: 잘못된 절차 주장은 헤르메스 전력 라인을 불안정하게 만듭니다.")를 한국어로 전환한다. 3) 메인 탐색 터미널 HUD 영역에 일시정지(⏸️) 버튼을 추가하고, 4) 일시정지 클릭 시 O₂ 감소 및 남은 시간 카운트다운 멈춤, 화면 8px 블록 블러(`backdrop-filter: blur(8px)`) 처리, 중앙 `[PAUSED]` 텍스트 및 `[RESUME]` 버튼 배치를 지원한다.
 
 ## Detailed Change Specifications
 
@@ -69,7 +69,7 @@
    - **별도 메신저 앱 UI (좌측 업무 화면 내 드래그 자유 이동)**: 팝업 클릭 시 별도의 메신저/채팅 앱 창 인터페이스가 열리며, **좌측 업무 화면 경계 영역 안에서 플레이어가 자유롭게 드래그하여 위치 이동(Draggable UI)**이 가능하다.
    - **축소/무응답 UX & 신규 메시지 버블 (좌측 업무 화면 내 경계 고정)**: 플레이어가 팝업/채팅창을 축소(닫기)하여 나중에 응답할 수 있다. 답장 전 축소 시에는 **좌측 업무 화면 경계 내부의 오른쪽 하단(Bottom-Right)**에 말풍선 채팅 앱 아이콘 + 빨간색 신규 메시지 알림 버블(숫자 `1`)이 노출되며(아이콘 클릭 시 채팅 앱 창 재개), 답장 완료 후 축소 시에는 축소된 말풍선 아이콘에 신규 메시지 알림 버블(숫자 `1`)이 더 이상 노출되지 않는다.
    - **리부팅 동안 동료 메신저 버블 완전 숨김**: 리부팅 연출 진행 동안(`rebootState !== 'idle'`) 우하단 동료 메신저 말풍선 버블 아이콘을 완전히 숨김(미노출) 처리한다.
-   - **질문 카피**: 동료가 항상 점심 메뉴를 묻는 질문을 전송한다 (예: `"오늘 점심 메뉴 뭐먹을래?"`).
+   - **질문 카피**: 동료가 항상 점심 메뉴를 묻는 질문을 전송한다 (정제 대사: `"우주씨, 오늘 점심 뭐 드실래요?"`).
    - **답장 및 동료 반응**: 플레이어가 자유 텍스트로 메뉴 답장을 전송하면 동료가 `"그 메뉴 좋다!"` 식의 긍정 반응 메시지를 1회 수신한다.
    - **메타 문구 전면 제거 및 Diegetic UX**: 동료 채팅방 답장 입력창 아래의 몰입 방해 메타 문구 `"※ 1회 답장 완료 후 메신저 채널은 읽지 않음(1) 상태로 유지됩니다."` 텍스트를 전면 제거한다. 플레이어 답장 후 메신저 앱 기능 및 UI는 자연스러운 diegetic UX를 유지하며, 어떠한 시스템 메타 보조 설명 문구도 노출하지 않도록 명시한다.
    - **무한 대화 방지**: 답장 ➔ 동료 긍정 반응 수신 완료 후, 플레이어가 추가 메시지를 전송하더라도 메타 안내 문구 없이 자연스러운 diegetic UX 기반으로 '읽지 않음'(`Unread`) 상태를 유지한다.
@@ -184,19 +184,19 @@
 - **6. 휴지통(`/Recycle_Bin/`) 파일 Log_Fixer 복구 지원**: 휴지통 내부 손상/삭제 파일(`blackbox_raw.log`, `deleted_override.txt` 등) 선택 시 `[LOG_FIXER로 데이터 복구]` 버튼을 활성화하고 복구(`recoveredFileIds` 연동) 가능하도록 수정.
 - **7. Act 2 클리어 후 Act 3 전이 및 엔딩 조기 발동 버그 수정**: Act 2 성공 시엔 엄격하게 Act 3(`act-3`)로만 전이하고, Act 3 조합 증거 검증 완료 전에는 `door_unlocked` 또는 `ending-ready` 상태로 전이되지 않도록 방어 로직 강화.
 
-### 18. 4가지 로그 파일 텍스트 정제 상세 사양 (Change-001 Follow-up v7.0 / feat-040)
-- **1. `sensor_diagram.png` (sensor_diagram.txt) 하단 문구 삭제**: 본문 하단 `※ 이 도면은 SENSOR-BIO-04가 ECHO_SEC201_AUTO에 직접 연결된 유일한 열 감지 헤드임을 나타냅니다.` 문구 전면 삭제.
-- **2. `crew_comms_buffer.log` 본문 대화 화자 표기 변경**: 본문 대화 화자 표기를 알파벳 (A, B, C)에서 디제틱 승무원 이름(`박진수 (엔지니어)`, `이민아 (통신관)`, `최성현 (보안관)`)으로 전면 변경.
-- **3. `email_chain_july.txt` 하단 이전 답장 문구 삭제**: 본문 하단 `--- 이전 답장 / 김 박사 --- 이 문제가 근무 중 발생하면 김우주가 모듈 #04에 가장 먼저 갇힐 겁니다. 운영 인력이 찾을 수 있을 만큼은 눈에 띄되, 터미널 배너에는 보이지 않는 곳에 코드를 남겨 주세요.` 문구 전면 삭제.
-- **4. `tool_manual.txt` 툴 사용 안내 텍스트 변경**: 본문 툴 사용 안내 텍스트 중 `...해당 파일을 드래그하여 드롭하세요.` 문구를 실제 게임플레이 방식인 `텍스트 파일 열람 시 #404_CORRUPTED 표시가 뜨면 파일 뷰어 상단의 [LOG_FIXER로 데이터 복구] 버튼을 클릭하세요.`로 변경.
+### 19. 4가지 세부 개선 상세 사양 (Change-001 Follow-up v8.0 / feat-041)
+- **1. 메신저 점심 대사 정제**: 동료 메신저 팝업 알림 및 앱 UI 창의 첫 질문 카피를 기존 `"오늘 점심 메뉴 뭐먹을래?"`에서 정제 존댓말 대사인 `"우주씨, 오늘 점심 뭐 드실래요?"`로 변경한다.
+- **2. Power Surge 팝업 한국어화 및 2초 상향**: 오답(잘못된 절차 주장 / 증거) 제출 시 화면에 표시되는 Power Surge 경고 팝업 지속시간을 2초(2000ms)로 늘리고, 타이틀과 메시지("전력 서지 경고", "ECHO 경고: 잘못된 절차 주장은 헤르메스 전력 라인을 불안정하게 만듭니다.")를 한국어로 변경한다.
+- **3. 일시정지 (Pause) 버튼 추가**: 메인 탐색 터미널 HUD 영역(상단 Header Status Bar)에 일시정지(`⏸️`) 버튼을 추가한다.
+- **4. 일시정지 모달 & 타이머/산소 멈춤 기능**: 일시정지 버튼 클릭 시 O₂ 감소 및 남은 시간 카운트다운 멈춤(Game Clock Freeze), 전체 화면 8px 블록 블러(`backdrop-filter: blur(8px)`) 처리, 화면 중앙에 큼직한 `[PAUSED]` 텍스트 및 그 아래 약간 작은 사이즈의 `[RESUME]` 버튼을 배치하며, RESUME 클릭 시 블러 해제 및 게임이 재개된다.
 
 ## Impact Analysis
 
-- **`project/pm_analysis.md`**: Core Loop, Visual Scope, Diegetic UI, 18+5+1+5+6+5+7+4가지 상세 게임플레이/UI/3D/버그 수정/텍스트 정제 사양 반영.
-- **`project/mvp_scope.md`**: MVP In Scope / Out of Scope 및 Acceptance Criteria에 4가지 로그 파일 텍스트 정제 검증 항목 반영.
-- **`project/pm_questions.md`**: Q63 신규 항목에 4가지 로그 파일 텍스트 정제 사양 추가 기록.
-- **`project/task_board.md`**: `feat-040` 신규 생성 및 done 반영.
-- **`project/tasks/*.md`**: 신규 태스크 문서 `feat-040.md` 생성 및 done 상태 기록.
+- **`project/pm_analysis.md`**: Core Loop, Visual Scope, Diegetic UI, 18+5+1+5+6+5+7+4+4가지 상세 게임플레이/UI/3D/버그 수정/텍스트 정제/세부 개선 사양 반영.
+- **`project/mvp_scope.md`**: MVP In Scope / Out of Scope 및 Acceptance Criteria에 4가지 세부 개선 요구사항 검증 항목 반영.
+- **`project/pm_questions.md`**: Q64 신규 항목에 4가지 세부 개선 사양 추가 기록.
+- **`project/task_board.md`**: `feat-041` 신규 생성 및 done 반영.
+- **`project/tasks/*.md`**: 신규 태스크 문서 `feat-041.md` 생성, `feat-033.md` 및 `feat-015.md` 업데이트.
 
 
 

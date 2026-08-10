@@ -19,9 +19,9 @@ Make oxygen and power feel like emergency pressure, not only numbers.
 - Apply power thresholds: Normal, Caution, Warning, Critical, Blackout.
 - Match the DOCX crisis monitor direction: red alert status, strong monitor glow, oxygen/power bars, and surrounding-room warning signage or placeholder equivalents.
 - Add Caution file/viewer delay, Warning Log_Fixer slowdown, Critical vignette/cursor shake, and Blackout reboot lock.
-- On wrong submission, show a clear power surge moment with ECHO warning copy.
+- On wrong submission, show a clear power surge moment with Korean warning title ("전력 서지 경고") and copy ("ECHO 경고: 잘못된 절차 주장은 헤르메스 전력 라인을 불안정하게 만듭니다.") for 2 seconds (2000ms) (feat-041 / Q64).
 - On Blackout event (power 0%), render exactly ONE single alert popup (blocking duplicate Power Surge popup), positioned at **screen center (Center Modal)** with high-contrast emphasis styling and Korean alert text: `"⚠️ [전력 고갈] 주 전력 그리드 블랙아웃! OS 터미널 긴급 재부팅 중... (남은 시간: N초)"` (Q30 user feedback).
-- Keep debug timer and normal 60-minute mode separated.
+- Keep debug timer and normal 60-minute mode separated, and support HUD pause (`⏸️`) button and pause modal with O₂/timer freeze (feat-041).
 
 ## Dependencies
 

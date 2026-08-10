@@ -2,10 +2,10 @@
 
 ## Document Meta
 
-- version: 2.6
+- version: 2.7
 - pm agent: codex
 - date: 2026-08-10
-- status: Q31~Q63 answered; feat-040 specifications updated (1. sensor_diagram bottom note deleted, 2. crew_comms_buffer speakers updated to diegetic crew names, 3. email_chain_july previous reply note deleted, 4. tool_manual drag-and-drop text replaced with LOG_FIXER button click instruction)
+- status: Q31~Q64 answered; feat-041 specifications updated (1. coworker messenger lunch copy refined to "우주씨, 오늘 점심 뭐 드실래요?", 2. Power Surge popup translated to Korean & duration increased to 2s, 3. pause button added to terminal HUD, 4. pause modal with 8px blur & timer freeze)
 
 ## Blocking Questions
 
@@ -652,6 +652,24 @@ feat-039에서 수행하는 7가지 핵심 게임플레이/UI/버그 수정 사�
 2. **`crew_comms_buffer.log` 본문 대화 화자 표기 변경**: 본문 대화 화자 표기를 알파벳 (A, B, C)에서 디제틱 승무원 이름(`박진수 (엔지니어)`, `이민아 (통신관)`, `최성현 (보안관)`)으로 전면 변경한다.
 3. **`email_chain_july.txt` 하단 이전 답장 문구 전면 삭제**: 본문 하단 `--- 이전 답장 / 김 박사 --- 이 문제가 근무 중 발생하면 김우주가 모듈 #04에 가장 먼저 갇힐 겁니다. 운영 인력이 찾을 수 있을 만큼은 눈에 띄되, 터미널 배너에는 보이지 않는 곳에 코드를 남겨 주세요.` 문구를 전면 삭제한다.
 4. **`tool_manual.txt` 툴 사용 안내 텍스트 변경**: 본문 툴 사용 안내 텍스트 중 `...해당 파일을 드래그하여 드롭하세요.` 문구를 실제 게임플레이 방식인 `텍스트 파일 열람 시 #404_CORRUPTED 표시가 뜨면 파일 뷰어 상단의 [LOG_FIXER로 데이터 복구] 버튼을 클릭하세요.`로 변경한다.
+
+## 4 UI/UX & Gameplay System Refinement Specifications (Change-001 Follow-up v8.0 / feat-041)
+
+### Q64. 4가지 세부 개선 요구사항 (메신저 대사 정제, Power Surge 팝업 한국어화/시간 연장, 일시정지 버튼, 일시정지 모달 & 타이머/산소 멈춤) 상세 사양
+
+플레이어 피드백 및 게임플레이 완성도 향상을 위한 4가지 세부 개선 사양에 대한 결정입니다.
+
+### Answer
+
+사용자의 4가지 세부 개선 요구사항을 전면 반영한다:
+1. **메신저 점심 대사 변경**: 동료 메신저 팝업 알림 및 앱 UI 창의 첫 질문 카피를 기존 `"오늘 점심 메뉴 뭐먹을래?"`에서 존댓말 정제 대사인 `"우주씨, 오늘 점심 뭐 드실래요?"`로 변경한다.
+2. **Power Surge 팝업 한국어화 및 2초 상향**: 오답 제출 시 화면에 나타나는 Power Surge 경고 팝업 지속시간을 기존 1초/자동 닫힘에서 **2초(2000ms)**로 연장하고, 타이틀과 메시지("전력 서지 경고", "ECHO 경고: 잘못된 절차 주장은 헤르메스 전력 라인을 불안정하게 만듭니다.")를 자연스러운 한국어로 전면 변경한다.
+3. **일시정지 (Pause) 버튼 추가**: 메인 탐색 터미널 상단 HUD (Header Status Bar) 영역에 직관적인 일시정지(`⏸️`) 버튼을 추가한다.
+4. **일시정지 모달 & 타이머/산소 멈춤 기능**: 
+   - 일시정지(⏸️) 버튼 클릭 시 O₂ 감소 및 남은 시간 카운트다운 타이머 작성을 일시 멈춤(Game Clock Freeze) 처리한다.
+   - 인게임 전체 화면에 8px 블록 블러 (`backdrop-filter: blur(8px)`) 효과를 적용한다.
+   - 화면 중앙에 큼직한 `[PAUSED]` 텍스트 및 그 아래 약간 작은 사이즈의 `[RESUME]` 버튼을 배치한다.
+   - `[RESUME]` 버튼 클릭 시 블러 효과가 해제되고 게임 타이머 및 O₂ 감량 로직이 재개된다.
 
 
 
