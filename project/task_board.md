@@ -75,6 +75,7 @@
 | 62 | bug-013 | bug | Fix blackout power zero popup overlapping ending when quarantine is unlocked | done | dev-agent | no | feat-043, bug-012 | human review | project/tasks/bug-013.md |
 | 63 | bug-014 | bug | Fix Log Fixer completion CTA and evidence tray reset | done | dev-agent | no | feat-039, bug-012, bug-013 | human play review | project/tasks/bug-014.md |
 | 64 | chore-005 | chore | Setup GitHub Pages deployment | done | dev-agent | no | feat-001 | GitHub Pages production deployment | project/tasks/chore-005.md |
+| 65 | chore-006 | chore | Harden GitHub Pages npm install step | done | dev-agent | no | chore-005 | GitHub Actions rerun | project/tasks/chore-006.md |
 
 ## Parallel Work Notes
 
@@ -122,5 +123,6 @@
 - `feat-043` applies 2 sound/audio atmosphere enhancements: 1) continuous two-tone repeating emergency siren loop during emergency lockdown cutscene/presentation (`appPhase === "opening"` and rebooting emergency lockdown sequence), 2) web audio API dark tension ambient BGM (suspense low pad & pulsation) auto-play during main log search and ECHO evidence submission puzzle phase (`appPhase === "gameplay"`), integrated with mute (`audioMuted`), volume, and pause (`isPaused`) states, and 3) seamless audio tone matching with existing `audioSystem.ts` web audio oscillator tones.
 - `bug-014` removes the invalid recovered-state Log_Fixer submit CTA while preserving latest target-file recovery behavior, and verifies submitted evidence clears from the tray after every ECHO submission.
 - `chore-005` configures GitHub Pages deployment with Vite base `/log-out/` and a `main` branch GitHub Actions Pages workflow.
+- `chore-006` hardens the GitHub Pages workflow against transient npm registry failures by configuring npm fetch retries and wrapping `npm ci` in a 3-attempt retry loop.
 - Every dev task must update its task md status from `todo` to `in_progress` to `done`.
 - Current dev workflow is latest `main` -> task-scoped implementation -> task-id commit message -> push directly to `main`; PR/branch flow is only used when the human explicitly asks for it.
