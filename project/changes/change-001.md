@@ -4,10 +4,10 @@
 
 ## Document Meta
 
-- version: 9.0
+- version: 10.0
 - author: PM Agent
 - date: 2026-08-10
-- status: confirmed - feat-042 (4가지 UI/UX 및 입력 제출 개선 요구사항: ECHO 입력창 186일 미보정 안내 문구 전면 삭제, ECHO textarea Enter 키 제출 연동, SCENE LOCK 팝업 전면 삭제, Power Surge 팝업 지속시간 4초 상향) 사양 반영
+- status: confirmed - feat-043 (2가지 사운드/오디오 분위기 강화 요구사항: EMERGENCY LOCKDOWN 경보음 연속 연동 및 gameplay phase 다크 앰비언트 긴장감 BGM 자동 재생/음소거/볼륨/일시정지 연동) 사양 반영
 - target docs: `project/mvp_scope.md`, `project/pm_analysis.md`, `project/pm_questions.md`, `project/task_board.md`, `project/tasks/*.md`
 
 ## Background & Motivation
@@ -21,7 +21,7 @@
 또한 최신 사용자 4가지 로그 파일 텍스트 정제 사양을 전면 반영하여, `sensor_diagram.png` (sensor_diagram.txt) 본문 하단 열 감지 헤드 문구 전면 삭제, `crew_comms_buffer.log` 알파벳 화자를 디제틱 승무원 이름(`박진수 (엔지니어)`, `이민아 (통신관)`, `최성현 (보안관)`)으로 전면 전환, `email_chain_july.txt` 하단 김 박사 이전 답장 문구 전면 삭제, `tool_manual.txt` 드래그 앤 드롭 안내 텍스트를 실제 게임플레이 방식인 `[LOG_FIXER로 데이터 복구]` 버튼 클릭 안내로 변경한다.
 나아가 사용자의 4가지 세부 개선 요구사항을 반영하여, 1) 메신저 점심 대사를 `"우주씨, 오늘 점심 뭐 드실래요?"`로 정제하고, 2) 오답 제출 시 나타나는 Power Surge 팝업 지속시간을 2초(2000ms)로 연장하며 타이틀과 메시지("전력 서지 경고", "ECHO 경고: 잘못된 절차 주장은 헤르메스 전력 라인을 불안정하게 만듭니다.")를 한국어로 전환한다. 3) 메인 탐색 터미널 HUD 영역에 일시정지(⏸️) 버튼을 추가하고, 4) 일시정지 클릭 시 O₂ 감소 및 남은 시간 카운트다운 멈춤, 화면 8px 블록 블러(`backdrop-filter: blur(8px)`) 처리, 중앙 `[PAUSED]` 텍스트 및 `[RESUME]` 버튼 배치를 지원한다.
 또한 사용자의 4가지 UI/UX 및 입력 제출 개선 요구사항을 추가 반영하여, 1) ECHO 입력창 영역의 '186일 미보정' 안내 문구(`오른쪽 ECHO 입력창에 '186일 미보정'과 '센서 보정 오차'를 짧게 적고 증거 제출을 하세요.`)를 전면 삭제하고, 2) ECHO 입력창(textarea)에서 Enter 키(Shift+Enter 제외) 입력 시에도 [증거 제출]이 즉시 발동하도록 키 핸들러(`onKeyDown`)를 연동하며, 3) 증거 제출 및 씬 전환 중 노출되던 [SCENE LOCK] 피드백 팝업을 전면 삭제(블랙아웃 시에만 고유 안내 카드 노출)하고, 4) 오답 제출 시 표시되는 Power Surge 팝업 지속시간을 기존 2초(2000ms)에서 4초(4000ms)로 상향한다.
-
+아울러 최신 사운드/오디오 분위기 강화 요구사항(feat-043)을 반영하여, 1) 비상 봉쇄 컷신/연출(`appPhase === "opening"` 및 리부팅 긴급 봉쇄 시퀀스) 동안 비상 사이렌 경보음(two-tone repeating emergency siren)이 연속 재생되도록 연동하고, 2) 메인 로그 탐색 및 ECHO 증거 제출 퍼즐 단계(`appPhase === "gameplay"`) 동안 웹 오디오 API 기반의 다크 앰비언트 긴장감 배경음악(dark tension ambient BGM)을 자동 재생하며 음소거(`audioMuted`), 볼륨 및 일시정지(`isPaused`) 상태와 연동한다.
 
 ## Detailed Change Specifications
 
@@ -198,11 +198,16 @@
 - **3. SCENE LOCK 팝업 전면 삭제**: 증거 제출 후 제출 검토 및 씬 전환 과정에서 화면에 노출되던 `[SCENE LOCK]` 안내 피드백 팝업을 전면 삭제한다. (전력 0% 블랙아웃 시에만 화면 중앙 단일 고유 안내 카드가 노출된다)
 - **4. Power Surge 팝업 지속시간 4초 상향**: 오답(잘못된 절차 주장 / 증거) 제출 시 화면에 표시되는 `[전력 서지 경고]` 팝업 지속시간을 기존 2초(2000ms)에서 **4초(4000ms)**로 상향한다.
 
+### 21. 2가지 사운드/오디오 분위기 강화 상세 사양 (Change-001 Follow-up v10.0 / feat-043)
+- **1. EMERGENCY LOCKDOWN 경보음 효과 연동**: 비상 봉쇄 컷신/연출(`appPhase === "opening"` 및 리부팅 긴급 봉쇄 시퀀스) 동안 비상 사이렌 경보음(two-tone repeating emergency siren loop)이 연속 재생되도록 연동한다.
+- **2. 로그 제출 Phase 긴장감 BGM 재생**: 메인 로그 탐색 및 ECHO 증거 제출 퍼즐 단계(`appPhase === "gameplay"`) 동안 웹 오디오 API 기반의 다크 앰비언트 긴장감 배경음악(dark tension ambient BGM - 서스펜스 저음 패드 & 파동)을 자동 재생하고, 음소거(`audioMuted`), 볼륨 및 일시정지(`isPaused`) 상태와 연동한다.
+- **3. 오디오 톤 매칭**: 기존 `audioSystem.ts` 웹 오디오 오실레이터 톤과 이질감 없이 완벽하게 어우러지도록 설계한다.
+
 ## Impact Analysis
 
-- **`project/pm_analysis.md`**: Core Loop, Visual Scope, Diegetic UI, 18+5+1+5+6+5+7+4+4+4가지 상세 게임플레이/UI/3D/버그 수정/텍스트 정제/세부 개선 사양 반영.
-- **`project/mvp_scope.md`**: MVP In Scope / Out of Scope 및 Acceptance Criteria에 4가지 UI/UX 및 입력 제출 개선 요구사항 검증 항목 반영.
-- **`project/pm_questions.md`**: Q65 신규 항목에 4가지 UI/UX 및 입력 제출 개선 사양 추가 기록.
-- **`project/task_board.md`**: `feat-042` 신규 생성 및 done 반영.
-- **`project/tasks/*.md`**: 신규 태스크 문서 `feat-042.md` 생성, `feat-013.md`, `feat-015.md` 및 `feat-041.md` 업데이트.
+- **`project/pm_analysis.md`**: Core Loop, Visual Scope, Diegetic UI, 18+5+1+5+6+5+7+4+4+4+2가지 상세 게임플레이/UI/3D/오디오/버그 수정/텍스트 정제/세부 개선 사양 반영.
+- **`project/mvp_scope.md`**: MVP In Scope / Out of Scope 및 Acceptance Criteria에 2가지 사운드/오디오 분위기 강화 요구사항 검증 항목 반영.
+- **`project/pm_questions.md`**: Q66 신규 항목에 2가지 사운드/오디오 분위기 강화 사양 추가 기록.
+- **`project/task_board.md`**: `feat-043` 신규 생성 및 todo/done 반영.
+- **`project/tasks/*.md`**: 신규 태스크 문서 `feat-043.md` 생성, `feat-018.md`, `feat-041.md` 및 `feat-042.md` 업데이트.
 

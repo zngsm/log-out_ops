@@ -5,7 +5,7 @@
 - version: 2.0
 - pm agent: codex
 - date: 2026-08-10
-- status: confirmed - 4가지 UI/UX 및 입력 제출 개선 요구사항 (feat-042) 반영 완료 (1. ECHO 입력창 186일 미보정 안내 문구 전면 삭제, 2. ECHO 입력창 Enter 키 제출 연동, 3. SCENE LOCK 팝업 전면 삭제, 4. Power Surge 팝업 지속시간 4초 상향)
+- status: confirmed - 2가지 사운드/오디오 분위기 강화 요구사항 (feat-043) 반영 완료 (1. EMERGENCY LOCKDOWN 경보음 연속 연동, 2. gameplay phase 다크 앰비언트 긴장감 BGM 자동 재생/음소거/볼륨/일시정지 연동, 3. 오디오 톤 매칭)
 
 ## MVP Goal
 
@@ -56,6 +56,10 @@
   - 2. **ECHO 입력창 Enter 키 제출 연동**: ECHO 입력창(textarea)에서 메시지 작성 후 Enter 키(Shift+Enter 제외) 입력 시에도 `[증거 제출]` 버튼 클릭과 동일하게 즉시 제출이 발동하도록 키 핸들러(`onKeyDown`) 연동
   - 3. **SCENE LOCK 팝업 전면 삭제**: 증거 제출 후 제출 검토 및 씬 전환 과정에서 노출되던 `[SCENE LOCK]` 안내 피드백 팝업 전면 삭제 (전력 0% 블랙아웃 시에만 고유 안내 카드 노출)
   - 4. **Power Surge 팝업 지속시간 4초 상향**: 오답 제출 시 표시되는 `[전력 서지 경고]` 팝업 지속시간을 2초(2000ms)에서 4초(4000ms)로 상향
+- **2가지 사운드/오디오 분위기 강화 상세 사양 (`feat-043`)**:
+  - 1. **EMERGENCY LOCKDOWN 경보음 효과 연동**: 비상 봉쇄 컷신/연출(`appPhase === "opening"` 및 리부팅 긴급 봉쇄 시퀀스) 동안 비상 사이렌 경보음(two-tone repeating emergency siren loop)이 연속 재생되도록 연동
+  - 2. **로그 제출 Phase 긴장감 BGM 재생**: 메인 로그 탐색 및 ECHO 증거 제출 퍼즐 단계(`appPhase === "gameplay"`) 동안 웹 오디오 API 기반의 다크 앰비언트 긴장감 배경음악(dark tension ambient BGM - 서스펜스 저음 패드 & 파동)을 자동 재생하고, 음소거(`audioMuted`), 볼륨 및 일시정지(`isPaused`) 상태와 연동
+  - 3. **오디오 톤 매칭**: 기존 `audioSystem.ts` 웹 오디오 오실레이터 톤과 이질감 없이 완벽하게 어우러지도록 설계
 - **4가지 로그 파일 텍스트 정제 상세 사양 (`feat-040`)**:
   - 1. **`sensor_diagram.png` (sensor_diagram.txt) 하단 문구 삭제**: 본문 하단 `※ 이 도면은 SENSOR-BIO-04가 ECHO_SEC201_AUTO에 직접 연결된 유일한 열 감지 헤드임을 나타냅니다.` 문구 전면 삭제
   - 2. **`crew_comms_buffer.log` 본문 대화 화자 표기 변경**: 본문 대화 화자 표기를 알파벳 (A, B, C)에서 디제틱 승무원 이름(`박진수 (엔지니어)`, `이민아 (통신관)`, `최성현 (보안관)`)으로 전면 변경
@@ -362,3 +366,7 @@
   2) ECHO 입력창(textarea)에서 메시지 입력 후 Enter 키(Shift+Enter 제외) 입력 시 `[증거 제출]` 버튼 클릭과 동일하게 증거 제출이 즉시 작동한다.
   3) 증거 제출 및 씬 전환 중 노출되던 `[SCENE LOCK]` 안내 피드백 팝업이 전면 삭제되어 노출되지 않으며, 전력 0% 블랙아웃 발생 시에만 고유 센터 모달 팝업 카드가 정상 작동한다.
   4) 오답 제출 시 표시되는 `[전력 서지 경고]` 팝업 지속시간이 기존 2초(2000ms)에서 **4초(4000ms)**로 늘어나 플레이어가 경고 문구를 명확하게 인지할 수 있다.
+- **feat-043 2가지 사운드/오디오 분위기 강화 검증**:
+  1) 비상 봉쇄 컷신/연출(`appPhase === "opening"` 및 리부팅 긴급 봉쇄 시퀀스) 동안 비상 사이렌 경보음(two-tone repeating emergency siren loop)이 연속 재생된다.
+  2) 메인 로그 탐색 및 ECHO 증거 제출 퍼즐 단계(`appPhase === "gameplay"`) 동안 웹 오디오 API 기반 다크 앰비언트 긴장감 배경음악(dark tension ambient BGM)이 자동 재생되며, 음소거(`audioMuted`), 볼륨 및 일시정지(`isPaused`) 상태와 정상 연동된다.
+  3) 배경음악 및 경보음 톤이 기존 `audioSystem.ts` 웹 오디오 오실레이터 톤과 이질감 없이 완벽하게 어우러진다.
