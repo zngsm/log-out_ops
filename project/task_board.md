@@ -73,6 +73,7 @@
 | 60 | feat-043 | feat | Implement 2 sound/audio atmosphere enhancements: EMERGENCY LOCKDOWN siren loop & gameplay phase dark tension ambient BGM | done | dev-agent | no | feat-039, feat-040, feat-041, feat-042 | human visual review | project/tasks/feat-043.md |
 | 61 | bug-012 | bug | Fix Log_Fixer repair button disabled state when attempting second file recovery | done | dev-agent | no | feat-017, feat-039 | human review | project/tasks/bug-012.md |
 | 62 | bug-013 | bug | Fix blackout power zero popup overlapping ending when quarantine is unlocked | done | dev-agent | no | feat-043, bug-012 | human review | project/tasks/bug-013.md |
+| 63 | bug-014 | bug | Fix Log Fixer completion CTA and evidence tray reset | done | dev-agent | no | feat-039, bug-012, bug-013 | human play review | project/tasks/bug-014.md |
 
 ## Parallel Work Notes
 
@@ -118,7 +119,7 @@
 - `feat-041` applies 4 detail refinements: coworker lunch dialogue refined to `"우주씨, 오늘 점심 뭐 드실래요?"`, Power Surge popup duration extended to 2s (2000ms) with Korean title ("전력 서지 경고") and message ("ECHO 경고: 잘못된 절차 주장은 헤르메스 전력 라인을 불안정하게 만듭니다."), pause button (`⏸️`) added to main terminal HUD, and pause modal implemented with `backdrop-filter: blur(8px)`, O₂/timer countdown freeze, centered `[PAUSED]` text & `[RESUME]` button.
 - `feat-042` applies 4 UI/UX and input submission refinements: ECHO input guide text ("오른쪽 ECHO 입력창에 '186일 미보정'과 '센서 보정 오차'를 짧게 적고 증거 제출을 하세요.") completely deleted, ECHO input textarea Enter key (without Shift) bound to immediate [증거 제출] action, [SCENE LOCK] guidance feedback popup during review/transitions completely removed, and wrong submission Power Surge warning popup duration increased from 2s (2000ms) to 4s (4000ms).
 - `feat-043` applies 2 sound/audio atmosphere enhancements: 1) continuous two-tone repeating emergency siren loop during emergency lockdown cutscene/presentation (`appPhase === "opening"` and rebooting emergency lockdown sequence), 2) web audio API dark tension ambient BGM (suspense low pad & pulsation) auto-play during main log search and ECHO evidence submission puzzle phase (`appPhase === "gameplay"`), integrated with mute (`audioMuted`), volume, and pause (`isPaused`) states, and 3) seamless audio tone matching with existing `audioSystem.ts` web audio oscillator tones.
+- `bug-014` removes the invalid recovered-state Log_Fixer submit CTA while preserving latest target-file recovery behavior, and verifies submitted evidence clears from the tray after every ECHO submission.
 - Every dev task must update its task md status from `todo` to `in_progress` to `done`.
 - Current dev workflow is latest `main` -> task-scoped implementation -> task-id commit message -> push directly to `main`; PR/branch flow is only used when the human explicitly asks for it.
-
 
