@@ -5,7 +5,7 @@
 - version: 2.1
 - pm agent: codex
 - date: 2026-08-10
-- status: task board updated with bug-012 (fixing Log_Fixer repair button disabled state when attempting second file recovery)
+- status: task board updated with bug-013 (fixing blackout power zero popup overlapping ending when quarantine is unlocked)
 
 ## Task Index
 
@@ -72,6 +72,7 @@
 | 59 | feat-042 | feat | Implement 4 UI/UX & input submission refinements: ECHO 186-day guide copy deletion, ECHO textarea Enter key submission handler, SCENE LOCK popup deletion, and Power Surge popup 4s duration | done | dev-agent | no | feat-039, feat-040, feat-041 | human visual review | project/tasks/feat-042.md |
 | 60 | feat-043 | feat | Implement 2 sound/audio atmosphere enhancements: EMERGENCY LOCKDOWN siren loop & gameplay phase dark tension ambient BGM | done | dev-agent | no | feat-039, feat-040, feat-041, feat-042 | human visual review | project/tasks/feat-043.md |
 | 61 | bug-012 | bug | Fix Log_Fixer repair button disabled state when attempting second file recovery | done | dev-agent | no | feat-017, feat-039 | human review | project/tasks/bug-012.md |
+| 62 | bug-013 | bug | Fix blackout power zero popup overlapping ending when quarantine is unlocked | done | dev-agent | no | feat-043, bug-012 | human review | project/tasks/bug-013.md |
 
 ## Parallel Work Notes
 
