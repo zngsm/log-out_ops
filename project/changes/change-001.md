@@ -4,10 +4,10 @@
 
 ## Document Meta
 
-- version: 8.0
+- version: 9.0
 - author: PM Agent
 - date: 2026-08-10
-- status: confirmed - feat-041 (4가지 세부 개선 요구사항: 메신저 점심 대사 "우주씨, 오늘 점심 뭐 드실래요?" 정제, Power Surge 팝업 한국어화 및 2초 상향, 일시정지 ⏸️ 버튼 추가, 일시정지 모달 & 8px 블러 & 타이머/산소 멈춤 기능) 사양 반영
+- status: confirmed - feat-042 (4가지 UI/UX 및 입력 제출 개선 요구사항: ECHO 입력창 186일 미보정 안내 문구 전면 삭제, ECHO textarea Enter 키 제출 연동, SCENE LOCK 팝업 전면 삭제, Power Surge 팝업 지속시간 4초 상향) 사양 반영
 - target docs: `project/mvp_scope.md`, `project/pm_analysis.md`, `project/pm_questions.md`, `project/task_board.md`, `project/tasks/*.md`
 
 ## Background & Motivation
@@ -20,6 +20,8 @@
 아울러 ECHO 대화/증거 판정 및 동료 메신저에 Cloudflare Worker 기반 Hermes NPC API(`https://royal-firefly-60c3.jwpark971219.workers.dev`)를 연동하되, 3초 타임아웃 및 100% 로컬 Fallback 안전장치를 필수로 도입하여 네트워크 장애나 예외 상황에서도 플레이가 중단되지 않는 견고한 아키텍처를 완성한다.
 또한 최신 사용자 4가지 로그 파일 텍스트 정제 사양을 전면 반영하여, `sensor_diagram.png` (sensor_diagram.txt) 본문 하단 열 감지 헤드 문구 전면 삭제, `crew_comms_buffer.log` 알파벳 화자를 디제틱 승무원 이름(`박진수 (엔지니어)`, `이민아 (통신관)`, `최성현 (보안관)`)으로 전면 전환, `email_chain_july.txt` 하단 김 박사 이전 답장 문구 전면 삭제, `tool_manual.txt` 드래그 앤 드롭 안내 텍스트를 실제 게임플레이 방식인 `[LOG_FIXER로 데이터 복구]` 버튼 클릭 안내로 변경한다.
 나아가 사용자의 4가지 세부 개선 요구사항을 반영하여, 1) 메신저 점심 대사를 `"우주씨, 오늘 점심 뭐 드실래요?"`로 정제하고, 2) 오답 제출 시 나타나는 Power Surge 팝업 지속시간을 2초(2000ms)로 연장하며 타이틀과 메시지("전력 서지 경고", "ECHO 경고: 잘못된 절차 주장은 헤르메스 전력 라인을 불안정하게 만듭니다.")를 한국어로 전환한다. 3) 메인 탐색 터미널 HUD 영역에 일시정지(⏸️) 버튼을 추가하고, 4) 일시정지 클릭 시 O₂ 감소 및 남은 시간 카운트다운 멈춤, 화면 8px 블록 블러(`backdrop-filter: blur(8px)`) 처리, 중앙 `[PAUSED]` 텍스트 및 `[RESUME]` 버튼 배치를 지원한다.
+또한 사용자의 4가지 UI/UX 및 입력 제출 개선 요구사항을 추가 반영하여, 1) ECHO 입력창 영역의 '186일 미보정' 안내 문구(`오른쪽 ECHO 입력창에 '186일 미보정'과 '센서 보정 오차'를 짧게 적고 증거 제출을 하세요.`)를 전면 삭제하고, 2) ECHO 입력창(textarea)에서 Enter 키(Shift+Enter 제외) 입력 시에도 [증거 제출]이 즉시 발동하도록 키 핸들러(`onKeyDown`)를 연동하며, 3) 증거 제출 및 씬 전환 중 노출되던 [SCENE LOCK] 피드백 팝업을 전면 삭제(블랙아웃 시에만 고유 안내 카드 노출)하고, 4) 오답 제출 시 표시되는 Power Surge 팝업 지속시간을 기존 2초(2000ms)에서 4초(4000ms)로 상향한다.
+
 
 ## Detailed Change Specifications
 
@@ -190,15 +192,17 @@
 - **3. 일시정지 (Pause) 버튼 추가**: 메인 탐색 터미널 HUD 영역(상단 Header Status Bar)에 일시정지(`⏸️`) 버튼을 추가한다.
 - **4. 일시정지 모달 & 타이머/산소 멈춤 기능**: 일시정지 버튼 클릭 시 O₂ 감소 및 남은 시간 카운트다운 멈춤(Game Clock Freeze), 전체 화면 8px 블록 블러(`backdrop-filter: blur(8px)`) 처리, 화면 중앙에 큼직한 `[PAUSED]` 텍스트 및 그 아래 약간 작은 사이즈의 `[RESUME]` 버튼을 배치하며, RESUME 클릭 시 블러 해제 및 게임이 재개된다.
 
+### 20. 4가지 UI/UX 및 입력 제출 개선 상세 사양 (Change-001 Follow-up v9.0 / feat-042)
+- **1. ECHO 입력창 186일 미보정 관련 안내 문구 전면 삭제**: 오른쪽 ECHO 입력창 영역의 `오른쪽 ECHO 입력창에 '186일 미보정'과 '센서 보정 오차'를 짧게 적고 증거 제출을 하세요.` 안내 텍스트를 전면 삭제한다.
+- **2. ECHO 입력창 Enter 키 제출 연동**: ECHO 입력창(textarea)에서 메시지 작성 후 Enter 키(Shift+Enter 제외) 입력 시에도 `[증거 제출]` 버튼 클릭과 동일하게 즉시 제출이 발동하도록 키 핸들러(`onKeyDown`)를 연동한다. (Shift+Enter는 기존대로 줄바꿈 허용)
+- **3. SCENE LOCK 팝업 전면 삭제**: 증거 제출 후 제출 검토 및 씬 전환 과정에서 화면에 노출되던 `[SCENE LOCK]` 안내 피드백 팝업을 전면 삭제한다. (전력 0% 블랙아웃 시에만 화면 중앙 단일 고유 안내 카드가 노출된다)
+- **4. Power Surge 팝업 지속시간 4초 상향**: 오답(잘못된 절차 주장 / 증거) 제출 시 화면에 표시되는 `[전력 서지 경고]` 팝업 지속시간을 기존 2초(2000ms)에서 **4초(4000ms)**로 상향한다.
+
 ## Impact Analysis
 
-- **`project/pm_analysis.md`**: Core Loop, Visual Scope, Diegetic UI, 18+5+1+5+6+5+7+4+4가지 상세 게임플레이/UI/3D/버그 수정/텍스트 정제/세부 개선 사양 반영.
-- **`project/mvp_scope.md`**: MVP In Scope / Out of Scope 및 Acceptance Criteria에 4가지 세부 개선 요구사항 검증 항목 반영.
-- **`project/pm_questions.md`**: Q64 신규 항목에 4가지 세부 개선 사양 추가 기록.
-- **`project/task_board.md`**: `feat-041` 신규 생성 및 done 반영.
-- **`project/tasks/*.md`**: 신규 태스크 문서 `feat-041.md` 생성, `feat-033.md` 및 `feat-015.md` 업데이트.
-
-
-
-
+- **`project/pm_analysis.md`**: Core Loop, Visual Scope, Diegetic UI, 18+5+1+5+6+5+7+4+4+4가지 상세 게임플레이/UI/3D/버그 수정/텍스트 정제/세부 개선 사양 반영.
+- **`project/mvp_scope.md`**: MVP In Scope / Out of Scope 및 Acceptance Criteria에 4가지 UI/UX 및 입력 제출 개선 요구사항 검증 항목 반영.
+- **`project/pm_questions.md`**: Q65 신규 항목에 4가지 UI/UX 및 입력 제출 개선 사양 추가 기록.
+- **`project/task_board.md`**: `feat-042` 신규 생성 및 done 반영.
+- **`project/tasks/*.md`**: 신규 태스크 문서 `feat-042.md` 생성, `feat-013.md`, `feat-015.md` 및 `feat-041.md` 업데이트.
 

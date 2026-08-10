@@ -5,7 +5,7 @@
 - version: 2.7
 - pm agent: codex
 - date: 2026-08-10
-- status: Q31~Q64 answered; feat-041 specifications updated (1. coworker messenger lunch copy refined to "우주씨, 오늘 점심 뭐 드실래요?", 2. Power Surge popup translated to Korean & duration increased to 2s, 3. pause button added to terminal HUD, 4. pause modal with 8px blur & timer freeze)
+- status: Q31~Q65 answered; feat-042 specifications updated (1. ECHO input 186-day guide copy deleted, 2. ECHO textarea Enter key submission handler, 3. SCENE LOCK popup deleted, 4. Power Surge popup duration increased to 4s)
 
 ## Blocking Questions
 
@@ -671,8 +671,16 @@ feat-039에서 수행하는 7가지 핵심 게임플레이/UI/버그 수정 사�
    - 화면 중앙에 큼직한 `[PAUSED]` 텍스트 및 그 아래 약간 작은 사이즈의 `[RESUME]` 버튼을 배치한다.
    - `[RESUME]` 버튼 클릭 시 블러 효과가 해제되고 게임 타이머 및 O₂ 감량 로직이 재개된다.
 
+## 4 UI/UX & Input Submission Refinement Specifications (Change-001 Follow-up v9.0 / feat-042)
 
+### Q65. 4가지 UI/UX 및 입력 제출 개선 요구사항 (ECHO 안내 문구 삭제, ECHO Enter 키 제출 연동, SCENE LOCK 팝업 삭제, Power Surge 팝업 4초 상향) 상세 사양
 
+사용자 피드백 및 게임플레이 입력/피드백 UX 개선을 위한 4가지 세부 개선 사양에 대한 결정입니다.
 
+### Answer
 
-
+사용자의 4가지 UI/UX 및 입력 제출 개선 요구사항을 전면 반영한다:
+1. **ECHO 입력창 186일 미보정 관련 안내 문구 삭제**: 오른쪽 ECHO 입력창 영역의 `오른쪽 ECHO 입력창에 '186일 미보정'과 '센서 보정 오차'를 짧게 적고 증거 제출을 하세요.` 안내 텍스트를 전면 삭제한다.
+2. **ECHO 입력창 Enter 키 제출 연동**: ECHO 입력창(textarea)에서 메시지 작성 후 Enter 키(Shift+Enter 제외) 입력 시에도 `[증거 제출]` 버튼 클릭과 동일하게 즉시 제출이 발동하도록 키 핸들러(`onKeyDown`)를 연동한다.
+3. **SCENE LOCK 팝업 삭제**: 증거 제출 후 제출 검토 및 씬 전환 과정에서 노출되던 `[SCENE LOCK]` 안내 피드백 팝업을 전면 삭제한다 (전력 0% 블랙아웃 시에만 고유 안내 카드가 노출된다).
+4. **Power Surge 팝업 지속시간 4초 상향**: 오답 제출 시 화면에 표시되는 `[전력 서지 경고]` 팝업 지속시간을 기존 2초(2000ms)에서 **4초(4000ms)**로 상향한다.

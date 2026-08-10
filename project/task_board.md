@@ -5,7 +5,7 @@
 - version: 2.0
 - pm agent: codex
 - date: 2026-08-10
-- status: task board updated with feat-041 (implementing 4 detail refinements: coworker lunch copy refinement, Power Surge Korean popup & 2s duration, pause button in HUD, and pause modal with 8px blur & timer freeze)
+- status: task board updated with feat-042 (implementing 4 UI/UX & input submission refinements: ECHO 186-day guide copy deletion, ECHO textarea Enter key submission handler, SCENE LOCK popup deletion, and Power Surge popup 4-second duration increase)
 
 ## Task Index
 
@@ -69,6 +69,7 @@
 | 56 | feat-039 | feat | Refine initial ECHO intro, compact log viewer header, remove checkpoint hint, reset input and attachments after submit, prevent auto-attach after log fixer, support log fixer for Recycle_Bin files, and enforce strict Act 2 to Act 3 transition | done | dev-agent | no | feat-038 | human visual review | project/tasks/feat-039.md |
 | 57 | feat-040 | feat | Refine 4 log file texts (sensor_diagram, crew_comms_buffer, email_chain_july, tool_manual) | done | dev-agent | no | feat-039 | human visual review | project/tasks/feat-040.md |
 | 58 | feat-041 | feat | Implement 4 detail refinements: coworker lunch copy refinement ("우주씨, 오늘 점심 뭐 드실래요?"), Power Surge Korean popup & 2s duration, pause button in HUD, and pause modal with 8px blur & timer freeze | done | dev-agent | no | feat-039, feat-040 | human visual review | project/tasks/feat-041.md |
+| 59 | feat-042 | feat | Implement 4 UI/UX & input submission refinements: ECHO 186-day guide copy deletion, ECHO textarea Enter key submission handler, SCENE LOCK popup deletion, and Power Surge popup 4s duration | done | dev-agent | no | feat-039, feat-040, feat-041 | human visual review | project/tasks/feat-042.md |
 
 ## Parallel Work Notes
 
@@ -112,6 +113,7 @@
 - `feat-039` applies 7 core gameplay/UI/bug fix refinements: initial ECHO intro removed ("김우주 담당자님, 출근이 확인되었습니다..."), log viewer header (h2, path, classification) compacted for maximum `<pre>` body view, checkpoint hint ("첨부한 파일 조합이 현재 Act와 맞지 않습니다...") removed, input (`messageInput = ""`) and attachment tray (`attachedFileIds = []`) cleared immediately upon submission regardless of pass/fail, Log_Fixer recovery performs viewer selection (`selectFile`) only without auto-attaching to ECHO, corrupted/deleted files in `/Recycle_Bin/` support `[LOG_FIXER로 데이터 복구]` recovery, and Act 2 clear strictly transitions to Act 3 (`act-3`) with strict guardrails preventing early transition to `door_unlocked` / ending state.
 - `feat-040` applies 4 log file text refinements: `sensor_diagram.png` (sensor_diagram.txt) bottom note deleted, `crew_comms_buffer.log` speakers converted to diegetic crew names (`박진수 (엔지니어)`, `이민아 (통신관)`, `최성현 (보안관)`), `email_chain_july.txt` bottom previous reply note deleted, and `tool_manual.txt` drag-and-drop text replaced with `텍스트 파일 열람 시 #404_CORRUPTED 표시가 뜨면 파일 뷰어 상단의 [LOG_FIXER로 데이터 복구] 버튼을 클릭하세요.`
 - `feat-041` applies 4 detail refinements: coworker lunch dialogue refined to `"우주씨, 오늘 점심 뭐 드실래요?"`, Power Surge popup duration extended to 2s (2000ms) with Korean title ("전력 서지 경고") and message ("ECHO 경고: 잘못된 절차 주장은 헤르메스 전력 라인을 불안정하게 만듭니다."), pause button (`⏸️`) added to main terminal HUD, and pause modal implemented with `backdrop-filter: blur(8px)`, O₂/timer countdown freeze, centered `[PAUSED]` text & `[RESUME]` button.
+- `feat-042` applies 4 UI/UX and input submission refinements: ECHO input guide text ("오른쪽 ECHO 입력창에 '186일 미보정'과 '센서 보정 오차'를 짧게 적고 증거 제출을 하세요.") completely deleted, ECHO input textarea Enter key (without Shift) bound to immediate [증거 제출] action, [SCENE LOCK] guidance feedback popup during review/transitions completely removed, and wrong submission Power Surge warning popup duration increased from 2s (2000ms) to 4s (4000ms).
 - Every dev task must update its task md status from `todo` to `in_progress` to `done`.
 - Current dev workflow is latest `main` -> task-scoped implementation -> task-id commit message -> push directly to `main`; PR/branch flow is only used when the human explicitly asks for it.
 

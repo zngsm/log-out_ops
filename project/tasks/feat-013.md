@@ -41,7 +41,7 @@ Turn the current Act changes into explicit scene beats so the game unfolds like 
 - Changed evidence submission from immediate result reveal to `ECHO_REVIEW` delay, then success/failure scene transition.
 - Added 5-second `SCENE_004_END_A_REVIEW` before setting `ending-ready` and showing the Ending A overlay.
 - Kept Category A Act 3 evidence flow unchanged as `ai_priority_matrix.json` + `deleted_override.txt`.
-- Added scene-lock feedback styling in `src/styles.css` so blackout lock and ECHO/scene lock are visually distinguishable.
+- Added scene-lock feedback styling in `src/styles.css` so blackout lock and ECHO/scene lock are visually distinguishable. (Note: SCENE LOCK feedback popup is completely deleted in feat-042 / Q65).
 
 ## Validation
 
