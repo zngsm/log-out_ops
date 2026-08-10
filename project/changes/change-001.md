@@ -203,11 +203,15 @@
 - **2. 로그 제출 Phase 긴장감 BGM 재생**: 메인 로그 탐색 및 ECHO 증거 제출 퍼즐 단계(`appPhase === "gameplay"`) 동안 웹 오디오 API 기반의 다크 앰비언트 긴장감 배경음악(dark tension ambient BGM - 서스펜스 저음 패드 & 파동)을 자동 재생하고, 음소거(`audioMuted`), 볼륨 및 일시정지(`isPaused`) 상태와 연동한다.
 - **3. 오디오 톤 매칭**: 기존 `audioSystem.ts` 웹 오디오 오실레이터 톤과 이질감 없이 완벽하게 어우러지도록 설계한다.
 
+### 22. Log_Fixer 두 번째 파일 복구 시 버튼 비활성화 버그 수정 상세 사양 (bug-012)
+- **1. Log_Fixer.exe 모달 복구 버튼 비활성화 로직 수정**: 기존 `disabled={logFixerStatus === "running" || isQuarantineRecovered}` 로직에서 `isQuarantineRecovered` 대신 현재 `logFixerPathInput` 대상 파일의 복구 여부(`isTargetFileAlreadyRecovered = targetFile ? recoveredFileIds.has(targetFile.id) : false`)를 체크하도록 변경하여, 두 번째 파일 복구 시 [복구 실행] 버튼이 정상 활성화되도록 조치.
+- **2. 성공 팝업 하이라이트 문구 다이내믹 적용**: `${targetFile?.name ?? "File"} 복구 완료` 문구로 다이내믹 적용.
+
 ## Impact Analysis
 
-- **`project/pm_analysis.md`**: Core Loop, Visual Scope, Diegetic UI, 18+5+1+5+6+5+7+4+4+4+2가지 상세 게임플레이/UI/3D/오디오/버그 수정/텍스트 정제/세부 개선 사양 반영.
-- **`project/mvp_scope.md`**: MVP In Scope / Out of Scope 및 Acceptance Criteria에 2가지 사운드/오디오 분위기 강화 요구사항 검증 항목 반영.
-- **`project/pm_questions.md`**: Q66 신규 항목에 2가지 사운드/오디오 분위기 강화 사양 추가 기록.
-- **`project/task_board.md`**: `feat-043` 신규 생성 및 todo/done 반영.
-- **`project/tasks/*.md`**: 신규 태스크 문서 `feat-043.md` 생성, `feat-018.md`, `feat-041.md` 및 `feat-042.md` 업데이트.
+- **`project/pm_analysis.md`**: Core Loop, Visual Scope, Diegetic UI, 버그 수정 사양 반영.
+- **`project/mvp_scope.md`**: MVP In Scope / Out of Scope 및 Acceptance Criteria에 bug-012 검증 항목 반영.
+- **`project/pm_questions.md`**: Q67 신규 항목에 bug-012 사양 추가 기록.
+- **`project/task_board.md`**: `bug-012` 신규 생성 및 todo/done 반영.
+- **`project/tasks/*.md`**: 신규 태스크 문서 `bug-012.md` 생성.
 

@@ -2,11 +2,10 @@
 
 ## Document Meta
 
-- version: 2.1
+- version: 2.2
 - pm agent: codex
 - date: 2026-08-10
-- status: updated - 2가지 사운드/오디오 분위기 강화 요구사항 (feat-043) 반영 완료 (1. EMERGENCY LOCKDOWN 경보음 연속 연동, 2. gameplay phase 다크 앰비언트 긴장감 BGM 자동 재생/음소거/볼륨/일시정지 연동)
-- source folder: `project/human-input`
+- status: updated - Log_Fixer 두 번째 파일 복구 시 버튼 비활성화 버그 수정 (bug-012) 반영 완료
 
 ## Source Documents
 
@@ -155,13 +154,18 @@ Resolved: Cloudflare Worker 기반 Hermes NPC API 명세(`https://royal-firefly-
 
 Resolved: 1) 비상 봉쇄 컷신/연출(`appPhase === "opening"` 및 리부팅 긴급 봉쇄 시퀀스) 동안 비상 사이렌 경보음(two-tone repeating emergency siren loop)이 연속 재생되도록 연동하고, 2) 메인 로그 탐색 및 ECHO 증거 제출 퍼즐 단계(`appPhase === "gameplay"`) 동안 웹 오디오 API 기반의 다크 앰비언트 긴장감 배경음악(dark tension ambient BGM - 서스펜스 저음 패드 & 파동)을 자동 재생하며 음소거(`audioMuted`), 볼륨 및 일시정지(`isPaused`) 상태와 연동하고, 3) 기존 `audioSystem.ts` 웹 오디오 오실레이터 톤과 이질감 없이 완벽하게 어우러지도록 오디오 톤을 매칭 설계한다.
 
+### Log_Fixer Second File Recovery Scope (Updated by Q67 for bug-012)
+
+Resolved: Log_Fixer.exe 모달에서 `isQuarantineRecovered` 대신 현재 `logFixerPathInput` 대상 파일의 복구 여부(`isTargetFileAlreadyRecovered = targetFile ? recoveredFileIds.has(targetFile.id) : false`)를 체크하여 두 번째 파일 복구 시 [복구 실행] 버튼이 정상 활성화되도록 수정하고, 성공 하이라이트 문구를 `${targetFile?.name ?? "File"} 복구 완료`로 다이내믹 렌더링한다.
+
 ## PM Readiness
 
-- 기획 방향성 분석: ready (Change-001 및 Q21~Q66 사용자 피드백, 5가지 추가 UI/UX 개선 사양, Cloudflare Worker NPC API 명세, 4가지 로그 파일 텍스트 정제 사양, 4가지 세부 개선 요구사항, 4가지 UI/UX 및 입력 제출 개선 요구사항 반영 완료)
-- MVP 범위 확정: ready for Cloudflare Worker NPC API integrated MVP with Diegetic/ECHO-driven flow, 5 UI/UX refinements, 4 log file text refinements, 4 detail refinements, 4 UI/UX & input submission refinements, 2 sound/audio atmosphere enhancements (EMERGENCY LOCKDOWN siren loop, gameplay phase dark tension ambient BGM & audio tone matching), and 100% local fallback
-- 전체 task 확정: `feat-001`~`feat-043` (완료 - 2가지 사운드/오디오 분위기 강화 사양 feat-043 반영 완료)
-- Active Task: `feat-043` (done)
-- 미확정 항목: 없음 (Q1~Q66 전 항목 답변/명세 수립 완료)
+- 기획 방향성 분석: ready (Change-001 및 Q21~Q67 사용자 피드백, bug-012 Log_Fixer 복구 버튼 비활성화 버그 수정 반영 완료)
+- MVP 범위 확정: ready for Cloudflare Worker NPC API integrated MVP with Diegetic/ECHO-driven flow, bug-012 fix, and 100% local fallback
+- 전체 task 확정: `feat-001`~`feat-043`, `bug-001`~`bug-012`
+- Active Task: `bug-012` (done)
+- 미확정 항목: 없음 (Q1~Q67 전 항목 답변/명세 수립 완료)
+
 
 ## Recommended PM Decision
 

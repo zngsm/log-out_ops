@@ -2,10 +2,10 @@
 
 ## Document Meta
 
-- version: 2.0
+- version: 2.1
 - pm agent: codex
 - date: 2026-08-10
-- status: task board updated with feat-043 (implementing 2 sound/audio atmosphere enhancements: EMERGENCY LOCKDOWN siren loop integration, gameplay phase dark tension ambient BGM auto-play & mute/volume/pause integration, and audio tone matching)
+- status: task board updated with bug-012 (fixing Log_Fixer repair button disabled state when attempting second file recovery)
 
 ## Task Index
 
@@ -71,6 +71,7 @@
 | 58 | feat-041 | feat | Implement 4 detail refinements: coworker lunch copy refinement ("우주씨, 오늘 점심 뭐 드실래요?"), Power Surge Korean popup & 2s duration, pause button in HUD, and pause modal with 8px blur & timer freeze | done | dev-agent | no | feat-039, feat-040 | human visual review | project/tasks/feat-041.md |
 | 59 | feat-042 | feat | Implement 4 UI/UX & input submission refinements: ECHO 186-day guide copy deletion, ECHO textarea Enter key submission handler, SCENE LOCK popup deletion, and Power Surge popup 4s duration | done | dev-agent | no | feat-039, feat-040, feat-041 | human visual review | project/tasks/feat-042.md |
 | 60 | feat-043 | feat | Implement 2 sound/audio atmosphere enhancements: EMERGENCY LOCKDOWN siren loop & gameplay phase dark tension ambient BGM | done | dev-agent | no | feat-039, feat-040, feat-041, feat-042 | human visual review | project/tasks/feat-043.md |
+| 61 | bug-012 | bug | Fix Log_Fixer repair button disabled state when attempting second file recovery | done | dev-agent | no | feat-017, feat-039 | human review | project/tasks/bug-012.md |
 
 ## Parallel Work Notes
 

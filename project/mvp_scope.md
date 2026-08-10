@@ -2,10 +2,10 @@
 
 ## Document Meta
 
-- version: 2.0
+- version: 2.1
 - pm agent: codex
 - date: 2026-08-10
-- status: confirmed - 2가지 사운드/오디오 분위기 강화 요구사항 (feat-043) 반영 완료 (1. EMERGENCY LOCKDOWN 경보음 연속 연동, 2. gameplay phase 다크 앰비언트 긴장감 BGM 자동 재생/음소거/볼륨/일시정지 연동, 3. 오디오 톤 매칭)
+- status: confirmed - Log_Fixer 두 번째 파일 복구 시 버튼 비활성화 버그 수정 (bug-012) 반영 완료
 
 ## MVP Goal
 
@@ -370,3 +370,6 @@
   1) 비상 봉쇄 컷신/연출(`appPhase === "opening"` 및 리부팅 긴급 봉쇄 시퀀스) 동안 비상 사이렌 경보음(two-tone repeating emergency siren loop)이 연속 재생된다.
   2) 메인 로그 탐색 및 ECHO 증거 제출 퍼즐 단계(`appPhase === "gameplay"`) 동안 웹 오디오 API 기반 다크 앰비언트 긴장감 배경음악(dark tension ambient BGM)이 자동 재생되며, 음소거(`audioMuted`), 볼륨 및 일시정지(`isPaused`) 상태와 정상 연동된다.
   3) 배경음악 및 경보음 톤이 기존 `audioSystem.ts` 웹 오디오 오실레이터 톤과 이질감 없이 완벽하게 어우러진다.
+- **bug-012 Log_Fixer 두 번째 파일 복구 시 버튼 비활성화 버그 수정 검증**:
+  1)첫 번째 파일(`quarantine_rules.conf`) 복구 후, 두 번째 파일(휴지통 파일 등) 선택 복구 시 [복구 실행] 버튼이 영구 비활성화되지 않고 정상 활성화된다.
+  2) 복구 완료 시 성공 팝업 하이라이트 문구가 `${targetFile?.name ?? "File"} 복구 완료`로 선택 대상 파일명에 맞게 다이내믹 렌더링된다.

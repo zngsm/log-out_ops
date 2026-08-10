@@ -2,10 +2,10 @@
 
 ## Document Meta
 
-- version: 2.8
+- version: 2.9
 - pm agent: codex
 - date: 2026-08-10
-- status: Q31~Q66 answered; feat-043 specifications updated (1. EMERGENCY LOCKDOWN emergency siren loop integration, 2. Gameplay phase dark tension ambient BGM auto-play & mute/volume/pause integration, 3. Oscillator tone matching with audioSystem.ts)
+- status: Q31~Q67 answered; bug-012 specifications updated (Log_Fixer second file repair button disabled state fix & dynamic success message)
 
 ## Blocking Questions
 
@@ -697,4 +697,17 @@ feat-039에서 수행하는 7가지 핵심 게임플레이/UI/버그 수정 사�
 1. **EMERGENCY LOCKDOWN 경보음 효과 연동**: 비상 봉쇄 컷신/연출(`appPhase === "opening"` 및 리부팅 긴급 봉쇄 시퀀스) 동안 비상 사이렌 경보음(two-tone repeating emergency siren)이 연속 재생되도록 연동한다.
 2. **로그 제출 Phase 긴장감 BGM 재생**: 메인 로그 탐색 및 ECHO 증거 제출 퍼즐 단계(`appPhase === "gameplay"`) 동안 웹 오디오 API 기반의 다크 앰비언트 긴장감 배경음악(dark tension ambient BGM - 서스펜스 저음 패드 & 파동)을 자동 재생하고, 음소거(`audioMuted`), 볼륨 및 일시정지(`isPaused`) 상태와 연동한다.
 3. **오디오 톤 매칭**: 기존 `audioSystem.ts` 웹 오디오 오실레이터 톤과 이질감 없이 완벽하게 어우러지도록 오디오 톤을 매칭 설계한다.
+
+## Log_Fixer Second File Recovery Specifications (bug-012)
+
+### Q67. Log_Fixer 두 번째 파일 복구 시 버튼 비활성화 버그 수정 상세 사양
+
+첫 번째 파일(quarantine_rules.conf) 복구 후 두 번째 파일(휴지통 삭제 파일 등) 복구를 시도할 때 [복구 실행] 버튼이 영구 비활성화되던 버그 수정 및 하이라이트 문구 다이내믹 적용에 대한 결정입니다.
+
+### Answer
+
+Log_Fixer.exe 모달의 복구 실행 버튼 비활성화 조건 및 하이라이트 문구를 수정한다:
+1. **복구 실행 버튼 비활성화 조건 수정**: 기존 `disabled={logFixerStatus === "running" || isQuarantineRecovered}` 로직에서 `isQuarantineRecovered` 대신 현재 `logFixerPathInput` 대상 파일의 복구 여부(`isTargetFileAlreadyRecovered = targetFile ? recoveredFileIds.has(targetFile.id) : false`)를 체크하도록 변경한다.
+2. **성공 팝업 하이라이트 문구 다이내믹 적용**: `${targetFile?.name ?? "File"} 복구 완료` 문구로 다이내믹 렌더링되도록 수정한다.
+
 
